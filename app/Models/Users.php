@@ -79,14 +79,14 @@ class Users extends Model
     {
         $result = $this->query(" SELECT id , email
         FROM users
-        WHERE userTypeId = 2 AND isDeleted = 'N' AND email = '$email'");
+        WHERE isDeleted = 'N' AND email = '$email'");
         return $result->getResultArray();
     }
     public function phoneExist($phone)
     {
         $result = $this->query(" SELECT id , phone
         FROM users
-        WHERE userTypeId = 2 AND isDeleted = 'N' AND phone = '$phone'");
+        WHERE isDeleted = 'N' AND phone = '$phone'");
         return $result->getResultArray();
     }
     public function getAllid()

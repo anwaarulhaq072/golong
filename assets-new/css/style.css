@@ -3,8 +3,6 @@
   --row-gap: 25px;
 }
 
-
-
 body {
   background-color: var(--body-bg);
   padding: 25px 25px 25px 25px;
@@ -13,6 +11,14 @@ body {
   min-height: 100vh;
   position: relative;
   z-index: 1;
+}
+
+[data-bs-theme=dark] body {
+  color: var(--white-for-dark);
+}
+
+[data-bs-theme=light] body {
+  color: var(--white-for-dark);
 }
 
 .row-gap {
@@ -697,6 +703,7 @@ body {
   border-radius: 5px;
   transition: all 0.2s;
   font-size: 16px;
+  background-color: transparent;
 }
 
 .table-btn:hover {
@@ -1755,7 +1762,134 @@ input[type="date"]::-webkit-datetime-edit-year-field {
   padding: 40px 40px;
 }
 
+.bulkrow {
+  margin-bottom: 20px;
+}
+
+.bulkrow:nth-last-child(1) {
+  margin-bottom: 0;
+}
+
+.updateBulkCard {
+  padding: 30px;
+}
+
+.dt-empty {
+  color: var(--white-for-dark);
+  border-bottom: 1px dashed var(--border-color);
+  padding: 13px !important;
+  font-size: 14px;
+}
+
+.userimg__wtdtbl {
+  width: 35px;
+  height: 35px;
+  border-radius: 50%;
+}
+
+.userimg-wrpr {
+  column-gap: 10px;
+  color: var(--card-sub-heading-color);
+}
+
+.wthtblBtn-wrpr {
+  column-gap: 10px;
+  color: var(--card-sub-heading-color);
+}
+
+.wthtblBtn {
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  border: 1px solid var(--border-color);
+  outline: none;
+  color: var(--card-sub-heading-color);
+  background-color: transparent;
+  font-size: 16px;
+  transition: all 0.2s;
+}
+
+.wthtblBtn:hover {
+  background-color: var(--icons-bg);
+  color: var(--white);
+  border-color: var(--icons-bg);
+  transition: all 0.2s;
+}
+
+.table-btn--accept {
+  background-color: var(--topaz);
+  color: var(--white);
+  border-color: var(--topaz);
+  transition: all 0.2s;
+}
+
+.table-btn--accept:hover {
+  background-color: transparent;
+  color: var(--topaz);
+  transition: all 0.2s;
+  border-color: var(--topaz);
+}
+
+.table-btn--reject {
+  background-color: var(--chili-papper);
+  color: var(--white);
+  border-color: var(--chili-papper);
+  transition: all 0.2s;
+}
+
+.table-btn--reject:hover {
+  background-color: transparent;
+  color: var(--chili-papper);
+  transition: all 0.2s;
+  border-color: var(--chili-papper);
+}
+
+.table-btns-wrpr--justify-start {
+  justify-content: flex-start;
+}
+
+.details__row {
+  font-size: 16px;
+  color: var(--card-sub-heading-color);
+  display: flex;
+  column-gap: 15px;
+  margin-bottom: 10px;
+}
+
+.details__row-sp1 {
+  font-weight: 600;
+  color: var(--white-for-dark);
+}
+
+.admin-withdrawalTable .table-btn {
+  font-size: 14px;
+}
+
+.profile-edit__input--textarea {
+  height: 120px !important;
+}
+
+.profile-edit-btn--fit {
+  width: 150px;
+  margin-bottom: 20px;
+  transition: all 0.2s;
+}
+
+.profile-edit-btn--fit:hover {
+  background-color: transparent;
+  color: var(--icons-bg);
+  transition: all 0.2s;
+}
+
 @media(max-width:1199px) {
+  .updateBulkCard {
+    padding: 20px;
+  }
+
+  .bulkrow>* {
+    padding: 0 7px !important;
+  }
+
   .loginbox1 {
     padding: 55px 50px 40px 40px;
   }
@@ -1842,6 +1976,10 @@ input[type="date"]::-webkit-datetime-edit-year-field {
     max-width: 300px;
   }
 
+  .bulkrow .profile-edit__input {
+    padding: 12px 14px;
+    font-size: 14px;
+  }
 }
 
 @media(max-width:767px) {
@@ -2284,5 +2422,24 @@ input[type="date"]::-webkit-datetime-edit-year-field {
 
   .addusercard {
     padding: 20px 20px;
+  }
+
+  .bulkrow {
+    min-width: 700px;
+  }
+
+  .bulkrecordFrom {
+    padding: 20px 5px;
+    overflow-x: scroll;
+  }
+
+  .details__row {
+    font-size: 14px;
+    column-gap: 10px;
+    margin-bottom: 7px;
+  }
+
+  .tn-list-card .tn-list-card__select.filterselect {
+    margin-bottom: 15px;
   }
 }
