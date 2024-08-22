@@ -1,0 +1,416 @@
+CRITICAL - 2024-08-22 00:22:27 --> Undefined variable $balance
+#0 C:\xampp\htdocs\golong\app\Views\home\addDeposit.php(58): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined varia...', 'C:\\xampp\\htdocs...', 58)
+#1 C:\xampp\htdocs\golong\system\View\View.php(220): include('C:\\xampp\\htdocs...')
+#2 C:\xampp\htdocs\golong\system\View\View.php(222): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+#3 C:\xampp\htdocs\golong\system\Common.php(1217): CodeIgniter\View\View->render('/home/addDeposi...', Array, true)
+#4 C:\xampp\htdocs\golong\app\Controllers\User.php(616): view('/home/addDeposi...', Array)
+#5 C:\xampp\htdocs\golong\system\CodeIgniter.php(939): App\Controllers\User->add_deposit()
+#6 C:\xampp\htdocs\golong\system\CodeIgniter.php(435): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\User))
+#7 C:\xampp\htdocs\golong\system\CodeIgniter.php(336): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#8 C:\xampp\htdocs\golong\index.php(44): CodeIgniter\CodeIgniter->run()
+#9 {main}
+DEBUG - 2024-08-22 00:48:35 --> ***************** Alert push Notification *****************
+DEBUG - 2024-08-22 00:48:35 --> ***************** push Notification *****************array (
+  0 => 'cCO3kgJJ9L94YuTiIHZ_0k:APA91bFtGlKUZelO2BgGtn-JFxqLEkt2XmZx3g4zMRH9V_bw34E1Ut1F5RP7X8gr8vAiOCchwFLQG-OuR3OtvkJNFCehkH6a6Wwn_0FSz8BpfY-bVKlgjEQ21OgKAasU4ilPNUd1ou-L',
+  1 => 'doP0yZJw7afzf86exORbKO:APA91bEXGwfJN6D21naOwgQ_vVpe2JKnTyhBgPblEyf1FSTzR8491ktSb0AH3rnkWWx0lPoZsLI8icniQhzw5LUKTo3w6h0JeAzc-iznVoVmpywCvPi9mns8R22-j5HnhftlA_V4l2I9',
+  2 => 'fNa_IY1AELKkjGSxH9qxnY:APA91bF368VGM2gBbO3xSjNwpd5lRTgxThyh0spMKfvlJkkY_w-DN_V-ZVTEs2ic0NBZO1rI8CAA2Y21p5N7-i2M1V2kO4uEOzU52TARB1n0HY7RP-TrOF_Qdu4BUjE7plnLZWqwVQWA',
+  3 => 'csi3yqnoQaS7tbOHXcAEbs:APA91bElNXgY-RCOmcCX-PJfYJVNTN68xablAstaiQXDjaUwHfuTk4nZSY_x_xCy0PLpOK803PKF2BE6h_2c30uvDRILZe0QTdfeongFBI86fByaJAoyugFfl7b-moyJnKhpP32cm-eu',
+  4 => 'fxOyCF-aQr8EBnWq0IX3_U:APA91bHWu5h5gf9nib93hUjnM4uw9O3EhARWaBWTu3Ln-JC2yh__K2XylOqICLqkIu9_T4_WpmUjyMzx7920SbRWKgvglkkjx_u8NkLmEX_R6f0ZKmFaL9ja-9fPUmzastKls9--ErXM',
+  5 => 'cO1_AhM5l4hE-1pLKecaXj:APA91bFtFmsB__54irudmdslzl6dcPdL6TnP1yJmaCnGYnl1W-XPhu27Y0sER7b_VK4ctS0xThFv6UsZ1NGJFWOiFECf_QzclVR1E8liHUjsuvsjOHCss1nNLqxy342eCt7vDEC4Wm-v',
+  6 => 'cOVZaX31tlWLrTdCv3Sk5r:APA91bFDc3cK5rKiKSdM6hIuqnX6ergLAkM2YW8_wzqIIEfd7APE6h2vixG3Qi4udPg3kCp2pxaMAHUQ4OtfuSIEWepgged9KQe003Cq6kp1UVVC_BiuBln7Ho9boMuTAwfu1iZRhYOx',
+)
+DEBUG - 2024-08-22 00:48:35 --> ***************** push Notification *****************{"multicast_id":4173184765919219233,"success":3,"failure":4,"canonical_ids":0,"results":[{"message_id":"d0213c79-78df-471e-9657-bf3f33520bcf"},{"error":"NotRegistered"},{"error":"NotRegistered"},{"error":"NotRegistered"},{"error":"NotRegistered"},{"message_id":"22b534fc-0813-407f-83d7-cdf4686daaaa"},{"message_id":"35fe4296-7d51-4c61-b1f2-fa214fd98a9c"}]}
+CRITICAL - 2024-08-22 00:48:37 --> mail(): Failed to connect to mailserver at &quot;localhost&quot; port 25, verify your &quot;SMTP&quot; and &quot;smtp_port&quot; setting in php.ini or use ini_set()
+#0 [internal function]: CodeIgniter\Debug\Exceptions->errorHandler(2, 'mail(): Failed ...', 'C:\\xampp\\htdocs...', 833)
+#1 C:\xampp\htdocs\golong\app\Libraries\Emails.php(833): mail('arch@glfxacadem...', 'New Deposit Req...', '<!doctype html>...', 'From:Go Long co...')
+#2 C:\xampp\htdocs\golong\app\Controllers\User.php(671): App\Libraries\emails->sendDeposit('Scott update Ba...', 'Crypto', '200', 'USDT - ETH', Array)
+#3 C:\xampp\htdocs\golong\system\CodeIgniter.php(939): App\Controllers\User->submit_deposit()
+#4 C:\xampp\htdocs\golong\system\CodeIgniter.php(435): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\User))
+#5 C:\xampp\htdocs\golong\system\CodeIgniter.php(336): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#6 C:\xampp\htdocs\golong\index.php(44): CodeIgniter\CodeIgniter->run()
+#7 {main}
+DEBUG - 2024-08-22 00:50:38 --> **********************Tax Form Data****************************array (
+  0 => 
+  array (
+    'id' => '16',
+    'user_id' => '52',
+    'address' => 'Test By 66loop',
+    'payers_tin' => 'Mollit occaecat maxi',
+    'recipients_tin' => 'Officia obcaecati nu',
+    'recipients_name' => '123',
+    'street_address' => 'At numquam ut recusa',
+    'city_or_town_state_or_province_country' => 'Alias et quod labore',
+    'account_number' => '718',
+    'rents' => 'Enim pariatur Tempo',
+    'royalties' => 'Voluptatem Quae eu ',
+    'other_income' => '631',
+    'federal_income_tax_withheld' => '373',
+    'fishing_boat_proceeds' => 'Architecto maiores a',
+    'medical_and_health_care_payments' => 'Ipsam at qui dolor N',
+    'payer_made_direct' => 'No',
+    'substitute_payments' => 'Aliquid suscipit qui',
+    'crop_insurance_proceeds' => 'Rerum aliquam possim',
+    'gross_proceeds' => 'Dolore rem molestiae',
+    'fish_purchased_for_resale' => 'Dolore facilis digni',
+    'section_409A_deferrals' => 'Tempore dolore sequ',
+    'fatca_filing_requirement' => 'No',
+    'excess_golden' => 'Aperiam dolorum vero',
+    'nonqualified_deferred_compensation' => '66loop',
+    'state_tax_withheld' => 'Sed esse ut est beat',
+    'State_or_Payers_state_no' => 'Qui recusandae Nemo',
+    'state_income' => '250',
+    '2nd_tin_not' => 'Yes',
+    'created_at' => '2024-05-20 06:39:50',
+    'updated_at' => '2024-05-20 06:39:50',
+  ),
+)
+DEBUG - 2024-08-22 00:50:38 --> **************************************************array (
+  0 => 
+  array (
+    'amount' => NULL,
+    'positions' => '1',
+    'year' => '2022',
+    'month' => '9',
+  ),
+  1 => 
+  array (
+    'amount' => NULL,
+    'positions' => '1',
+    'year' => '2022',
+    'month' => '10',
+  ),
+  2 => 
+  array (
+    'amount' => NULL,
+    'positions' => '1',
+    'year' => '2022',
+    'month' => '11',
+  ),
+  3 => 
+  array (
+    'amount' => NULL,
+    'positions' => '7',
+    'year' => '2022',
+    'month' => '12',
+  ),
+  4 => 
+  array (
+    'amount' => '11.741258562394977',
+    'positions' => '9',
+    'year' => '2023',
+    'month' => '1',
+  ),
+  5 => 
+  array (
+    'amount' => '8.110386103362952',
+    'positions' => '8',
+    'year' => '2023',
+    'month' => '2',
+  ),
+  6 => 
+  array (
+    'amount' => '7.138001125413441',
+    'positions' => '7',
+    'year' => '2023',
+    'month' => '3',
+  ),
+  7 => 
+  array (
+    'amount' => '0.18996006845407873',
+    'positions' => '1',
+    'year' => '2023',
+    'month' => '4',
+  ),
+  8 => 
+  array (
+    'amount' => '5.694760820045558',
+    'positions' => '1',
+    'year' => '2024',
+    'month' => '2',
+  ),
+)
+DEBUG - 2024-08-22 00:50:38 --> **************************************************array (
+  0 => 
+  array (
+    'amount' => NULL,
+    'positions' => '1',
+    'year' => '2022',
+    'month' => '11',
+  ),
+  1 => 
+  array (
+    'amount' => NULL,
+    'positions' => '1',
+    'year' => '2022',
+    'month' => '12',
+  ),
+  2 => 
+  array (
+    'amount' => '0.7099995369134013',
+    'positions' => '2',
+    'year' => '2023',
+    'month' => '1',
+  ),
+  3 => 
+  array (
+    'amount' => '1.3398807762692178',
+    'positions' => '2',
+    'year' => '2023',
+    'month' => '2',
+  ),
+  4 => 
+  array (
+    'amount' => '1.6900961997453299',
+    'positions' => '4',
+    'year' => '2023',
+    'month' => '3',
+  ),
+)
+DEBUG - 2024-08-22 00:50:38 --> ***************** Chart BY Admin *****************
+DEBUG - 2024-08-22 00:50:38 --> PLID: 52
+DEBUG - 2024-08-22 00:50:38 --> PL1: 22
+DEBUG - 2024-08-22 00:50:38 --> ***************** Transaction Chart BY Admin *****************
+DEBUG - 2024-08-22 00:50:38 --> ***************** Chart BY Admin *****************
+DEBUG - 2024-08-22 00:50:38 --> PLID: 52
+DEBUG - 2024-08-22 00:50:38 --> PL1: 22
+DEBUG - 2024-08-22 00:53:59 --> **********************Tax Form Data****************************array (
+  0 => 
+  array (
+    'id' => '16',
+    'user_id' => '52',
+    'address' => 'Test By 66loop',
+    'payers_tin' => 'Mollit occaecat maxi',
+    'recipients_tin' => 'Officia obcaecati nu',
+    'recipients_name' => '123',
+    'street_address' => 'At numquam ut recusa',
+    'city_or_town_state_or_province_country' => 'Alias et quod labore',
+    'account_number' => '718',
+    'rents' => 'Enim pariatur Tempo',
+    'royalties' => 'Voluptatem Quae eu ',
+    'other_income' => '631',
+    'federal_income_tax_withheld' => '373',
+    'fishing_boat_proceeds' => 'Architecto maiores a',
+    'medical_and_health_care_payments' => 'Ipsam at qui dolor N',
+    'payer_made_direct' => 'No',
+    'substitute_payments' => 'Aliquid suscipit qui',
+    'crop_insurance_proceeds' => 'Rerum aliquam possim',
+    'gross_proceeds' => 'Dolore rem molestiae',
+    'fish_purchased_for_resale' => 'Dolore facilis digni',
+    'section_409A_deferrals' => 'Tempore dolore sequ',
+    'fatca_filing_requirement' => 'No',
+    'excess_golden' => 'Aperiam dolorum vero',
+    'nonqualified_deferred_compensation' => '66loop',
+    'state_tax_withheld' => 'Sed esse ut est beat',
+    'State_or_Payers_state_no' => 'Qui recusandae Nemo',
+    'state_income' => '250',
+    '2nd_tin_not' => 'Yes',
+    'created_at' => '2024-05-20 06:39:50',
+    'updated_at' => '2024-05-20 06:39:50',
+  ),
+)
+DEBUG - 2024-08-22 00:54:00 --> **************************************************array (
+  0 => 
+  array (
+    'amount' => NULL,
+    'positions' => '1',
+    'year' => '2022',
+    'month' => '9',
+  ),
+  1 => 
+  array (
+    'amount' => NULL,
+    'positions' => '1',
+    'year' => '2022',
+    'month' => '10',
+  ),
+  2 => 
+  array (
+    'amount' => NULL,
+    'positions' => '1',
+    'year' => '2022',
+    'month' => '11',
+  ),
+  3 => 
+  array (
+    'amount' => NULL,
+    'positions' => '7',
+    'year' => '2022',
+    'month' => '12',
+  ),
+  4 => 
+  array (
+    'amount' => '11.741258562394977',
+    'positions' => '9',
+    'year' => '2023',
+    'month' => '1',
+  ),
+  5 => 
+  array (
+    'amount' => '8.110386103362952',
+    'positions' => '8',
+    'year' => '2023',
+    'month' => '2',
+  ),
+  6 => 
+  array (
+    'amount' => '7.138001125413441',
+    'positions' => '7',
+    'year' => '2023',
+    'month' => '3',
+  ),
+  7 => 
+  array (
+    'amount' => '0.18996006845407873',
+    'positions' => '1',
+    'year' => '2023',
+    'month' => '4',
+  ),
+  8 => 
+  array (
+    'amount' => '5.694760820045558',
+    'positions' => '1',
+    'year' => '2024',
+    'month' => '2',
+  ),
+)
+DEBUG - 2024-08-22 00:54:00 --> **************************************************array (
+  0 => 
+  array (
+    'amount' => NULL,
+    'positions' => '1',
+    'year' => '2022',
+    'month' => '11',
+  ),
+  1 => 
+  array (
+    'amount' => NULL,
+    'positions' => '1',
+    'year' => '2022',
+    'month' => '12',
+  ),
+  2 => 
+  array (
+    'amount' => '0.7099995369134013',
+    'positions' => '2',
+    'year' => '2023',
+    'month' => '1',
+  ),
+  3 => 
+  array (
+    'amount' => '1.3398807762692178',
+    'positions' => '2',
+    'year' => '2023',
+    'month' => '2',
+  ),
+  4 => 
+  array (
+    'amount' => '1.6900961997453299',
+    'positions' => '4',
+    'year' => '2023',
+    'month' => '3',
+  ),
+)
+DEBUG - 2024-08-22 00:54:00 --> ***************** Chart BY Admin *****************
+DEBUG - 2024-08-22 00:54:00 --> PLID: 52
+DEBUG - 2024-08-22 00:54:00 --> PL1: 22
+DEBUG - 2024-08-22 00:54:00 --> ***************** Transaction Chart BY Admin *****************
+DEBUG - 2024-08-22 00:54:00 --> ***************** Chart BY Admin *****************
+DEBUG - 2024-08-22 00:54:00 --> PLID: 52
+DEBUG - 2024-08-22 00:54:00 --> PL1: 22
+CRITICAL - 2024-08-22 00:59:51 --> Undefined array key "request_date"
+#0 C:\xampp\htdocs\golong\app\Views\home\deposit.php(52): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined array...', 'C:\\xampp\\htdocs...', 52)
+#1 C:\xampp\htdocs\golong\system\View\View.php(220): include('C:\\xampp\\htdocs...')
+#2 C:\xampp\htdocs\golong\system\View\View.php(222): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+#3 C:\xampp\htdocs\golong\system\Common.php(1217): CodeIgniter\View\View->render('/home/deposit', Array, true)
+#4 C:\xampp\htdocs\golong\app\Controllers\User.php(594): view('/home/deposit', Array)
+#5 C:\xampp\htdocs\golong\system\CodeIgniter.php(939): App\Controllers\User->deposit()
+#6 C:\xampp\htdocs\golong\system\CodeIgniter.php(435): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\User))
+#7 C:\xampp\htdocs\golong\system\CodeIgniter.php(336): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#8 C:\xampp\htdocs\golong\index.php(44): CodeIgniter\CodeIgniter->run()
+#9 {main}
+DEBUG - 2024-08-22 01:01:16 --> **************** Admin Session_ID ****************array (
+  0 => 
+  array (
+    'id' => '168',
+  ),
+  1 => 
+  array (
+    'id' => '164',
+  ),
+  2 => 
+  array (
+    'id' => '160',
+  ),
+)
+DEBUG - 2024-08-22 01:01:23 --> ***************** Status push Notification *****************
+DEBUG - 2024-08-22 01:01:23 --> ***************** push Notification *****************array (
+  0 => 'csi3yqnoQaS7tbOHXcAEbs:APA91bElNXgY-RCOmcCX-PJfYJVNTN68xablAstaiQXDjaUwHfuTk4nZSY_x_xCy0PLpOK803PKF2BE6h_2c30uvDRILZe0QTdfeongFBI86fByaJAoyugFfl7b-moyJnKhpP32cm-eu',
+  1 => 'fNa_IY1AELKkjGSxH9qxnY:APA91bF368VGM2gBbO3xSjNwpd5lRTgxThyh0spMKfvlJkkY_w-DN_V-ZVTEs2ic0NBZO1rI8CAA2Y21p5N7-i2M1V2kO4uEOzU52TARB1n0HY7RP-TrOF_Qdu4BUjE7plnLZWqwVQWA',
+)
+DEBUG - 2024-08-22 01:01:23 --> ***************** push Notification *****************{"multicast_id":8369230262327009586,"success":0,"failure":2,"canonical_ids":0,"results":[{"error":"NotRegistered"},{"error":"NotRegistered"}]}
+CRITICAL - 2024-08-22 01:01:25 --> mail(): Failed to connect to mailserver at &quot;localhost&quot; port 25, verify your &quot;SMTP&quot; and &quot;smtp_port&quot; setting in php.ini or use ini_set()
+#0 [internal function]: CodeIgniter\Debug\Exceptions->errorHandler(2, 'mail(): Failed ...', 'C:\\xampp\\htdocs...', 1168)
+#1 C:\xampp\htdocs\golong\app\Libraries\Emails.php(1168): mail('9o9ame@gmail.co...', 'Mail From  Go L...', '<!doctype html>...', 'From:Go Long co...')
+#2 C:\xampp\htdocs\golong\app\Controllers\Admin.php(1442): App\Libraries\emails->sendDepositaccept('Scott update Ba...', '9o9ame@gmail.co...', 'Your deposit re...', '')
+#3 C:\xampp\htdocs\golong\system\CodeIgniter.php(939): App\Controllers\Admin->accept_deposit_requests('3')
+#4 C:\xampp\htdocs\golong\system\CodeIgniter.php(435): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin))
+#5 C:\xampp\htdocs\golong\system\CodeIgniter.php(336): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#6 C:\xampp\htdocs\golong\index.php(44): CodeIgniter\CodeIgniter->run()
+#7 {main}
+DEBUG - 2024-08-22 01:01:27 --> **************** Admin Session_ID ****************array (
+  0 => 
+  array (
+    'id' => '168',
+  ),
+  1 => 
+  array (
+    'id' => '164',
+  ),
+  2 => 
+  array (
+    'id' => '160',
+  ),
+)
+DEBUG - 2024-08-22 01:01:42 --> ***************** Status push Notification *****************
+DEBUG - 2024-08-22 01:01:42 --> ***************** push Notification *****************array (
+  0 => 'csi3yqnoQaS7tbOHXcAEbs:APA91bElNXgY-RCOmcCX-PJfYJVNTN68xablAstaiQXDjaUwHfuTk4nZSY_x_xCy0PLpOK803PKF2BE6h_2c30uvDRILZe0QTdfeongFBI86fByaJAoyugFfl7b-moyJnKhpP32cm-eu',
+  1 => 'fNa_IY1AELKkjGSxH9qxnY:APA91bF368VGM2gBbO3xSjNwpd5lRTgxThyh0spMKfvlJkkY_w-DN_V-ZVTEs2ic0NBZO1rI8CAA2Y21p5N7-i2M1V2kO4uEOzU52TARB1n0HY7RP-TrOF_Qdu4BUjE7plnLZWqwVQWA',
+)
+DEBUG - 2024-08-22 01:01:42 --> ***************** push Notification *****************{"multicast_id":3645798129109599978,"success":0,"failure":2,"canonical_ids":0,"results":[{"error":"NotRegistered"},{"error":"NotRegistered"}]}
+CRITICAL - 2024-08-22 01:01:44 --> mail(): Failed to connect to mailserver at &quot;localhost&quot; port 25, verify your &quot;SMTP&quot; and &quot;smtp_port&quot; setting in php.ini or use ini_set()
+#0 [internal function]: CodeIgniter\Debug\Exceptions->errorHandler(2, 'mail(): Failed ...', 'C:\\xampp\\htdocs...', 1168)
+#1 C:\xampp\htdocs\golong\app\Libraries\Emails.php(1168): mail('9o9ame@gmail.co...', 'Mail From  Go L...', '<!doctype html>...', 'From:Go Long co...')
+#2 C:\xampp\htdocs\golong\app\Controllers\Admin.php(1482): App\Libraries\emails->sendDepositaccept('Scott update Ba...', '9o9ame@gmail.co...', 'Your deposit re...', 'no reason')
+#3 C:\xampp\htdocs\golong\system\CodeIgniter.php(939): App\Controllers\Admin->reject_deposit_requests()
+#4 C:\xampp\htdocs\golong\system\CodeIgniter.php(435): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin))
+#5 C:\xampp\htdocs\golong\system\CodeIgniter.php(336): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#6 C:\xampp\htdocs\golong\index.php(44): CodeIgniter\CodeIgniter->run()
+#7 {main}
+DEBUG - 2024-08-22 01:01:46 --> **************** Admin Session_ID ****************array (
+  0 => 
+  array (
+    'id' => '168',
+  ),
+  1 => 
+  array (
+    'id' => '164',
+  ),
+  2 => 
+  array (
+    'id' => '160',
+  ),
+)
+DEBUG - 2024-08-22 01:01:47 --> **************** Admin Session_ID ****************array (
+  0 => 
+  array (
+    'id' => '168',
+  ),
+  1 => 
+  array (
+    'id' => '164',
+  ),
+  2 => 
+  array (
+    'id' => '160',
+  ),
+)

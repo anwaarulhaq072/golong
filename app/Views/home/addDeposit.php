@@ -1,246 +1,197 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
 
 <head>
-    <meta charset="utf-8" />
-    <title>Add Deposit - <?php echo APP_NAME ?></title>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta content="Nvest Clients - Where you can invest" name="description" />
-    <meta content="Coderthemes" name="author" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-
-    <?php echo view("/home/header-links"); ?>
-
-    <style>
-        .highlight {
-            border: 3px solid #0075b2;
-        }
-        
-        #full-screen-loader{
-            align-items: center;
-            background: #FFF;
-            display: flex;
-            height: 100vh;
-            justify-content: center;
-            left: 1;
-            position: fixed;
-            top: 0;
-            transition: opacity 0.5s linear;
-            width: 85%;
-            z-index: 9999;
-            opacity: 0.5;
-            transform: opacity 0.5s linear;
-        }
-    </style>
+  <meta charset="utf-8" data-bs-theme="dark">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Add Deposit</title>
+  <?php echo view("/home/new-header-links"); ?>
 </head>
 
-<body class="loading" data-layout='{"mode": "light", "width": "fluid", "menuPosition": "fixed", "sidebar": { "color": "light", "size": "default", "showuser": false}, "topbar": {"color": "light"}}'>
-    <!-- Begin page -->
-    <div id="wrapper">
-        <?php echo view("/home/left-sidebar"); ?>
-        <?php echo view("/home/top-bar", $notification); ?>
-
-        <!-- ============================================================== -->
-        <!-- Start Page Content here -->
-        <!-- ============================================================== -->
-        <div class="content-page" style="background-color: #F5F5FC !important;">
-            <div class="content">
-                <!-- Start Content-->
-                <input type="hidden" id="base_url" value="<?php echo base_url(); ?>">
-                <div id="full-screen-loader">
-                    <div class="spinner-grow avatar-lg text-secondary m-2" role="status"></div>
-                </div>
-                <div class="container-fluid mt-4">
-                    <div class="row mt-4">
-                        <div class="col-12" style="text-align: right;">
-                            <a href="<?= base_url(); ?>/user/deposit"><button class="btn btn-primary" style=" border: 1px solid #000000; background-color: #000000;">Deposit History</button></a>
-                        </div>
-                    </div>
-                    <h3 class=" my-4">Deposit Request</h3>
-                    <div class="alert alert-danger">
-                      <strong>Note! </strong>Crypto deposits/withdrawals are charged a 2.5% fee this is the cost of conversion when moving funds from your trading account. DO NOT DEPOSIT LESS THAN $25.00 USD to any crypto otherwise your funds will be lost.
-                    </div>
-                    <form id="deposit_form" action="<?php echo base_url(); ?>/user/submit_deposit" method="POST">
-                        <div>
-                            <h5 class="mb-3">Select Currency</h5>
-                            <div class="row currency">
-                                <?php foreach ($currency as $single) : ?>
-                                    <div class="col-sm-6 col-md-4 box">
-                                        <input id="<?= $single['slug']; ?>" class="currency_radio" type="radio" name="currency_type" value="<?= $single['id']; ?>" style="margin-right: 20px;" required hidden>
-                                        <label class="col-10" for="<?= $single['slug']; ?>">
-                                            <div class="card" style="cursor: pointer;">
-                                                <div class="card-body">
-                                                    <!-- <i class="fa fa-ellipsis-v text-muted float-end" style="font-size: 16px; padding-top: 5px; color: #333333 !important;" data-bs-container="#tooltip-container" data-bs-toggle="tooltip" data-bs-placement="bottom" title="<?= $single['name']; ?>"></i> -->
-                                                    <?php if(isset($single['name']) && $single['name'] == 'USD'): ?>
-                                                    <img src="<?= base_url(); ?>/assets/images/usd.png" alt="">
-                                                    <?php elseif(isset($single['name']) && $single['name'] == 'Crypto'): ?>
-                                                    <img src="<?= base_url(); ?>/assets/images/crypto.png" alt="">
-                                                    <?php endif; ?>
-                                                    <h5 class="mt-3 mb-0 text-left"><?= $single['name']; ?></h5>
-                                                </div>
-                                            </div>
-                                        </label>
-                                    </div>
-                                <?php endforeach; ?>
-                            </div>
-                        </div>
-                        <div class="currency_options">
-                            <h5 class="mb-3">Select option</h5>
-                            <div class="row usd_options">
-                                <?php foreach ($currency_options['usd'] as $single) : ?>
-                                    <div class="col-sm-6 col-md-4 box_crypto">
-                                        <input id="<?= $single['slug']; ?>" class="crypto_type" type="radio" name="crypto_type" value="<?= $single['id']; ?>" style="margin-right: 20px;" required hidden>
-                                        <label class="col-10" for="<?= $single['slug']; ?>">
-                                            <div class="card" style="cursor: pointer;">
-                                                <div class="card-body">
-                                                    <!-- <i class="fa fa-ellipsis-v text-muted float-end" style="font-size: 16px; padding-top: 5px; color: #333333 !important;" data-bs-container="#tooltip-container" data-bs-toggle="tooltip" data-bs-placement="bottom" title="<?= $single['name']; ?>"></i> -->
-                                                    <?php if(isset($single['name']) && $single['name'] == 'ACH Request'): ?>
-                                                    <img src="<?= base_url(); ?>/assets/images/ach.png" alt="">
-                                                    <?php elseif(isset($single['name']) && $single['name'] == 'Bank Wire'): ?>
-                                                    <img src="<?= base_url(); ?>/assets/images/bank.png" alt="">
-                                                    <?php endif; ?>
-                                                    <h5 class="mt-3 mb-0 text-left"><?= $single['name']; ?></h5>
-                                                </div>
-                                            </div>
-                                        </label>
-                                    </div>
-                                <?php endforeach; ?>
-                            </div>
-                            <div class="row crypto_options">
-                                <?php foreach ($currency_options['crypto'] as $single) : ?>
-                                    <div class="col-sm-6 col-md-4 box_crypto">
-                                        <input id="<?= $single['slug']; ?>" class="crypto_type" type="radio" name="crypto_type" value="<?= $single['id']; ?>" style="margin-right: 20px;" required hidden>
-                                        <label class="col-10" for="<?= $single['slug']; ?>">
-                                            <div class="card" style="cursor: pointer;">
-                                                <div class="card-body" id="<?php echo str_replace(' ', '', $single['name']); ?>">
-                                                    <!-- <i class="fa fa-ellipsis-v text-muted float-end" style="font-size: 16px; padding-top: 5px; color: #333333 !important;" data-bs-container="#tooltip-container" data-bs-toggle="tooltip" data-bs-placement="bottom" title="<?= $single['name']; ?>"></i> -->
-                                                    <?php if(isset($single['name']) && $single['name'] == 'Bitcoin'): ?>
-                                                    <img src="<?= base_url(); ?>/assets/images/btc.png" alt="">
-                                                    <?php elseif(isset($single['name']) && $single['name'] == 'USDT - TRX'): ?>
-                                                    <img src="<?= base_url(); ?>/assets/images/tron.png" alt="">
-                                                    <?php elseif(isset($single['name']) && $single['name'] == 'USDT - ETH'): ?>
-                                                    <img src="<?= base_url(); ?>/assets/images/eth.png" alt="">
-                                                    <?php endif; ?>
-                                                    <h5 class="mt-3 mb-0 text-left"><?= $single['name']; ?></h5>
-                                                </div>
-                                            </div>
-                                        </label>
-                                    </div>
-                                <?php endforeach; ?>
-                            </div>
-                        </div>
-                        <a href="#" class="btn btn-primary proceed_btn" style=" border: 1px solid #000000; background-color: #000000;">Proceed</a>
-                        <div class="description">
-                            <div class="card">
-                                <div class="card-body">
-                                    <div class="alert alert-success text-center" id="copied_text_success_bar">
-                                      <strong>Text Copied</strong>
-                                    </div>
-                                    <p><strong>Info: </strong><span class="info_d"> Deposit </span></p>
-                                    <div class="usd_account_details">
-                                        <p><strong>Account name: </strong><span class="info_d"> <?php echo ACCOUNT_NAME ?> </span></p>
-                                        <p><strong>Account number: </strong><span class="info_d"> <?php echo ACCOUNT_NUMBER ?> </span></p>
-                                        <p><strong>Routing number: </strong><span class="info_d"> <?php echo ACCOUNT_Routing ?> </span></p>
-                                    </div>
-                                    <div class="crypto_account_details">
-                                        <p><strong>Wallet address <span id="method"></span>: </strong><span id="main_span" class="info_d copy_text_class" title="Copy text" style="cursor: pointer;"><i class="fas fa-copy" style="margin-left: 90px;"></span></i></p>
-                                    </div>
-                                    <p><strong>Method: </strong><span class="method_d"></span></p>
-                                    <p><strong>Method details: </strong><span class="method_details_d"></span></p>
-                                </div>
-                            </div>
-                            <div class="card">
-                                <div class="card-body">
-                                    <label for="amount"><h5>Amount<span style="color: red;">*</span></h5></label>
-                                    <input type="number" class="form-control" id="amount" name="amount" for="amount" required >
-                                    <label for="message"><h5>Message</h5></label>
-                                    <textarea name="message" class="form-control" id="message" rows="4" placeholder="Write message here (optional)"></textarea>
-                                </div>
-                            </div>
-                        </div>
-                        <button type="submit" class="btn btn-primary submit_deposit" style=" background-color: #0073B6;">Submit</button>
-                    </form>
-                </div>
-            </div>
+<body>
+  <div class="app_wrapper">
+    <?php echo view("/home/left-sidebar-new"); ?>
+    <main class="main">
+      <div class="flex-i wdthtopBox-wrpr">
+        <div class="notiHeadingBox notiHeadingBox--wdthtop">
+          <h2 class="notification-card__hdng mb-0">Deposit Request</h2>
         </div>
-    </div>
-    </div>
+        <a href="<?= base_url(); ?>/user/deposit" class="flex-a wthdrwlBtn">Deposit History</a>
+      </div>
+      <div class="error flex-i d-none">
+        First you need to select “Currency” & “Payment Option”
+      </div>
+      <div class="row row-gap">
+        <div class="col-lg-8">
+          <div class="card withdrawal-req-card">
+            <form id="deposit_form" action="<?php echo base_url(); ?>/user/submit_deposit" method="POST">
+              <div class="row row-gap mb-row-gap">
+                <div class="col-12">
+                  <label for="currency" class="wrc__label">Select Currency <span>*</span></label>
+                  <select id="currency" name="currency_type" class="form-control form-select wrc__select selectCurrency" required>
+                    <option value="select">Select</option>
+                    <?php foreach ($currency as $single) : ?>
+                      <option value="<?= $single['id']; ?>"><?= $single['name']; ?></option>
+                    <?php endforeach; ?>
+                  </select>
+                </div>
+                <div class="col-12">
+                  <label for="usdOption" class="wrc__label">Select Payment Option <span>*</span></label>
+                  <select id="usdOption" name="crypto_type" class="form-control form-select wrc__select selectPayment" required>
+                    <option value="">Select</option>
+                    <optgroup class="forCryptoSelect d-none" label="Crypto Options">
+                      <?php foreach ($currency_options['crypto'] as $single) : ?>
+                        <option value="<?= $single['id']; ?>"><?= $single['name']; ?></option>
+                      <?php endforeach; ?>
+                    </optgroup>
+                    <optgroup class="forUSDTselect d-none" label="USD Options">
+                      <?php foreach ($currency_options['usd'] as $single) : ?>
+                        <option value="<?= $single['id']; ?>"><?= $single['name']; ?></option>
+                      <?php endforeach; ?>
+                    </optgroup>
+                  </select>
+                </div>
+              </div>
+              <div class="row row-gap afterSelect">
+                <div class="col-md-12">
+                  <label for="amount" class="wrc__label">Amount <span>*</span></label>
+                  <input type="number" id="amount"  name="amount" for="amount"  class="wrc__input form-control" placeholder="Amount" required>
+                </div>
+                <div class="col-12">
+                  <label for="" class="wrc__label">Message</label>
+                  <textarea type="text" id="message" name="message" class="wrc__input form-control wrc__select--textarea" placeholder="Write message here (optional)"
+                    required></textarea>
+                </div>
+                <button class="flex-a wrc__btn" type="submit">Submit</button>
+              </div>
+            </form>
+          </div>
+        </div>
+        <div class="col-lg-4">
+          <div class="card withdrawal-req-card">
+            <p class="withdrawal-req-card__para">
+              <span> Note! </span>
+              Crypto deposit/withdrawals are charged a 2.5% fee this is the cost of conversion when moving funds from
+              your trading account. DO NOT DEPOSIT LESS THAN $25.00 USD to any crypto otherwise your funds will be lost.
+            </p>
+            <div class="withdrawal-req-card__row">
+              <span>Info: </span> Deposit
+            </div>
+            <div class="withdrawal-req-card__row d-none wallet-address">
+              <span>Wallet address BTC:</span> <span id="walletAddress"></span>
+            </div>
+            <div class="withdrawal-req-card__row d-none account-name">
+              <span>Account name:</span> <span id="accountName"><?php echo ACCOUNT_NAME ?></span>
+            </div>
+            <div class="withdrawal-req-card__row d-none account-number">
+              <span>Account number:</span> <span id="accountNumber"><?php echo ACCOUNT_NUMBER ?></span>
+            </div>
+            <div class="withdrawal-req-card__row d-none routing-number">
+              <span>Routing number:</span> <span id="routingNumber"><?php echo ACCOUNT_Routing ?></span>
+            </div>
+            <div class="withdrawal-req-card__row">
+              <span>Method: </span> <span id="method"></span>
+            </div>
+            <div class="withdrawal-req-card__row">
+              <span>Method Details: </span> <span id="methodDetails"></span>
+            </div>
+          </div>
+        </div>
+      </div>
 
-    <?php echo view("/home/footer-scripts"); ?>
-    <script>
-        $('.copy_text_class').click(function(){
-          var copyText = $(this).text();
-          navigator.clipboard.writeText(copyText); 
-          $('#copied_text_success_bar').show();
-          $('#copied_text_success_bar').fadeOut(1000);
-        });
-        $('#copied_text_success_bar').hide();
-        $('#full-screen-loader').hide();
-        $('.usd_account_details').hide();
-        $('.crypto_account_details').hide();
-        $('.submit_deposit').hide();
-        $('.currency_options').hide();
-        $('.description').hide();
-        $('.proceed_btn').hide();
-        $(document).ready(function() {
-            $('.currency_radio').change(function() {
-                var $this = $(this);
-                $this.closest('.currency').find('div.highlight').removeClass('highlight');
-                $this.closest('.box').find('.card').addClass('highlight');
-                $('.currency_options').show();
-                if ($this.val() == '2') { // crypto
-                    $('.usd_options').hide();
-                    $('.crypto_options').show();
-                    $('.crypto_account_details').show();
-                    $('.usd_account_details').hide();
-                } else if ($this.val() == '1') { // usd
-                    $('.crypto_options').hide();
-                    $('.usd_options').show();
-                    $('.usd_account_details').show();
-                    $('.crypto_account_details').hide();
-                }
-                $('.proceed_btn').hide();
-                $('.submit_deposit').hide();
-                $('.description').hide();
-                $('.crypto_options').find('div.highlight').removeClass('highlight');
-                $('.usd_options').find('div.highlight').removeClass('highlight');
-                $('.crypto_type').prop('checked', false);
-            });
-            $('.crypto_type').change(function() {
-                var $this = $(this);
-                $this.closest('.crypto_options').find('div.highlight').removeClass('highlight');
-                $this.closest('.usd_options').find('div.highlight').removeClass('highlight');
-                $this.closest('.box_crypto').find('.card').addClass('highlight');
-                $('.proceed_btn').show();
-                $('.submit_deposit').hide();
-                $('.description').hide();
-            });
-            $('.proceed_btn').click(function() {
-                $('.submit_deposit').show();
-                $('.description').show();
-                $('.method_d').text($('input[name="currency_type"]:checked').parent().find('label').text());
-                $('.method_details_d').text($('input[name="crypto_type"]:checked').parent().find('label').text());
-                $(this).hide();
-            });
-            $('.submit_deposit').click(function(){
-                if($('#amount').val() !== ''){
-                    $('#full-screen-loader').show();
-                }
-            });
-        });
-        $('#Bitcoin').click(function() {
-            $('#method').text('BTC');
-            $('#main_span').text('N/A'); 
-        });
-        $('#USDT-TRX').click(function() {
-            $('#method').text('(TRC20)');
-            $('#main_span').text('TP7otRohfSGrnmQkJKcye5M7A6BKuLRXkG'); 
-        });
-        $('#USDT-ETH').click(function() {
-            $('#method').text('(ERC20)');
-            $('#main_span').text('0xc03ea0620f23c5fc29cfaa9c81e29a10781caff5'); 
-        });
-    </script>
+    </main>
+  </div>
+  <?php echo view("/home/new-footer-scripts"); ?>
+  <script>
+    $(document).ready(function() {
+      const selectCurrency = $(".selectCurrency");
+      const selectPayment = $(".selectPayment");
+      const formControls = $(".afterSelect .form-control");
+      const submitBtn = $(".wrc__btn");
+      const error = $(".error");
+
+      function checkSelections() {
+        if (selectCurrency.val() && selectPayment.val()) {
+          formControls.prop("disabled", false);
+          submitBtn.prop("disabled", false);
+        } else {
+          formControls.prop("disabled", true);
+          submitBtn.prop("disabled", true);
+          formControls.click(function() {
+            if (selectCurrency.val() === "" || selectPayment.val() === "") {
+              error.removeClass("d-none");
+              setTimeout(function() {
+                error.addClass("d-none");
+              }, 2000);
+            }
+          })
+        }
+      }
+
+      selectCurrency.change(function() {
+        const currencyValue = $(this).val();
+        const $cryptoOptions = $(".forCryptoSelect");
+        const $usdOptions = $(".forUSDTselect");
+        const $walletAddress = $(".wallet-address");
+        const $accountName = $(".account-name");
+        const $accountNumber = $(".account-number");
+        const $routingNumber = $(".routing-number");
+
+        selectPayment.prop('selectedIndex', 0); // Resets to the first option
+        selectPayment.trigger('change'); // Trigger change event if needed
+
+        $("#method").text($(this).find('option:selected').text());
+        $("#methodDetails").html("");
+        selectPayment
+        if (currencyValue === "1") {
+          $cryptoOptions.addClass("d-none").removeClass("d-block");
+          $usdOptions.removeClass("d-none").addClass("d-block");
+          
+          $walletAddress.addClass("d-none");
+          $accountName.removeClass("d-none");
+          $accountNumber.removeClass("d-none");
+          $routingNumber.removeClass("d-none");
+        } else if (currencyValue === "2") {
+          $usdOptions.addClass("d-none").removeClass("d-block");
+          $cryptoOptions.removeClass("d-none").addClass("d-block");
+          $walletAddress.removeClass("d-none");
+          $accountName.addClass("d-none");
+          $accountNumber.addClass("d-none");
+          $routingNumber.addClass("d-none");
+        } else {
+          $cryptoOptions.addClass("d-none").removeClass("d-block");
+          $usdOptions.addClass("d-none").removeClass("d-block");
+          $walletAddress.addClass("d-none");
+          $accountName.addClass("d-none");
+          $accountNumber.addClass("d-none");
+          $routingNumber.addClass("d-none");
+        }
+
+        checkSelections();
+      });
+
+      selectPayment.change(function() {
+        $("#methodDetails").text($(this).find('option:selected').text());
+        if ($(this).find('option:selected').text() === "Bitcoin") {
+          $('#walletAddress').text('N/A'); 
+        }else if ($(this).find('option:selected').text() == "USDT - TRX") {
+          $('#walletAddress').text('TP7otRohfSGrnmQkJKcye5M7A6BKuLRXkG');
+        }else if($(this).find('option:selected').text() == "USDT - ETH") {
+          $('#walletAddress').text('0xc03ea0620f23c5fc29cfaa9c81e29a10781caff5');
+        }
+        checkSelections();
+      });
+
+      formControls.add(submitBtn).on("focus click", function() {
+        if (selectCurrency.val() === "" || selectPayment.val() === "") {
+          error.removeClass("d-none");
+          setTimeout(function() {
+            error.addClass("d-none");
+          }, 2000);
+        }
+      });
+    });
+  </script>
 </body>
 
 </html>

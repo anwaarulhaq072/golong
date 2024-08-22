@@ -1,133 +1,119 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
 
 <head>
-    <meta charset="utf-8" />
-    <title>Deposits - <?php echo APP_NAME ?></title>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta content="Nvest Clients - Where you can invest" name="description" />
-    <meta content="Coderthemes" name="author" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-
-    <?php echo view("/home/header-links"); ?>
-
+  <meta charset="utf-8" data-bs-theme="dark">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Withdrawal History</title>
+  <?php echo view("/home/new-header-links"); ?>
 </head>
 
-<body class="loading" data-layout='{"mode": "light", "width": "fluid", "menuPosition": "fixed", "sidebar": { "color": "light", "size": "default", "showuser": false}, "topbar": {"color": "light"}}'>
-    <!-- Begin page -->
-    <div id="wrapper">
-        <?php echo view("/home/left-sidebar"); ?>
-        <?php echo view("/home/top-bar", $notification); ?>
-
-        <!-- ============================================================== -->
-        <!-- Start Page Content here -->
-        <!-- ============================================================== -->
-        <div class="content-page" style="background-color: #F5F5FC !important;">
-            <div class="content">
-                <!-- Start Content-->
-                 <input type="hidden" id="base_url" value="<?php echo base_url(); ?>">
-                <div class="row mt-4">
-                    <div class="col-12" style="text-align: right;">
-                        <a href="<?= base_url(); ?>/user/add_deposit"><button class="btn btn-primary" style=" border: 1px solid #000000; background-color: #000000;"> New Deposit Request</button></a>
-                    </div>
-                </div>
-
-                <div class="row">
-                    <div class="col-sm-12">
-                        <h4 class="header-title mt-4 mb-2">Deposit History</h4>
-                        <div class="card">
-                            <div class="card-body">
-                                <div class="row">
-                                    <div class="col-md-6">
-                                        <p class="sub-header">Following are the records of your deposit history.</p>
-                                    </div>
-                                    <div class="col-md-6 mb-2">
-                                        <div class="mb-2">
-                                            <div class="row row-cols-sm-auto" style="float: right;">
-                                                <div class="col-6">
-                                                    <input id="demo-foo-search" type="text" placeholder="Search" class="form-control form-control-sm" autocomplete="on">
-                                                </div>
-                                                <div class="col-6 text-sm-end">
-                                                    <select id="demo-foo-filter-status" class="form-select form-select-sm">
-                                                        <option value="">Show all</option>
-                                                        <option value="Pending">Pending</option>
-                                                        <option value="Accepted">Accepted</option>
-                                                         <option value="Completed">Completed</option> 
-                                                         <option value="Rejected">Rejected</option> 
-                                                    </select>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-
-                                <div class="table-responsive">
-                                    <table id="demo-foo-filtering" class="table toggle-circle mb-0" data-page-size="15">
-                                        <thead style="background-color: #F2F2F2;">
-                                        <?php if (isset($allDeposits)) : ?>
-                                            <tr>
-                                                <th data-toggle="true">Deposit Date</th>
-                                                <th data-hide="">Status</th>
-                                                <th data-hide="">Method</th>
-                                                <th data-hide="phone">Method Details</th>
-                                                <th data-hide="phone">Amount</th>
-                                                <th data-hide="all">Accepted Date</th>
-                                                <th data-hide="all">Message</th>
-                                                <th data-hide="all">Reject Reason (If rejected)</th>
-                                            </tr>
-                                        <?php endif; ?>
-                                        </thead>
-                                        <tbody>
-                                            <?php if (isset($allDeposits)) : ?>
-                                                <?php foreach ($allDeposits as $singleDeposit) : ?>                                                    
-                                                    <tr>
-                                                        <td><?php echo date('M d, Y', strtotime($singleDeposit['deposite_date'])); ?></td>
-                                                        <td>
-                                                            <?php if ($singleDeposit['status'] == 'Pending') : ?>
-                                                                <span class="badge badge-warning" style="color: black; background-color:#ffc107;font-size: 13px;"><?= $singleDeposit['status']; ?></span>
-                                                            <?php elseif($singleDeposit['status'] == 'Accepted') : ?>
-                                                                <span class="badge badge-info" style="color: white; background-color:#17A2B8;font-size: 13px;"><?= $singleDeposit['status']; ?></span>
-                                                            <?php elseif($singleDeposit['status'] == 'Completed') : ?>
-                                                                 <span class="badge badge-success" style="color: white; background-color:#28a745;font-size: 13px;"><?= $singleDeposit['status']; ?></span> 
-                                                            <?php elseif($singleDeposit['status'] == 'Rejected') : ?>
-                                                                 <span class="badge badge-danger" style="color: white; background-color:#f1556c;font-size: 13px;"><?= $singleDeposit['status']; ?></span> 
-                                                            <?php endif; ?>
-                                                        </td>
-                                                        <td><?= $singleDeposit['currency'] ?></td>
-                                                        <td><?= $singleDeposit['currency_option'] ?></td>
-                                                        <td>$<?= $singleDeposit['amount'] ?></td>
-                                                        <td><?php echo $singleDeposit['accepted_date'] ? date('M d, Y', strtotime($singleDeposit['accepted_date'])) : 'Not Added'; ?></td>
-                                                        <td><?= $singleDeposit['message'] ?></td>
-                                                        <td> <?php echo $singleDeposit['status'] !== 'Rejected' ? "" : $singleDeposit['reject_reason']; ?> </td>
-                                                    </tr>
-                                                <?php endforeach; ?>
-                                            <?php else : ?>
-                                                <h3 style="text-align: center;">No Record Found</h3>
-                                            <?php endif; ?>
-                                        </tbody>
-                                        <tfoot>
-                                            <tr class="active">
-                                                <td colspan="5" style="border-bottom: none;">
-                                                    <div class="text-end mt-3">
-                                                        <ul class="pagination pagination-rounded justify-content-center footable-pagination mb-0"></ul>
-                                                    </div>
-                                                </td>
-                                            </tr>
-                                        </tfoot>
-                                    </table>
-                                </div> <!-- end .table-responsive-->
-                            </div>
-                        </div> <!-- end card -->
-                    </div> <!-- end col -->
-                </div> <!-- end row -->
-            </div>
+<body>
+  <div class="app_wrapper">
+    <?php echo view("/home/left-sidebar-new"); ?>
+    <main class="main">
+      <div class="flex-i wdthtopBox-wrpr">
+        <div class="notiHeadingBox notiHeadingBox--wdthtop">
+          <h2 class="notification-card__hdng">Deposit History</h2>
+          <p class="notification-card__para">Deposit history of 2024</p>
         </div>
-    </div>
+        <a href="<?= base_url(); ?>/user/add_deposit" class="flex-a wthdrwlBtn">New Deposit Request</a>
+      </div>
+      <div class="row row-gap">
+        <div class="col-12">
+          <div class="card cus-details-card ">
+            <div class="flex trnsc-tbl-top-row">
+              <p class="trnsList-text">
+                Following are the records of your Deposit history
+              </p>
+              <select class="tn-list-card__select filterselect" id="transactionfilterSelect">
+                <option value="all" selected>Show All</option>
+                <option value="pending">Pending</option>
+                <option value="accepted">Accepted</option>
+                <option value="completed">Completed</option>
+                <option value="rejected">Rejected</option>
+              </select>
+            </div>
 
-    <?php echo view("/home/footer-scripts"); ?>
-    <script>
-    </script>
-    
+            <table class="table withdrawalTable" id="withdrawalTable">
+              <thead>
+                <tr class="withdrawalTable__row profit-row">
+                  <th class="withdrawalTable__col">Requested Date</th>
+                  <th class="withdrawalTable__col">Status</th>
+                  <th class="withdrawalTable__col">Method</th>
+                  <th class="withdrawalTable__col">Method Details</th>
+                  <th class="withdrawalTable__col">Amount</th>
+                </tr>
+              </thead>
+              <tbody>
+                <?php if (isset($allDeposits)) : ?>
+                  <?php foreach ($allDeposits as $singleDeposit) : ?>
+                    <tr class="withdrawalTable__row profit-row <?php if ($singleDeposit['status'] == 'Pending')  echo 'pending'; elseif($singleDeposit['status'] == 'Accepted') echo 'accepted'; elseif($singleDeposit['status'] == 'Completed') echo 'completed'; elseif($singleDeposit['status'] == 'Rejected') echo 'rejected';  ?>">
+                      <td class="withdrawalTable__col"><?php echo date('M d, Y', strtotime($singleDeposit['deposite_date'])); ?></td>
+                      <td class="withdrawalTable__col">
+                        <?php if ($singleDeposit['status'] == 'Pending') : ?>
+                          <div class="withdrawalTable__tab pending flex-a"><?= $singleDeposit['status']; ?></div>
+                        <?php elseif ($singleDeposit['status'] == 'Accepted') : ?>
+                          <div class="withdrawalTable__tab accepted flex-a"><?= $singleDeposit['status']; ?></div>
+                        <?php elseif ($singleDeposit['status'] == 'Completed') : ?>
+                          <div class="withdrawalTable__tab completed flex-a"><?= $singleDeposit['status']; ?></div>
+                        <?php elseif ($singleDeposit['status'] == 'Rejected') : ?>
+                          <div class="withdrawalTable__tab rejected flex-a"><?= $singleDeposit['status']; ?></div>
+                        <?php endif; ?>
+                      </td>
+                      <td class="withdrawalTable__col"><?= $singleDeposit['currency'] ?></td>
+                      <td class="withdrawalTable__col"><?= $singleDeposit['currency_option'] ?></td>
+                      <td class="withdrawalTable__col">$<?= $singleDeposit['amount'] ?></td>
+                    </tr>
+                  <?php endforeach; ?>
+                <?php else : ?>
+                  <h3 style="text-align: center;">No Record Found</h3>
+                <?php endif; ?>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+    </main>
+  </div>
+  <?php echo view("/home/new-footer-scripts"); ?>
+  <script>
+    document.addEventListener("DOMContentLoaded", function() {
+      function filterTableRows(filterSelector) {
+        const filterElements = document.getElementsByClassName(filterSelector);
+        if (!filterElements.length) {
+          console.error(`Elements with class "${filterSelector}" not found.`);
+          return;
+        }
+        Array.from(filterElements).forEach((filterElement) => {
+          filterElement.addEventListener("change", function() {
+            const filterValue = this.value;
+            const rows = document.querySelectorAll(`.withdrawalTable .withdrawalTable__row`);
+
+            rows.forEach((row) => {
+              const isPending = row.classList.contains("pending");
+              const isAccepted = row.classList.contains("accepted");
+              const isCompleted = row.classList.contains("completed");
+              const isRejected = row.classList.contains("rejected");
+
+              if (filterValue === "pending") {
+                row.style.display = isPending ? "table-row" : "none";
+              } else if (filterValue === "accepted") {
+                row.style.display = isAccepted ? "table-row" : "none";
+              } else if (filterValue === "completed") {
+                row.style.display = isCompleted ? "table-row" : "none";
+              } else if (filterValue === "rejected") {
+                row.style.display = isRejected ? "table-row" : "none";
+              } else {
+                row.style.display = "table-row";
+              }
+            });
+          });
+        });
+      }
+      filterTableRows("filterselect");
+    });
+  </script>
 </body>
 
 </html>

@@ -28,7 +28,7 @@
               <div class="row row-gap mb-row-gap">
                 <div class="col-12">
                   <label for="currency" class="wrc__label">Select Currency <span>*</span></label>
-                  <select id="currency" class="form-control form-select wrc__select selectCurrency" required>
+                  <select id="currency" name="currency_type" class="form-control form-select wrc__select selectCurrency" required>
                     <option value="select">Select</option>
                     <?php foreach ($currency as $single) : ?>
                       <option value="<?= $single['id']; ?>"><?= $single['name']; ?></option>
@@ -37,7 +37,7 @@
                 </div>
                 <div class="col-12">
                   <label for="usdOption" class="wrc__label">Select Payment Option <span>*</span></label>
-                  <select id="usdOption" class="form-control form-select wrc__select selectPayment" required>
+                  <select id="usdOption" name="crypto_type" class="form-control form-select wrc__select selectPayment" required>
                     <option value="">Select</option>
                     <optgroup class="forCryptoSelect d-none" label="Crypto Options">
                       <?php foreach ($currency_options['crypto'] as $single) : ?>
@@ -54,12 +54,12 @@
               </div>
               <div class="row row-gap afterSelect">
                 <div class="col-md-6">
-                  <label for="" class="wrc__label">Amount <span>*</span></label>
-                  <input type="text" class="wrc__input form-control" placeholder="Amount" required>
+                  <label for="amount" class="wrc__label">Amount <span>*</span></label>
+                  <input type="number" id="amount" min="0" name="amount" for="amount" max="<?php echo $balance ?>" class="wrc__input form-control" placeholder="Amount" required>
                 </div>
                 <div class="col-md-6">
                   <label for="" class="wrc__label">Wallet address/Bank detail <span>*</span></label>
-                  <input type="text" class="wrc__input form-control" placeholder="Enter Details" required>
+                  <input type="text" name="wallet_address" id="wallet_address" class="wrc__input form-control" placeholder="Enter Details" required>
                 </div>
                 <!-- <div class="usd_inputs d-none row-gap row"> -->
                   <div class="col-md-6 usd_inputs d-none">
@@ -77,10 +77,10 @@
                 <!-- </div> -->
                 <div class="col-12">
                   <label for="" class="wrc__label">Message</label>
-                  <textarea type="text" class="wrc__input form-control wrc__select--textarea" placeholder="Message"
+                  <textarea type="text" id="message" name="message" class="wrc__input form-control wrc__select--textarea" placeholder="Write message here (optional)"
                     required></textarea>
                 </div>
-                <button class="flex-a wrc__btn">Submit</button>
+                <button class="flex-a wrc__btn" type="submit">Submit</button>
               </div>
             </form>
           </div>
@@ -140,9 +140,12 @@
         const $usdOptions = $(".forUSDTselect");
         const $usd_inputs = $(".usd_inputs");
 
+        selectPayment.prop('selectedIndex', 0); // Resets to the first option
+        selectPayment.trigger('change'); // Trigger change event if needed
+
         $("#method").text($(this).find('option:selected').text());
         $("#methodDetails").html("");
-        
+        selectPayment
         if (currencyValue === "1") {
           $cryptoOptions.addClass("d-none").removeClass("d-block");
           $usdOptions.removeClass("d-none").addClass("d-block");
