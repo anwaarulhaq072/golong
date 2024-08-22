@@ -27,6 +27,7 @@
   --notification-tab: #595959;
   --admin-notification-tab: #EA9128;
   --lava: #E31B1C;
+  --msg-input-bg: #fff;
 }
 
 [data-bs-theme=light] {
@@ -56,6 +57,7 @@
   --notification-tab: #595959;
   --admin-notification-tab: #EA9128;
   --lava: #E31B1C;
+  --msg-input-bg: #ebebeb;
 }
 
 ul {

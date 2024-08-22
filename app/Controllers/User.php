@@ -14,7 +14,7 @@ use App\Models\Singlenotification;
 use App\Models\Payout;
 use App\Models\Withdraw;
 use App\Libraries\Emails;
-use App\Controllers\Logs ;
+use App\Controllers\Logs;
 use App\Models\Alerts;
 use App\Models\AlertStatus;
 use App\Models\Report;
@@ -25,11 +25,11 @@ use App\Models\TaxForm;
 class User extends BaseController
 {
     public function verify()
-    { 
+    {
         //   exit;
         return view('/home/verifycode');
     }
-     public function accountantDashboard()
+    public function accountantDashboard()
     {
         $permission_library = new permissions();
         $response = $permission_library->checksessionuser();
@@ -75,12 +75,14 @@ class User extends BaseController
             return redirect()->to('/');
         }
     }
-    public function chat(){
+    public function chat()
+    {
         $permission_library = new permissions();
         $response = $permission_library->checksessionuser();
         if ($response == true) {
             $data = [];
             $id = $_SESSION['user_data']['id'];
+            $auth = $_SESSION['user_data'];
             $chat = new ChatMessage();
             $users = new Users();
             $singleNotification = new Singlenotification();
@@ -88,7 +90,17 @@ class User extends BaseController
             $userInfo = $users->getrow($id);
             $data['userInfo'] = $userInfo;
             $data['id'] = $id;
+            $data['auth'] = $auth;
             $data['notification'] = $singleNotification->getCurrentDataNotificationsByUserId($id);
+            $groupedChat = [];
+            foreach ($data['allChat'] as $chat) {
+                $date = date('Y-m-d', strtotime($chat['createdAt'])); // Extract the date part
+                if (!isset($groupedChat[$date])) {
+                    $groupedChat[$date] = [];
+                }
+                $groupedChat[$date][] = $chat;
+            }
+            log_message("debug", "Notifications CHeck " . var_export($groupedChat, true));
             return view('/home/customer-chat', $data);
         } else {
             return redirect()->to('/');
@@ -100,7 +112,7 @@ class User extends BaseController
         $response = $permission_library->checksessionuser();
         if ($response == true) {
 
-            if($_SESSION['user_data']['tax_form_flag'] == "No" && $_SESSION['user_data']['createdAt'] >= "2024-05-01 10:35:26"){
+            if ($_SESSION['user_data']['tax_form_flag'] == "No" && $_SESSION['user_data']['createdAt'] >= "2024-05-01 10:35:26") {
                 return redirect()->to('/user/tax_form');
             }
             $data = [];
@@ -110,8 +122,8 @@ class User extends BaseController
             $payout = new Payout();
             $notifications = new Notifications();
             $singleNotification = new Singlenotification();
-			$deposit = new Deposit();
-			$withdraw = new Withdraw();
+            $deposit = new Deposit();
+            $withdraw = new Withdraw();
             $id = $_SESSION['user_data']['id'];
             if (isset($_SESSION['superAdminTypeId'])) {
                 $superadminid = $_SESSION['superAdminTypeId'];
@@ -145,67 +157,67 @@ class User extends BaseController
                 $data['payoutAftersplit'] = $data['profitAftersplit'] - ((float)$data['payoutSum'][0]['amount']);
             }
             $data['notification'] = $singleNotification->getCurrentDataNotificationsByUserId($id);
-            log_message("debug" , "Notifications CHeck ".var_export($data['notification'] , true)) ;
-            
+            log_message("debug", "Notifications CHeck " . var_export($data['notification'], true));
+
             $data['profitLossDetails'] = $profitLoss->getByUserId($id);
             $profitByMonth = $profitLoss->getProfitsMonthlyById($id);
-			$lossByMonth = $profitLoss->getLossMonthlyById($id);
-			
-			$depositAcceptedAll = $deposit->getAcceptedDepositByUserId($id);
-			$depositAcceptedAll = $depositAcceptedAll ? $depositAcceptedAll : 0;
-			$payoutAll = (float)$payoutSum[0]['amount'] ? (float)$payoutSum[0]['amount'] : 0;
-			$completedWithdrawals = $withdraw->getCompletedByUserId($id);
-			$payoutAll += $completedWithdrawals;
-			$data['payoutAll'] = $payoutAll;
-			$pendingWithdraw = $withdraw->getAllPendingByUserId($id);
-			$data['pendingWithdraw'] = $pendingWithdraw;
-			$totalBalance = ((float)$userInfo['initialInvestment'] + (float)$depositAcceptedAll + (float)$data['profitLoss']) - (float)$pendingWithdraw - (float)$payoutAll;
-			$data['totalBalance'] = $totalBalance;
-			$data['profitLossMonthly'] = [];
-			$data['profitLossMonthly']['total'] = 0;
-			$data['totalProfitNum'] = 0;
-			$data['totalLossNum'] = 0;
-            for($a=0;$a<sizeof($data['profitLossDetails']);$a++){
-			    $data['profitLossDetails'][$a]['type'] == 'Profit' ? $data['totalProfitNum']++ : $data['totalLossNum']++;
-			}
-			$j = $k = 0;
-			if(sizeof($profitByMonth) > 0 && (int)$profitByMonth[$j]['year'] < date("Y") ){
-			    while($j < sizeof($profitByMonth) && (int)$profitByMonth[$j]['year'] < date("Y")){
-    			    $j++;
-    			}
-			}
-			if(sizeof($lossByMonth) > 0 && (int)$lossByMonth[$k]['year'] < date("Y")){
-    			while($k < sizeof($lossByMonth) && (int)$lossByMonth[$k]['year'] < date("Y")){
-    			    $k++;
-    			}
-			}
+            $lossByMonth = $profitLoss->getLossMonthlyById($id);
+
+            $depositAcceptedAll = $deposit->getAcceptedDepositByUserId($id);
+            $depositAcceptedAll = $depositAcceptedAll ? $depositAcceptedAll : 0;
+            $payoutAll = (float)$payoutSum[0]['amount'] ? (float)$payoutSum[0]['amount'] : 0;
+            $completedWithdrawals = $withdraw->getCompletedByUserId($id);
+            $payoutAll += $completedWithdrawals;
+            $data['payoutAll'] = $payoutAll;
+            $pendingWithdraw = $withdraw->getAllPendingByUserId($id);
+            $data['pendingWithdraw'] = $pendingWithdraw;
+            $totalBalance = ((float)$userInfo['initialInvestment'] + (float)$depositAcceptedAll + (float)$data['profitLoss']) - (float)$pendingWithdraw - (float)$payoutAll;
+            $data['totalBalance'] = $totalBalance;
+            $data['profitLossMonthly'] = [];
+            $data['profitLossMonthly']['total'] = 0;
+            $data['totalProfitNum'] = 0;
+            $data['totalLossNum'] = 0;
+            for ($a = 0; $a < sizeof($data['profitLossDetails']); $a++) {
+                $data['profitLossDetails'][$a]['type'] == 'Profit' ? $data['totalProfitNum']++ : $data['totalLossNum']++;
+            }
+            $j = $k = 0;
+            if (sizeof($profitByMonth) > 0 && (int)$profitByMonth[$j]['year'] < date("Y")) {
+                while ($j < sizeof($profitByMonth) && (int)$profitByMonth[$j]['year'] < date("Y")) {
+                    $j++;
+                }
+            }
+            if (sizeof($lossByMonth) > 0 && (int)$lossByMonth[$k]['year'] < date("Y")) {
+                while ($k < sizeof($lossByMonth) && (int)$lossByMonth[$k]['year'] < date("Y")) {
+                    $k++;
+                }
+            }
             // echo (int)$profitByMonth[$j]['month'];
             // die();
-            
-            for($i = 1; $i < 13; $i++){
-			    if((!empty($profitByMonth[$j]) && $i==(int)$profitByMonth[$j]['month']) || (!empty($lossByMonth[$k]) && $i==(int)$lossByMonth[$k]['month'])){
-    			    if(!empty($lossByMonth) && !empty($profitByMonth) && isset($lossByMonth[$k])  && isset($profitByMonth[$j]) && (int)$profitByMonth[$j]['month'] === (int)$lossByMonth[$k]['month'] ){
-    			        $data['profitLossMonthly'][$i] = number_format((float)(($profitByMonth[$j]['amount'] - $lossByMonth[$k]['amount'])), 2, '.', '');
-    			        $data['profitLossMonthly']['total'] += (float)($profitByMonth[$j]['amount'] - $lossByMonth[$k]['amount']); 
-        		        $j++;
-        		        $k++;
-    			    }else if((empty($lossByMonth) || !isset($lossByMonth[$k])) || (int)$profitByMonth[$j]['month'] < (int)$lossByMonth[$k]['month'] ){
-    			        $data['profitLossMonthly'][$i] = number_format((float)(($profitByMonth[$j]['amount'])), 2, '.', '');
-    			        $data['profitLossMonthly']['total'] += (float)($profitByMonth[$j]['amount']);
-    			        $j++;
-    			    }else if((empty($profitByMonth) || !isset($profitByMonth[$j])) || (int)$profitByMonth[$j]['month'] > (int)$lossByMonth[$k]['month'] ){
-    			        $data['profitLossMonthly'][$i] = number_format((float)(($lossByMonth[$k]['amount'])), 2, '.', '') * -1;
-    			        $data['profitLossMonthly']['total'] += (float)($lossByMonth[$k]['amount']) * -1;
-    			        $k++;
-    			    }
-			    }else{
-			        $data['profitLossMonthly'][$i] = 0;
-			    }
-			}
-			$data['profitLossMonthly']['total'] = $data['profitLossMonthly']['total'] ? number_format((float)($data['profitLossMonthly']['total']), 2, '.', '') : 0;
+
+            for ($i = 1; $i < 13; $i++) {
+                if ((!empty($profitByMonth[$j]) && $i == (int)$profitByMonth[$j]['month']) || (!empty($lossByMonth[$k]) && $i == (int)$lossByMonth[$k]['month'])) {
+                    if (!empty($lossByMonth) && !empty($profitByMonth) && isset($lossByMonth[$k])  && isset($profitByMonth[$j]) && (int)$profitByMonth[$j]['month'] === (int)$lossByMonth[$k]['month']) {
+                        $data['profitLossMonthly'][$i] = number_format((float)(($profitByMonth[$j]['amount'] - $lossByMonth[$k]['amount'])), 2, '.', '');
+                        $data['profitLossMonthly']['total'] += (float)($profitByMonth[$j]['amount'] - $lossByMonth[$k]['amount']);
+                        $j++;
+                        $k++;
+                    } else if ((empty($lossByMonth) || !isset($lossByMonth[$k])) || (int)$profitByMonth[$j]['month'] < (int)$lossByMonth[$k]['month']) {
+                        $data['profitLossMonthly'][$i] = number_format((float)(($profitByMonth[$j]['amount'])), 2, '.', '');
+                        $data['profitLossMonthly']['total'] += (float)($profitByMonth[$j]['amount']);
+                        $j++;
+                    } else if ((empty($profitByMonth) || !isset($profitByMonth[$j])) || (int)$profitByMonth[$j]['month'] > (int)$lossByMonth[$k]['month']) {
+                        $data['profitLossMonthly'][$i] = number_format((float)(($lossByMonth[$k]['amount'])), 2, '.', '') * -1;
+                        $data['profitLossMonthly']['total'] += (float)($lossByMonth[$k]['amount']) * -1;
+                        $k++;
+                    }
+                } else {
+                    $data['profitLossMonthly'][$i] = 0;
+                }
+            }
+            $data['profitLossMonthly']['total'] = $data['profitLossMonthly']['total'] ? number_format((float)($data['profitLossMonthly']['total']), 2, '.', '') : 0;
             $waveChart = $this->chartDetails();
-			$data['waveChart'] = $waveChart;
-            
+            $data['waveChart'] = $waveChart;
+
             return view('/home/new-dashboard', $data);
         } else {
             return redirect()->to('/');
@@ -218,169 +230,169 @@ class User extends BaseController
         session_start();
         $id = $_SESSION['user_data']['id'];
         $data = [];
-		$profitLoss = new ProfitLoss();
-		$users = new Users();
-		$payout = new Payout();
-		$deposit = new Deposit();
-		$withdraw = new Withdraw();
-		$payoutSum = $payout->getsum($id);
-		$userInfo = $users->getrow($id);
-		$investmentAmount = $userInfo['initialInvestment'];
+        $profitLoss = new ProfitLoss();
+        $users = new Users();
+        $payout = new Payout();
+        $deposit = new Deposit();
+        $withdraw = new Withdraw();
+        $payoutSum = $payout->getsum($id);
+        $userInfo = $users->getrow($id);
+        $investmentAmount = $userInfo['initialInvestment'];
 
-		log_message('debug', 'PLID: ' . $id);
-		$ProfitAndLoss = $profitLoss->getAllProfitAndLossById($id);
-// 		$maxLoss = $profitLoss->getMaxLossById($id);
-		$profit = $profitLoss->getTotalProfitById($id);
-		$loss = $profitLoss->getTotalLossById($id);
-		$firstpayout = $payout->getPayoutsasc($id);
-// 		$returnType = $users->getReturnTypeId($id);
-		$allPayouts = $payout->getrow($id);
-		$completedDeposits = $deposit->getCompletedDepositByUserId($id);
-		$completedWithdrawals = $withdraw->getCompletedWithdrawalsByUserId($id);
-		$amount = [];
-		$dates = [];
-		$totalProfit = $investmentAmount + ($profit - $loss);
-		log_message('debug', 'PL1: ' . ($ProfitAndLoss[0]['amount']));
+        log_message('debug', 'PLID: ' . $id);
+        $ProfitAndLoss = $profitLoss->getAllProfitAndLossById($id);
+        // 		$maxLoss = $profitLoss->getMaxLossById($id);
+        $profit = $profitLoss->getTotalProfitById($id);
+        $loss = $profitLoss->getTotalLossById($id);
+        $firstpayout = $payout->getPayoutsasc($id);
+        // 		$returnType = $users->getReturnTypeId($id);
+        $allPayouts = $payout->getrow($id);
+        $completedDeposits = $deposit->getCompletedDepositByUserId($id);
+        $completedWithdrawals = $withdraw->getCompletedWithdrawalsByUserId($id);
+        $amount = [];
+        $dates = [];
+        $totalProfit = $investmentAmount + ($profit - $loss);
+        log_message('debug', 'PL1: ' . ($ProfitAndLoss[0]['amount']));
 
-		// $data['maxLoss'] = round(($ProfitAndLoss[0]['amount']) * ($userInfo['payout_per'] / 100), 2);
-		// $data['maxProfit'] = round((($totalProfit) * ($userInfo['payout_per'] / 100)) + 100, 2);
-		$data['maxLoss'] = $investmentAmount + round(($ProfitAndLoss[0]['amount']), 2);
-		$data['maxProfit'] = $investmentAmount + 10;
-		$payoutindex = 0;
-		$depositIndex = 0;
-		$withdrawIndex = 0;
-// 		if ($returnType[0]['name'] == 'noreturn') {
-			//  for the customers of no return investment
-			$newAmount = $investmentAmount;//$completedDeposits + $completedWithdrawals;
-			foreach ($ProfitAndLoss as $key => $single) {
-			     //   For Payouts the graph will go down as in case of loss
-				if (isset($allPayouts[$payoutindex]) && $allPayouts[$payoutindex]) {
-					$singlePayout = $allPayouts[$payoutindex];
-					if ((strtotime($singlePayout['payoutdate']) <= strtotime($single['publishDate'])) && ($payoutindex < sizeof($allPayouts))) {
-						$newAmount -= $singlePayout['amount'];
-						$amount[] = round($newAmount, 2);
-						$dates[] = date('M d, Y  H:i:s', strtotime(date($singlePayout['payoutdate']) . ' +11 hours'));
-						$payoutindex++;
-						if ($data['maxLoss'] > $newAmount) {
-							$data['maxLoss'] = round($newAmount, 2);
-						}
-					}
-				}
-				// For Deposits which are accepted in this case graph will go up as in profit
-				if (isset($completedDeposits[$depositIndex]) && $completedDeposits[$depositIndex]) {
-					$singleDeposit = $completedDeposits[$depositIndex];
-					if ((strtotime($singleDeposit['accepted_date']) <= strtotime($single['publishDate'])) && ($depositIndex < sizeof($completedDeposits))) {
-						$newAmount += $singleDeposit['amount'];
-						$amount[] = round($newAmount, 2);
-						$dates[] = date('M d, Y  H:i:s', strtotime(date($singleDeposit['accepted_date']) . ' +1 hours'));
-						$depositIndex++;
-    					if ($data['maxProfit'] < $newAmount) {
-    						$data['maxProfit'] = round($newAmount, 2);
-    					}
-					}
-				}
-				// For Withdrawals which are accepted in this case graph will go down as in loss
-				if (isset($completedWithdrawals[$withdrawIndex]) && $completedWithdrawals[$withdrawIndex]) {
-					$singleWithdraw = $completedWithdrawals[$withdrawIndex];
-					if ((strtotime($singleWithdraw['paid_date']) <= strtotime($single['publishDate'])) && ($withdrawIndex < sizeof($completedWithdrawals))) {
-						$newAmount -= $singleWithdraw['amount'];
-						$amount[] = round($newAmount, 2);
-						$dates[] = date('M d, Y  H:i:s', strtotime(date($singleWithdraw['paid_date']) . ' +5 hours'));
-						$withdrawIndex++;
-						if ($data['maxLoss'] > $newAmount) {
-							$data['maxLoss'] = round($newAmount, 2);
-						}
-					}
-				}
+        // $data['maxLoss'] = round(($ProfitAndLoss[0]['amount']) * ($userInfo['payout_per'] / 100), 2);
+        // $data['maxProfit'] = round((($totalProfit) * ($userInfo['payout_per'] / 100)) + 100, 2);
+        $data['maxLoss'] = $investmentAmount + round(($ProfitAndLoss[0]['amount']), 2);
+        $data['maxProfit'] = $investmentAmount + 10;
+        $payoutindex = 0;
+        $depositIndex = 0;
+        $withdrawIndex = 0;
+        // 		if ($returnType[0]['name'] == 'noreturn') {
+        //  for the customers of no return investment
+        $newAmount = $investmentAmount; //$completedDeposits + $completedWithdrawals;
+        foreach ($ProfitAndLoss as $key => $single) {
+            //   For Payouts the graph will go down as in case of loss
+            if (isset($allPayouts[$payoutindex]) && $allPayouts[$payoutindex]) {
+                $singlePayout = $allPayouts[$payoutindex];
+                if ((strtotime($singlePayout['payoutdate']) <= strtotime($single['publishDate'])) && ($payoutindex < sizeof($allPayouts))) {
+                    $newAmount -= $singlePayout['amount'];
+                    $amount[] = round($newAmount, 2);
+                    $dates[] = date('M d, Y  H:i:s', strtotime(date($singlePayout['payoutdate']) . ' +11 hours'));
+                    $payoutindex++;
+                    if ($data['maxLoss'] > $newAmount) {
+                        $data['maxLoss'] = round($newAmount, 2);
+                    }
+                }
+            }
+            // For Deposits which are accepted in this case graph will go up as in profit
+            if (isset($completedDeposits[$depositIndex]) && $completedDeposits[$depositIndex]) {
+                $singleDeposit = $completedDeposits[$depositIndex];
+                if ((strtotime($singleDeposit['accepted_date']) <= strtotime($single['publishDate'])) && ($depositIndex < sizeof($completedDeposits))) {
+                    $newAmount += $singleDeposit['amount'];
+                    $amount[] = round($newAmount, 2);
+                    $dates[] = date('M d, Y  H:i:s', strtotime(date($singleDeposit['accepted_date']) . ' +1 hours'));
+                    $depositIndex++;
+                    if ($data['maxProfit'] < $newAmount) {
+                        $data['maxProfit'] = round($newAmount, 2);
+                    }
+                }
+            }
+            // For Withdrawals which are accepted in this case graph will go down as in loss
+            if (isset($completedWithdrawals[$withdrawIndex]) && $completedWithdrawals[$withdrawIndex]) {
+                $singleWithdraw = $completedWithdrawals[$withdrawIndex];
+                if ((strtotime($singleWithdraw['paid_date']) <= strtotime($single['publishDate'])) && ($withdrawIndex < sizeof($completedWithdrawals))) {
+                    $newAmount -= $singleWithdraw['amount'];
+                    $amount[] = round($newAmount, 2);
+                    $dates[] = date('M d, Y  H:i:s', strtotime(date($singleWithdraw['paid_date']) . ' +5 hours'));
+                    $withdrawIndex++;
+                    if ($data['maxLoss'] > $newAmount) {
+                        $data['maxLoss'] = round($newAmount, 2);
+                    }
+                }
+            }
 
-				if ($single['type'] == 'Loss') {
-					// $newAmount -=  ($single['amount']) * ($userInfo['payout_per'] / 100);
-					$newAmount -= $single['amount'];
-					if ($data['maxLoss'] > $newAmount) {
-						$data['maxLoss'] = round($newAmount, 2);
-					}
-					$amount[] = round($newAmount, 2);
-				} else {
-					// $newAmount += ($single['amount']) * ($userInfo['payout_per'] / 100);
-					$newAmount += $single['amount'];
-					$amount[] = round($newAmount, 2);
-					if ($data['maxProfit'] < $newAmount) {
-						$data['maxProfit'] = round($newAmount, 2);
-					}
-				}
-				$dates[] = date('M d, Y  H:i:s', strtotime($single['publishDate'].' +11 hours'));
-			}
-			while (isset($allPayouts[$payoutindex]) && $allPayouts[$payoutindex]) {
-				$singlePayout = $allPayouts[$payoutindex];
-				$newAmount -= $singlePayout['amount'];
-				$amount[] = round($newAmount, 2);
-				$dates[] = date('M d, Y  H:i:s', strtotime(date($singlePayout['payoutdate']) . ' +11 hours'));
-				$payoutindex++;
-				if ($data['maxLoss'] > $newAmount) {
-					$data['maxLoss'] = round($newAmount, 2);
-				}
-			}
-// 		} else {
-// 			//  for the customer of return full investment
-// 			$newAmount = 0;
-// 			$check = false;
-// 			$tempProfitLoss = 0;
-// 			foreach ($ProfitAndLoss as $key => $single) {
-// 				$singlePayout = '';
-// 				if ($payoutindex < sizeof($allPayouts)) {
-// 					$singlePayout = $allPayouts[$payoutindex];
-// 				}
-// 				if ($tempProfitLoss >= $investmentAmount) {
-// 					if ($check) {
-// 						// $balanceAmount = ($single['amount']) * ($userInfo['payout_per'] / 100);
-// 						$balanceAmount = $single['amount'];
-// 					} else {
-// 						$check = true;
-// 						// $splitAboveInvestment = ($newAmount - $investmentAmount) * ($userInfo['payout_per'] / 100);
-// 						$splitAboveInvestment = ($newAmount - $investmentAmount);
-// 						$newAmount = $investmentAmount + $splitAboveInvestment;
-// 						$amount[$key - 1] = round($newAmount, 2);
-// 						// $balanceAmount = ($single['amount']) * ($userInfo['payout_per'] / 100);
-// 						$balanceAmount = $single['amount'];
-// 					}
-// 				} else {
-// 					$balanceAmount = $single['amount'];
-// 				}
+            if ($single['type'] == 'Loss') {
+                // $newAmount -=  ($single['amount']) * ($userInfo['payout_per'] / 100);
+                $newAmount -= $single['amount'];
+                if ($data['maxLoss'] > $newAmount) {
+                    $data['maxLoss'] = round($newAmount, 2);
+                }
+                $amount[] = round($newAmount, 2);
+            } else {
+                // $newAmount += ($single['amount']) * ($userInfo['payout_per'] / 100);
+                $newAmount += $single['amount'];
+                $amount[] = round($newAmount, 2);
+                if ($data['maxProfit'] < $newAmount) {
+                    $data['maxProfit'] = round($newAmount, 2);
+                }
+            }
+            $dates[] = date('M d, Y  H:i:s', strtotime($single['publishDate'] . ' +11 hours'));
+        }
+        while (isset($allPayouts[$payoutindex]) && $allPayouts[$payoutindex]) {
+            $singlePayout = $allPayouts[$payoutindex];
+            $newAmount -= $singlePayout['amount'];
+            $amount[] = round($newAmount, 2);
+            $dates[] = date('M d, Y  H:i:s', strtotime(date($singlePayout['payoutdate']) . ' +11 hours'));
+            $payoutindex++;
+            if ($data['maxLoss'] > $newAmount) {
+                $data['maxLoss'] = round($newAmount, 2);
+            }
+        }
+        // 		} else {
+        // 			//  for the customer of return full investment
+        // 			$newAmount = 0;
+        // 			$check = false;
+        // 			$tempProfitLoss = 0;
+        // 			foreach ($ProfitAndLoss as $key => $single) {
+        // 				$singlePayout = '';
+        // 				if ($payoutindex < sizeof($allPayouts)) {
+        // 					$singlePayout = $allPayouts[$payoutindex];
+        // 				}
+        // 				if ($tempProfitLoss >= $investmentAmount) {
+        // 					if ($check) {
+        // 						// $balanceAmount = ($single['amount']) * ($userInfo['payout_per'] / 100);
+        // 						$balanceAmount = $single['amount'];
+        // 					} else {
+        // 						$check = true;
+        // 						// $splitAboveInvestment = ($newAmount - $investmentAmount) * ($userInfo['payout_per'] / 100);
+        // 						$splitAboveInvestment = ($newAmount - $investmentAmount);
+        // 						$newAmount = $investmentAmount + $splitAboveInvestment;
+        // 						$amount[$key - 1] = round($newAmount, 2);
+        // 						// $balanceAmount = ($single['amount']) * ($userInfo['payout_per'] / 100);
+        // 						$balanceAmount = $single['amount'];
+        // 					}
+        // 				} else {
+        // 					$balanceAmount = $single['amount'];
+        // 				}
 
-// 				if (($payoutindex < sizeof($allPayouts)) && (strtotime($singlePayout['payoutdate']) <= strtotime($single['publishDate']))) {
-// 					$newAmount -= $singlePayout['amount'];
-// 					$amount[] = round($newAmount, 2);
-// 					$dates[] = date('M d, Y  H:i:s', strtotime(date($singlePayout['payoutdate']) . '11:00:00'));
-// 					$payoutindex++;
-// 					if ($data['maxLoss'] > $newAmount) {
-// 						$data['maxLoss'] = round($newAmount, 2);
-// 					}
-// 				}
-// 				if ($single['type'] == 'Loss') {
-// 					$newAmount -=  $balanceAmount;
-// 					if ($data['maxLoss'] > $newAmount) {
-// 						$data['maxLoss'] = round($newAmount, 2);
-// 					}
-// 					$amount[] = round($newAmount, 2);
-// 					$tempProfitLoss -=  $balanceAmount;
-// 				} else {
-// 					$newAmount += $balanceAmount;
-// 					$amount[] = round($newAmount, 2);
-// 					$tempProfitLoss += $balanceAmount;
-// 					if ($data['maxProfit'] < $newAmount) {
-// 						$data['maxProfit'] = round($newAmount, 2);
-// 					}
-// 				}
-// 				$dates[] = date('M d, Y  H:i:s', strtotime($single['publishDate']));
-// 			}
-// 		}
-		// log_message('debug', '***************** Chart BY Admin *****************' . $firstpayout['amount']);
-		
-        
-		$data['amounts'] = $amount;
-		$data['dates'] = $dates;
+        // 				if (($payoutindex < sizeof($allPayouts)) && (strtotime($singlePayout['payoutdate']) <= strtotime($single['publishDate']))) {
+        // 					$newAmount -= $singlePayout['amount'];
+        // 					$amount[] = round($newAmount, 2);
+        // 					$dates[] = date('M d, Y  H:i:s', strtotime(date($singlePayout['payoutdate']) . '11:00:00'));
+        // 					$payoutindex++;
+        // 					if ($data['maxLoss'] > $newAmount) {
+        // 						$data['maxLoss'] = round($newAmount, 2);
+        // 					}
+        // 				}
+        // 				if ($single['type'] == 'Loss') {
+        // 					$newAmount -=  $balanceAmount;
+        // 					if ($data['maxLoss'] > $newAmount) {
+        // 						$data['maxLoss'] = round($newAmount, 2);
+        // 					}
+        // 					$amount[] = round($newAmount, 2);
+        // 					$tempProfitLoss -=  $balanceAmount;
+        // 				} else {
+        // 					$newAmount += $balanceAmount;
+        // 					$amount[] = round($newAmount, 2);
+        // 					$tempProfitLoss += $balanceAmount;
+        // 					if ($data['maxProfit'] < $newAmount) {
+        // 						$data['maxProfit'] = round($newAmount, 2);
+        // 					}
+        // 				}
+        // 				$dates[] = date('M d, Y  H:i:s', strtotime($single['publishDate']));
+        // 			}
+        // 		}
+        // log_message('debug', '***************** Chart BY Admin *****************' . $firstpayout['amount']);
 
-		return json_encode($data);
+
+        $data['amounts'] = $amount;
+        $data['dates'] = $dates;
+
+        return json_encode($data);
     }
     public function chartDetails_Overview()
     {
@@ -391,8 +403,8 @@ class User extends BaseController
         $profitLoss = new ProfitLoss();
         $users = new Users();
         $payout = new Payout();
-		$deposit = new Deposit();
-		$withdraw = new Withdraw();
+        $deposit = new Deposit();
+        $withdraw = new Withdraw();
         // $payoutSum = $payout->getsum($id);
         $userInfo = $users->getrow($id);
         $investmentAmount = $userInfo['initialInvestment'];
@@ -404,124 +416,125 @@ class User extends BaseController
         $firstpayout = $payout->getPayoutsasc($id);
         // $returnType = $users->getReturnTypeId($id);
         $allPayouts = $payout->getrow_Overview($id);
-		$completedDeposits = $deposit->getCompletedDepositByUserId_Overview($id);
-		$completedWithdrawals = $withdraw->getCompletedWithdrawalsByUserId_Overview($id);
+        $completedDeposits = $deposit->getCompletedDepositByUserId_Overview($id);
+        $completedWithdrawals = $withdraw->getCompletedWithdrawalsByUserId_Overview($id);
         $amount = [];
         $dates = [];
         $totalProfit = $investmentAmount + ($profit - $loss);
         // $data['maxLoss'] = $data['maxLoss'] = round(($ProfitAndLoss[0]['amount']) * ($userInfo['payout_per'] / 100), 2);
         // $data['maxProfit'] = round((($totalProfit) * ($userInfo['payout_per'] / 100)) + 100, 2);
-		$data['maxLoss'] = $investmentAmount + round(($ProfitAndLoss[0]['amount']), 2);
-		$data['maxProfit'] = $investmentAmount + 10;
+        $data['maxLoss'] = $investmentAmount + round(($ProfitAndLoss[0]['amount']), 2);
+        $data['maxProfit'] = $investmentAmount + 10;
         $payoutindex = 0;
-		$depositIndex = 0;
-		$withdrawIndex = 0;
+        $depositIndex = 0;
+        $withdrawIndex = 0;
         // if ($returnType[0]['name'] == 'noreturn') {
-            //  for the customers of no return investment
-            $newAmount = $investmentAmount;
-            foreach ($ProfitAndLoss as $key => $single) {
-			     //   For Payouts the graph will go down as in case of loss
-                if (isset($allPayouts[$payoutindex]) && $allPayouts[$payoutindex]) {
-                    $singlePayout = $allPayouts[$payoutindex];
-                    // if ((strtotime($singlePayout['payoutdate']) <= strtotime($single['publishDate'])) && ($payoutindex < sizeof($allPayouts))) {
-                        $newAmount -= $singlePayout['amount'];
-                        $amount[] = round($newAmount, 2);
-                        $dates[] = date('M d, Y  H:i:s', strtotime(date($singlePayout['payoutdate']) . '+11 hours'));
-                        $payoutindex++;
-                        if ($data['maxLoss'] > $newAmount) {
-                            $data['maxLoss'] = round($newAmount, 2);
-                        }
+        //  for the customers of no return investment
+        $newAmount = $investmentAmount;
+        foreach ($ProfitAndLoss as $key => $single) {
+            //   For Payouts the graph will go down as in case of loss
+            if (isset($allPayouts[$payoutindex]) && $allPayouts[$payoutindex]) {
+                $singlePayout = $allPayouts[$payoutindex];
+                // if ((strtotime($singlePayout['payoutdate']) <= strtotime($single['publishDate'])) && ($payoutindex < sizeof($allPayouts))) {
+                $newAmount -= $singlePayout['amount'];
+                $amount[] = round($newAmount, 2);
+                $dates[] = date('M d, Y  H:i:s', strtotime(date($singlePayout['payoutdate']) . '+11 hours'));
+                $payoutindex++;
+                if ($data['maxLoss'] > $newAmount) {
+                    $data['maxLoss'] = round($newAmount, 2);
+                }
+                // }
+            }
+            // For Deposits which are accepted in this case graph will go up as in profit
+            if (isset($completedDeposits[$depositIndex]) && $completedDeposits[$depositIndex]) {
+                $singleDeposit = $completedDeposits[$depositIndex];
+                // if ((strtotime($singleDeposit['accepted_date']) <= strtotime($single['publishDate'])) && ($depositIndex < sizeof($completedDeposits))) {
+                $newAmount += $singleDeposit['amount'];
+                $amount[] = round($newAmount, 2);
+                $dates[] = date('M d, Y  H:i:s', strtotime(date($singleDeposit['accepted_date']) . ' +1 hours'));
+                $depositIndex++;
+                if ($data['maxProfit'] < $newAmount) {
+                    $data['maxProfit'] = round($newAmount, 2);
                     // }
                 }
-				// For Deposits which are accepted in this case graph will go up as in profit
-				if (isset($completedDeposits[$depositIndex]) && $completedDeposits[$depositIndex]) {
-					$singleDeposit = $completedDeposits[$depositIndex];
-					// if ((strtotime($singleDeposit['accepted_date']) <= strtotime($single['publishDate'])) && ($depositIndex < sizeof($completedDeposits))) {
-						$newAmount += $singleDeposit['amount'];
-						$amount[] = round($newAmount, 2);
-						$dates[] = date('M d, Y  H:i:s', strtotime(date($singleDeposit['accepted_date']) . ' +1 hours'));
-						$depositIndex++;
-    					if ($data['maxProfit'] < $newAmount) {
-    						$data['maxProfit'] = round($newAmount, 2);
-    					// }
-					}
-				}
-				// For Withdrawals which are accepted in this case graph will go down as in loss
-				if (isset($completedWithdrawals[$withdrawIndex]) && $completedWithdrawals[$withdrawIndex]) {
-					$singleWithdraw = $completedWithdrawals[$withdrawIndex];
-					// if ((strtotime($singleWithdraw['paid_date']) <= strtotime($single['publishDate'])) && ($withdrawIndex < sizeof($completedWithdrawals))) {
-						$newAmount -= $singleWithdraw['amount'];
-						$amount[] = round($newAmount, 2);
-						$dates[] = date('M d, Y  H:i:s', strtotime(date($singleWithdraw['paid_date']) . ' +5 hours'));
-						$withdrawIndex++;
-						if ($data['maxLoss'] > $newAmount) {
-							$data['maxLoss'] = round($newAmount, 2);
-						// }
-					}
-				}
-                if ($single['type'] == 'Loss') {
-                    // $newAmount -=  ($single['amount']) * ($userInfo['payout_per'] / 100);
-                    $newAmount -= $single['amount'];
-                    if ($data['maxLoss'] > $newAmount) {
-                        $data['maxLoss'] = round($newAmount, 2);
-                    }
-                    $amount[] = round($newAmount, 2);
-                } else {
-                    // $newAmount += ($single['amount']) * ($userInfo['payout_per'] / 100);
-                    $newAmount += $single['amount'];
-                    $amount[] = round($newAmount, 2);
-                    if ($data['maxProfit'] < $newAmount) {
-                        $data['maxProfit'] = round($newAmount, 2);
-                    }
-                }
-                $dates[] = date('M d, Y  H:i:s', strtotime($single['publishDate'] . '+11 hours'));
             }
-            while (isset($allPayouts[$payoutindex]) && $allPayouts[$payoutindex]) {
-				$singlePayout = $allPayouts[$payoutindex];
-				$newAmount -= $singlePayout['amount'];
-				$amount[] = round($newAmount, 2);
-				$dates[] = date('M d, Y  H:i:s', strtotime(date($singlePayout['payoutdate']) . ' +11 hours'));
-				$payoutindex++;
-				if ($data['maxLoss'] > $newAmount) {
-					$data['maxLoss'] = round($newAmount, 2);
-				}
-			}
-        for ($i=1; $i < count($dates); $i++) {
-             for ($j=0; $j < count($dates); $j++) {
-           if(strtotime($dates[$j]) > strtotime($dates[$i])){
-               $temp = $dates[$j];
-               $dates[$j] = $dates[$i];
-               $dates[$i] = $temp;
-               $temp = $amount[$j];
-               $amount[$j] = $amount[$i];
-               $amount[$i] = $temp;
-               
-           }
-             }
+            // For Withdrawals which are accepted in this case graph will go down as in loss
+            if (isset($completedWithdrawals[$withdrawIndex]) && $completedWithdrawals[$withdrawIndex]) {
+                $singleWithdraw = $completedWithdrawals[$withdrawIndex];
+                // if ((strtotime($singleWithdraw['paid_date']) <= strtotime($single['publishDate'])) && ($withdrawIndex < sizeof($completedWithdrawals))) {
+                $newAmount -= $singleWithdraw['amount'];
+                $amount[] = round($newAmount, 2);
+                $dates[] = date('M d, Y  H:i:s', strtotime(date($singleWithdraw['paid_date']) . ' +5 hours'));
+                $withdrawIndex++;
+                if ($data['maxLoss'] > $newAmount) {
+                    $data['maxLoss'] = round($newAmount, 2);
+                    // }
+                }
+            }
+            if ($single['type'] == 'Loss') {
+                // $newAmount -=  ($single['amount']) * ($userInfo['payout_per'] / 100);
+                $newAmount -= $single['amount'];
+                if ($data['maxLoss'] > $newAmount) {
+                    $data['maxLoss'] = round($newAmount, 2);
+                }
+                $amount[] = round($newAmount, 2);
+            } else {
+                // $newAmount += ($single['amount']) * ($userInfo['payout_per'] / 100);
+                $newAmount += $single['amount'];
+                $amount[] = round($newAmount, 2);
+                if ($data['maxProfit'] < $newAmount) {
+                    $data['maxProfit'] = round($newAmount, 2);
+                }
+            }
+            $dates[] = date('M d, Y  H:i:s', strtotime($single['publishDate'] . '+11 hours'));
+        }
+        while (isset($allPayouts[$payoutindex]) && $allPayouts[$payoutindex]) {
+            $singlePayout = $allPayouts[$payoutindex];
+            $newAmount -= $singlePayout['amount'];
+            $amount[] = round($newAmount, 2);
+            $dates[] = date('M d, Y  H:i:s', strtotime(date($singlePayout['payoutdate']) . ' +11 hours'));
+            $payoutindex++;
+            if ($data['maxLoss'] > $newAmount) {
+                $data['maxLoss'] = round($newAmount, 2);
+            }
+        }
+        for ($i = 1; $i < count($dates); $i++) {
+            for ($j = 0; $j < count($dates); $j++) {
+                if (strtotime($dates[$j]) > strtotime($dates[$i])) {
+                    $temp = $dates[$j];
+                    $dates[$j] = $dates[$i];
+                    $dates[$i] = $temp;
+                    $temp = $amount[$j];
+                    $amount[$j] = $amount[$i];
+                    $amount[$i] = $temp;
+                }
+            }
         }
         $data['amounts'] = $amount;
         $data['dates'] = $dates;
         return json_encode($data);
     }
-    public function transactionChart(){
+    public function transactionChart()
+    {
         session_start();
         $id = $_SESSION['user_data']['id'];
-        log_message("error", $_SESSION['user_data']['id']) ;
+        log_message("error", $_SESSION['user_data']['id']);
         $data = [];
         $profitLoss = new ProfitLoss();
         $profitLossDetails = $profitLoss->getByUserId($id);
         $totalProfitNum = 0;
         $totalLossNum = 0;
-        for($a=0;$a<sizeof($profitLossDetails);$a++){
+        for ($a = 0; $a < sizeof($profitLossDetails); $a++) {
             $profitLossDetails[$a]['type'] == 'Profit' ? $totalProfitNum++ : $totalLossNum++;
         }
 
-        $data['profitLoss'][0] = $totalProfitNum ? round(( $totalProfitNum / sizeof($profitLossDetails)) * 100,1) : 0;
-        $data['profitLoss'][1] = $totalLossNum ? round(( $totalLossNum / sizeof($profitLossDetails)) * 100, 1) : 0;
+        $data['profitLoss'][0] = $totalProfitNum ? round(($totalProfitNum / sizeof($profitLossDetails)) * 100, 1) : 0;
+        $data['profitLoss'][1] = $totalLossNum ? round(($totalLossNum / sizeof($profitLossDetails)) * 100, 1) : 0;
 
         return json_encode($data);
     }
-    public function transactionChart_Overview(){
+    public function transactionChart_Overview()
+    {
         session_start();
         $id = $_SESSION['user_data']['id'];
         // log_message("error", $_SESSION['user_data']['id']) ;
@@ -530,11 +543,11 @@ class User extends BaseController
         $profitLossDetails = $profitLoss->getByUserId_Overview($id);
         $totalProfitNum = 0;
         $totalLossNum = 0;
-        for($a=0;$a<sizeof($profitLossDetails);$a++){
+        for ($a = 0; $a < sizeof($profitLossDetails); $a++) {
             $profitLossDetails[$a]['type'] == 'Profit' ? $totalProfitNum++ : $totalLossNum++;
         }
-        $data['profitLoss'][0] = $totalProfitNum ? round(( $totalProfitNum / sizeof($profitLossDetails)) * 100,1) : 0;
-        $data['profitLoss'][1] = $totalLossNum ? round(( $totalLossNum / sizeof($profitLossDetails)) * 100, 1) : 0;
+        $data['profitLoss'][0] = $totalProfitNum ? round(($totalProfitNum / sizeof($profitLossDetails)) * 100, 1) : 0;
+        $data['profitLoss'][1] = $totalLossNum ? round(($totalLossNum / sizeof($profitLossDetails)) * 100, 1) : 0;
 
         return json_encode($data);
     }
@@ -579,7 +592,8 @@ class User extends BaseController
         }
     }
 
-    public function deposit(){
+    public function deposit()
+    {
         $permission_library = new permissions();
         $response = $permission_library->checksessionuser();
         if ($response == true) {
@@ -590,14 +604,15 @@ class User extends BaseController
             $allDeposits = $deposit->getAllDepositsByUserId($id);
             $data['allDeposits'] = $allDeposits;
             $data['notification'] = $singleNotification->getCurrentDataNotificationsByUserId($id);
-            
-            return view('/home/deposit',$data);
+
+            return view('/home/deposit', $data);
         } else {
             return redirect()->to('/');
         }
     }
 
-    public function add_deposit(){
+    public function add_deposit()
+    {
         $permission_library = new permissions();
         $response = $permission_library->checksessionuser();
         if ($response == true) {
@@ -608,26 +623,27 @@ class User extends BaseController
             $currency_option = new CurrencyOption();
             $allCurrencies = $currency->getdata();
             $data['currency'] = $allCurrencies;
-            foreach($allCurrencies as $single){
+            foreach ($allCurrencies as $single) {
                 $data['currency_options'][$single['slug']] = $currency_option->getByCurrencyId($single['id']);
             }
             $data['notification'] = $singleNotification->getCurrentDataNotificationsByUserId($id);
-            
-            return view('/home/addDeposit',$data);
+
+            return view('/home/addDeposit', $data);
         } else {
             return redirect()->to('/');
         }
     }
 
-    public function submit_deposit(){
+    public function submit_deposit()
+    {
         $permission_library = new permissions();
         $response = $permission_library->checksessionuser();
         if ($response == true) {
             $id = $_SESSION['user_data']['id'];
             $deposit = new Deposit();
             $users = new Users();
-            $alert = new Alerts() ;
-            $alert_status = new AlertStatus() ;
+            $alert = new Alerts();
+            $alert_status = new AlertStatus();
             $deposit->save([
                 'user_id' => $id,
                 'currency_id' => $_POST['currency_type'],
@@ -636,21 +652,21 @@ class User extends BaseController
                 'status' => 'Pending',
                 'message' => $_POST['message']
             ]);
-            
+
             $fullName = $_SESSION['user_data']['firstName'] . " " . $_SESSION['user_data']['lastName'];
             $alert->save([
-                'title' => 'Deposit Request Received from '.ucfirst($_SESSION['user_data']['firstName']). " " .ucfirst($_SESSION['user_data']['lastName']),
-				'description' => 'You have received a new Deposit Request from '.ucfirst($_SESSION['user_data']['firstName']). " " .ucfirst($_SESSION['user_data']['lastName']),
-            ]) ;
-            $alert_id = $alert->get_last_alert_id() ;
-            $userId = $users->getAllAdminId() ;
+                'title' => 'Deposit Request Received from ' . ucfirst($_SESSION['user_data']['firstName']) . " " . ucfirst($_SESSION['user_data']['lastName']),
+                'description' => 'You have received a new Deposit Request from ' . ucfirst($_SESSION['user_data']['firstName']) . " " . ucfirst($_SESSION['user_data']['lastName']),
+            ]);
+            $alert_id = $alert->get_last_alert_id();
+            $userId = $users->getAllAdminId();
             foreach ($userId as $key => $singleId) {
                 $alert_status->save([
-                    'user_id' => $singleId['id'] ,
+                    'user_id' => $singleId['id'],
                     'alerts_id' => $alert_id['id']
                 ]);
-            } 
-            $this->alertnotification('Deposit Request Received from '.ucfirst($_SESSION['user_data']['firstName']). " " .ucfirst($_SESSION['user_data']['lastName'])) ;
+            }
+            $this->alertnotification('Deposit Request Received from ' . ucfirst($_SESSION['user_data']['firstName']) . " " . ucfirst($_SESSION['user_data']['lastName']));
             $adminEmails = $users->getAllAdminEmails();
             $allAdminEmails = [];
             foreach ($adminEmails as  $single) {
@@ -659,28 +675,29 @@ class User extends BaseController
             // print_r($allAdminEmails);
             // die();
 
-            $cur = new Currency() ;// Getting Currency Type
+            $cur = new Currency(); // Getting Currency Type
             $currency = $cur->getById($_POST['currency_type']);
-            $currname = $currency['name'] ;
-            
-            $opcur = new CurrencyOption() ; //Getting Currency Option
-            $opcurrency = $opcur->getById($_POST['crypto_type']) ;
-            $opcurrname = $opcurrency['name'] ;
+            $currname = $currency['name'];
+
+            $opcur = new CurrencyOption(); //Getting Currency Option
+            $opcurrency = $opcur->getById($_POST['crypto_type']);
+            $opcurrname = $opcurrency['name'];
             // $this->senddepositNotification();
-            $emailslib = new Emails ;  //Sending Email 
-		    $emailslib->sendDeposit( $fullName , $currname  , $_POST['amount'] , $opcurrname , $allAdminEmails);
-            
-            
+            $emailslib = new Emails;  //Sending Email 
+            $emailslib->sendDeposit($fullName, $currname, $_POST['amount'], $opcurrname, $allAdminEmails);
+
+
             $data = [];
             $singleNotification = new Singlenotification();
             $data['notification'] = $singleNotification->getCurrentDataNotificationsByUserId($id);
-            return view('/home/successDeposit',$data);
+            return view('/home/successDeposit', $data);
         } else {
             return redirect()->to('/');
         }
     }
 
-    public function withdrawal(){
+    public function withdrawal()
+    {
         $permission_library = new permissions();
         $response = $permission_library->checksessionuser();
         if ($response == true) {
@@ -691,14 +708,15 @@ class User extends BaseController
             $allWithdrawals = $withdraw->getAllWithdrawalsByUserId($id);
             $data['allWithdrawals'] = $allWithdrawals;
             $data['notification'] = $singleNotification->getCurrentDataNotificationsByUserId($id);
-            
-            return view('/home/withdrawal',$data);
+
+            return view('/home/withdrawal', $data);
         } else {
             return redirect()->to('/');
         }
     }
 
-    public function add_withdrawal(){
+    public function add_withdrawal()
+    {
         $permission_library = new permissions();
         $response = $permission_library->checksessionuser();
         if ($response == true) {
@@ -721,8 +739,8 @@ class User extends BaseController
             $payout = new Payout();
             $notifications = new Notifications();
             $singleNotification = new Singlenotification();
-			$deposit = new Deposit();
-			$withdraw = new Withdraw();
+            $deposit = new Deposit();
+            $withdraw = new Withdraw();
             $userInfo = $users->getrow($id);
             $payoutSum = $payout->getsum($id);
             $profit = $profitLoss->getTotalProfitById($id);
@@ -730,36 +748,37 @@ class User extends BaseController
             $data['profitLoss'] = $profit - $loss;
             $data['firstpayout'] = $payout->getPayoutsasc($id);
             $profitByMonth = $profitLoss->getProfitsMonthlyById($id);
-			$lossByMonth = $profitLoss->getLossMonthlyById($id);
-			
-			$depositAcceptedAll = $deposit->getAcceptedDepositByUserId($id);
-			$depositAcceptedAll = $depositAcceptedAll ? $depositAcceptedAll : 0;
-			$payoutAll = (float)$payoutSum[0]['amount'] ? (float)$payoutSum[0]['amount'] : 0;
-			$completedWithdrawals = $withdraw->getCompletedByUserId($id);
-			$payoutAll += $completedWithdrawals;
-			$pendingWithdraw = $withdraw->getAllPendingByUserId($id);
-			$totalBalance = ((float)$userInfo['initialInvestment'] + (float)$depositAcceptedAll + (float)$data['profitLoss']) - (float)$pendingWithdraw - (float)$payoutAll;
+            $lossByMonth = $profitLoss->getLossMonthlyById($id);
+
+            $depositAcceptedAll = $deposit->getAcceptedDepositByUserId($id);
+            $depositAcceptedAll = $depositAcceptedAll ? $depositAcceptedAll : 0;
+            $payoutAll = (float)$payoutSum[0]['amount'] ? (float)$payoutSum[0]['amount'] : 0;
+            $completedWithdrawals = $withdraw->getCompletedByUserId($id);
+            $payoutAll += $completedWithdrawals;
+            $pendingWithdraw = $withdraw->getAllPendingByUserId($id);
+            $totalBalance = ((float)$userInfo['initialInvestment'] + (float)$depositAcceptedAll + (float)$data['profitLoss']) - (float)$pendingWithdraw - (float)$payoutAll;
             $data['balance'] = $totalBalance;
-            foreach($allCurrencies as $single){
+            foreach ($allCurrencies as $single) {
                 $data['currency_options'][$single['slug']] = $currency_option->getByCurrencyId($single['id']);
             }
             $data['notification'] = $singleNotification->getCurrentDataNotificationsByUserId($id);
-            
-            return view('/home/addWithdrawal',$data);
+
+            return view('/home/addWithdrawal', $data);
         } else {
             return redirect()->to('/');
         }
     }
 
-    public function submit_withdrawal(){
+    public function submit_withdrawal()
+    {
         $permission_library = new permissions();
         $response = $permission_library->checksessionuser();
         if ($response == true) {
             $id = $_SESSION['user_data']['id'];
             // print_r($_POST);
-            $alert = new Alerts() ;
-            $alert_status = new AlertStatus() ;
-            $users = new Users() ;
+            $alert = new Alerts();
+            $alert_status = new AlertStatus();
+            $users = new Users();
             $withdraw = new Withdraw();
             $withdraw->save([
                 'user_id' => $id,
@@ -775,18 +794,18 @@ class User extends BaseController
             ]);
             $fullName = $_SESSION['user_data']['firstName'] . " " . $_SESSION['user_data']['lastName'];
             $alert->save([
-                'title' => 'Withdrawal Request Received from '.ucfirst($_SESSION['user_data']['firstName']). " " .ucfirst($_SESSION['user_data']['lastName']),
-				'description' => 'You have received a new Withdrawal Request from '.ucfirst($_SESSION['user_data']['firstName']). " " .ucfirst($_SESSION['user_data']['lastName']),
-            ]) ;
-            $alert_id = $alert->get_last_alert_id() ;
-            $userId = $users->getAllAdminId() ;
+                'title' => 'Withdrawal Request Received from ' . ucfirst($_SESSION['user_data']['firstName']) . " " . ucfirst($_SESSION['user_data']['lastName']),
+                'description' => 'You have received a new Withdrawal Request from ' . ucfirst($_SESSION['user_data']['firstName']) . " " . ucfirst($_SESSION['user_data']['lastName']),
+            ]);
+            $alert_id = $alert->get_last_alert_id();
+            $userId = $users->getAllAdminId();
             foreach ($userId as $key => $singleId) {
                 $alert_status->save([
-                    'user_id' => $singleId['id'] ,
+                    'user_id' => $singleId['id'],
                     'alerts_id' => $alert_id['id']
                 ]);
-            } 
-            $this->alertnotification('Withdrawal Request Received from '.ucfirst($_SESSION['user_data']['firstName']). " " .ucfirst($_SESSION['user_data']['lastName'])) ;
+            }
+            $this->alertnotification('Withdrawal Request Received from ' . ucfirst($_SESSION['user_data']['firstName']) . " " . ucfirst($_SESSION['user_data']['lastName']));
             // $users = new Users();
             $adminEmails = $users->getAllAdminEmails();
             $allAdminEmails = [];
@@ -795,29 +814,30 @@ class User extends BaseController
             }
             // print_r($allAdminEmails);
             // die();
-            
-            $cur = new Currency() ;// Getting Currency Type
+
+            $cur = new Currency(); // Getting Currency Type
             $currency = $cur->getById($_POST['currency_type']);
-            $currname = $currency['name'] ;
-            
-            $opcur = new CurrencyOption() ; //Getting Currency Option
-            $opcurrency = $opcur->getById($_POST['crypto_type']) ;
-            $opcurrname = $opcurrency['name'] ;
-            
-            $emailslib = new Emails ;  //Sending Email 
-		    $emailslib->sendWithdrawa( $fullName , $currname  , $_POST['amount'] , $opcurrname , $allAdminEmails,$_POST['wallet_address']);
-            
-            
+            $currname = $currency['name'];
+
+            $opcur = new CurrencyOption(); //Getting Currency Option
+            $opcurrency = $opcur->getById($_POST['crypto_type']);
+            $opcurrname = $opcurrency['name'];
+
+            $emailslib = new Emails;  //Sending Email 
+            $emailslib->sendWithdrawa($fullName, $currname, $_POST['amount'], $opcurrname, $allAdminEmails, $_POST['wallet_address']);
+
+
             $data = [];
             $singleNotification = new Singlenotification();
             $data['notification'] = $singleNotification->getCurrentDataNotificationsByUserId($id);
-            return view('/home/successWithdrawal',$data);
+            return view('/home/successWithdrawal', $data);
         } else {
             return redirect()->to('/');
         }
     }
-    
-    public function overview(){
+
+    public function overview()
+    {
         $permission_library = new permissions();
         $response = $permission_library->checksessionuser();
         if ($response == true) {
@@ -828,13 +848,13 @@ class User extends BaseController
             $payout = new Payout();
             // $notifications = new Notifications();
             // $singleNotification = new Singlenotification();
-			// $deposit = new Deposit();
-			$withdraw = new Withdraw();
+            // $deposit = new Deposit();
+            $withdraw = new Withdraw();
             $id = $_SESSION['user_data']['id'];
-            
+
             $payoutSum = $payout->getsum_Overview($id);
             $data['payoutSum'] = $payoutSum; //payout Amount
-            
+
             // log_message('debug', '***************** Chart BY Admin *****************' . var_export($data['payoutSum'], true));
             // $data['userInfo'] = $userInfo;
             //log_message('debug', '***************** Chart BY Admin *****************' . var_export($userInfo, true));
@@ -843,110 +863,112 @@ class User extends BaseController
             $profit = $profitLoss->getTotalProfitById_Overview($id);
             $loss = $profitLoss->getTotalLossById_Overview($id);
             $data['profitLoss'] = $profit - $loss;
-            
-            $data['profitLossDetails'] = $profitLoss->getByUserId_Overview($id);
-			$payoutAll = (float)$payoutSum[0]['amount'] ? (float)$payoutSum[0]['amount'] : 0;
-            
-			$completedWithdrawals = $withdraw->getCompletedByUserId_Overview($id);
-			$payoutAll += $completedWithdrawals;
-			$data['payoutAll'] = $payoutAll; //Total Payout
 
-            $data['initial'] = $users->getrow($id) ;
-            $data['initial'] = $data['initial']['initialInvestment'] ;
-			$data['totalProfitNum'] = 0;
-			$data['totalLossNum'] = 0;
-            for($a=0;$a<sizeof($data['profitLossDetails']);$a++){
-			    $data['profitLossDetails'][$a]['type'] == 'Profit' ? $data['totalProfitNum']++ : $data['totalLossNum']++;
-			}
-            return view('/home/customer-overview' , $data) ;
+            $data['profitLossDetails'] = $profitLoss->getByUserId_Overview($id);
+            $payoutAll = (float)$payoutSum[0]['amount'] ? (float)$payoutSum[0]['amount'] : 0;
+
+            $completedWithdrawals = $withdraw->getCompletedByUserId_Overview($id);
+            $payoutAll += $completedWithdrawals;
+            $data['payoutAll'] = $payoutAll; //Total Payout
+
+            $data['initial'] = $users->getrow($id);
+            $data['initial'] = $data['initial']['initialInvestment'];
+            $data['totalProfitNum'] = 0;
+            $data['totalLossNum'] = 0;
+            for ($a = 0; $a < sizeof($data['profitLossDetails']); $a++) {
+                $data['profitLossDetails'][$a]['type'] == 'Profit' ? $data['totalProfitNum']++ : $data['totalLossNum']++;
+            }
+            return view('/home/customer-overview', $data);
         } else {
             return redirect()->to('/');
         }
     }
-    
 
-    public function get_monthly_return(){
+
+    public function get_monthly_return()
+    {
         $id = $_GET['user_id'];
-        if(empty($id)){
-        session_start();
-        $id = $_SESSION['user_data']['id'];
+        if (empty($id)) {
+            session_start();
+            $id = $_SESSION['user_data']['id'];
         }
         $users = new Users();
         $payout = new Payout();
         $profitLoss = new ProfitLoss();
-		$deposit = new Deposit();
-		$withdraw = new Withdraw();
-		$data = [];
+        $deposit = new Deposit();
+        $withdraw = new Withdraw();
+        $data = [];
         $profitByMonth = $profitLoss->getProfitsMonthlyById($id);
-		$lossByMonth = $profitLoss->getLossMonthlyById($id);
-		$userInfo = $users->getrow($id);
+        $lossByMonth = $profitLoss->getLossMonthlyById($id);
+        $userInfo = $users->getrow($id);
         $profit = $profitLoss->getTotalProfitById($id);
         $loss = $profitLoss->getTotalLossById($id);
-		$pendingWithdraw = $withdraw->getAllPendingByUserId($id);
+        $pendingWithdraw = $withdraw->getAllPendingByUserId($id);
         $payoutSum = $payout->getsum($id);
         $data['profitLoss'] = $profit - $loss;
-		$depositAcceptedAll = $deposit->getAcceptedDepositByUserId($id);
-		$depositAcceptedAll = $depositAcceptedAll ? $depositAcceptedAll : 0;
-		$payoutAll = (float)$payoutSum[0]['amount'] ? (float)$payoutSum[0]['amount'] : 0;
-		$completedWithdrawals = $withdraw->getCompletedByUserId($id);
-		$payoutAll += $completedWithdrawals;
-		$totalBalance = ((float)$userInfo['initialInvestment'] + (float)$depositAcceptedAll + (float)$data['profitLoss']) - (float)$pendingWithdraw - (float)$payoutAll;
-		$data['profitLossMonthly'] = [];
-		$data['profitLossMonthly']['total'] = 0;
-		$j = $k = 0;
-		if(!empty($profitByMonth) && (int)$profitByMonth[$j]['year'] < (int)$_GET['year'] ){
-		    while($k < sizeof($profitByMonth) && (int)$profitByMonth[$j]['year'] && (int)$profitByMonth[$j]['year'] < (int)$_GET['year']){
-			    $j++;
-			}
-		}
-		if(!empty($lossByMonth) && (int)$lossByMonth[$k]['year'] < (int)$_GET['year']){
-			while($k < sizeof($lossByMonth) && (int)$lossByMonth[$k]['year'] && (int)$lossByMonth[$k]['year'] < (int)$_GET['year']){
-			    $k++;
-			}
-		}
-        for($i = 1; $i < 13; $i++){
-		    if((!empty($profitByMonth[$j]) && $i==(int)$profitByMonth[$j]['month']) || (!empty($lossByMonth[$k]) && $i==(int)$lossByMonth[$k]['month'])){
-			    if((!empty($profitByMonth[$j]) && !empty($lossByMonth[$k]) ) && ((int)$profitByMonth[$j]['month'] === (int)$lossByMonth[$k]['month'] )){
-			        $data['profitLossMonthly'][$i] = number_format(((float)$profitByMonth[$j]['amount'] - (float)$lossByMonth[$k]['amount']), 2, '.', '');
-			        $data['profitLossMonthly']['total'] += (($profitByMonth[$j]['amount'] - $lossByMonth[$k]['amount'])); 
-    		        $j++;
-    		        $k++;
-			    }else if(empty($lossByMonth[$k]) || (!empty($profitByMonth[$j]) && (int)$profitByMonth[$j]['month'] < (int)$lossByMonth[$k]['month']) ){
-			        $data['profitLossMonthly'][$i] = number_format((float)(($profitByMonth[$j]['amount'])), 2, '.', '');
-			        $data['profitLossMonthly']['total'] += (float)($profitByMonth[$j]['amount']);
-			        $j++;
-			    }else if(empty($profitByMonth[$j]) || (!empty($lossByMonth[$k]) && (int)$profitByMonth[$j]['month'] > (int)$lossByMonth[$k]['month']) ){
-			        $data['profitLossMonthly'][$i] = number_format((float)((($lossByMonth[$k]['amount']))), 2, '.', '') * -1;
-			        $data['profitLossMonthly']['total'] += (float)($lossByMonth[$k]['amount']) * -1;
-			        $k++;
-			    }
-		    }else{
-		        $data['profitLossMonthly'][$i] = 0;
-		    }
-		}
-		$data['profitLossMonthly']['total'] = $data['profitLossMonthly']['total'] ? number_format((float)($data['profitLossMonthly']['total']), 2, '.', '') : 0;
-			
-		return json_encode($data);
+        $depositAcceptedAll = $deposit->getAcceptedDepositByUserId($id);
+        $depositAcceptedAll = $depositAcceptedAll ? $depositAcceptedAll : 0;
+        $payoutAll = (float)$payoutSum[0]['amount'] ? (float)$payoutSum[0]['amount'] : 0;
+        $completedWithdrawals = $withdraw->getCompletedByUserId($id);
+        $payoutAll += $completedWithdrawals;
+        $totalBalance = ((float)$userInfo['initialInvestment'] + (float)$depositAcceptedAll + (float)$data['profitLoss']) - (float)$pendingWithdraw - (float)$payoutAll;
+        $data['profitLossMonthly'] = [];
+        $data['profitLossMonthly']['total'] = 0;
+        $j = $k = 0;
+        if (!empty($profitByMonth) && (int)$profitByMonth[$j]['year'] < (int)$_GET['year']) {
+            while ($k < sizeof($profitByMonth) && (int)$profitByMonth[$j]['year'] && (int)$profitByMonth[$j]['year'] < (int)$_GET['year']) {
+                $j++;
+            }
+        }
+        if (!empty($lossByMonth) && (int)$lossByMonth[$k]['year'] < (int)$_GET['year']) {
+            while ($k < sizeof($lossByMonth) && (int)$lossByMonth[$k]['year'] && (int)$lossByMonth[$k]['year'] < (int)$_GET['year']) {
+                $k++;
+            }
+        }
+        for ($i = 1; $i < 13; $i++) {
+            if ((!empty($profitByMonth[$j]) && $i == (int)$profitByMonth[$j]['month']) || (!empty($lossByMonth[$k]) && $i == (int)$lossByMonth[$k]['month'])) {
+                if ((!empty($profitByMonth[$j]) && !empty($lossByMonth[$k])) && ((int)$profitByMonth[$j]['month'] === (int)$lossByMonth[$k]['month'])) {
+                    $data['profitLossMonthly'][$i] = number_format(((float)$profitByMonth[$j]['amount'] - (float)$lossByMonth[$k]['amount']), 2, '.', '');
+                    $data['profitLossMonthly']['total'] += (($profitByMonth[$j]['amount'] - $lossByMonth[$k]['amount']));
+                    $j++;
+                    $k++;
+                } else if (empty($lossByMonth[$k]) || (!empty($profitByMonth[$j]) && (int)$profitByMonth[$j]['month'] < (int)$lossByMonth[$k]['month'])) {
+                    $data['profitLossMonthly'][$i] = number_format((float)(($profitByMonth[$j]['amount'])), 2, '.', '');
+                    $data['profitLossMonthly']['total'] += (float)($profitByMonth[$j]['amount']);
+                    $j++;
+                } else if (empty($profitByMonth[$j]) || (!empty($lossByMonth[$k]) && (int)$profitByMonth[$j]['month'] > (int)$lossByMonth[$k]['month'])) {
+                    $data['profitLossMonthly'][$i] = number_format((float)((($lossByMonth[$k]['amount']))), 2, '.', '') * -1;
+                    $data['profitLossMonthly']['total'] += (float)($lossByMonth[$k]['amount']) * -1;
+                    $k++;
+                }
+            } else {
+                $data['profitLossMonthly'][$i] = 0;
+            }
+        }
+        $data['profitLossMonthly']['total'] = $data['profitLossMonthly']['total'] ? number_format((float)($data['profitLossMonthly']['total']), 2, '.', '') : 0;
+
+        return json_encode($data);
     }
     public function report_genrate()
-	{
-        
-	    log_message('debug', '***************** Chart BY Admin *****************' .var_export($_POST,true));
+    {
+
+        log_message('debug', '***************** Chart BY Admin *****************' . var_export($_POST, true));
+        session_start();
         $date = '';
         $cdate = 0;
         $data = [];
-        if(isset($_POST['select_duration'])){
-            if($_POST['select_duration'] == 'TM'){
+        if (isset($_POST['select_duration'])) {
+            if ($_POST['select_duration'] == 'TM') {
                 $date = date('Y-m');
                 $data['start_date'] = date('F-01-Y');
                 $data['end_date'] = date('F-t-Y');
-            }elseif($_POST['select_duration'] == 'CY'){
+            } elseif ($_POST['select_duration'] == 'CY') {
                 $date = date('Y');
                 $currentYear = date("Y");
                 $data['start_date'] = date("Y-m-d", strtotime("January 1 $currentYear"));
                 $data['end_date'] = date("Y-m-d", strtotime("December 31 $currentYear"));
-            }elseif($_POST['select_duration'] == 'LM'){
-                $date = date('Y-m',strtotime("-1 month"));
+            } elseif ($_POST['select_duration'] == 'LM') {
+                $date = date('Y-m', strtotime("-1 month"));
                 $currentYear = date("Y");
                 $currentMonth = date("m");
                 $previousMonth = date("m", strtotime("-1 month"));
@@ -957,75 +979,74 @@ class User extends BaseController
                 }
                 $data['start_date'] = date("Y-m-d", strtotime("first day of $previousYear-$previousMonth"));
                 $data['end_date'] = date("Y-m-d", strtotime("last day of $previousYear-$previousMonth"));
-            }elseif($_POST['select_duration'] == 'L9D'){
-                $date = date('Y-m-d 00:00:00',strtotime("-3 month"));
+            } elseif ($_POST['select_duration'] == 'L9D') {
+                $date = date('Y-m-d 00:00:00', strtotime("-3 month"));
                 $cdate = date('Y-m-d 23:00:00');
-                $data['start_date'] = date('F-01-Y',strtotime("-3 month"));
+                $data['start_date'] = date('F-01-Y', strtotime("-3 month"));
                 $data['end_date'] = date('F-d-Y');
                 // $cdate = date('Y-m-d H:i:s', strtotime($cdate . ' +1 day'));
-    
-            }elseif($_POST['select_duration'] == 'Custom_date'){
-                $date =  $_POST['start_date']." ".'23:00:00';
+
+            } elseif ($_POST['select_duration'] == 'Custom_date') {
+                $date =  $_POST['start_date'] . " " . '23:00:00';
                 // $date = date('Y-m-d H:i:s', strtotime($date . ' +1 day'));
-                $cdate = $_POST['end_date']." ".'23:00:00';
+                $cdate = $_POST['end_date'] . " " . '23:00:00';
                 // $cdate = date('Y-m-d H:i:s', strtotime($cdate . ' +1 day'));
                 $sdatee = strtotime($_POST['start_date']);
                 $edatee = strtotime($_POST['end_date']);
-                $data['start_date'] = date("j M Y" , $sdatee);
-                $data['end_date'] = date("j M Y" , $edatee);
-    
+                $data['start_date'] = date("j M Y", $sdatee);
+                $data['end_date'] = date("j M Y", $edatee);
             }
-            }else{
-                return view('/home/report_view', $data);
-            }
-		$permission_library = new permissions();
+        } else {
+            return view('/home/report_view', $data);
+        }
+        $permission_library = new permissions();
         $response = $permission_library->checksessionuser();
-		if ($response == true) {
+        if ($response == true) {
             $id = $_SESSION['user_data']['id'];
             $profitLoss = new ProfitLoss();
             $users = new Users();
-			$deposit = new Deposit();
+            $deposit = new Deposit();
             $payout = new Payout();
-			$withdraw = new Withdraw();
+            $withdraw = new Withdraw();
             $profitLos = array();
             $withdra = array();
             $deposi = array();
             $userInfo = $users->getrow($id);
-            if($cdate == 0){
-            $profitLos = $profitLoss->getByUserId_current_month($id,$date);
-            $withdra = $withdraw->getByUserId_current_month($id,$date);
-            $deposi = $deposit->getByUserId_current_month($id,$date);
-            $payou = $payout->getByUserId_current_month($id,$date);
-            }else{
-            $profitLos = $profitLoss->getByUserId_months($id,$cdate,$date);
-            $withdra = $withdraw->getByUserId_months($id,$cdate,$date);
-            $deposi = $deposit->getByUserId_months($id,$cdate,$date);
-            $payou = $payout->getByUserId_months($id,$cdate,$date);
-            // log_message('debug', '***************** Chart BY Admin *****************'.var_export($payou,true));
+            if ($cdate == 0) {
+                $profitLos = $profitLoss->getByUserId_current_month($id, $date);
+                $withdra = $withdraw->getByUserId_current_month($id, $date);
+                $deposi = $deposit->getByUserId_current_month($id, $date);
+                $payou = $payout->getByUserId_current_month($id, $date);
+            } else {
+                $profitLos = $profitLoss->getByUserId_months($id, $cdate, $date);
+                $withdra = $withdraw->getByUserId_months($id, $cdate, $date);
+                $deposi = $deposit->getByUserId_months($id, $cdate, $date);
+                $payou = $payout->getByUserId_months($id, $cdate, $date);
+                // log_message('debug', '***************** Chart BY Admin *****************'.var_export($payou,true));
             }
             $a = array();
             $report = new Report();
-            for($i = 0 ;$i<sizeof($profitLos);$i++){
+            for ($i = 0; $i < sizeof($profitLos); $i++) {
                 $data['profitLossDetails'] = $profitLoss->getByUserId($id);
-                $payoutSum = $payout->getsum_month($id,$profitLos[$i]['publishDate']);
+                $payoutSum = $payout->getsum_month($id, $profitLos[$i]['publishDate']);
                 $data['payoutSum'] = $payoutSum;
                 $data['lastpayout'] = $payout->getPayoutsdesc($id);
                 $returnType = $users->getReturnTypeId($id);
                 $data['returnType'] = $returnType;
-                    $profit = $profitLoss->getTotalProfitById_by_date($id,$profitLos[$i]['publishDate']);
-                    $loss = $profitLoss->getTotalLossById_by_date($id,$profitLos[$i]['publishDate']);
-                    $data['profitLoss'] = $profit - $loss;
-                    if($cdate == 0){
-                        $depositAcceptedAll = $deposit->getAcceptedDepositByUserId_month($id,$date,$profitLos[$i]['publishDate']);
-                        }else{
-                        $depositAcceptedAll = $deposit->getAcceptedDepositByUserId_range($id,$date,$cdate,$profitLos[$i]['publishDate']);
-                        }
-                        $depositAcceptedAll = $depositAcceptedAll ? $depositAcceptedAll : 0;
-                        $payoutAll = (float)$payoutSum[0]['amount'] ? (float)$payoutSum[0]['amount'] : 0;
-                        $completedWithdrawals = $withdraw->getCompletedByUserId_month($id,$date,$profitLos[$i]['publishDate']);
-                        $payoutAll += $completedWithdrawals;
+                $profit = $profitLoss->getTotalProfitById_by_date($id, $profitLos[$i]['publishDate']);
+                $loss = $profitLoss->getTotalLossById_by_date($id, $profitLos[$i]['publishDate']);
+                $data['profitLoss'] = $profit - $loss;
+                if ($cdate == 0) {
+                    $depositAcceptedAll = $deposit->getAcceptedDepositByUserId_month($id, $date, $profitLos[$i]['publishDate']);
+                } else {
+                    $depositAcceptedAll = $deposit->getAcceptedDepositByUserId_range($id, $date, $cdate, $profitLos[$i]['publishDate']);
+                }
+                $depositAcceptedAll = $depositAcceptedAll ? $depositAcceptedAll : 0;
+                $payoutAll = (float)$payoutSum[0]['amount'] ? (float)$payoutSum[0]['amount'] : 0;
+                $completedWithdrawals = $withdraw->getCompletedByUserId_month($id, $date, $profitLos[$i]['publishDate']);
+                $payoutAll += $completedWithdrawals;
                 $data['payoutAll'] = $payoutAll;
-                $pendingWithdraw = $withdraw->getAllPendingByUserId_month($id,$date);
+                $pendingWithdraw = $withdraw->getAllPendingByUserId_month($id, $date);
                 $data['pendingWithdraw'] = $pendingWithdraw;
                 $totalBalance = ((float)$userInfo['initialInvestment'] + (float)$depositAcceptedAll + (float)$data['profitLoss']) - (float)$pendingWithdraw - (float)$payoutAll;
                 //  log_message('debug', '***************** Chart BY Admin43 *****************' . var_export($totalBalance,true) ." ".var_export($userInfo['initialInvestment'],true) ." ".var_export($depositAcceptedAll,true) ." Tp".var_export($data['profitLoss'],true) ." ".var_export($pendingWithdraw,true)." ".var_export($payoutAll,true));
@@ -1037,32 +1058,32 @@ class User extends BaseController
                     'date' => $profitLos[$i]['publishDate']
                 ]);
             }
-            for($i = 0 ;$i<sizeof($withdra);$i++){    
+            for ($i = 0; $i < sizeof($withdra); $i++) {
                 $data['profitLossDetails'] = $profitLoss->getByUserId($id);
-                $payoutSum = $payout->getsum_month($id,$withdra[$i]['paid_date']);
+                $payoutSum = $payout->getsum_month($id, $withdra[$i]['paid_date']);
                 $data['payoutSum'] = $payoutSum;
                 $data['lastpayout'] = $payout->getPayoutsdesc($id);
                 $returnType = $users->getReturnTypeId($id);
                 $data['returnType'] = $returnType;
                 $data['userInfo'] = $userInfo;
-                $profit = $profitLoss->getTotalProfitById_by_daterange($id,$withdra[$i]['paid_date'],$cdate);
-                $loss = $profitLoss->getTotalLossById_by_daterange($id,$withdra[$i]['paid_date'],$cdate);
+                $profit = $profitLoss->getTotalProfitById_by_daterange($id, $withdra[$i]['paid_date'], $cdate);
+                $loss = $profitLoss->getTotalLossById_by_daterange($id, $withdra[$i]['paid_date'], $cdate);
                 $data['profitLoss'] = $profit - $loss;
-                if($cdate == 0){
-                $depositAcceptedAll = $deposit->getAcceptedDepositByUserId_month($id,$date,$withdra[$i]['paid_date']);
-                }else{
-                $depositAcceptedAll = $deposit->getAcceptedDepositByUserId_range($id,$date,$cdate,$withdra[$i]['paid_date']);
+                if ($cdate == 0) {
+                    $depositAcceptedAll = $deposit->getAcceptedDepositByUserId_month($id, $date, $withdra[$i]['paid_date']);
+                } else {
+                    $depositAcceptedAll = $deposit->getAcceptedDepositByUserId_range($id, $date, $cdate, $withdra[$i]['paid_date']);
                 }
                 $depositAcceptedAll = $depositAcceptedAll ? $depositAcceptedAll : 0;
                 $payoutAll = (float)$payoutSum[0]['amount'] ? (float)$payoutSum[0]['amount'] : 0;
-                $completedWithdrawals = $withdraw->getCompletedByUserId_month($id,$date,$withdra[$i]['paid_date']);
+                $completedWithdrawals = $withdraw->getCompletedByUserId_month($id, $date, $withdra[$i]['paid_date']);
                 $payoutAll += $completedWithdrawals;
                 $data['payoutAll'] = $payoutAll;
-                $pendingWithdraw = $withdraw->getAllPendingByUserId_month($id,$date);
+                $pendingWithdraw = $withdraw->getAllPendingByUserId_month($id, $date);
                 $data['pendingWithdraw'] = $pendingWithdraw;
                 $totalBalance = ((float)$userInfo['initialInvestment'] + (float)$depositAcceptedAll + (float)$data['profitLoss']) - (float)$pendingWithdraw - (float)$payoutAll;
                 // log_message('debug', '***************** Chart BY Admin123 *****************' . var_export($totalBalance,true) ." ".var_export($userInfo['initialInvestment'],true) ." ".var_export($depositAcceptedAll,true) ." ".var_export($data['profitLoss'],true) ." ".var_export($pendingWithdraw,true)." ".var_export($payoutAll,true));
-            
+
                 $report->save([
                     'userid' => $withdra[$i]['user_id'],
                     'widthra' => $withdra[$i]['amount'],
@@ -1070,27 +1091,27 @@ class User extends BaseController
                     'date' => $withdra[$i]['paid_date']
                 ]);
             }
-            for($i = 0 ;$i<sizeof($deposi);$i++){
+            for ($i = 0; $i < sizeof($deposi); $i++) {
                 $data['profitLossDetails'] = $profitLoss->getByUserId($id);
-                $payoutSum = $payout->getsum_month($id,$deposi[$i]['accepted_date']);
+                $payoutSum = $payout->getsum_month($id, $deposi[$i]['accepted_date']);
                 $data['payoutSum'] = $payoutSum;
                 $data['lastpayout'] = $payout->getPayoutsdesc($id);
                 $returnType = $users->getReturnTypeId($id);
                 $data['returnType'] = $returnType;
-                    $profit = $profitLoss->getTotalProfitById_by_date($id,$deposi[$i]['accepted_date']);
-                    $loss = $profitLoss->getTotalLossById_by_date($id,$deposi[$i]['accepted_date']);
-                    $data['profitLoss'] = $profit - $loss;
-                    if($cdate == 0){
-                        $depositAcceptedAll = $deposit->getAcceptedDepositByUserId_month($id,$date,$deposi[$i]['accepted_date']);
-                        }else{
-                        $depositAcceptedAll = $deposit->getAcceptedDepositByUserId_range($id,$date,$cdate,$deposi[$i]['accepted_date']);
-                        }
-                        $depositAcceptedAll = $depositAcceptedAll ? $depositAcceptedAll : 0;
-                        $payoutAll = (float)$payoutSum[0]['amount'] ? (float)$payoutSum[0]['amount'] : 0;
-                        $completedWithdrawals = $withdraw->getCompletedByUserId_month($id,$date,$deposi[$i]['accepted_date']);
-                        $payoutAll += $completedWithdrawals;
+                $profit = $profitLoss->getTotalProfitById_by_date($id, $deposi[$i]['accepted_date']);
+                $loss = $profitLoss->getTotalLossById_by_date($id, $deposi[$i]['accepted_date']);
+                $data['profitLoss'] = $profit - $loss;
+                if ($cdate == 0) {
+                    $depositAcceptedAll = $deposit->getAcceptedDepositByUserId_month($id, $date, $deposi[$i]['accepted_date']);
+                } else {
+                    $depositAcceptedAll = $deposit->getAcceptedDepositByUserId_range($id, $date, $cdate, $deposi[$i]['accepted_date']);
+                }
+                $depositAcceptedAll = $depositAcceptedAll ? $depositAcceptedAll : 0;
+                $payoutAll = (float)$payoutSum[0]['amount'] ? (float)$payoutSum[0]['amount'] : 0;
+                $completedWithdrawals = $withdraw->getCompletedByUserId_month($id, $date, $deposi[$i]['accepted_date']);
+                $payoutAll += $completedWithdrawals;
                 $data['payoutAll'] = $payoutAll;
-                $pendingWithdraw = $withdraw->getAllPendingByUserId_month($id,$date);
+                $pendingWithdraw = $withdraw->getAllPendingByUserId_month($id, $date);
                 $data['pendingWithdraw'] = $pendingWithdraw;
                 $totalBalance = ((float)$userInfo['initialInvestment'] + (float)$depositAcceptedAll + (float)$data['profitLoss']) - (float)$pendingWithdraw - (float)$payoutAll;
                 //  log_message('debug', '***************** Chart BY Admin44 *****************' . var_export($totalBalance,true) ." ".var_export($userInfo['initialInvestment'],true) ." ".var_export($depositAcceptedAll,true) ." Tp".var_export($data['profitLoss'],true) ." ".var_export($pendingWithdraw,true)." ".var_export($payoutAll,true));
@@ -1101,30 +1122,30 @@ class User extends BaseController
                     'date' => $deposi[$i]['accepted_date']
                 ]);
             }
-            for($i = 0 ;$i<sizeof($payou);$i++){
+            for ($i = 0; $i < sizeof($payou); $i++) {
                 $data['profitLossDetails'] = $profitLoss->getByUserId($id);
-                $payoutSum = $payout->getsum_month($id,$payou[$i]['payoutdate']);
+                $payoutSum = $payout->getsum_month($id, $payou[$i]['payoutdate']);
                 $data['payoutSum'] = $payoutSum;
                 $data['lastpayout'] = $payout->getPayoutsdesc($id);
                 $returnType = $users->getReturnTypeId($id);
                 $data['returnType'] = $returnType;
-                    $profit = $profitLoss->getTotalProfitById_by_date_for_payout($id,$payou[$i]['payoutdate']);
-                    $loss = $profitLoss->getTotalLossById_for_payout($id,$payou[$i]['payoutdate']);
-                    $data['profitLoss'] = $profit - $loss;
-                    if($cdate == 0){
-                        $depositAcceptedAll = $deposit->getAcceptedDepositByUserId_month($id,$date,$payou[$i]['payoutdate']);
-                        }else{
-                        $depositAcceptedAll = $deposit->getAcceptedDepositByUserId_range($id,$date,$cdate,$payou[$i]['payoutdate']);
-                        }
-                        $depositAcceptedAll = $depositAcceptedAll ? $depositAcceptedAll : 0;
-                        $payoutAll = (float)$payoutSum[0]['amount'] ? (float)$payoutSum[0]['amount'] : 0;
-                        $completedWithdrawals = $withdraw->getCompletedByUserId_month($id,$date,$payou[$i]['payoutdate']);
-                        $payoutAll += $completedWithdrawals;
+                $profit = $profitLoss->getTotalProfitById_by_date_for_payout($id, $payou[$i]['payoutdate']);
+                $loss = $profitLoss->getTotalLossById_for_payout($id, $payou[$i]['payoutdate']);
+                $data['profitLoss'] = $profit - $loss;
+                if ($cdate == 0) {
+                    $depositAcceptedAll = $deposit->getAcceptedDepositByUserId_month($id, $date, $payou[$i]['payoutdate']);
+                } else {
+                    $depositAcceptedAll = $deposit->getAcceptedDepositByUserId_range($id, $date, $cdate, $payou[$i]['payoutdate']);
+                }
+                $depositAcceptedAll = $depositAcceptedAll ? $depositAcceptedAll : 0;
+                $payoutAll = (float)$payoutSum[0]['amount'] ? (float)$payoutSum[0]['amount'] : 0;
+                $completedWithdrawals = $withdraw->getCompletedByUserId_month($id, $date, $payou[$i]['payoutdate']);
+                $payoutAll += $completedWithdrawals;
                 $data['payoutAll'] = $payoutAll;
-                $pendingWithdraw = $withdraw->getAllPendingByUserId_month($id,$date);
+                $pendingWithdraw = $withdraw->getAllPendingByUserId_month($id, $date);
                 $data['pendingWithdraw'] = $pendingWithdraw;
                 $totalBalance = ((float)$userInfo['initialInvestment'] + (float)$depositAcceptedAll + (float)$data['profitLoss']) - (float)$pendingWithdraw - (float)$payoutAll;
-                log_message('debug', '***************** Chart BY Admin44 *****************'.$payou[$i]['amount'] . var_export($totalBalance,true) ." ".var_export($userInfo['initialInvestment'],true) ." ".var_export($depositAcceptedAll,true) ." Tp".var_export($data['profitLoss'],true) ." ".var_export($pendingWithdraw,true)." ".var_export($payoutAll,true));
+                log_message('debug', '***************** Chart BY Admin44 *****************' . $payou[$i]['amount'] . var_export($totalBalance, true) . " " . var_export($userInfo['initialInvestment'], true) . " " . var_export($depositAcceptedAll, true) . " Tp" . var_export($data['profitLoss'], true) . " " . var_export($pendingWithdraw, true) . " " . var_export($payoutAll, true));
                 $report->save([
                     'userid' => $payou[$i]['user_id'],
                     'payout' => $payou[$i]['amount'],
@@ -1134,65 +1155,67 @@ class User extends BaseController
             }
             $b_amount = $report->getData();
             $data['all_Data'] = $report->getData();
-			// log_message('debug', '**************** report_genrate321 ****************' . var_export($report->getData(),true));
+            // log_message('debug', '**************** report_genrate321 ****************' . var_export($report->getData(),true));
             $data['depositSum'] = (float)$report->get_sum_of_diposit($id);
             $data['PSum'] = (float)$report->get_sum_of_profit($id);
             $data['LSum'] = (float)$report->get_sum_of_Loss($id);
             $data['withdrawSum'] = (float)$report->get_sum_of_withdraw($id);
             $data['payoutSum'] = (float)$report->get_sum_of_payout($id);
             $data['startAmount'] = 0;
-            if($b_amount){
-            $data['startAmount'] = (float)$b_amount[0]['balance'];
+            if ($b_amount) {
+                $data['startAmount'] = (float)$b_amount[0]['balance'];
             }
-            if(isset($b_amount[0]['payout'])){
-                $data['startAmount'] = (float)$b_amount[0]['balance']+(float)$b_amount[0]['payout']; 
-            }elseif(isset($b_amount[0]['widthra'])){
-                $data['startAmount'] = $b_amount[0]['balance']+$b_amount[0]['widthra']; 
-            }elseif(isset($b_amount[0]['deposit'])){
-                $data['startAmount'] = $b_amount[0]['balance']-$b_amount[0]['deposit']; 
-            }elseif(isset($b_amount[0]['trasition'])){
-                if (isset($b_amount[0]['type']) && $b_amount[0]['type'] == 'Profit'){
-                    $data['startAmount'] = $b_amount[0]['balance']-$b_amount[0]['trasition']; 
-                }elseif(isset($b_amount[0]['type']) && $b_amount[0]['type'] == 'Loss'){
-                    $data['startAmount'] = $b_amount[0]['balance']+$b_amount[0]['trasition']; 
-                } 
-             }
+            if (isset($b_amount[0]['payout'])) {
+                $data['startAmount'] = (float)$b_amount[0]['balance'] + (float)$b_amount[0]['payout'];
+            } elseif (isset($b_amount[0]['widthra'])) {
+                $data['startAmount'] = $b_amount[0]['balance'] + $b_amount[0]['widthra'];
+            } elseif (isset($b_amount[0]['deposit'])) {
+                $data['startAmount'] = $b_amount[0]['balance'] - $b_amount[0]['deposit'];
+            } elseif (isset($b_amount[0]['trasition'])) {
+                if (isset($b_amount[0]['type']) && $b_amount[0]['type'] == 'Profit') {
+                    $data['startAmount'] = $b_amount[0]['balance'] - $b_amount[0]['trasition'];
+                } elseif (isset($b_amount[0]['type']) && $b_amount[0]['type'] == 'Loss') {
+                    $data['startAmount'] = $b_amount[0]['balance'] + $b_amount[0]['trasition'];
+                }
+            }
             // $data['endAmount'] =  (float)($data['startAmount'] + $data['depositSum'] + ($data['PSum']-$data['LSum'])) - ($data['withdrawSum'] + $data['payoutSum']);
             $data['endAmount'] = 0;
-            if(sizeof($b_amount) > 0){
-            $data['endAmount'] = (float)$b_amount[sizeof($b_amount) - 1]['balance'];
+            if (sizeof($b_amount) > 0) {
+                $data['endAmount'] = (float)$b_amount[sizeof($b_amount) - 1]['balance'];
             }
             $report->deleteData($id);
-			$all_user = new Users();
-			$all_taransaction = new ProfitLoss();
-			$data['alluser'] = $all_user->getCustomers();
+            $all_user = new Users();
+            $all_taransaction = new ProfitLoss();
+            $data['alluser'] = $all_user->getCustomers();
             $data['userInfo'] = $userInfo;
-			$data['allprofitloass'] = $all_taransaction->getByUserId($id);
-			return view('/home/report_view', $data);
-		} else {
-			return redirect()->to('/');
-		}
-	}
-    public function tax_form(){
+            $data['allprofitloass'] = $all_taransaction->getByUserId($id);
+            return view('/home/report_view', $data);
+        } else {
+            return redirect()->to('/');
+        }
+    }
+    public function tax_form()
+    {
         $permission_library = new permissions();
         $response = $permission_library->checksessionuser();
         if ($response == true) {
-            if($_SESSION['user_data']['tax_form_flag'] == "Yes"){
-            return redirect()->to('/user/dashboard');
+            if ($_SESSION['user_data']['tax_form_flag'] == "Yes") {
+                return redirect()->to('/user/dashboard');
             }
             $data = [];
             $id = $_SESSION['user_data']['id'];
             $singleNotification = new Singlenotification();
             $data['notification'] = $singleNotification->getCurrentDataNotificationsByUserId($id);
             $data['callChartAdmin'] = false;
-            
-            return view('/home/tax_from',$data);
+
+            return view('/home/tax_from', $data);
         } else {
             return redirect()->to('/');
         }
     }
-    public function submit_tax_from(){
-        log_message('debug', '***************** Chart BY Admin *****************'.var_export($_POST ,true));
+    public function submit_tax_from()
+    {
+        log_message('debug', '***************** Chart BY Admin *****************' . var_export($_POST, true));
         $permission_library = new permissions();
         $response = $permission_library->checksessionuser();
         if ($response == true) {
@@ -1228,7 +1251,7 @@ class User extends BaseController
                 '2nd_tin_not' => isset($_POST['2nd_tin_not']) ? $_POST['2nd_tin_not'] : "No",
             ]);
             $users = new Users();
-            $users->update($id,[
+            $users->update($id, [
                 'tax_form_flag' => "Yes",
             ]);
             $_SESSION['user_data']['tax_form_flag'] = "Yes";

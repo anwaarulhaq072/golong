@@ -1,98 +1,175 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
 
 <head>
-    <meta charset="utf-8" />
-    <title>Chat - <?php echo APP_NAME ?></title>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta content="Nvest Clients - Where you can invest" name="description" />
-    <meta content="Coderthemes" name="author" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-
-    <?php echo view("/home/header-links"); ?>
+  <meta charset="utf-8" data-bs-theme="dark">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Chat</title>
+  <?php echo view("/home/new-header-links"); ?>
 </head>
 
-<body class="loading" data-layout='{"mode": "light", "width": "fluid", "menuPosition": "fixed", "sidebar": { "color": "light", "size": "default", "showuser": false}, "topbar": {"color": "light"}}'>
-    <!-- Begin page -->
-    <div id="wrapper">
-        <?php echo view("/home/left-sidebar"); ?>
-        <?php echo view("/home/top-bar", $notification) ?>
+<body>
+  <div class="app_wrapper">
+    <?php echo view("/home/left-sidebar-new"); ?>
+    <main class="main">
+      <div class="card chat-card">
+        <?php
+        $lastDate = ''; // Variable to store the last message date
+        foreach ($allChat as $singleMessage) :
+          // Extract the date part from the current message's createdAt field
+          $currentDate = date('l, d M Y', strtotime($singleMessage['createdAt']));
 
-        <!-- ============================================================== -->
-        <!-- Start Page Content here -->
-        <!-- ============================================================== -->
-        <input type="hidden" id="base_url" value="<?php echo base_url(); ?>">
-
-        <div class="content-page" style=" background-color: #F5F5FC !important;">
-            <div class="content" style="margin-top: 50px;">
-                <div class="row">
-                    <div class="col-12">
-                        <div class="card" style="margin-bottom: 0px;">
-                            <div class="card-body" style="padding: 15px">
-                                <h5>Conversation with Headoffice</h5>
-                                <div class="col-lg-12" style="text-align: end;">
-                                    <div class="message_box">
-                                        <?php foreach ($allChat as $singleMessage) : ?>
-                                            <?php if (!isset($date) || $date !== date('d M Y', strtotime($singleMessage['createdAt']))) : ?>
-                                                <div class="row text-center">
-                                                    <span class="line">
-                                                        <h4><span><?= date('l, d M Y', strtotime($singleMessage['createdAt'])); ?></span></h4>
-                                                    </span>
-                                                </div>
-                                            <?php $date = date('d M Y', strtotime($singleMessage['createdAt']));
-                                            endif; ?>
-                                            <?php if ($singleMessage['msgFrom'] == 'Admin') :
-                                            ?>
-                                                <div class="mb-2">
-                                                    <div style="width:100%; float:left;">
-                                                        <div style="float: left; margin-left:10px;">
-                                                            <img src="<?php echo base_url(); ?>/assets/images/users/user-1.jpg" alt="Avatar" style="width: 40px; border-radius:40px;">
-                                                        </div>
-                                                        <span class="time-left" style="display: block; padding-left:50px; text-align:left; font-size: 12px;"><b>Admin </b> <?php echo date('g:i A', strtotime($singleMessage['createdAt'])); ?></span>
-                                                        <div style="margin-left: 10px; float:left; max-width:70%;">
-                                                            <p style="padding:5px 10px; text-align: start; color:#333333e0; margin-bottom:5px; border-radius:20px; font-size: 14px;">
-                                                                <?php echo $singleMessage['message']; ?></p>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            <?php elseif ($singleMessage['msgFrom'] != 'Admin') :
-                                            ?>
-                                                <div class="mb-2">
-                                                    <div style="width:100%; float:right;">
-                                                        <div style="float: right; margin-left:10px;">
-                                                            <img src="<?php echo base_url(); ?>/assets/images/users/user-1.jpg" alt="Avatar" style="width: 40px; border-radius:40px;">
-                                                        </div>
-                                                        <span class="time-right" style="display: block; padding-right:50px; font-size: 12px;"><?php echo date('g:i A', strtotime($singleMessage['createdAt'])); ?></span>
-                                                        <div style="float:right; max-width:70%;">
-                                                            <p style="padding:5px 10px; text-align: start; color:#333333e0; margin-bottom:5px; border-radius:20px; font-size: 14px;"><?php echo $singleMessage['message']; ?></p>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            <?php endif; ?>
-                                        <?php endforeach; ?>
-                                    </div>
-                                    <div class="mt-2" style="display: inline-block; width: 100%; margin:auto; text-align:start;">
-                                        <form action="<?php echo base_url(); ?>/user/submitMessage" method="POST">
-                                            <input type="hidden" name="userid" value="<?php echo $id; ?>" />
-                                            <div class="d-flex flex-row">
-                                                <textarea class="form-control" name="sendingMesage" placeholder="Message" rows="1" style="margin:auto; border-radius:20px; background-color: #F2F2F2; color:black;" required></textarea>
-                                                <button class="save btn btn-primary waves-effect waves-light" type="submit" style="border-radius:30px; padding: 6px 10px; margin-left:8px; background-color:#008DFF;">
-                                                    <i class="fa fa-paper-plane" style="color:white; font-size:14px;"></i>
-                                                </button>                                                
-                                            </div>
-                                        </form>
-
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+          // Check if the current date is different from the last date
+          if ($currentDate != $lastDate) :
+            $lastDate = $currentDate; // Update the lastDate variable
+        ?>
+            <div class="chat-date">
+              <span class="date"><?= $currentDate; ?></span>
             </div>
-        </div>
-    </div>
+          <?php
+          endif;
+          ?>
 
-    <?php echo view("/home/footer-scripts"); ?>
+          <div class="chat">
+            <?php if ($singleMessage['msgFrom'] == 'Admin') : ?>
+              <div class="chatbox">
+                <img src="<?php echo base_url(); ?>/assets/images/users/user-1.jpg" alt="" class="chatbox__img">
+                <div class="chatbox__content">
+                  <div class="flex-i nameRow">
+                    <span class="chat_user_name">Admin</span>
+                    <span class="chat_user_time"><?php echo date('g:i A', strtotime($singleMessage['createdAt'])); ?></span>
+                  </div>
+                  <p class="chat__mesg">
+                    <?php echo $singleMessage['message']; ?>
+                  </p>
+                </div>
+              </div>
+            <?php elseif ($singleMessage['msgFrom'] != 'Admin') : ?>
+              <div class="chatbox chat-sender">
+                <div class="chatbox__content">
+                  <div class="flex-i nameRow">
+                    <span class="chat_user_time"><?php echo date('g:i A', strtotime($singleMessage['createdAt'])); ?></span>
+                    <span class="chat_user_name"></span>
+                  </div>
+                  <p class="chat__mesg">
+                    <?php echo $singleMessage['message']; ?>
+                  </p>
+                </div>
+                <img src="<?php echo ($_SESSION['user_data']['profile_img'] && $_SESSION['user_data']['profile_img'] !== '') ? base_url() . $_SESSION['user_data']['profile_img'] : base_url() . '/assets/images/users/user-1.jpg'; ?>" alt="" class="chatbox__img">
+              </div>
+            <?php endif; ?>
+          </div>
+
+        <?php endforeach; ?>
+
+        <!-- <div class="chat">
+          <div class="chat-date"><span class="date">16 Sep 2022</span></div>
+          <div class="chatbox chat-sender">
+            <div class="chatbox__content">
+              <div class="flex-i nameRow">
+                <span class="chat_user_time">03: 06 pm</span>
+                <span class="chat_user_name">Admin</span>
+              </div>
+              <p class="chat__mesg">
+                Looking for swings next trading day on the Dow Jones, If data releases as expected will be a massive
+                play!
+              </p>
+            </div>
+            <img src="assets/images/profile.png" alt="" class="chatbox__img">
+          </div>
+          <div class="chatbox">
+            <img src="assets/images/profile.png" alt="" class="chatbox__img">
+            <div class="chatbox__content">
+              <div class="flex-i nameRow">
+                <span class="chat_user_name">Admin</span>
+                <span class="chat_user_time">03: 06 pm</span>
+              </div>
+              <p class="chat__mesg">
+                Looking for swings next trading day on the Dow Jones, If data releases as expected will be a massive
+                play!
+              </p>
+            </div>
+          </div>
+          <div class="chatbox">
+            <img src="assets/images/profile.png" alt="" class="chatbox__img">
+            <div class="chatbox__content">
+              <div class="flex-i nameRow">
+                <span class="chat_user_name">Admin</span>
+                <span class="chat_user_time">03: 06 pm</span>
+              </div>
+              <p class="chat__mesg">
+                Looking for swings next trading day on the Dow Jones, If data releases as expected will be a massive
+                play!
+              </p>
+            </div>
+          </div>
+          <div class="chatbox chat-sender">
+            <div class="chatbox__content">
+              <div class="flex-i nameRow">
+                <span class="chat_user_time">03: 06 pm</span>
+                <span class="chat_user_name">Admin</span>
+              </div>
+              <p class="chat__mesg">
+                Looking for swings next trading day on the Dow Jones, If data releases as expected will be a massive
+                play!
+              </p>
+            </div>
+            <img src="assets/images/profile.png" alt="" class="chatbox__img">
+          </div>
+        </div>
+        <div class="chat">
+          <div class="chat-date"><span class="date">16 Sep 2022</span></div>
+          <div class="chatbox">
+            <img src="assets/images/profile.png" alt="" class="chatbox__img">
+            <div class="chatbox__content">
+              <div class="flex-i nameRow">
+                <span class="chat_user_name">Admin</span>
+                <span class="chat_user_time">03: 06 pm</span>
+              </div>
+              <p class="chat__mesg">
+                Looking for swings next trading day on the Dow Jones, If data releases as expected will be a massive
+                play!
+              </p>
+            </div>
+          </div>
+          <div class="chatbox chat-sender">
+            <div class="chatbox__content">
+              <div class="flex-i nameRow">
+                <span class="chat_user_time">03: 06 pm</span>
+                <span class="chat_user_name">Admin</span>
+              </div>
+              <p class="chat__mesg">
+                Looking for swings next trading day on the Dow Jones, If data releases as expected will be a massive
+                play!
+              </p>
+            </div>
+            <img src="assets/images/profile.png" alt="" class="chatbox__img">
+          </div>
+          <div class="chatbox">
+            <img src="assets/images/profile.png" alt="" class="chatbox__img">
+            <div class="chatbox__content">
+              <div class="flex-i nameRow">
+                <span class="chat_user_name">Admin</span>
+                <span class="chat_user_time">03: 06 pm</span>
+              </div>
+              <p class="chat__mesg">
+                Looking for swings next trading day on the Dow Jones, If data releases as expected will be a massive
+                play!
+              </p>
+            </div>
+          </div>
+        </div> -->
+        <form action="<?php echo base_url(); ?>/user/submitMessage" method="POST" class="flex-i msgform">
+          <input type="hidden" name="userid" value="<?php echo $id; ?>" />
+          <input type="text" class="mes__input" name="sendingMesage" placeholder="Message" required>
+          <button class="msg__btn flex-a">
+            <i class="fa-regular fa-paper-plane"></i>
+          </button>
+        </form>
+      </div>
+    </main>
+  </div>
+  <?php echo view("/home/new-footer-scripts"); ?>
 </body>
 
 </html>

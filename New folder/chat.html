@@ -4,7 +4,7 @@
 <head>
   <meta charset="utf-8" data-bs-theme="dark">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>My Account</title>
+  <title>Chat</title>
   <script src="assets/js/theme.js"></script>
   <link href="dist/bootstrap-5.2.2/css/bootstrap.min.css" rel="stylesheet">
   <link href="assets/css/themes.css" rel="stylesheet">
@@ -58,7 +58,7 @@
             </a>
           </li>
           <li class="sidebar-list__item">
-            <a href="chat.html" class="sidebar-list__link flex-a trn-all" id="chat">
+            <a href="chat.html" class="sidebar-list__link flex-a trn-all active" id="chat">
               <img src="assets/images/icons/Chat.svg" alt="" class="sidebar-list__icon hide-on-light">
               <img src="assets/images/icons/Chat-brown.svg" alt="" class="sidebar-list__icon hide-on-dark">
             </a>
@@ -111,135 +111,154 @@
       </div>
     </div>
     <main class="main">
-      <div class="row row-gap">
-        <div class="col-12">
-          <div class="card profileCard">
-            <div class="profileCard__header">
-              <div class="profileCardBox">
-                <img src="assets/images/profile.png" alt="" class="profileCardBox__img">
-                <h2 class="profileCardBox__name">Ronald R Ronald</h2>
-                <p class="profileCardBox__para">
-                  You have received a new deposit request from Muhammad Adnan Akhtar
-                </p>
-                <div class="flex-i profile-edit-btn-wrpr">
-                  <button class="flex-a profile-edit-btn" type="button" data-bs-toggle="modal"
-                    data-bs-target="#profilee-dit-modal">
-                    <img src="assets/images/icons/pen.svg" alt="">
-                    Edit
-                  </button>
-                  <button class="flex-a profile-edit-btn profile-edit-btn--tr" type="button" data-bs-toggle="modal"
-                    data-bs-target="#change-password">
-                    Change Password
-                  </button>
-                </div>
+      <div class="card chat-card">
+        <div class="chat">
+          <div class="chat-date"><span class="date">16 Sep 2022</span></div>
+          <div class="chatbox">
+            <img src="assets/images/profile.png" alt="" class="chatbox__img">
+            <div class="chatbox__content">
+              <div class="flex-i nameRow">
+                <span class="chat_user_name">Admin</span>
+                <span class="chat_user_time">03: 06 pm</span>
               </div>
+              <p class="chat__mesg">
+                Looking for swings next trading day on the Dow Jones, If data releases as expected will be a massive
+                play!
+              </p>
             </div>
-            <div class="profileCard__body">
-              <h3 class="profileCard__hdng">Personal Info...</h3>
-              <form class="row profile-edit-row">
-                <div class="col-lg-4">
-                  <p class="profile-edit__para">First Name</p>
-                  <input type="text" placeholder="First Name" value="Ronald" class="form-control profile-edit__input"
-                    readonly disabled>
-                </div>
-                <div class="col-lg-4">
-                  <p class="profile-edit__para">Last Name</p>
-                  <input type="text" placeholder="Last Name" value="Ronald" class="form-control profile-edit__input"
-                    readonly disabled>
-                </div>
-                <div class="col-lg-4">
-                  <p class="profile-edit__para">Phone Number</p>
-                  <input type="text" placeholder="Phone Number" value="0123-4565-789"
-                    class="form-control profile-edit__input" readonly disabled>
-                </div>
-                <div class="col-lg-12">
-                  <p class="profile-edit__para">Bio</p>
-                  <input type="text" placeholder="Bio"
-                    value="You have received a new deposit request from Muhammad Adnan Akhtar"
-                    class="form-control profile-edit__input" readonly disabled>
-                </div>
-              </form>
+          </div>
+          <div class="chatbox">
+            <img src="assets/images/profile.png" alt="" class="chatbox__img">
+            <div class="chatbox__content">
+              <div class="flex-i nameRow">
+                <span class="chat_user_name">Admin</span>
+                <span class="chat_user_time">03: 06 pm</span>
+              </div>
+              <p class="chat__mesg">
+                Looking for swings next trading day on the Dow Jones, If data releases as expected will be a massive
+                play!
+              </p>
+            </div>
+          </div>
+          <div class="chatbox chat-sender">
+            <div class="chatbox__content">
+              <div class="flex-i nameRow">
+                <span class="chat_user_time">03: 06 pm</span>
+                <span class="chat_user_name">Admin</span>
+              </div>
+              <p class="chat__mesg">
+                Looking for swings next trading day on the Dow Jones, If data releases as expected will be a massive
+                play!
+              </p>
+            </div>
+            <img src="assets/images/profile.png" alt="" class="chatbox__img">
+          </div>
+        </div>
+        <div class="chat">
+          <div class="chat-date"><span class="date">16 Sep 2022</span></div>
+          <div class="chatbox chat-sender">
+            <div class="chatbox__content">
+              <div class="flex-i nameRow">
+                <span class="chat_user_time">03: 06 pm</span>
+                <span class="chat_user_name">Admin</span>
+              </div>
+              <p class="chat__mesg">
+                Looking for swings next trading day on the Dow Jones, If data releases as expected will be a massive
+                play!
+              </p>
+            </div>
+            <img src="assets/images/profile.png" alt="" class="chatbox__img">
+          </div>
+          <div class="chatbox">
+            <img src="assets/images/profile.png" alt="" class="chatbox__img">
+            <div class="chatbox__content">
+              <div class="flex-i nameRow">
+                <span class="chat_user_name">Admin</span>
+                <span class="chat_user_time">03: 06 pm</span>
+              </div>
+              <p class="chat__mesg">
+                Looking for swings next trading day on the Dow Jones, If data releases as expected will be a massive
+                play!
+              </p>
+            </div>
+          </div>
+          <div class="chatbox">
+            <img src="assets/images/profile.png" alt="" class="chatbox__img">
+            <div class="chatbox__content">
+              <div class="flex-i nameRow">
+                <span class="chat_user_name">Admin</span>
+                <span class="chat_user_time">03: 06 pm</span>
+              </div>
+              <p class="chat__mesg">
+                Looking for swings next trading day on the Dow Jones, If data releases as expected will be a massive
+                play!
+              </p>
+            </div>
+          </div>
+          <div class="chatbox chat-sender">
+            <div class="chatbox__content">
+              <div class="flex-i nameRow">
+                <span class="chat_user_time">03: 06 pm</span>
+                <span class="chat_user_name">Admin</span>
+              </div>
+              <p class="chat__mesg">
+                Looking for swings next trading day on the Dow Jones, If data releases as expected will be a massive
+                play!
+              </p>
+            </div>
+            <img src="assets/images/profile.png" alt="" class="chatbox__img">
+          </div>
+        </div>
+        <div class="chat">
+          <div class="chat-date"><span class="date">16 Sep 2022</span></div>
+          <div class="chatbox">
+            <img src="assets/images/profile.png" alt="" class="chatbox__img">
+            <div class="chatbox__content">
+              <div class="flex-i nameRow">
+                <span class="chat_user_name">Admin</span>
+                <span class="chat_user_time">03: 06 pm</span>
+              </div>
+              <p class="chat__mesg">
+                Looking for swings next trading day on the Dow Jones, If data releases as expected will be a massive
+                play!
+              </p>
+            </div>
+          </div>
+          <div class="chatbox chat-sender">
+            <div class="chatbox__content">
+              <div class="flex-i nameRow">
+                <span class="chat_user_time">03: 06 pm</span>
+                <span class="chat_user_name">Admin</span>
+              </div>
+              <p class="chat__mesg">
+                Looking for swings next trading day on the Dow Jones, If data releases as expected will be a massive
+                play!
+              </p>
+            </div>
+            <img src="assets/images/profile.png" alt="" class="chatbox__img">
+          </div>
+          <div class="chatbox">
+            <img src="assets/images/profile.png" alt="" class="chatbox__img">
+            <div class="chatbox__content">
+              <div class="flex-i nameRow">
+                <span class="chat_user_name">Admin</span>
+                <span class="chat_user_time">03: 06 pm</span>
+              </div>
+              <p class="chat__mesg">
+                Looking for swings next trading day on the Dow Jones, If data releases as expected will be a massive
+                play!
+              </p>
             </div>
           </div>
         </div>
+        <form action="" class="flex-i msgform">
+          <input type="text" class="mes__input" placeholder="Message">
+          <button class="msg__btn flex-a">
+            <i class="fa-regular fa-paper-plane"></i>
+          </button>
+        </form>
       </div>
     </main>
-  </div>
-  <div class="modal fade" id="profilee-dit-modal" tabindex="-1" aria-labelledby="profilee-dit-modalLabel"
-    aria-hidden="true">
-    <div class="modal-dialog modal-dialog-centered modal-xl">
-      <div class="modal-content profile-edit">
-        <button class="profile-edit__btnclose flex-a" data-bs-dismiss="modal">
-          <i class="fa-solid fa-xmark"></i>
-        </button>
-        <img src="assets/images/profile.png" alt="" class="profile-edit__img">
-        <form class="row profile-edit-row">
-          <div class="col-lg-4">
-            <p class="profile-edit__para">First Name</p>
-            <input type="text" placeholder="First Name" value="Ronald" class="form-control profile-edit__input">
-          </div>
-          <div class="col-lg-4">
-            <p class="profile-edit__para">Last Name</p>
-            <input type="text" placeholder="Last Name" value="Ronald" class="form-control profile-edit__input">
-          </div>
-          <div class="col-lg-4">
-            <p class="profile-edit__para">Phone Number</p>
-            <input type="text" placeholder="Phone Number" value="0123-4565-789"
-              class="form-control profile-edit__input">
-          </div>
-          <div class="col-lg-12">
-            <p class="profile-edit__para">Bio</p>
-            <textarea placeholder="Add about yourself" value=""
-              class="form-control profile-edit__input profile-edit__input--textarea"></textarea>
-          </div>
-          <div class="col-lg-12">
-            <div class="flex-a profile-edit-btns-wrpr">
-              <button type="submit" class="profile-edit__btn">Update</button>
-              <button type="button" class="profile-edit__btn profile-edit__btn--tr"
-                data-bs-dismiss="modal">Cancel</button>
-            </div>
-          </div>
-        </form>
-      </div>
-    </div>
-  </div>
-  <div class="modal fade" id="change-password" tabindex="-1" aria-labelledby="profilee-dit-modalLabel"
-    aria-hidden="true">
-    <div class="modal-dialog modal-dialog-centered modal-xl">
-      <div class="modal-content profile-edit">
-        <button class="profile-edit__btnclose flex-a" data-bs-dismiss="modal">
-          <i class="fa-solid fa-xmark"></i>
-        </button>
-
-        <form class="row profile-edit-row">
-          <div class="col-12">
-            <div class="profile-content">
-              <h2 class="profile-content__hdng">Would you like to change your password</h2>
-              <p class="profile-content__para">You have received a new deposit request from Muhammad Adnan Akhtar</p>
-            </div>
-          </div>
-          <div class="col-lg-4">
-            <p class="profile-edit__para">Old Password</p>
-            <input type="text" placeholder="Enter old password" class="form-control profile-edit__input">
-          </div>
-          <div class="col-lg-4">
-            <p class="profile-edit__para">New Password</p>
-            <input type="text" placeholder="New Password" class="form-control profile-edit__input">
-          </div>
-          <div class="col-lg-4">
-            <p class="profile-edit__para">Confirm password</p>
-            <input type="text" placeholder="Confirm password" class="form-control profile-edit__input">
-          </div>
-          <div class="col-lg-12">
-            <div class="flex-a profile-edit-btns-wrpr">
-              <button type="submit" class="profile-edit__btn">Update</button>
-              <button type="button" class="profile-edit__btn profile-edit__btn--tr"
-                data-bs-dismiss="modal">Cancel</button>
-            </div>
-          </div>
-        </form>
-      </div>
-    </div>
   </div>
   <script src="assets/js/jquery-3.7.1.min.js"></script>
   <script src="dist/bootstrap-5.2.2/js/bootstrap.bundle.min.js"></script>

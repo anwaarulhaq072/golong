@@ -4,7 +4,7 @@
 <head>
   <meta charset="utf-8" data-bs-theme="dark">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>My Account</title>
+  <title>Update Bulk Record</title>
   <script src="assets/js/theme.js"></script>
   <link href="dist/bootstrap-5.2.2/css/bootstrap.min.css" rel="stylesheet">
   <link href="assets/css/themes.css" rel="stylesheet">
@@ -82,7 +82,7 @@
             </a>
           </li>
           <li class="sidebar-list__item">
-            <a href="update-bulk-record.html" class="sidebar-list__link flex-a trn-all" id="update-bulk-record">
+            <a href="update-bulk-record.html" class="sidebar-list__link flex-a trn-all active" id="update-bulk-record">
               <img src="assets/images/icons/update.svg" alt="" class="sidebar-list__icon hide-on-light">
               <img src="assets/images/icons/update-brown.svg" alt="" class="sidebar-list__icon hide-on-dark">
             </a>
@@ -111,135 +111,47 @@
       </div>
     </div>
     <main class="main">
-      <div class="row row-gap">
-        <div class="col-12">
-          <div class="card profileCard">
-            <div class="profileCard__header">
-              <div class="profileCardBox">
-                <img src="assets/images/profile.png" alt="" class="profileCardBox__img">
-                <h2 class="profileCardBox__name">Ronald R Ronald</h2>
-                <p class="profileCardBox__para">
-                  You have received a new deposit request from Muhammad Adnan Akhtar
-                </p>
-                <div class="flex-i profile-edit-btn-wrpr">
-                  <button class="flex-a profile-edit-btn" type="button" data-bs-toggle="modal"
-                    data-bs-target="#profilee-dit-modal">
-                    <img src="assets/images/icons/pen.svg" alt="">
-                    Edit
-                  </button>
-                  <button class="flex-a profile-edit-btn profile-edit-btn--tr" type="button" data-bs-toggle="modal"
-                    data-bs-target="#change-password">
-                    Change Password
-                  </button>
-                </div>
-              </div>
+      <h2 class="notification-card__hdng notification-card__hdng--adduser">Update Bulk Records</h2>
+      <div class="card addusercard">
+        <form class="bulkrecordFrom">
+          <div class="row">
+            <div class="col-3">
+              <input type="date" placeholder="DD/MM/YY" value="" class="form-control profile-edit__input" id="bulkDate">
             </div>
-            <div class="profileCard__body">
-              <h3 class="profileCard__hdng">Personal Info...</h3>
-              <form class="row profile-edit-row">
-                <div class="col-lg-4">
-                  <p class="profile-edit__para">First Name</p>
-                  <input type="text" placeholder="First Name" value="Ronald" class="form-control profile-edit__input"
-                    readonly disabled>
-                </div>
-                <div class="col-lg-4">
-                  <p class="profile-edit__para">Last Name</p>
-                  <input type="text" placeholder="Last Name" value="Ronald" class="form-control profile-edit__input"
-                    readonly disabled>
-                </div>
-                <div class="col-lg-4">
-                  <p class="profile-edit__para">Phone Number</p>
-                  <input type="text" placeholder="Phone Number" value="0123-4565-789"
-                    class="form-control profile-edit__input" readonly disabled>
-                </div>
-                <div class="col-lg-12">
-                  <p class="profile-edit__para">Bio</p>
-                  <input type="text" placeholder="Bio"
-                    value="You have received a new deposit request from Muhammad Adnan Akhtar"
-                    class="form-control profile-edit__input" readonly disabled>
-                </div>
-              </form>
+            <div class="col-3">
+              <select name="" id="plSelect" class="form-control profile-edit__input form-select">
+                <option value="" selected disabled>Add profit or loss</option>
+                <option value="profit">Profit</option>
+                <option value="loss">Loss</option>
+                <option value="loss">swing</option>
+              </select>
+            </div>
+            <div class="col-lg-6">
+              <input type="number" placeholder="" value="" class="form-control profile-edit__input" id="numberFolAll">
             </div>
           </div>
-        </div>
+          <div class="row">
+            <div class="col-3">
+              <input type="text" value="Muhammad Ahsan Iqbal" class="form-control profile-edit__input" readonly>
+            </div>
+            <div class="col-3">
+              <select name="" class="form-control profile-edit__input form-select plselect">
+                <option value="" selected disabled>Add profit or loss</option>
+                <option value="profit">Profit</option>
+                <option value="loss">Loss</option>
+                <option value="loss">swing</option>
+              </select>
+            </div>
+            <div class="col-3">
+              <input type="number" placeholder="" value="" class="form-control profile-edit__input percentage">
+            </div>
+            <div class="col-3">
+              <input type="number" placeholder="" value="" class="form-control profile-edit__input number">
+            </div>
+          </div>
+        </form>
       </div>
     </main>
-  </div>
-  <div class="modal fade" id="profilee-dit-modal" tabindex="-1" aria-labelledby="profilee-dit-modalLabel"
-    aria-hidden="true">
-    <div class="modal-dialog modal-dialog-centered modal-xl">
-      <div class="modal-content profile-edit">
-        <button class="profile-edit__btnclose flex-a" data-bs-dismiss="modal">
-          <i class="fa-solid fa-xmark"></i>
-        </button>
-        <img src="assets/images/profile.png" alt="" class="profile-edit__img">
-        <form class="row profile-edit-row">
-          <div class="col-lg-4">
-            <p class="profile-edit__para">First Name</p>
-            <input type="text" placeholder="First Name" value="Ronald" class="form-control profile-edit__input">
-          </div>
-          <div class="col-lg-4">
-            <p class="profile-edit__para">Last Name</p>
-            <input type="text" placeholder="Last Name" value="Ronald" class="form-control profile-edit__input">
-          </div>
-          <div class="col-lg-4">
-            <p class="profile-edit__para">Phone Number</p>
-            <input type="text" placeholder="Phone Number" value="0123-4565-789"
-              class="form-control profile-edit__input">
-          </div>
-          <div class="col-lg-12">
-            <p class="profile-edit__para">Bio</p>
-            <textarea placeholder="Add about yourself" value=""
-              class="form-control profile-edit__input profile-edit__input--textarea"></textarea>
-          </div>
-          <div class="col-lg-12">
-            <div class="flex-a profile-edit-btns-wrpr">
-              <button type="submit" class="profile-edit__btn">Update</button>
-              <button type="button" class="profile-edit__btn profile-edit__btn--tr"
-                data-bs-dismiss="modal">Cancel</button>
-            </div>
-          </div>
-        </form>
-      </div>
-    </div>
-  </div>
-  <div class="modal fade" id="change-password" tabindex="-1" aria-labelledby="profilee-dit-modalLabel"
-    aria-hidden="true">
-    <div class="modal-dialog modal-dialog-centered modal-xl">
-      <div class="modal-content profile-edit">
-        <button class="profile-edit__btnclose flex-a" data-bs-dismiss="modal">
-          <i class="fa-solid fa-xmark"></i>
-        </button>
-
-        <form class="row profile-edit-row">
-          <div class="col-12">
-            <div class="profile-content">
-              <h2 class="profile-content__hdng">Would you like to change your password</h2>
-              <p class="profile-content__para">You have received a new deposit request from Muhammad Adnan Akhtar</p>
-            </div>
-          </div>
-          <div class="col-lg-4">
-            <p class="profile-edit__para">Old Password</p>
-            <input type="text" placeholder="Enter old password" class="form-control profile-edit__input">
-          </div>
-          <div class="col-lg-4">
-            <p class="profile-edit__para">New Password</p>
-            <input type="text" placeholder="New Password" class="form-control profile-edit__input">
-          </div>
-          <div class="col-lg-4">
-            <p class="profile-edit__para">Confirm password</p>
-            <input type="text" placeholder="Confirm password" class="form-control profile-edit__input">
-          </div>
-          <div class="col-lg-12">
-            <div class="flex-a profile-edit-btns-wrpr">
-              <button type="submit" class="profile-edit__btn">Update</button>
-              <button type="button" class="profile-edit__btn profile-edit__btn--tr"
-                data-bs-dismiss="modal">Cancel</button>
-            </div>
-          </div>
-        </form>
-      </div>
-    </div>
   </div>
   <script src="assets/js/jquery-3.7.1.min.js"></script>
   <script src="dist/bootstrap-5.2.2/js/bootstrap.bundle.min.js"></script>
@@ -253,6 +165,48 @@
   <script src="dist/data-tables/dataTables.min.js"></script>
   <script src="dist/datepicker/datepicker.js"></script>
   <script src="assets/js/scripts.js"></script>
+  <script>
+    $(document).ready(function () {
+      const selectBulkPL = $("#plSelect");
+      const singleUserPL = $(".plselect");
+      const numberForAll = $("#numberFolAll");
+      const numberForSingle = $(".number");
+      function selectProfitLossForAll() {
+        if (selectBulkPL.val() === 'profit') {
+          $(singleUserPL).val('profit')
+        } else if (selectBulkPL.val() === 'loss') {
+          $(singleUserPL).val('loss')
+        } else if (selectBulkPL.val() === 'wsing') {
+          $(singleUserPL).val('swing')
+        }
+      }
+      function addProfitLossForAll() {
+        const getValueForAll = (numberForAll).val();
+        $(numberForSingle).val(getValueForAll);
+      }
+      $(selectBulkPL).on('change', function () {
+        if ($(this).val()) {
+          $(this).addClass('value');
+          selectProfitLossForAll()
+        } else {
+          $(this).removeClass('value');
+          selectProfitLossForAll()
+        }
+      });
+
+      $(singleUserPL).on('change', function () {
+        if ($(this).val()) {
+          $(this).addClass('value');
+        } else {
+          $(this).removeClass('value');
+        }
+      });
+
+
+
+      new Datepicker("#bulkDate");
+    });
+  </script>
 </body>
 
 </html>
