@@ -8,7 +8,7 @@
   <?php echo view("/home/new-header-links"); ?>
  
 </head>
-
+ 
 <body>
   <div class="app_wrapper">
 
@@ -354,12 +354,12 @@
             <p class="tn-list-card__desc">
               Following are the detail records of your transactions
             </p>
-            <select class="tn-list-card__select" id="filterSelect">
+            <select class="tn-list-card__select filterselect" id="filterSelectl">
               <option value="all">Show All</option>
               <option value="profit">Profit</option>
               <option value="loss">Loss</option>
             </select>
-            <table class="table profitLoss__table" id="profitLoss-table">
+            <table class="table profitlossTable" id="profitLoss-table">
               <thead>
                 <tr class="table-head__row">
                   <th class="table__hdng">Profit/loss</th>
@@ -370,7 +370,7 @@
               <tbody>
                 <?php if (isset($profitLossDetails)) : ?>
                   <?php foreach ($profitLossDetails as $singleDetail) : ?>
-                    <tr class="table__row  <?php if ($singleDetail['type'] == 'Profit') : ?>profit-row<?php else : ?>loss-row<?php endif; ?>">
+                    <tr class="table__row <?php if ($singleDetail['type'] == 'Profit') :  echo "profit-row"; ?><?php else : echo "loss-row"; endif;?>">
                       <td class="teble__col1"><?php echo $singleDetail['type']; ?></td>
                       <td class="teble__col2"><?php echo date('M d, Y', strtotime($singleDetail['publishDate'])); ?></td>
                       <td class="teble__col3">

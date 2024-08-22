@@ -8,6 +8,7 @@
 <script src="<?php echo base_url(); ?>/assets-new/dist/chartsjs/chart.js"></script>
 <script src="<?php echo base_url(); ?>/assets-new/dist/apexcharts/apexcharts.js"></script>
 <script src="<?php echo base_url(); ?>/assets-new/dist/data-tables/dataTables.min.js"></script>
+<script src="<?php echo base_url(); ?>/assets-new/dist/datepicker/datepicker.js"></script>
 <script>
   var servBoxSl = new Swiper(".loginboxSlider", {
     slidesPerView: 1,

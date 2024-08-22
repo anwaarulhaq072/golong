@@ -1,0 +1,650 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8" data-bs-theme="dark">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Customers Details</title>
+  <script src="assets/js/theme.js"></script>
+  <link href="dist/bootstrap-5.2.2/css/bootstrap.min.css" rel="stylesheet">
+  <link href="assets/css/themes.css" rel="stylesheet">
+  <link href="dist/data-tables/dataTables.bootstrap5.min.css" rel="stylesheet">
+  <link href="dist/swiper/swiper-bundle.min.css" rel="stylesheet">
+  <link href="dist/remixicons/remixicon.css" rel="stylesheet">
+  <link href="dist/datepicker/css/datepicker.material.css" rel="stylesheet">
+  <link href="assets/css/style.css" rel="stylesheet">
+  <link href="dist/fontawesome/css/all.min.css" rel="stylesheet">
+  <link
+    href="https://fonts.googleapis.com/css2?family=Nunito+Sans:ital,opsz,wght@0,6..12,200..1000;1,6..12,200..1000&display=swap"
+    rel="stylesheet">
+</head>
+
+<body>
+  <div class="app_wrapper">
+    <div class="sidebar">
+      <div class="profile">
+        <img src="assets/images/profile.png" alt="" class="profile__img">
+      </div>
+      <div class="sidebar-list-holder">
+        <ul class="sidebar-list sidebar-list1">
+          <li class="sidebar-list__item">
+            <a href="/" class="sidebar-list__link flex-a trn-all" id="dashboard">
+              <img src="assets/images/icons/dashboard.svg" alt="" class="sidebar-list__icon hide-on-light">
+              <img src="assets/images/icons/dashboard-brown.svg" alt="" class="sidebar-list__icon hide-on-dark">
+            </a>
+          </li>
+          <li class="sidebar-list__item">
+            <a href="my-account.html" class="sidebar-list__link flex-a trn-all" id="account">
+              <img src="assets/images/icons/user.svg" alt="" class="sidebar-list__icon hide-on-light">
+              <img src="assets/images/icons/user-dark.svg" alt="" class="sidebar-list__icon hide-on-dark">
+            </a>
+          </li>
+          <li class="sidebar-list__item">
+            <a href="notification.html" class="sidebar-list__link flex-a trn-all" id="notification">
+              <img src="assets/images/icons/bell.svg" alt="" class="sidebar-list__icon hide-on-light">
+              <img src="assets/images/icons/bell-brown.svg" alt="" class="sidebar-list__icon hide-on-dark">
+            </a>
+          </li>
+          <li class="sidebar-list__item">
+            <a href="" class="sidebar-list__link flex-a trn-all" id="deposite">
+              <img src="assets/images/icons/wallet.svg" alt="" class="sidebar-list__icon hide-on-light">
+              <img src="assets/images/icons/wallet-brown.svg" alt="" class="sidebar-list__icon hide-on-dark">
+            </a>
+          </li>
+          <li class="sidebar-list__item">
+            <a href="withdrawal-history.html" class="sidebar-list__link flex-a trn-all" id="withdrawal">
+              <img src="assets/images/icons/withdrawal.svg" alt="" class="sidebar-list__icon hide-on-light">
+              <img src="assets/images/icons/withdrawal-brown.svg" alt="" class="sidebar-list__icon hide-on-dark">
+            </a>
+          </li>
+          <li class="sidebar-list__item">
+            <a href="" class="sidebar-list__link flex-a trn-all" id="chat">
+              <img src="assets/images/icons/Chat.svg" alt="" class="sidebar-list__icon hide-on-light">
+              <img src="assets/images/icons/Chat-brown.svg" alt="" class="sidebar-list__icon hide-on-dark">
+            </a>
+          </li>
+          <li class="sidebar-list__item">
+            <a href="archive-history.html" class="sidebar-list__link flex-a trn-all" id="archiveHistory">
+              <img src="assets/images/icons/Archive-History.svg" alt="" class="sidebar-list__icon hide-on-light">
+              <img src="assets/images/icons/Archive-History-brown.svg" alt="" class="sidebar-list__icon hide-on-dark">
+            </a>
+          </li>
+          <li class="sidebar-list__item">
+            <a href="" class="sidebar-list__link flex-a trn-all" id="statement">
+              <img src="assets/images/icons/Statements.svg" alt="" class="sidebar-list__icon hide-on-light">
+              <img src="assets/images/icons/Statements-brown.svg" alt="" class="sidebar-list__icon hide-on-dark">
+            </a>
+          </li>
+          <li class="sidebar-list__item">
+            <a href="" class="sidebar-list__link flex-a trn-all" id="add-user">
+              <img src="assets/images/icons/user-plus.svg" alt="" class="sidebar-list__icon hide-on-light">
+              <img src="assets/images/icons/user-plus-brown.svg" alt="" class="sidebar-list__icon hide-on-dark">
+            </a>
+          </li>
+          <li class="sidebar-list__item">
+            <a href="" class="sidebar-list__link flex-a trn-all" id="update-bulk-record">
+              <img src="assets/images/icons/update.svg" alt="" class="sidebar-list__icon hide-on-light">
+              <img src="assets/images/icons/update-brown.svg" alt="" class="sidebar-list__icon hide-on-dark">
+            </a>
+          </li>
+        </ul>
+        <ul class="sidebar-list">
+          <li class="sidebar-list__item">
+            <div class="sidebar-list__link flex-a trn-all" id="light">
+              <img src="assets/images/icons/light.svg" alt="" class="sidebar-list__icon hide-on-light">
+              <img src="assets/images/icons/light-brown.svg" alt="" class="sidebar-list__icon hide-on-dark">
+            </div>
+          </li>
+          <li class="sidebar-list__item">
+            <div class="sidebar-list__link flex-a trn-all" id="dark">
+              <img src="assets/images/icons/night.svg" alt="" class="sidebar-list__icon hide-on-light">
+              <img src="assets/images/icons/night-brown.svg" alt="" class="sidebar-list__icon hide-on-dark">
+            </div>
+          </li>
+          <li class="sidebar-list__item">
+            <a href="login.html" class="sidebar-list__link flex-a trn-all" id="logout">
+              <img src="assets/images/icons/logout.svg" alt="" class="sidebar-list__icon hide-on-light">
+              <img src="assets/images/icons/logout-brown.svg" alt="" class="sidebar-list__icon hide-on-dark">
+            </a>
+          </li>
+        </ul>
+      </div>
+    </div>
+    <main class="main">
+      <h2 class="cus-details-card__hadng">Update Total Investment</h2>
+      <div class="row row-gap">
+        <div class="col-xl-9">
+          <div class="card cus-details-card">
+            <from class="row row-gap2">
+              <div class="col-sm-6">
+                <p class="label-text">Change Amount</p>
+                <input type="number" class="form-control cus-details-input" placeholder="250000">
+                <div class="flex-i radioes-wraper">
+                  <label class="radio-label flex-i">
+                    <input type="radio" class="radiobtn" name="splitAmount">
+                    <div></div>
+                    <span class="radio-label__text">Payout Split Amount</span>
+                  </label>
+                  <label class="radio-label flex-i">
+                    <input type="radio" class="radiobtn" name="splitAmount" checked>
+                    <div></div>
+                    <span class="radio-label__text">Payout Split Amount</span>
+                  </label>
+                </div>
+              </div>
+              <div class="col-sm-6">
+                <p class="label-text">Payout Date</p>
+                <input type="date" placeholder="MM/DD/YYYY" class="form-control cus-details-input dateInput">
+                <div class="flex-i radioes-wraper">
+                  <label class="radio-label flex-i">
+                    <input type="radio" class="radiobtn" name="returnAmount">
+                    <div></div>
+                    <span class="radio-label__text">Return Full Investment</span>
+                  </label>
+                  <label class="radio-label flex-i">
+                    <input type="radio" class="radiobtn" name="returnAmount" checked>
+                    <div></div>
+                    <span class="radio-label__text">No Return</span>
+                  </label>
+                </div>
+              </div>
+              <div class="col-sm-6">
+                <p class="label-text">Payout Split Percentage</p>
+                <input type="number" class="form-control cus-details-input" placeholder="250000">
+                <div class="flex-i radioes-wraper">
+                  <label class="radio-label flex-i">
+                    <input type="radio" class="radiobtn" name="accountant" checked>
+                    <div></div>
+                    <span class="radio-label__text">Show to Accountant</span>
+                  </label>
+                </div>
+              </div>
+              <div class="col-sm-6">
+                <p class="label-text">Next Payout Date</p>
+                <input type="date" placeholder="MM/DD/YYYY" class="form-control cus-details-input dateInput">
+              </div>
+              <div class="col-12">
+                <button class="flex-a w-fit from-btn">Update</button>
+              </div>
+            </from>
+          </div>
+          <div class="card cus-details-card">
+            <from class="row row-gap2">
+              <div class="col-sm-6">
+                <p class="label-text">Payout Amount</p>
+                <input type="number" class="form-control cus-details-input" placeholder="250000">
+              </div>
+              <div class="col-sm-6">
+                <p class="label-text">Payout Date</p>
+                <input type="date" placeholder="MM/DD/YYYY" class="form-control cus-details-input dateInput">
+              </div>
+              <div class="col-12 mb-4">
+                <button class="flex-a w-fit from-btn">Submit</button>
+              </div>
+            </from>
+            <table class="table all-cutomers__table mt-5" id="payout">
+              <thead>
+                <tr class="all-cutomers-t__row">
+                  <th class="all-cutomers-t__col all-cutomers-t__col1 all-cutomers-t__col--head">ID</th>
+                  <th class="all-cutomers-t__col all-cutomers-t__col2 all-cutomers-t__col--head">Amount</th>
+                  <th class="all-cutomers-t__col all-cutomers-t__col3 all-cutomers-t__col--head">
+                    Payout Date
+                  </th>
+                  <th class="all-cutomers-t__col all-cutomers-t__col5 all-cutomers-t__col--head"></th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr class="all-cutomers-t__row">
+                  <td class="all-cutomers-t__col">01</td>
+                  <td class="all-cutomers-t__col">$ 25,000</td>
+                  <td class="all-cutomers-t__col">03/23/2024</td>
+                  <td class="all-cutomers-t__col">
+                    <div class="flex-i table-btns-wrpr">
+                      <button class="table-mdl-btn flex-a r-50" type="button" data-bs-toggle="modal"
+                        data-bs-target="#edit">
+                        <i class="fa-solid fa-pencil"></i>
+                      </button>
+                      <button class="table-mdl-btn flex-a r-50" type="button" data-bs-toggle="modal"
+                        data-bs-target="#delete">
+                        <i class="fa-solid fa-trash"></i>
+                      </button>
+                    </div>
+                  </td>
+                </tr>
+                <tr class="all-cutomers-t__row">
+                  <td class="all-cutomers-t__col">01</td>
+                  <td class="all-cutomers-t__col">$ 25,000</td>
+                  <td class="all-cutomers-t__col">03/23/2024</td>
+                  <td class="all-cutomers-t__col">
+                    <div class="flex-i table-btns-wrpr">
+                      <button class="table-mdl-btn flex-a r-50" type="button" data-bs-toggle="modal"
+                        data-bs-target="#edit">
+                        <i class="fa-solid fa-pencil"></i>
+                      </button>
+                      <button class="table-mdl-btn flex-a r-50" type="button" data-bs-toggle="modal"
+                        data-bs-target="#delete">
+                        <i class="fa-solid fa-trash"></i>
+                      </button>
+                    </div>
+                  </td>
+                </tr>
+                <tr class="all-cutomers-t__row">
+                  <td class="all-cutomers-t__col">01</td>
+                  <td class="all-cutomers-t__col">$ 25,000</td>
+                  <td class="all-cutomers-t__col">03/23/2024</td>
+                  <td class="all-cutomers-t__col">
+                    <div class="flex-i table-btns-wrpr">
+                      <button class="table-mdl-btn flex-a r-50" type="button" data-bs-toggle="modal"
+                        data-bs-target="#edit">
+                        <i class="fa-solid fa-pencil"></i>
+                      </button>
+                      <button class="table-mdl-btn flex-a r-50" type="button" data-bs-toggle="modal"
+                        data-bs-target="#delete">
+                        <i class="fa-solid fa-trash"></i>
+                      </button>
+                    </div>
+                  </td>
+                </tr>
+                <tr class="all-cutomers-t__row">
+                  <td class="all-cutomers-t__col">01</td>
+                  <td class="all-cutomers-t__col">$ 25,000</td>
+                  <td class="all-cutomers-t__col">03/23/2024</td>
+                  <td class="all-cutomers-t__col">
+                    <div class="flex-i table-btns-wrpr">
+                      <button class="table-mdl-btn flex-a r-50" type="button" data-bs-toggle="modal"
+                        data-bs-target="#edit">
+                        <i class="fa-solid fa-pencil"></i>
+                      </button>
+                      <button class="table-mdl-btn flex-a r-50" type="button" data-bs-toggle="modal"
+                        data-bs-target="#delete">
+                        <i class="fa-solid fa-trash"></i>
+                      </button>
+                    </div>
+                  </td>
+                </tr>
+                <tr class="all-cutomers-t__row">
+                  <td class="all-cutomers-t__col">01</td>
+                  <td class="all-cutomers-t__col">$ 25,000</td>
+                  <td class="all-cutomers-t__col">03/23/2024</td>
+                  <td class="all-cutomers-t__col">
+                    <div class="flex-i table-btns-wrpr">
+                      <button class="table-mdl-btn flex-a r-50" type="button" data-bs-toggle="modal"
+                        data-bs-target="#edit">
+                        <i class="fa-solid fa-pencil"></i>
+                      </button>
+                      <button class="table-mdl-btn flex-a r-50" type="button" data-bs-toggle="modal"
+                        data-bs-target="#delete">
+                        <i class="fa-solid fa-trash"></i>
+                      </button>
+                    </div>
+                  </td>
+                </tr>
+                <tr class="all-cutomers-t__row">
+                  <td class="all-cutomers-t__col">01</td>
+                  <td class="all-cutomers-t__col">$ 25,000</td>
+                  <td class="all-cutomers-t__col">03/23/2024</td>
+                  <td class="all-cutomers-t__col">
+                    <div class="flex-i table-btns-wrpr">
+                      <button class="table-mdl-btn flex-a r-50" type="button" data-bs-toggle="modal"
+                        data-bs-target="#edit">
+                        <i class="fa-solid fa-pencil"></i>
+                      </button>
+                      <button class="table-mdl-btn flex-a r-50" type="button" data-bs-toggle="modal"
+                        data-bs-target="#delete">
+                        <i class="fa-solid fa-trash"></i>
+                      </button>
+                    </div>
+                  </td>
+                </tr>
+                <tr class="all-cutomers-t__row">
+                  <td class="all-cutomers-t__col">01</td>
+                  <td class="all-cutomers-t__col">$ 25,000</td>
+                  <td class="all-cutomers-t__col">03/23/2024</td>
+                  <td class="all-cutomers-t__col">
+                    <div class="flex-i table-btns-wrpr">
+                      <button class="table-mdl-btn flex-a r-50" type="button" data-bs-toggle="modal"
+                        data-bs-target="#edit">
+                        <i class="fa-solid fa-pencil"></i>
+                      </button>
+                      <button class="table-mdl-btn flex-a r-50" type="button" data-bs-toggle="modal"
+                        data-bs-target="#delete">
+                        <i class="fa-solid fa-trash"></i>
+                      </button>
+                    </div>
+                  </td>
+                </tr>
+                <tr class="all-cutomers-t__row">
+                  <td class="all-cutomers-t__col">01</td>
+                  <td class="all-cutomers-t__col">$ 25,000</td>
+                  <td class="all-cutomers-t__col">03/23/2024</td>
+                  <td class="all-cutomers-t__col">
+                    <div class="flex-i table-btns-wrpr">
+                      <button class="table-mdl-btn flex-a r-50" type="button" data-bs-toggle="modal"
+                        data-bs-target="#edit">
+                        <i class="fa-solid fa-pencil"></i>
+                      </button>
+                      <button class="table-mdl-btn flex-a r-50" type="button" data-bs-toggle="modal"
+                        data-bs-target="#delete">
+                        <i class="fa-solid fa-trash"></i>
+                      </button>
+                    </div>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+
+          <h2 class="cus-details-card__hadng">Transaction List</h2>
+          <div class="card cus-details-card ">
+            <div class="flex trnsc-tbl-top-row">
+              <p class="trnsList-text">
+                Following are the detail records of your transactions
+              </p>
+              <select class="tn-list-card__select filterselect" id="transactionfilterSelect">
+                <option value="all" selected>Show All</option>
+                <option value="profit">Profit</option>
+                <option value="loss">Loss</option>
+              </select>
+            </div>
+
+            <table class="table profitLoss__table profitlossTable" id="transactionTable">
+              <thead>
+                <tr class="table-head__row">
+                  <th class="table__hdng">Profit/loss</th>
+                  <th class="table__hdng">Date</th>
+                  <th class="table__hdng">Amount</th>
+                  <th class="table__hdng"></th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr class="table__row profit-row">
+                  <td class="teble__col1">Profit</td>
+                  <td class="teble__col2">Aug 20, 2024</td>
+                  <td class="teble__col3">
+                    <div class="text-color-topaz flex-i">
+                      <img src="assets/images/icons/up.svg" alt="">
+                      $200
+                    </div>
+                  </td>
+                  <td class="teble__col2">
+                    <div class="flex-i table-btns-wrpr">
+                      <button class="table-mdl-btn flex-a r-50" type="button" data-bs-toggle="modal"
+                        data-bs-target="#editTransec">
+                        <i class="fa-solid fa-pencil"></i>
+                      </button>
+                      <button class="table-mdl-btn flex-a r-50" type="button" data-bs-toggle="modal"
+                        data-bs-target="#delete">
+                        <i class="fa-solid fa-trash"></i>
+                      </button>
+                    </div>
+                  </td>
+                </tr>
+                <tr class="table__row loss-row">
+                  <td class="teble__col1">loss</td>
+                  <td class="teble__col2">Jul 20, 2024</td>
+                  <td class="teble__col3">
+                    <div class="text-color-chili-papper flex-i">
+                      <img src="assets/images/icons/down.svg" alt="">
+                      $210
+                    </div>
+                  </td>
+                  <td class="teble__col2">
+                    <div class="flex-i table-btns-wrpr">
+                      <button class="table-mdl-btn flex-a r-50" type="button" data-bs-toggle="modal"
+                        data-bs-target="#edit">
+                        <i class="fa-solid fa-pencil"></i>
+                      </button>
+                      <button class="table-mdl-btn flex-a r-50" type="button" data-bs-toggle="modal"
+                        data-bs-target="#delete">
+                        <i class="fa-solid fa-trash"></i>
+                      </button>
+                    </div>
+                  </td>
+                </tr>
+                <tr class="table__row profit-row">
+                  <td class="teble__col1">Profit</td>
+                  <td class="teble__col2">Aug 20, 2024</td>
+                  <td class="teble__col3">
+                    <div class="text-color-topaz flex-i">
+                      <img src="assets/images/icons/up.svg" alt="">
+                      $200
+                    </div>
+                  </td>
+                  <td class="teble__col2">
+                    <div class="flex-i table-btns-wrpr">
+                      <button class="table-mdl-btn flex-a r-50" type="button" data-bs-toggle="modal"
+                        data-bs-target="#editTransec">
+                        <i class="fa-solid fa-pencil"></i>
+                      </button>
+                      <button class="table-mdl-btn flex-a r-50" type="button" data-bs-toggle="modal"
+                        data-bs-target="#delete">
+                        <i class="fa-solid fa-trash"></i>
+                      </button>
+                    </div>
+                  </td>
+                </tr>
+                <tr class="table__row loss-row">
+                  <td class="teble__col1">loss</td>
+                  <td class="teble__col2">Jul 20, 2024</td>
+                  <td class="teble__col3">
+                    <div class="text-color-chili-papper flex-i">
+                      <img src="assets/images/icons/down.svg" alt="">
+                      $210
+                    </div>
+                  </td>
+                  <td class="teble__col2">
+                    <div class="flex-i table-btns-wrpr">
+                      <button class="table-mdl-btn flex-a r-50" type="button" data-bs-toggle="modal"
+                        data-bs-target="#edit">
+                        <i class="fa-solid fa-pencil"></i>
+                      </button>
+                      <button class="table-mdl-btn flex-a r-50" type="button" data-bs-toggle="modal"
+                        data-bs-target="#delete">
+                        <i class="fa-solid fa-trash"></i>
+                      </button>
+                    </div>
+                  </td>
+                </tr>
+                <tr class="table__row profit-row">
+                  <td class="teble__col1">Profit</td>
+                  <td class="teble__col2">Aug 20, 2024</td>
+                  <td class="teble__col3">
+                    <div class="text-color-topaz flex-i">
+                      <img src="assets/images/icons/up.svg" alt="">
+                      $200
+                    </div>
+                  </td>
+                  <td class="teble__col2">
+                    <div class="flex-i table-btns-wrpr">
+                      <button class="table-mdl-btn flex-a r-50" type="button" data-bs-toggle="modal"
+                        data-bs-target="#editTransec">
+                        <i class="fa-solid fa-pencil"></i>
+                      </button>
+                      <button class="table-mdl-btn flex-a r-50" type="button" data-bs-toggle="modal"
+                        data-bs-target="#delete">
+                        <i class="fa-solid fa-trash"></i>
+                      </button>
+                    </div>
+                  </td>
+                </tr>
+                <tr class="table__row loss-row">
+                  <td class="teble__col1">loss</td>
+                  <td class="teble__col2">Jul 20, 2024</td>
+                  <td class="teble__col3">
+                    <div class="text-color-chili-papper flex-i">
+                      <img src="assets/images/icons/down.svg" alt="">
+                      $210
+                    </div>
+                  </td>
+                  <td class="teble__col2">
+                    <div class="flex-i table-btns-wrpr">
+                      <button class="table-mdl-btn flex-a r-50" type="button" data-bs-toggle="modal"
+                        data-bs-target="#edit">
+                        <i class="fa-solid fa-pencil"></i>
+                      </button>
+                      <button class="table-mdl-btn flex-a r-50" type="button" data-bs-toggle="modal"
+                        data-bs-target="#delete">
+                        <i class="fa-solid fa-trash"></i>
+                      </button>
+                    </div>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+        <div class="col-xl-3">
+          <div class="card customerDetailsCard">
+            <button class="table-mdl-btn table-mdl-btn--2 flex-a r-50" type="button" data-bs-toggle="modal"
+              data-bs-target="#profilee-dit-modal2">
+              <i class="fa-solid fa-pencil"></i>
+            </button>
+            <img src="assets/images/profile.png" alt="" class="customerDetailsCard__img">
+            <div class="flex-i customerDetailsCardRow">
+              <span class="sp1">Name: </span>
+              <span class="sp2">Matt Allan</span>
+            </div>
+            <div class="flex-i customerDetailsCardRow">
+              <span class="sp1">Mobile: </span>
+              <span class="sp2">03475241255</span>
+            </div>
+            <div class="flex-i customerDetailsCardRow">
+              <span class="sp1">Email: </span>
+              <span class="sp2"> mallan@woodrowrei.com</span>
+            </div>
+            <div class="flex-i customerDetailsCardRow">
+              <span class="sp1"> Investment Amount: </span>
+              <span class="sp2"> $250000</span>
+            </div>
+          </div>
+          <button class="deleteUserBtn flex-a" data-bs-toggle="modal" data-bs-target="#delete">Delete
+            User</button>
+        </div>
+      </div>
+    </main>
+  </div>
+  <div class="modal fade" id="edit" tabindex="-1" aria-labelledby="edit-modalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered modal-lg">
+      <div class="modal-content profile-edit profile-edit2">
+        <button class="profile-edit__btnclose flex-a" data-bs-dismiss="modal">
+          <i class="fa-solid fa-xmark"></i>
+        </button>
+        <h2 class="profile-edit__hdng">Edit Information</h2>
+        <from class="row row-gap2">
+          <div class="col-lg-6">
+            <p class="label-text">Payout Amount</p>
+            <input type="number" class="form-control cus-details-input" placeholder="250000" value="250000">
+          </div>
+          <div class="col-lg-6">
+            <p class="label-text">Payout Date</p>
+            <input type="date" placeholder="MM/DD/YYYY" value="07/31/2024"
+              class="form-control cus-details-input dateInput">
+          </div>
+          <div class="col-12 mb-4">
+            <button class="flex-a w-fit from-btn">Update</button>
+          </div>
+        </from>
+      </div>
+    </div>
+  </div>
+  <div class="modal fade" id="editTransec" tabindex="-1" aria-labelledby="edit-modalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered modal-lg">
+      <div class="modal-content profile-edit profile-edit2">
+        <button class="profile-edit__btnclose flex-a" data-bs-dismiss="modal">
+          <i class="fa-solid fa-xmark"></i>
+        </button>
+        <h2 class="profile-edit__hdng">Edit Information</h2>
+        <from class="row row-gap2">
+          <div class="col-lg-6">
+            <p class="label-text">Action</p>
+            <select class="form-control form-select cus-details-input">
+              <option value="profit">Profit</option>
+              <option value="loss">Loss</option>
+            </select>
+          </div>
+          <div class="col-lg-6">
+            <p class="label-text">Amount</p>
+            <input type="number" class="form-control cus-details-input" placeholder="250000" value="250000">
+          </div>
+          <div class="col-lg-6">
+            <p class="label-text">Date</p>
+            <input type="date" placeholder="MM/DD/YYYY" value="07/31/2024"
+              class="form-control cus-details-input dateInput">
+          </div>
+          <div class="col-12 mb-4">
+            <button class="flex-a w-fit from-btn">Update</button>
+          </div>
+        </from>
+      </div>
+    </div>
+  </div>
+  <div class="modal fade" id="delete" tabindex="-1" aria-labelledby="edit-modalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered modal-lg">
+      <div class="modal-content profile-edit profile-edit2">
+        <button class="profile-edit__btnclose flex-a" data-bs-dismiss="modal">
+          <i class="fa-solid fa-xmark"></i>
+        </button>
+
+        <h2 class="profile-edit__hdng profile-edit__hdng2--danger text-center">
+          <i class="fa-solid fa-trash d-block"></i>
+        </h2>
+        <p class="delete-text">Are you sure you want to delete this?</p>
+        <div class="flex-a profile-edit-btns-wrpr">
+          <button type="submit" class="profile-edit__btn profile-edit__btn--del">Delete</button>
+          <button type="button" class="profile-edit__btn profile-edit__btn--tr profile-edit__btn--tr-red"
+            data-bs-dismiss="modal">Cancel</button>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="modal fade" id="profilee-dit-modal2" tabindex="-1" aria-labelledby="profilee-dit-modalLabel"
+    aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered modal-xl">
+      <div class="modal-content profile-edit">
+        <button class="profile-edit__btnclose flex-a" data-bs-dismiss="modal">
+          <i class="fa-solid fa-xmark"></i>
+        </button>
+        <img src="assets/images/profile.png" alt="" class="profile-edit__img">
+        <form class="row profile-edit-row">
+          <div class="col-lg-4">
+            <p class="profile-edit__para">Name</p>
+            <input type="text" placeholder="Name" value="Ronald" class="form-control profile-edit__input">
+          </div>
+          <div class="col-lg-4">
+            <p class="profile-edit__para">Mobile</p>
+            <input type="text" placeholder="03156709807" value="" class="form-control profile-edit__input">
+          </div>
+          <div class="col-lg-4">
+            <p class="profile-edit__para">Email</p>
+            <input type="text" placeholder="naqashahsanaea@gmail.com" value="" class="form-control profile-edit__input">
+          </div>
+          <div class="col-lg-12">
+            <p class="profile-edit__para">Investment Amount</p>
+            <input type="text" placeholder="$2500" value="" class="form-control profile-edit__input">
+          </div>
+          <div class="col-lg-12">
+            <div class="flex-a profile-edit-btns-wrpr">
+              <button type="submit" class="profile-edit__btn">Update</button>
+              <button type="button" class="profile-edit__btn profile-edit__btn--tr"
+                data-bs-dismiss="modal">Cancel</button>
+            </div>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+  <script src="assets/js/jquery-3.7.1.min.js"></script>
+  <script src="dist/bootstrap-5.2.2/js/bootstrap.bundle.min.js"></script>
+  <script src="dist/bootstrap-5.2.2/js/bootstrap.min.js"></script>
+  <script src="dist/fontawesome/js/all.min.js"></script>
+  <script src="dist/popperjs/popper.min.js"></script>
+  <script src="dist/swiper/swiper-bundle.min.js"></script>
+  <script src="dist/tippyjs/tippy-bundle.umd.min.js"></script>
+  <script src="dist/chartsjs/chart.js"></script>
+  <script src="dist/apexcharts/apexcharts.js"></script>
+  <script src="dist/data-tables/dataTables.min.js"></script>
+  <script src="dist/datepicker/datepicker.js"></script>
+  <script src="assets/js/scripts.js"></script>
+</body>
+
+</html>

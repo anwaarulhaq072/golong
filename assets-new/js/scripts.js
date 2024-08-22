@@ -27,7 +27,6 @@ $(document).ready(function () {
     passwordField.attr("type", fieldType);
     $(this).toggleClass("active");
   });
-  new Datepicker(".dateInput");
   new Swiper(".loginboxSlider", {
     slidesPerView: 1,
     speed: 300,
@@ -43,14 +42,14 @@ $(document).ready(function () {
       selector: "#profitLoss-table",
       options: { searching: true, pageLength: 10 },
     },
-    { selector: "#payout", options: { searching: false, pageLength: 3 } },
+    { selector: "#payout", options: { searching: false, pageLength: 10 } },
     {
       selector: "#all-customers",
       options: { searching: true, pageLength: 10 },
     },
     {
-      selector: "#transactionTable",
-      options: { searching: true, pageLength: 4 },
+      selector: "#transactionTable2",
+      options: { searching: true, pageLength: 10 },
     },
     {
       selector: "#withdrawalTable",
@@ -79,11 +78,9 @@ document.addEventListener("DOMContentLoaded", function () {
       filterElement.addEventListener("change", function () {
         const filterValue = this.value;
         const rows = document.querySelectorAll(`.profitlossTable .table__row`);
-
         rows.forEach((row) => {
           const isProfitRow = row.classList.contains("profit-row");
           const isLossRow = row.classList.contains("loss-row");
-
           if (filterValue === "profit") {
             row.style.display = isProfitRow ? "table-row" : "none";
           } else if (filterValue === "loss") {

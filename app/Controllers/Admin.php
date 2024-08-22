@@ -674,7 +674,7 @@ class Admin extends BaseController
 			$data['userDetails'] = $users->getrow($_GET['userid']);
 			// log_message('debug', '***************** Payout *****************' . var_export($data['userDetails'], true));
 			$data['profitLossDetails'] = $profitLoss->getByUserId($_GET['userid']);
-			return view('/home/customer-info', $data);
+			return view('/home/new-customer-info', $data);
 		} else {
 			return redirect()->to('/');
 		}
@@ -916,9 +916,13 @@ class Admin extends BaseController
 
 	public function addInvestment()
 	{
-		// log_message('debug', '***************** Update Investment Amount *****************');
+		// log_message('debug', '***************** Update Investment Amount *****************'.var_export($_POST, true));
 
 		$users = new Users();
+		$showtoaccount = 'N';
+		if(isset($_POST['showtoaccount']) && $_POST['showtoaccount'] == 'on'){
+			$showtoaccount = 'Y';
+		}
 		$users->update($_POST['id'], [
 			'initialInvestment' => $_POST['amount'],
 			// 'transactionType' => $_POST['transaction'],
@@ -927,7 +931,7 @@ class Admin extends BaseController
 			// 'payout_per' => $_POST['payout_per'],
 			// 'nextpayoutDate' => $_POST['nextpayoutdate'],
 			'updatedAt' => date('Y-m-d H:i:s'),
-			'flagfor_accountant' => $_POST['showtoaccount'],
+			'flagfor_accountant' => $showtoaccount,
 		]);
 		return redirect()->to('/admin/customerdetails?userid=' . $_POST['id']);
 	}
@@ -969,7 +973,7 @@ class Admin extends BaseController
 
 	public function addProfitLoss()
 	{
-		log_message('debug', '***************** Add Profit/Loss Amount *****************');
+		log_message('debug', '***************** Add Profit/Loss Amount *****************'.var_export($_POST, true));
 		$profitFound = array(
 			'status' => true,
 			'message' => '* Record already exist on this date you can only update or delete a record once a record is added.'
