@@ -1,0 +1,92 @@
+[15-Dec-2021 01:24:18 America/Boise] PHP Parse error:  syntax error, unexpected '$mail' (T_VARIABLE) in /home1/nvestcli/public_html/email.php on line 14
+[15-Dec-2021 01:24:57 America/Boise] PHP Warning:  include(class.phpmailer.php): failed to open stream: No such file or directory in /home1/nvestcli/public_html/email.php on line 2
+[15-Dec-2021 01:24:57 America/Boise] PHP Warning:  include(class.phpmailer.php): failed to open stream: No such file or directory in /home1/nvestcli/public_html/email.php on line 2
+[15-Dec-2021 01:24:57 America/Boise] PHP Warning:  include(): Failed opening 'class.phpmailer.php' for inclusion (include_path='.:/opt/cpanel/ea-php74/root/usr/share/pear') in /home1/nvestcli/public_html/email.php on line 2
+[15-Dec-2021 01:24:57 America/Boise] PHP Warning:  include(class.smtp,php): failed to open stream: No such file or directory in /home1/nvestcli/public_html/email.php on line 3
+[15-Dec-2021 01:24:57 America/Boise] PHP Warning:  include(class.smtp,php): failed to open stream: No such file or directory in /home1/nvestcli/public_html/email.php on line 3
+[15-Dec-2021 01:24:57 America/Boise] PHP Warning:  include(): Failed opening 'class.smtp,php' for inclusion (include_path='.:/opt/cpanel/ea-php74/root/usr/share/pear') in /home1/nvestcli/public_html/email.php on line 3
+[15-Dec-2021 01:24:57 America/Boise] PHP Fatal error:  Uncaught Error: Class 'PHPMailer' not found in /home1/nvestcli/public_html/email.php:5
+Stack trace:
+#0 {main}
+  thrown in /home1/nvestcli/public_html/email.php on line 5
+[15-Dec-2021 01:26:38 America/Boise] PHP Warning:  include(class.phpmailer.php): failed to open stream: No such file or directory in /home1/nvestcli/public_html/email.php on line 2
+[15-Dec-2021 01:26:38 America/Boise] PHP Warning:  include(class.phpmailer.php): failed to open stream: No such file or directory in /home1/nvestcli/public_html/email.php on line 2
+[15-Dec-2021 01:26:38 America/Boise] PHP Warning:  include(): Failed opening 'class.phpmailer.php' for inclusion (include_path='.:/opt/cpanel/ea-php74/root/usr/share/pear') in /home1/nvestcli/public_html/email.php on line 2
+[15-Dec-2021 01:26:38 America/Boise] PHP Warning:  include(class.smtp,php): failed to open stream: No such file or directory in /home1/nvestcli/public_html/email.php on line 3
+[15-Dec-2021 01:26:38 America/Boise] PHP Warning:  include(class.smtp,php): failed to open stream: No such file or directory in /home1/nvestcli/public_html/email.php on line 3
+[15-Dec-2021 01:26:38 America/Boise] PHP Warning:  include(): Failed opening 'class.smtp,php' for inclusion (include_path='.:/opt/cpanel/ea-php74/root/usr/share/pear') in /home1/nvestcli/public_html/email.php on line 3
+[15-Dec-2021 01:26:38 America/Boise] PHP Fatal error:  Uncaught Error: Class 'PHPMailer' not found in /home1/nvestcli/public_html/email.php:5
+Stack trace:
+#0 {main}
+  thrown in /home1/nvestcli/public_html/email.php on line 5
+[15-Dec-2021 01:26:58 America/Boise] PHP Warning:  include(class.phpmailer.php): failed to open stream: No such file or directory in /home1/nvestcli/public_html/email.php on line 2
+[15-Dec-2021 01:26:58 America/Boise] PHP Warning:  include(class.phpmailer.php): failed to open stream: No such file or directory in /home1/nvestcli/public_html/email.php on line 2
+[15-Dec-2021 01:26:58 America/Boise] PHP Warning:  include(): Failed opening 'class.phpmailer.php' for inclusion (include_path='.:/opt/cpanel/ea-php74/root/usr/share/pear') in /home1/nvestcli/public_html/email.php on line 2
+[15-Dec-2021 01:26:58 America/Boise] PHP Warning:  include(class.smtp,php): failed to open stream: No such file or directory in /home1/nvestcli/public_html/email.php on line 3
+[15-Dec-2021 01:26:58 America/Boise] PHP Warning:  include(class.smtp,php): failed to open stream: No such file or directory in /home1/nvestcli/public_html/email.php on line 3
+[15-Dec-2021 01:26:58 America/Boise] PHP Warning:  include(): Failed opening 'class.smtp,php' for inclusion (include_path='.:/opt/cpanel/ea-php74/root/usr/share/pear') in /home1/nvestcli/public_html/email.php on line 3
+[15-Dec-2021 01:26:58 America/Boise] PHP Fatal error:  Uncaught Error: Class 'PHPMailer' not found in /home1/nvestcli/public_html/email.php:5
+Stack trace:
+#0 {main}
+  thrown in /home1/nvestcli/public_html/email.php on line 5
+[15-Dec-2021 01:28:12 America/Boise] PHP Warning:  include(class.phpmailer.php): failed to open stream: No such file or directory in /home1/nvestcli/public_html/email.php on line 2
+[15-Dec-2021 01:28:12 America/Boise] PHP Warning:  include(class.phpmailer.php): failed to open stream: No such file or directory in /home1/nvestcli/public_html/email.php on line 2
+[15-Dec-2021 01:28:12 America/Boise] PHP Warning:  include(): Failed opening 'class.phpmailer.php' for inclusion (include_path='.:/opt/cpanel/ea-php74/root/usr/share/pear') in /home1/nvestcli/public_html/email.php on line 2
+[15-Dec-2021 01:28:12 America/Boise] PHP Warning:  include(class.smtp,php): failed to open stream: No such file or directory in /home1/nvestcli/public_html/email.php on line 3
+[15-Dec-2021 01:28:12 America/Boise] PHP Warning:  include(class.smtp,php): failed to open stream: No such file or directory in /home1/nvestcli/public_html/email.php on line 3
+[15-Dec-2021 01:28:12 America/Boise] PHP Warning:  include(): Failed opening 'class.smtp,php' for inclusion (include_path='.:/opt/cpanel/ea-php74/root/usr/share/pear') in /home1/nvestcli/public_html/email.php on line 3
+[15-Dec-2021 01:28:12 America/Boise] PHP Fatal error:  Uncaught Error: Class 'PHPMailer' not found in /home1/nvestcli/public_html/email.php:5
+Stack trace:
+#0 {main}
+  thrown in /home1/nvestcli/public_html/email.php on line 5
+[15-Dec-2021 01:50:45 America/Boise] PHP Warning:  Use of undefined constant E_All - assumed 'E_All' (this will throw an Error in a future version of PHP) in /home1/nvestcli/public_html/email.php on line 3
+[15-Dec-2021 01:58:27 America/Boise] PHP Warning:  Use of undefined constant E_All - assumed 'E_All' (this will throw an Error in a future version of PHP) in /home1/nvestcli/public_html/email.php on line 3
+[15-Dec-2021 01:58:59 America/Boise] PHP Warning:  Use of undefined constant E_All - assumed 'E_All' (this will throw an Error in a future version of PHP) in /home1/nvestcli/public_html/email.php on line 3
+[15-Dec-2021 01:59:14 America/Boise] PHP Warning:  Use of undefined constant E_All - assumed 'E_All' (this will throw an Error in a future version of PHP) in /home1/nvestcli/public_html/email.php on line 3
+[15-Dec-2021 01:59:27 America/Boise] PHP Warning:  Use of undefined constant E_All - assumed 'E_All' (this will throw an Error in a future version of PHP) in /home1/nvestcli/public_html/email.php on line 3
+[15-Dec-2021 02:07:21 America/Boise] PHP Warning:  Use of undefined constant E_All - assumed 'E_All' (this will throw an Error in a future version of PHP) in /home1/nvestcli/public_html/email.php on line 3
+[15-Dec-2021 02:07:57 America/Boise] PHP Warning:  Use of undefined constant E_All - assumed 'E_All' (this will throw an Error in a future version of PHP) in /home1/nvestcli/public_html/email.php on line 3
+[15-Dec-2021 02:09:30 America/Boise] PHP Warning:  Use of undefined constant E_All - assumed 'E_All' (this will throw an Error in a future version of PHP) in /home1/nvestcli/public_html/email.php on line 3
+[15-Dec-2021 02:12:18 America/Boise] PHP Warning:  Use of undefined constant E_All - assumed 'E_All' (this will throw an Error in a future version of PHP) in /home1/nvestcli/public_html/email.php on line 3
+[15-Dec-2021 02:12:58 America/Boise] PHP Warning:  Use of undefined constant E_All - assumed 'E_All' (this will throw an Error in a future version of PHP) in /home1/nvestcli/public_html/email.php on line 3
+[15-Dec-2021 02:13:53 America/Boise] PHP Warning:  Use of undefined constant E_All - assumed 'E_All' (this will throw an Error in a future version of PHP) in /home1/nvestcli/public_html/email.php on line 3
+[15-Dec-2021 02:15:42 America/Boise] PHP Warning:  Use of undefined constant E_All - assumed 'E_All' (this will throw an Error in a future version of PHP) in /home1/nvestcli/public_html/email.php on line 3
+[15-Dec-2021 02:21:00 America/Boise] PHP Warning:  Use of undefined constant E_All - assumed 'E_All' (this will throw an Error in a future version of PHP) in /home1/nvestcli/public_html/email.php on line 3
+[16-Feb-2022 08:57:25 America/Los_Angeles] PHP Fatal error:  Cannot use isset() on the result of an expression (you can use "null !== expression" instead) in /home1/nvestcli/public_html/app/Views/home/customer-dashboard.php on line 88
+[20-Jun-2022 12:02:27 America/Los_Angeles] PHP Fatal error:  Namespace declaration statement has to be the very first statement or after any declare call in the script in /home/qdw8ums3ivde/public_html/app/Controllers/Home.php on line 3
+[20-Jun-2022 12:02:30 America/Los_Angeles] PHP Fatal error:  Namespace declaration statement has to be the very first statement or after any declare call in the script in /home/qdw8ums3ivde/public_html/app/Controllers/Home.php on line 3
+[20-Jun-2022 12:02:39 America/Los_Angeles] PHP Fatal error:  Namespace declaration statement has to be the very first statement or after any declare call in the script in /home/qdw8ums3ivde/public_html/app/Controllers/Home.php on line 3
+[20-Sep-2022 12:12:52 America/Los_Angeles] PHP Fatal error:  Maximum execution time of 30 seconds exceeded in /home/qdw8ums3ivde/public_html/system/Debug/Exceptions.php on line 172
+[20-Sep-2022 12:13:22 America/Los_Angeles] PHP Fatal error:  Maximum execution time of 30 seconds exceeded in /home/qdw8ums3ivde/public_html/system/Debug/Exceptions.php on line 168
+[20-Sep-2022 12:14:33 America/Los_Angeles] PHP Fatal error:  Maximum execution time of 30 seconds exceeded in /home/qdw8ums3ivde/public_html/system/Debug/Exceptions.php on line 168
+[26-Sep-2022 07:29:05 America/Los_Angeles] PHP Fatal error:  Maximum execution time of 30 seconds exceeded in /home/qdw8ums3ivde/public_html/app/Controllers/Admin.php on line 70
+[26-Sep-2022 07:29:40 America/Los_Angeles] PHP Fatal error:  Maximum execution time of 30 seconds exceeded in /home/qdw8ums3ivde/public_html/system/Debug/Exceptions.php on line 168
+[26-Sep-2022 07:30:41 America/Los_Angeles] PHP Fatal error:  Maximum execution time of 30 seconds exceeded in /home/qdw8ums3ivde/public_html/system/Debug/Exceptions.php on line 168
+[04-Jan-2023 20:44:30 America/Los_Angeles] PHP Fatal error:  Maximum execution time of 30 seconds exceeded in /home/qdw8ums3ivde/public_html/system/Debug/Exceptions.php on line 168
+[04-Jan-2023 20:45:30 America/Los_Angeles] PHP Fatal error:  Maximum execution time of 30 seconds exceeded in /home/qdw8ums3ivde/public_html/app/Controllers/Admin.php on line 87
+[04-Jan-2023 20:47:15 America/Los_Angeles] PHP Fatal error:  Maximum execution time of 30 seconds exceeded in /home/qdw8ums3ivde/public_html/app/Controllers/Admin.php on line 87
+[04-Jan-2023 20:47:57 America/Los_Angeles] PHP Fatal error:  Maximum execution time of 30 seconds exceeded in /home/qdw8ums3ivde/public_html/app/Controllers/Admin.php on line 87
+[04-Jan-2023 20:48:27 America/Los_Angeles] PHP Fatal error:  Maximum execution time of 30 seconds exceeded in /home/qdw8ums3ivde/public_html/system/Debug/Exceptions.php on line 168
+[04-Jan-2023 20:49:22 America/Los_Angeles] PHP Fatal error:  Maximum execution time of 30 seconds exceeded in /home/qdw8ums3ivde/public_html/app/Controllers/Admin.php on line 87
+[05-Jan-2023 01:09:18 America/Los_Angeles] PHP Fatal error:  Maximum execution time of 30 seconds exceeded in /home/qdw8ums3ivde/public_html/system/Debug/Exceptions.php on line 172
+[05-Jan-2023 01:10:25 America/Los_Angeles] PHP Fatal error:  Maximum execution time of 30 seconds exceeded in /home/qdw8ums3ivde/public_html/system/Debug/Exceptions.php on line 168
+[05-Jan-2023 01:11:37 America/Los_Angeles] PHP Fatal error:  Maximum execution time of 30 seconds exceeded in /home/qdw8ums3ivde/public_html/app/Controllers/Admin.php on line 87
+[05-Jan-2023 01:16:20 America/Los_Angeles] PHP Fatal error:  Maximum execution time of 30 seconds exceeded in /home/qdw8ums3ivde/public_html/system/Debug/Exceptions.php on line 168
+[05-Jan-2023 01:17:47 America/Los_Angeles] PHP Fatal error:  Maximum execution time of 30 seconds exceeded in /home/qdw8ums3ivde/public_html/system/Debug/Exceptions.php on line 168
+[05-Jan-2023 01:18:17 America/Los_Angeles] PHP Fatal error:  Maximum execution time of 30 seconds exceeded in /home/qdw8ums3ivde/public_html/system/Debug/Exceptions.php on line 168
+[05-Jan-2023 01:18:47 America/Los_Angeles] PHP Fatal error:  Maximum execution time of 30 seconds exceeded in /home/qdw8ums3ivde/public_html/system/Debug/Exceptions.php on line 168
+[05-Jan-2023 01:19:17 America/Los_Angeles] PHP Fatal error:  Maximum execution time of 30 seconds exceeded in /home/qdw8ums3ivde/public_html/system/Debug/Exceptions.php on line 168
+[05-Jan-2023 01:19:47 America/Los_Angeles] PHP Fatal error:  Maximum execution time of 30 seconds exceeded in /home/qdw8ums3ivde/public_html/app/Controllers/Admin.php on line 87
+[11-Jan-2024 09:29:09 America/Los_Angeles] PHP Fatal error:  Maximum execution time of 30 seconds exceeded in /home/qdw8ums3ivde/public_html/app/Controllers/Admin.php on line 86
+[11-Jan-2024 09:30:04 America/Los_Angeles] PHP Fatal error:  Maximum execution time of 30 seconds exceeded in /home/qdw8ums3ivde/public_html/app/Controllers/Admin.php on line 86
+[11-Jan-2024 09:39:24 America/Los_Angeles] PHP Fatal error:  Maximum execution time of 30 seconds exceeded in /home/qdw8ums3ivde/public_html/system/Debug/Exceptions.php on line 168
+[11-Jan-2024 09:44:51 America/Los_Angeles] PHP Fatal error:  Maximum execution time of 30 seconds exceeded in /home/qdw8ums3ivde/public_html/app/Controllers/Admin.php on line 86
+[15-Jan-2024 04:12:22 America/Los_Angeles] PHP Fatal error:  Maximum execution time of 30 seconds exceeded in /home/qdw8ums3ivde/public_html/app/Controllers/Admin.php on line 86
+[15-Jan-2024 04:12:52 America/Los_Angeles] PHP Fatal error:  Maximum execution time of 30 seconds exceeded in /home/qdw8ums3ivde/public_html/system/Debug/Exceptions.php on line 168
+[15-Jan-2024 04:13:22 America/Los_Angeles] PHP Fatal error:  Maximum execution time of 30 seconds exceeded in /home/qdw8ums3ivde/public_html/app/Controllers/Admin.php on line 86
+[15-Jan-2024 04:13:52 America/Los_Angeles] PHP Fatal error:  Maximum execution time of 30 seconds exceeded in /home/qdw8ums3ivde/public_html/system/Debug/Exceptions.php on line 168
+[15-Jan-2024 04:14:22 America/Los_Angeles] PHP Fatal error:  Maximum execution time of 30 seconds exceeded in /home/qdw8ums3ivde/public_html/system/Debug/Exceptions.php on line 168
+[15-Jan-2024 04:14:52 America/Los_Angeles] PHP Fatal error:  Maximum execution time of 30 seconds exceeded in /home/qdw8ums3ivde/public_html/system/Debug/Exceptions.php on line 168
+[15-Jan-2024 04:15:22 America/Los_Angeles] PHP Fatal error:  Maximum execution time of 30 seconds exceeded in /home/qdw8ums3ivde/public_html/system/Debug/Exceptions.php on line 168
+[15-Jan-2024 04:15:52 America/Los_Angeles] PHP Fatal error:  Maximum execution time of 30 seconds exceeded in /home/qdw8ums3ivde/public_html/app/Controllers/Admin.php on line 86
+[15-Jan-2024 04:16:22 America/Los_Angeles] PHP Fatal error:  Maximum execution time of 30 seconds exceeded in /home/qdw8ums3ivde/public_html/system/Debug/Exceptions.php on line 168

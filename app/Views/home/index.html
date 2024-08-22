@@ -1,0 +1,786 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8" data-bs-theme="dark">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Bootstrap demo</title>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Nunito+Sans:ital,opsz,wght@0,6..12,200..1000;1,6..12,200..1000&display=swap"
+    rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link src="dist-new/data-tables/dataTables.bootstrap5.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="assets-new/css/themes.css">
+  <link rel="stylesheet" href="assets-new/css/style.css">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.4.1/chart.min.js"></script>
+</head>
+
+<body>
+  <div class="app_wrapper">
+    <div class="sidebar">
+      <div class="profile">
+        <img src="assets-new/images/profile.png" alt="" class="profile__img">
+      </div>
+      <div class="sidebar-list-holder">
+        <ul class="sidebar-list sidebar-list1">
+          <li class="sidebar-list__item">
+            <a href="/" class="sidebar-list__link flex-a trn-all active" id="dashboard">
+              <img src="assets-new/images/icons/dashboard.svg" alt="" class="sidebar-list__icon hide-on-light">
+              <img src="assets-new/images/icons/dashboard-brown.svg" alt="" class="sidebar-list__icon hide-on-dark">
+            </a>
+          </li>
+          <li class="sidebar-list__item">
+            <a href="#" class="sidebar-list__link flex-a trn-all" id="account">
+              <img src="assets-new/images/icons/user.svg" alt="" class="sidebar-list__icon hide-on-light">
+              <img src="assets-new/images/icons/user-dark.svg" alt="" class="sidebar-list__icon hide-on-dark">
+            </a>
+          </li>
+          <li class="sidebar-list__item">
+            <a href="" class="sidebar-list__link flex-a trn-all" id="notification">
+              <img src="assets-new/images/icons/bell.svg" alt="" class="sidebar-list__icon hide-on-light">
+              <img src="assets-new/images/icons/bell-brown.svg" alt="" class="sidebar-list__icon hide-on-dark">
+            </a>
+          </li>
+          <li class="sidebar-list__item">
+            <a href="" class="sidebar-list__link flex-a trn-all" id="deposite">
+              <img src="assets-new/images/icons/wallet.svg" alt="" class="sidebar-list__icon hide-on-light">
+              <img src="assets-new/images/icons/wallet-brown.svg" alt="" class="sidebar-list__icon hide-on-dark">
+            </a>
+          </li>
+          <li class="sidebar-list__item">
+            <a href="" class="sidebar-list__link flex-a trn-all" id="withdrawal">
+              <img src="assets-new/images/icons/withdrawal.svg" alt="" class="sidebar-list__icon hide-on-light">
+              <img src="assets-new/images/icons/withdrawal-brown.svg" alt="" class="sidebar-list__icon hide-on-dark">
+            </a>
+          </li>
+          <li class="sidebar-list__item">
+            <a href="" class="sidebar-list__link flex-a trn-all" id="add-user">
+              <img src="assets-new/images/icons/user-plus.svg" alt="" class="sidebar-list__icon hide-on-light">
+              <img src="assets-new/images/icons/user-plus-brown.svg" alt="" class="sidebar-list__icon hide-on-dark">
+            </a>
+          </li>
+          <li class="sidebar-list__item">
+            <a href="" class="sidebar-list__link flex-a trn-all" id="update-bulk-record">
+              <img src="assets-new/images/icons/update.svg" alt="" class="sidebar-list__icon hide-on-light">
+              <img src="assets-new/images/icons/update-brown.svg" alt="" class="sidebar-list__icon hide-on-dark">
+            </a>
+          </li>
+        </ul>
+        <ul class="sidebar-list">
+          <li class="sidebar-list__item">
+            <div class="sidebar-list__link flex-a trn-all" id="light">
+              <img src="assets-new/images/icons/light.svg" alt="" class="sidebar-list__icon hide-on-light">
+              <img src="assets-new/images/icons/light-brown.svg" alt="" class="sidebar-list__icon hide-on-dark">
+            </div>
+          </li>
+          <li class="sidebar-list__item">
+            <div class="sidebar-list__link flex-a trn-all" id="dark">
+              <img src="assets-new/images/icons/night.svg" alt="" class="sidebar-list__icon hide-on-light">
+              <img src="assets-new/images/icons/night-brown.svg" alt="" class="sidebar-list__icon hide-on-dark">
+            </div>
+          </li>
+          <li class="sidebar-list__item">
+            <div class="sidebar-list__link flex-a trn-all" id="logout">
+              <img src="assets-new/images/icons/logout.svg" alt="" class="sidebar-list__icon hide-on-light">
+              <img src="assets-new/images/icons/logout-brown.svg" alt="" class="sidebar-list__icon hide-on-dark">
+            </div>
+          </li>
+        </ul>
+      </div>
+    </div>
+    <main class="main">
+      <div class="row row-gap">
+        <div class="col-lg-8 col-xl-9">
+          <div class="row row-gap">
+            <div class="col-sm-6 col-xl-3">
+              <div class="card details-card">
+                <p class="details-card__sub-hdng">Total Investment</p>
+                <h2 class="details-card__hdng">$25000</h2>
+                <p class="details-card__desc">will be increase in this year</p>
+              </div>
+            </div>
+            <div class="col-sm-6 col-xl-3">
+              <div class="card details-card">
+                <p class="details-card__sub-hdng">Total Profit</p>
+                <h2 class="details-card__hdng">$-9209.45</h2>
+                <div class="details-card__desc"> <span class="text-color-topaz">0.8%</span> will be increase in this
+                  year
+                </div>
+              </div>
+            </div>
+            <div class="col-sm-6 col-xl-3">
+              <div class="card details-card">
+                <p class="details-card__sub-hdng">Pending Payout</p>
+                <h2 class="details-card__hdng">$60000</h2>
+                <div class="details-card__desc"> <span class="text-color-topaz">0.8%</span> will be increase in this
+                  year
+                </div>
+              </div>
+            </div>
+            <div class="col-sm-6 col-xl-3">
+              <div class="card details-card">
+                <p class="details-card__sub-hdng">Total Payout (Till Date)</p>
+                <h2 class="details-card__hdng">$60000</h2>
+                <div class="details-card__desc"> <span class="text-color-topaz">0.8%</span> will be increase in this
+                  year
+                </div>
+              </div>
+            </div>
+            <div class="col-12">
+              <div class="card profit-loss-card">
+                <div class="profit-loss-card__hdr">
+                  <h1 class="profit-loss-card__hdng">Profit and Loss Chart</h1>
+                  <p class="profit-loss-card__desc">Transaction Chart</p>
+                </div>
+                <div id="chart"></div>
+                <!-- <canvas id="profitLossChart"></canvas> -->
+              </div>
+            </div>
+            <div class="col-md-6 col-lg-12 col-xl-6">
+              <h2 class="transaction__hdng">Transactions</h2>
+              <p class="transaction__desc">Details of transactions</p>
+              <div class="card transaction-card">
+                <div class="flex-i justify-between transaction-card-wrapper">
+                  <div class="transaction-card__content">
+                    <h6 class="trnHdng">Positions</h6>
+                    <p class="transaction-card__desc">Total position from start to till now</p>
+                  </div>
+                  <div class="transaction-card__chart-holder">
+                    <canvas class="progressChart" id="progressChart1"></canvas>
+                    <div class="chart-value" id="chartValue1">13</div>
+                  </div>
+                </div>
+              </div>
+              <div class="card transaction-card">
+                <div class="flex-i justify-between transaction-card-wrapper">
+                  <div class="transaction-card__content">
+                    <h6 class="trnHdng">Profit</h6>
+                    <p class="transaction-card__desc">Total profit from start to till now</p>
+                  </div>
+                  <div class="transaction-card__chart-holder">
+                    <canvas class="progressChart" id="progressChart2"></canvas>
+                    <div class="chart-value" id="chartValue2">76.9%</div>
+                  </div>
+                </div>
+              </div>
+              <div class="card transaction-card">
+                <div class="flex-i justify-between transaction-card-wrapper">
+                  <div class="transaction-card__content">
+                    <h6 class="trnHdng">Losing</h6>
+                    <p class="transaction-card__desc">Total loss from start to till now</p>
+                  </div>
+                  <div class="transaction-card__chart-holder">
+                    <canvas class="progressChart" id="progressChart3"></canvas>
+                    <div class="chart-value" id="chartValue3">23.1%</div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="col-md-6 col-lg-12 col-xl-6">
+              <div class="card monthly-return">
+                <h2 class="monthly-return__hdng">Monthly Return</h2>
+                <ul class="monthly-return-list cols-2">
+                  <li class="monthly-return-list__item flex-i justify-between">
+                    <div class="">January</div>
+                    <div class="">1</div>
+                  </li>
+                  <li class="monthly-return-list__item flex-i justify-between">
+                    February
+                    <div class="text-color-topaz flex-i">
+                      <img src="assets-new/images/icons/up.svg" alt="">
+                      0.21
+                    </div>
+                  </li>
+                  <li class="monthly-return-list__item flex-i justify-between">
+                    <div class="">March</div>
+                    <div class="">0</div>
+                  </li>
+                  <li class="monthly-return-list__item flex-i justify-between">
+                    April
+                    <div class="text-color-topaz flex-i">
+                      <img src="assets-new/images/icons/up.svg" alt="">
+                      0.21
+                    </div>
+                  </li>
+                  <li class="monthly-return-list__item flex-i justify-between">
+                    <div class="">May</div>
+                    <div class="">0</div>
+                  </li>
+                  <li class="monthly-return-list__item flex-i justify-between">
+                    June
+                    <div class="">0</div>
+                  </li>
+                  <li class="monthly-return-list__item flex-i justify-between">
+                    <div class="">july</div>
+                    <div class="">0</div>
+                  </li>
+                  <li class="monthly-return-list__item flex-i justify-between">
+                    August
+                    <div class="text-color-chili-papper flex-i">
+                      <img src="assets-new/images/icons/down.svg" alt="">
+                      0.21
+                    </div>
+                  </li>
+                  <li class="monthly-return-list__item flex-i justify-between">
+                    <div class="">September</div>
+                    <div class="">0</div>
+                  </li>
+                  <li class="monthly-return-list__item flex-i justify-between">
+                    <div class="">October</div>
+                    <div class="">0</div>
+                  </li>
+                  <li class="monthly-return-list__item flex-i justify-between">
+                    <div class="">November</div>
+                    <div class="text-color-chili-papper flex-i">
+                      <img src="assets-new/images/icons/down.svg" alt="">
+                      0.21
+                    </div>
+                  </li>
+                  <li class="monthly-return-list__item flex-i justify-between">
+                    <div class="">December </div>
+                    <div class="">0</div>
+                  </li>
+                </ul>
+                <div class="monthly-return__total flex-i justify-between">
+                  <span>Total</span>
+                  <span>20.18</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="col-lg-4 col-xl-3">
+          <div class="card tn-list-card">
+            <h2 class="tn-list-card__hdng">Transaction List</h2>
+            <p class="tn-list-card__desc">
+              Following are the detail records of your transactions
+            </p>
+            <div class="inputBox flex-i">
+              <input type="text" class="inputBox__feild" placeholder="Search...">
+              <img src="assets-new/images/icons/search.svg" alt="">
+            </div>
+            <select class="tn-list-card__select" id="filterSelect">
+              <option value="all">Show All</option>
+              <option value="profit">Profit</option>
+              <option value="loss">Loss</option>
+            </select>
+            <table class="table profitLoss__table" id="profitLoss-table">
+              <thead>
+                <tr class="table-head__row">
+                  <th class="table__hdng">Profit/loss</th>
+                  <th class="table__hdng">Date</th>
+                  <th class="table__hdng">Amount</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr class="table__row profit-row">
+                  <td class="teble__col1">Profit</td>
+                  <td class="teble__col2">Aug 20, 2024</td>
+                  <td class="teble__col3">
+                    <div class="text-color-topaz flex-i">
+                      <img src="assets-new/images/icons/up.svg" alt="">
+                      $200
+                    </div>
+                  </td>
+                </tr>
+                <tr class="table__row loss-row">
+                  <td class="teble__col1">loss</td>
+                  <td class="teble__col2">Jul 20, 2024</td>
+                  <td class="teble__col3">
+                    <div class="text-color-chili-papper flex-i">
+                      <img src="assets-new/images/icons/down.svg" alt="">
+                      $210
+                    </div>
+                  </td>
+                </tr>
+                <tr class="table__row loss-row">
+                  <td class="teble__col1">loss</td>
+                  <td class="teble__col2">Jul 20, 2024</td>
+                  <td class="teble__col3">
+                    <div class="text-color-chili-papper flex-i">
+                      <img src="assets-new/images/icons/down.svg" alt="">
+                      $210
+                    </div>
+                  </td>
+                </tr>
+                <tr class="table__row profit-row">
+                  <td class="teble__col1">Profit</td>
+                  <td class="teble__col2">Aug 20, 2024</td>
+                  <td class="teble__col3">
+                    <div class="text-color-topaz flex-i">
+                      <img src="assets-new/images/icons/up.svg" alt="">
+                      $200
+                    </div>
+                  </td>
+                </tr>
+                <tr class="table__row profit-row">
+                  <td class="teble__col1">Profit</td>
+                  <td class="teble__col2">Aug 20, 2024</td>
+                  <td class="teble__col3">
+                    <div class="text-color-topaz flex-i">
+                      <img src="assets-new/images/icons/up.svg" alt="">
+                      $200
+                    </div>
+                  </td>
+                </tr>
+                <tr class="table__row loss-row">
+                  <td class="teble__col1">loss</td>
+                  <td class="teble__col2">Jul 20, 2024</td>
+                  <td class="teble__col3">
+                    <div class="text-color-chili-papper flex-i">
+                      <img src="assets-new/images/icons/down.svg" alt="">
+                      $210
+                    </div>
+                  </td>
+                </tr>
+                <tr class="table__row profit-row">
+                  <td class="teble__col1">Profit</td>
+                  <td class="teble__col2">Aug 20, 2024</td>
+                  <td class="teble__col3">
+                    <div class="text-color-topaz flex-i">
+                      <img src="assets-new/images/icons/up.svg" alt="">
+                      $200
+                    </div>
+                  </td>
+                </tr>
+                <tr class="table__row profit-row">
+                  <td class="teble__col1">Profit</td>
+                  <td class="teble__col2">Aug 20, 2024</td>
+                  <td class="teble__col3">
+                    <div class="text-color-topaz flex-i">
+                      <img src="assets-new/images/icons/up.svg" alt="">
+                      $200
+                    </div>
+                  </td>
+                </tr>
+                <tr class="table__row loss-row">
+                  <td class="teble__col1">loss</td>
+                  <td class="teble__col2">Jul 20, 2024</td>
+                  <td class="teble__col3">
+                    <div class="text-color-chili-papper flex-i">
+                      <img src="assets-new/images/icons/down.svg" alt="">
+                      $210
+                    </div>
+                  </td>
+                </tr>
+                <tr class="table__row profit-row">
+                  <td class="teble__col1">Profit</td>
+                  <td class="teble__col2">Aug 20, 2024</td>
+                  <td class="teble__col3">
+                    <div class="text-color-topaz flex-i">
+                      <img src="assets-new/images/icons/up.svg" alt="">
+                      $200
+                    </div>
+                  </td>
+                </tr>
+                <tr class="table__row profit-row">
+                  <td class="teble__col1">Profit</td>
+                  <td class="teble__col2">Aug 20, 2024</td>
+                  <td class="teble__col3">
+                    <div class="text-color-topaz flex-i">
+                      <img src="assets-new/images/icons/up.svg" alt="">
+                      $200
+                    </div>
+                  </td>
+                </tr>
+                <tr class="table__row loss-row">
+                  <td class="teble__col1">loss</td>
+                  <td class="teble__col2">Jul 20, 2024</td>
+                  <td class="teble__col3">
+                    <div class="text-color-chili-papper flex-i">
+                      <img src="assets-new/images/icons/down.svg" alt="">
+                      $210
+                    </div>
+                  </td>
+                </tr>
+                <tr class="table__row profit-row">
+                  <td class="teble__col1">Profit</td>
+                  <td class="teble__col2">Aug 20, 2024</td>
+                  <td class="teble__col3">
+                    <div class="text-color-topaz flex-i">
+                      <img src="assets-new/images/icons/up.svg" alt="">
+                      $200
+                    </div>
+                  </td>
+                </tr>
+                <tr class="table__row profit-row">
+                  <td class="teble__col1">Profit</td>
+                  <td class="teble__col2">Aug 20, 2024</td>
+                  <td class="teble__col3">
+                    <div class="text-color-topaz flex-i">
+                      <img src="assets-new/images/icons/up.svg" alt="">
+                      $200
+                    </div>
+                  </td>
+                </tr>
+                <tr class="table__row loss-row">
+                  <td class="teble__col1">loss</td>
+                  <td class="teble__col2">Jul 20, 2024</td>
+                  <td class="teble__col3">
+                    <div class="text-color-chili-papper flex-i">
+                      <img src="assets-new/images/icons/down.svg" alt="">
+                      $210
+                    </div>
+                  </td>
+                </tr>
+                <tr class="table__row profit-row">
+                  <td class="teble__col1">Profit</td>
+                  <td class="teble__col2">Aug 20, 2024</td>
+                  <td class="teble__col3">
+                    <div class="text-color-topaz flex-i">
+                      <img src="assets-new/images/icons/up.svg" alt="">
+                      $200
+                    </div>
+                  </td>
+                </tr>
+                <tr class="table__row profit-row">
+                  <td class="teble__col1">Profit</td>
+                  <td class="teble__col2">Aug 20, 2024</td>
+                  <td class="teble__col3">
+                    <div class="text-color-topaz flex-i">
+                      <img src="assets-new/images/icons/up.svg" alt="">
+                      $200
+                    </div>
+                  </td>
+                </tr>
+                <tr class="table__row loss-row">
+                  <td class="teble__col1">loss</td>
+                  <td class="teble__col2">Jul 20, 2024</td>
+                  <td class="teble__col3">
+                    <div class="text-color-chili-papper flex-i">
+                      <img src="assets-new/images/icons/down.svg" alt="">
+                      $210
+                    </div>
+                  </td>
+                </tr>
+                <tr class="table__row profit-row">
+                  <td class="teble__col1">Profit</td>
+                  <td class="teble__col2">Aug 20, 2024</td>
+                  <td class="teble__col3">
+                    <div class="text-color-topaz flex-i">
+                      <img src="assets-new/images/icons/up.svg" alt="">
+                      $200
+                    </div>
+                  </td>
+                </tr>
+                <tr class="table__row profit-row">
+                  <td class="teble__col1">Profit</td>
+                  <td class="teble__col2">Aug 20, 2024</td>
+                  <td class="teble__col3">
+                    <div class="text-color-topaz flex-i">
+                      <img src="assets-new/images/icons/up.svg" alt="">
+                      $200
+                    </div>
+                  </td>
+                </tr>
+                <tr class="table__row loss-row">
+                  <td class="teble__col1">loss</td>
+                  <td class="teble__col2">Jul 20, 2024</td>
+                  <td class="teble__col3">
+                    <div class="text-color-chili-papper flex-i">
+                      <img src="assets-new/images/icons/down.svg" alt="">
+                      $210
+                    </div>
+                  </td>
+                </tr>
+                <tr class="table__row profit-row">
+                  <td class="teble__col1">Profit</td>
+                  <td class="teble__col2">Aug 20, 2024</td>
+                  <td class="teble__col3">
+                    <div class="text-color-topaz flex-i">
+                      <img src="assets-new/images/icons/up.svg" alt="">
+                      $200
+                    </div>
+                  </td>
+                </tr>
+                <tr class="table__row profit-row">
+                  <td class="teble__col1">Profit</td>
+                  <td class="teble__col2">Aug 20, 2024</td>
+                  <td class="teble__col3">
+                    <div class="text-color-topaz flex-i">
+                      <img src="assets-new/images/icons/up.svg" alt="">
+                      $200
+                    </div>
+                  </td>
+                </tr>
+                <tr class="table__row loss-row">
+                  <td class="teble__col1">loss</td>
+                  <td class="teble__col2">Jul 20, 2024</td>
+                  <td class="teble__col3">
+                    <div class="text-color-chili-papper flex-i">
+                      <img src="assets-new/images/icons/down.svg" alt="">
+                      $210
+                    </div>
+                  </td>
+                </tr>
+                <tr class="table__row profit-row">
+                  <td class="teble__col1">Profit</td>
+                  <td class="teble__col2">Aug 20, 2024</td>
+                  <td class="teble__col3">
+                    <div class="text-color-topaz flex-i">
+                      <img src="assets-new/images/icons/up.svg" alt="">
+                      $200
+                    </div>
+                  </td>
+                </tr>
+                <tr class="table__row profit-row">
+                  <td class="teble__col1">Profit</td>
+                  <td class="teble__col2">Aug 20, 2024</td>
+                  <td class="teble__col3">
+                    <div class="text-color-topaz flex-i">
+                      <img src="assets-new/images/icons/up.svg" alt="">
+                      $200
+                    </div>
+                  </td>
+                </tr>
+                <tr class="table__row loss-row">
+                  <td class="teble__col1">loss</td>
+                  <td class="teble__col2">Jul 20, 2024</td>
+                  <td class="teble__col3">
+                    <div class="text-color-chili-papper flex-i">
+                      <img src="assets-new/images/icons/down.svg" alt="">
+                      $210
+                    </div>
+                  </td>
+                </tr>
+                <tr class="table__row profit-row">
+                  <td class="teble__col1">Profit</td>
+                  <td class="teble__col2">Aug 20, 2024</td>
+                  <td class="teble__col3">
+                    <div class="text-color-topaz flex-i">
+                      <img src="assets-new/images/icons/up.svg" alt="">
+                      $200
+                    </div>
+                  </td>
+                </tr>
+                <tr class="table__row profit-row">
+                  <td class="teble__col1">Profit</td>
+                  <td class="teble__col2">Aug 20, 2024</td>
+                  <td class="teble__col3">
+                    <div class="text-color-topaz flex-i">
+                      <img src="assets-new/images/icons/up.svg" alt="">
+                      $200
+                    </div>
+                  </td>
+                </tr>
+                <tr class="table__row loss-row">
+                  <td class="teble__col1">loss</td>
+                  <td class="teble__col2">Jul 20, 2024</td>
+                  <td class="teble__col3">
+                    <div class="text-color-chili-papper flex-i">
+                      <img src="assets-new/images/icons/down.svg" alt="">
+                      $210
+                    </div>
+                  </td>
+                </tr>
+                <tr class="table__row profit-row">
+                  <td class="teble__col1">Profit</td>
+                  <td class="teble__col2">Aug 20, 2024</td>
+                  <td class="teble__col3">
+                    <div class="text-color-topaz flex-i">
+                      <img src="assets-new/images/icons/up.svg" alt="">
+                      $200
+                    </div>
+                  </td>
+                </tr>
+                <tr class="table__row profit-row">
+                  <td class="teble__col1">Profit</td>
+                  <td class="teble__col2">Aug 20, 2024</td>
+                  <td class="teble__col3">
+                    <div class="text-color-topaz flex-i">
+                      <img src="assets-new/images/icons/up.svg" alt="">
+                      $200
+                    </div>
+                  </td>
+                </tr>
+                <tr class="table__row loss-row">
+                  <td class="teble__col1">loss</td>
+                  <td class="teble__col2">Jul 20, 2024</td>
+                  <td class="teble__col3">
+                    <div class="text-color-chili-papper flex-i">
+                      <img src="assets-new/images/icons/down.svg" alt="">
+                      $210
+                    </div>
+                  </td>
+                </tr>
+                <tr class="table__row profit-row">
+                  <td class="teble__col1">Profit</td>
+                  <td class="teble__col2">Aug 20, 2024</td>
+                  <td class="teble__col3">
+                    <div class="text-color-topaz flex-i">
+                      <img src="assets-new/images/icons/up.svg" alt="">
+                      $200
+                    </div>
+                  </td>
+                </tr>
+                <tr class="table__row profit-row">
+                  <td class="teble__col1">Profit</td>
+                  <td class="teble__col2">Aug 20, 2024</td>
+                  <td class="teble__col3">
+                    <div class="text-color-topaz flex-i">
+                      <img src="assets-new/images/icons/up.svg" alt="">
+                      $200
+                    </div>
+                  </td>
+                </tr>
+                <tr class="table__row loss-row">
+                  <td class="teble__col1">loss</td>
+                  <td class="teble__col2">Jul 20, 2024</td>
+                  <td class="teble__col3">
+                    <div class="text-color-chili-papper flex-i">
+                      <img src="assets-new/images/icons/down.svg" alt="">
+                      $210
+                    </div>
+                  </td>
+                </tr>
+                <tr class="table__row profit-row">
+                  <td class="teble__col1">Profit</td>
+                  <td class="teble__col2">Aug 20, 2024</td>
+                  <td class="teble__col3">
+                    <div class="text-color-topaz flex-i">
+                      <img src="assets-new/images/icons/up.svg" alt="">
+                      $200
+                    </div>
+                  </td>
+                </tr>
+                <tr class="table__row profit-row">
+                  <td class="teble__col1">Profit</td>
+                  <td class="teble__col2">Aug 20, 2024</td>
+                  <td class="teble__col3">
+                    <div class="text-color-topaz flex-i">
+                      <img src="assets-new/images/icons/up.svg" alt="">
+                      $200
+                    </div>
+                  </td>
+                </tr>
+                <tr class="table__row loss-row">
+                  <td class="teble__col1">loss</td>
+                  <td class="teble__col2">Jul 20, 2024</td>
+                  <td class="teble__col3">
+                    <div class="text-color-chili-papper flex-i">
+                      <img src="assets-new/images/icons/down.svg" alt="">
+                      $210
+                    </div>
+                  </td>
+                </tr>
+                <tr class="table__row profit-row">
+                  <td class="teble__col1">Profit</td>
+                  <td class="teble__col2">Aug 20, 2024</td>
+                  <td class="teble__col3">
+                    <div class="text-color-topaz flex-i">
+                      <img src="assets-new/images/icons/up.svg" alt="">
+                      $200
+                    </div>
+                  </td>
+                </tr>
+                <tr class="table__row profit-row">
+                  <td class="teble__col1">Profit</td>
+                  <td class="teble__col2">Aug 20, 2024</td>
+                  <td class="teble__col3">
+                    <div class="text-color-topaz flex-i">
+                      <img src="assets-new/images/icons/up.svg" alt="">
+                      $200
+                    </div>
+                  </td>
+                </tr>
+                <tr class="table__row loss-row">
+                  <td class="teble__col1">loss</td>
+                  <td class="teble__col2">Jul 20, 2024</td>
+                  <td class="teble__col3">
+                    <div class="text-color-chili-papper flex-i">
+                      <img src="assets-new/images/icons/down.svg" alt="">
+                      $210
+                    </div>
+                  </td>
+                </tr>
+                <tr class="table__row profit-row">
+                  <td class="teble__col1">Profit</td>
+                  <td class="teble__col2">Aug 20, 2024</td>
+                  <td class="teble__col3">
+                    <div class="text-color-topaz flex-i">
+                      <img src="assets-new/images/icons/up.svg" alt="">
+                      $200
+                    </div>
+                  </td>
+                </tr>
+                <tr class="table__row profit-row">
+                  <td class="teble__col1">Profit</td>
+                  <td class="teble__col2">Aug 20, 2024</td>
+                  <td class="teble__col3">
+                    <div class="text-color-topaz flex-i">
+                      <img src="assets-new/images/icons/up.svg" alt="">
+                      $200
+                    </div>
+                  </td>
+                </tr>
+                <tr class="table__row loss-row">
+                  <td class="teble__col1">loss</td>
+                  <td class="teble__col2">Jul 20, 2024</td>
+                  <td class="teble__col3">
+                    <div class="text-color-chili-papper flex-i">
+                      <img src="assets-new/images/icons/down.svg" alt="">
+                      $210
+                    </div>
+                  </td>
+                </tr>
+                <tr class="table__row profit-row">
+                  <td class="teble__col1">Profit</td>
+                  <td class="teble__col2">Aug 20, 2024</td>
+                  <td class="teble__col3">
+                    <div class="text-color-topaz flex-i">
+                      <img src="assets-new/images/icons/up.svg" alt="">
+                      $200
+                    </div>
+                  </td>
+                </tr>
+                <tr class="table__row profit-row">
+                  <td class="teble__col1">Profit</td>
+                  <td class="teble__col2">Aug 20, 2024</td>
+                  <td class="teble__col3">
+                    <div class="text-color-topaz flex-i">
+                      <img src="assets-new/images/icons/up.svg" alt="">
+                      $200
+                    </div>
+                  </td>
+                </tr>
+                <tr class="table__row loss-row">
+                  <td class="teble__col1">loss</td>
+                  <td class="teble__col2">Jul 20, 2024</td>
+                  <td class="teble__col3">
+                    <div class="text-color-chili-papper flex-i">
+                      <img src="assets-new/images/icons/down.svg" alt="">
+                      $210
+                    </div>
+                  </td>
+                </tr>
+                <tr class="table__row profit-row">
+                  <td class="teble__col1">Profit</td>
+                  <td class="teble__col2">Aug 20, 2024</td>
+                  <td class="teble__col3">
+                    <div class="text-color-topaz flex-i">
+                      <img src="assets-new/images/icons/up.svg" alt="">
+                      $200
+                    </div>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+    </main>
+  </div>
+
+  <script src="assets-new/js/jquery-3.7.1.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="https://unpkg.com/@popperjs/core@2/dist/umd/popper.min.js"></script>
+  <script src="https://unpkg.com/tippy.js@6/dist/tippy-bundle.umd.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/apexcharts"></script>
+  <script src="dist-new/data-tables/dataTables.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/apexcharts"></script>
+  <script src="assets-new/js/theme.js"></script>
+  <script src="assets-new/js/scripts.js"></script>
+</body>
+
+</html>

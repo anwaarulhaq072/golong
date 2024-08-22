@@ -1,0 +1,278 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8" data-bs-theme="dark">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Withdrawal History</title>
+  <script src="assets/js/theme.js"></script>
+  <link href="dist/bootstrap-5.2.2/css/bootstrap.min.css" rel="stylesheet">
+  <link href="assets/css/themes.css" rel="stylesheet">
+  <link href="dist/data-tables/dataTables.bootstrap5.min.css" rel="stylesheet">
+  <link href="dist/swiper/swiper-bundle.min.css" rel="stylesheet">
+  <link href="dist/remixicons/remixicon.css" rel="stylesheet">
+  <link href="dist/datepicker/css/datepicker.material.css" rel="stylesheet">
+  <link href="assets/css/style.css" rel="stylesheet">
+  <link href="dist/fontawesome/css/all.min.css" rel="stylesheet">
+  <link
+    href="https://fonts.googleapis.com/css2?family=Nunito+Sans:ital,opsz,wght@0,6..12,200..1000;1,6..12,200..1000&display=swap"
+    rel="stylesheet">
+</head>
+
+<body>
+  <div class="app_wrapper">
+    <div class="sidebar">
+      <div class="profile">
+        <img src="assets/images/profile.png" alt="" class="profile__img">
+      </div>
+      <div class="sidebar-list-holder">
+        <ul class="sidebar-list sidebar-list1">
+          <li class="sidebar-list__item">
+            <a href="/" class="sidebar-list__link flex-a trn-all" id="dashboard">
+              <img src="assets/images/icons/dashboard.svg" alt="" class="sidebar-list__icon hide-on-light">
+              <img src="assets/images/icons/dashboard-brown.svg" alt="" class="sidebar-list__icon hide-on-dark">
+            </a>
+          </li>
+          <li class="sidebar-list__item">
+            <a href="my-account.html" class="sidebar-list__link flex-a trn-all" id="account">
+              <img src="assets/images/icons/user.svg" alt="" class="sidebar-list__icon hide-on-light">
+              <img src="assets/images/icons/user-dark.svg" alt="" class="sidebar-list__icon hide-on-dark">
+            </a>
+          </li>
+          <li class="sidebar-list__item">
+            <a href="notification.html" class="sidebar-list__link flex-a trn-all" id="notification">
+              <img src="assets/images/icons/bell.svg" alt="" class="sidebar-list__icon hide-on-light">
+              <img src="assets/images/icons/bell-brown.svg" alt="" class="sidebar-list__icon hide-on-dark">
+            </a>
+          </li>
+          <li class="sidebar-list__item">
+            <a href="" class="sidebar-list__link flex-a trn-all" id="deposite">
+              <img src="assets/images/icons/wallet.svg" alt="" class="sidebar-list__icon hide-on-light">
+              <img src="assets/images/icons/wallet-brown.svg" alt="" class="sidebar-list__icon hide-on-dark">
+            </a>
+          </li>
+          <li class="sidebar-list__item">
+            <a href="withdrawal-history.html" class="sidebar-list__link flex-a trn-all active" id="withdrawal">
+              <img src="assets/images/icons/withdrawal.svg" alt="" class="sidebar-list__icon hide-on-light">
+              <img src="assets/images/icons/withdrawal-brown.svg" alt="" class="sidebar-list__icon hide-on-dark">
+            </a>
+          </li>
+          <li class="sidebar-list__item">
+            <a href="" class="sidebar-list__link flex-a trn-all" id="chat">
+              <img src="assets/images/icons/Chat.svg" alt="" class="sidebar-list__icon hide-on-light">
+              <img src="assets/images/icons/Chat-brown.svg" alt="" class="sidebar-list__icon hide-on-dark">
+            </a>
+          </li>
+          <li class="sidebar-list__item">
+            <a href="archive-history.html" class="sidebar-list__link flex-a trn-all" id="archiveHistory">
+              <img src="assets/images/icons/Archive-History.svg" alt="" class="sidebar-list__icon hide-on-light">
+              <img src="assets/images/icons/Archive-History-brown.svg" alt="" class="sidebar-list__icon hide-on-dark">
+            </a>
+          </li>
+          <li class="sidebar-list__item">
+            <a href="" class="sidebar-list__link flex-a trn-all" id="statement">
+              <img src="assets/images/icons/Statements.svg" alt="" class="sidebar-list__icon hide-on-light">
+              <img src="assets/images/icons/Statements-brown.svg" alt="" class="sidebar-list__icon hide-on-dark">
+            </a>
+          </li>
+          <li class="sidebar-list__item">
+            <a href="" class="sidebar-list__link flex-a trn-all" id="add-user">
+              <img src="assets/images/icons/user-plus.svg" alt="" class="sidebar-list__icon hide-on-light">
+              <img src="assets/images/icons/user-plus-brown.svg" alt="" class="sidebar-list__icon hide-on-dark">
+            </a>
+          </li>
+          <li class="sidebar-list__item">
+            <a href="" class="sidebar-list__link flex-a trn-all" id="update-bulk-record">
+              <img src="assets/images/icons/update.svg" alt="" class="sidebar-list__icon hide-on-light">
+              <img src="assets/images/icons/update-brown.svg" alt="" class="sidebar-list__icon hide-on-dark">
+            </a>
+          </li>
+        </ul>
+        <ul class="sidebar-list">
+          <li class="sidebar-list__item">
+            <div class="sidebar-list__link flex-a trn-all" id="light">
+              <img src="assets/images/icons/light.svg" alt="" class="sidebar-list__icon hide-on-light">
+              <img src="assets/images/icons/light-brown.svg" alt="" class="sidebar-list__icon hide-on-dark">
+            </div>
+          </li>
+          <li class="sidebar-list__item">
+            <div class="sidebar-list__link flex-a trn-all" id="dark">
+              <img src="assets/images/icons/night.svg" alt="" class="sidebar-list__icon hide-on-light">
+              <img src="assets/images/icons/night-brown.svg" alt="" class="sidebar-list__icon hide-on-dark">
+            </div>
+          </li>
+          <li class="sidebar-list__item">
+            <a href="login.html" class="sidebar-list__link flex-a trn-all" id="logout">
+              <img src="assets/images/icons/logout.svg" alt="" class="sidebar-list__icon hide-on-light">
+              <img src="assets/images/icons/logout-brown.svg" alt="" class="sidebar-list__icon hide-on-dark">
+            </a>
+          </li>
+        </ul>
+      </div>
+    </div>
+    <main class="main">
+      <div class="flex-i wdthtopBox-wrpr">
+        <div class="notiHeadingBox notiHeadingBox--wdthtop">
+          <h2 class="notification-card__hdng">Withdrawal History</h2>
+          <p class="notification-card__para">Withdrawal history of 2024</p>
+        </div>
+        <a href="new-withdrawal-request.html" class="flex-a wthdrwlBtn">New Withdrawal Request</a>
+      </div>
+      <div class="row row-gap">
+        <div class="col-12">
+          <div class="card cus-details-card ">
+            <div class="flex trnsc-tbl-top-row">
+              <p class="trnsList-text">
+                Following are the records of your withdrawal history
+              </p>
+              <select class="tn-list-card__select filterselect" id="transactionfilterSelect">
+                <option value="all" selected>Show All</option>
+                <option value="pending">Pending</option>
+                <option value="accepted">Accepted</option>
+                <option value="completed">Completed</option>
+                <option value="rejected">Rejected</option>
+              </select>
+            </div>
+
+            <table class="table withdrawalTable" id="withdrawalTable">
+              <thead>
+                <tr class="withdrawalTable__row profit-row">
+                  <th class="withdrawalTable__col">Requested Date</th>
+                  <th class="withdrawalTable__col">Status</th>
+                  <th class="withdrawalTable__col">Method</th>
+                  <th class="withdrawalTable__col">Method Details</th>
+                  <th class="withdrawalTable__col">Amount</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr class="withdrawalTable__row profit-row pending">
+                  <td class="withdrawalTable__col">Aug 19, 2024</td>
+                  <td class="withdrawalTable__col">
+                    <div class="withdrawalTable__tab pending flex-a">Pending</div>
+                  </td>
+                  <td class="withdrawalTable__col">Method</td>
+                  <td class="withdrawalTable__col">Method Details</td>
+                  <td class="withdrawalTable__col">$200</td>
+                </tr>
+                <tr class="withdrawalTable__row profit-row accepted">
+                  <td class="withdrawalTable__col">Aug 19, 2024</td>
+                  <td class="withdrawalTable__col">
+                    <div class="withdrawalTable__tab accepted flex-a">Accepted</div>
+                  </td>
+                  <td class="withdrawalTable__col">Method</td>
+                  <td class="withdrawalTable__col">Method Details</td>
+                  <td class="withdrawalTable__col">$200</td>
+                </tr>
+                <tr class="withdrawalTable__row profit-row completed">
+                  <td class="withdrawalTable__col">Aug 19, 2024</td>
+                  <td class="withdrawalTable__col">
+                    <div class="withdrawalTable__tab completed flex-a">Completed</div>
+                  </td>
+                  <td class="withdrawalTable__col">Method</td>
+                  <td class="withdrawalTable__col">Method Details</td>
+                  <td class="withdrawalTable__col">$200</td>
+                </tr>
+                <tr class="withdrawalTable__row profit-row rejected">
+                  <td class="withdrawalTable__col">Aug 19, 2024</td>
+                  <td class="withdrawalTable__col">
+                    <div class="withdrawalTable__tab rejected flex-a">Rejected</div>
+                  </td>
+                  <td class="withdrawalTable__col">Method</td>
+                  <td class="withdrawalTable__col">Method Details</td>
+                  <td class="withdrawalTable__col">$200</td>
+                </tr>
+                <tr class="withdrawalTable__row profit-row pending">
+                  <td class="withdrawalTable__col">Aug 19, 2024</td>
+                  <td class="withdrawalTable__col">
+                    <div class="withdrawalTable__tab pending flex-a">Pending</div>
+                  </td>
+                  <td class="withdrawalTable__col">Method</td>
+                  <td class="withdrawalTable__col">Method Details</td>
+                  <td class="withdrawalTable__col">$200</td>
+                </tr>
+                <tr class="withdrawalTable__row profit-row accepted">
+                  <td class="withdrawalTable__col">Aug 19, 2024</td>
+                  <td class="withdrawalTable__col">
+                    <div class="withdrawalTable__tab accepted flex-a">Accepted</div>
+                  </td>
+                  <td class="withdrawalTable__col">Method</td>
+                  <td class="withdrawalTable__col">Method Details</td>
+                  <td class="withdrawalTable__col">$200</td>
+                </tr>
+                <tr class="withdrawalTable__row profit-row completed">
+                  <td class="withdrawalTable__col">Aug 19, 2024</td>
+                  <td class="withdrawalTable__col">
+                    <div class="withdrawalTable__tab completed flex-a">Completed</div>
+                  </td>
+                  <td class="withdrawalTable__col">Method</td>
+                  <td class="withdrawalTable__col">Method Details</td>
+                  <td class="withdrawalTable__col">$200</td>
+                </tr>
+                <tr class="withdrawalTable__row profit-row rejected">
+                  <td class="withdrawalTable__col">Aug 19, 2024</td>
+                  <td class="withdrawalTable__col">
+                    <div class="withdrawalTable__tab rejected flex-a">Rejected</div>
+                  </td>
+                  <td class="withdrawalTable__col">Method</td>
+                  <td class="withdrawalTable__col">Method Details</td>
+                  <td class="withdrawalTable__col">$200</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+    </main>
+  </div>
+  <script src="assets/js/jquery-3.7.1.min.js"></script>
+  <script src="dist/bootstrap-5.2.2/js/bootstrap.bundle.min.js"></script>
+  <script src="dist/bootstrap-5.2.2/js/bootstrap.min.js"></script>
+  <script src="dist/fontawesome/js/all.min.js"></script>
+  <script src="dist/popperjs/popper.min.js"></script>
+  <script src="dist/swiper/swiper-bundle.min.js"></script>
+  <script src="dist/tippyjs/tippy-bundle.umd.min.js"></script>
+  <script src="dist/chartsjs/chart.js"></script>
+  <script src="dist/apexcharts/apexcharts.js"></script>
+  <script src="dist/data-tables/dataTables.min.js"></script>
+  <script src="dist/datepicker/datepicker.js"></script>
+  <script src="assets/js/scripts.js"></script>
+  <script>
+    document.addEventListener("DOMContentLoaded", function () {
+      function filterTableRows(filterSelector) {
+        const filterElements = document.getElementsByClassName(filterSelector);
+        if (!filterElements.length) {
+          console.error(`Elements with class "${filterSelector}" not found.`);
+          return;
+        }
+        Array.from(filterElements).forEach((filterElement) => {
+          filterElement.addEventListener("change", function () {
+            const filterValue = this.value;
+            const rows = document.querySelectorAll(`.withdrawalTable .withdrawalTable__row`);
+
+            rows.forEach((row) => {
+              const isPending = row.classList.contains("pending");
+              const isAccepted = row.classList.contains("accepted");
+              const isCompleted = row.classList.contains("completed");
+              const isRejected = row.classList.contains("rejected");
+
+              if (filterValue === "pending") {
+                row.style.display = isPending ? "table-row" : "none";
+              } else if (filterValue === "accepted") {
+                row.style.display = isAccepted ? "table-row" : "none";
+              } else if (filterValue === "completed") {
+                row.style.display = isCompleted ? "table-row" : "none";
+              } else if (filterValue === "rejected") {
+                row.style.display = isRejected ? "table-row" : "none";
+              } else {
+                row.style.display = "table-row";
+              }
+            });
+          });
+        });
+      }
+      filterTableRows("filterselect");
+    });
+  </script>
+</body>
+
+</html>
