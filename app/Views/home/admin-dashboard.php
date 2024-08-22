@@ -4,7 +4,7 @@
 <head>
   <meta charset="utf-8" data-bs-theme="dark">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Admin's Home</title>
+  <title>Admin Dashboard - <?php echo APP_NAME ?></title>
   <?php echo view("/home/new-header-links"); ?>
 </head>
 

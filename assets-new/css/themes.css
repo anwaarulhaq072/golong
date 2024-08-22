@@ -183,3 +183,15 @@ label {
 .form-control:disabled {
   background-color: var(--body-bg);
 }
+
+.chili-paper {
+  color: var(--chili-papper);
+}
+
+.topaz {
+  color: var(--topaz);
+}
+
+.yellow {
+  color: var(--admin-notification-tab);
+}
