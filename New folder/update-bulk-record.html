@@ -112,9 +112,9 @@
     </div>
     <main class="main">
       <h2 class="notification-card__hdng notification-card__hdng--adduser">Update Bulk Records</h2>
-      <div class="card addusercard">
+      <div class="card updateBulkCard">
         <form class="bulkrecordFrom">
-          <div class="row">
+          <div class="row bulkrow">
             <div class="col-3">
               <input type="date" placeholder="DD/MM/YY" value="" class="form-control profile-edit__input" id="bulkDate">
             </div>
@@ -123,16 +123,35 @@
                 <option value="" selected disabled>Add profit or loss</option>
                 <option value="profit">Profit</option>
                 <option value="loss">Loss</option>
-                <option value="loss">swing</option>
+                <option value="swing">swing</option>
               </select>
             </div>
-            <div class="col-lg-6">
+            <div class="col-6">
               <input type="number" placeholder="" value="" class="form-control profile-edit__input" id="numberFolAll">
             </div>
           </div>
-          <div class="row">
+          <div class="row bulkrow">
             <div class="col-3">
-              <input type="text" value="Muhammad Ahsan Iqbal" class="form-control profile-edit__input" readonly>
+              <input type="text" placeholder="User Name" value="" class="form-control profile-edit__input" readonly>
+            </div>
+            <div class="col-3">
+              <select name="" class="form-control profile-edit__input form-select plselect">
+                <option value="" selected disabled>Add profit or loss</option>
+                <option value="profit">Profit</option>
+                <option value="loss">Loss</option>
+                <option value="loss">swing</option>
+              </select>
+            </div>
+            <div class="col-3">
+              <input type="number" placeholder="" value="" class="form-control profile-edit__input percentage">
+            </div>
+            <div class="col-3">
+              <input type="number" placeholder="" value="" class="form-control profile-edit__input number">
+            </div>
+          </div>
+          <div class="row bulkrow">
+            <div class="col-3">
+              <input type="text" placeholder="User Name" value="" class="form-control profile-edit__input" readonly>
             </div>
             <div class="col-3">
               <select name="" class="form-control profile-edit__input form-select plselect">
@@ -171,41 +190,75 @@
       const singleUserPL = $(".plselect");
       const numberForAll = $("#numberFolAll");
       const numberForSingle = $(".number");
+      const percentage = $(".percentage");
+
       function selectProfitLossForAll() {
-        if (selectBulkPL.val() === 'profit') {
-          $(singleUserPL).val('profit')
-        } else if (selectBulkPL.val() === 'loss') {
-          $(singleUserPL).val('loss')
-        } else if (selectBulkPL.val() === 'wsing') {
-          $(singleUserPL).val('swing')
+        const selectedValue = selectBulkPL.val();
+        if (selectedValue === 'profit' || selectedValue === 'loss') {
+          $(singleUserPL).val(selectedValue);
+        } else if (selectedValue === 'swing') {
+          numberForAll.val("0");
+          numberForSingle.each(function () {
+            $(this).val("0");
+          });
+          percentage.each(function () {
+            $(this).val("0");
+          });
         }
       }
+
       function addProfitLossForAll() {
-        const getValueForAll = (numberForAll).val();
-        $(numberForSingle).val(getValueForAll);
+        const getValueForAll = parseFloat(numberForAll.val());
+        numberForSingle.each(function () {
+          $(this).val(getValueForAll);
+          const calculatedPercentage = 200 * getValueForAll;
+          $(this).closest('.bulkrow').find('.percentage').val(calculatedPercentage);
+        });
       }
+
+      function updateSingleInput(singleElement) {
+        const singleValue = parseFloat(singleElement.val());
+        const calculatedPercentage = 200 * singleValue;
+        singleElement.closest('.bulkrow').find('.percentage').val(calculatedPercentage);
+      }
+
+      function handleSingleRowSwing(singleElement) {
+        const parentRow = singleElement.closest('.bulkrow');
+        parentRow.find('.number').val("0");
+        parentRow.find('.percentage').val("0");
+      }
+
       $(selectBulkPL).on('change', function () {
         if ($(this).val()) {
           $(this).addClass('value');
-          selectProfitLossForAll()
+          selectProfitLossForAll();
         } else {
           $(this).removeClass('value');
-          selectProfitLossForAll()
         }
       });
 
       $(singleUserPL).on('change', function () {
-        if ($(this).val()) {
+        if ($(this).val() === 'swing') {
+          handleSingleRowSwing($(this));
+        } else if ($(this).val()) {
           $(this).addClass('value');
         } else {
           $(this).removeClass('value');
         }
       });
 
+      $(numberForAll).on("change", function () {
+        addProfitLossForAll();
+      });
 
+      $(numberForSingle).on("change", function () {
+        updateSingleInput($(this));
+      });
 
       new Datepicker("#bulkDate");
     });
+
+
   </script>
 </body>
 

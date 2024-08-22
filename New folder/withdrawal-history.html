@@ -118,109 +118,105 @@
         </div>
         <a href="new-withdrawal-request.html" class="flex-a wthdrwlBtn">New Withdrawal Request</a>
       </div>
-      <div class="row row-gap">
-        <div class="col-12">
-          <div class="card cus-details-card ">
-            <div class="flex trnsc-tbl-top-row">
-              <p class="trnsList-text">
-                Following are the records of your withdrawal history
-              </p>
-              <select class="tn-list-card__select filterselect" id="transactionfilterSelect">
-                <option value="all" selected>Show All</option>
-                <option value="pending">Pending</option>
-                <option value="accepted">Accepted</option>
-                <option value="completed">Completed</option>
-                <option value="rejected">Rejected</option>
-              </select>
-            </div>
-
-            <table class="table withdrawalTable" id="withdrawalTable">
-              <thead>
-                <tr class="withdrawalTable__row profit-row">
-                  <th class="withdrawalTable__col">Requested Date</th>
-                  <th class="withdrawalTable__col">Status</th>
-                  <th class="withdrawalTable__col">Method</th>
-                  <th class="withdrawalTable__col">Method Details</th>
-                  <th class="withdrawalTable__col">Amount</th>
-                </tr>
-              </thead>
-              <tbody>
-                <tr class="withdrawalTable__row profit-row pending">
-                  <td class="withdrawalTable__col">Aug 19, 2024</td>
-                  <td class="withdrawalTable__col">
-                    <div class="withdrawalTable__tab pending flex-a">Pending</div>
-                  </td>
-                  <td class="withdrawalTable__col">Method</td>
-                  <td class="withdrawalTable__col">Method Details</td>
-                  <td class="withdrawalTable__col">$200</td>
-                </tr>
-                <tr class="withdrawalTable__row profit-row accepted">
-                  <td class="withdrawalTable__col">Aug 19, 2024</td>
-                  <td class="withdrawalTable__col">
-                    <div class="withdrawalTable__tab accepted flex-a">Accepted</div>
-                  </td>
-                  <td class="withdrawalTable__col">Method</td>
-                  <td class="withdrawalTable__col">Method Details</td>
-                  <td class="withdrawalTable__col">$200</td>
-                </tr>
-                <tr class="withdrawalTable__row profit-row completed">
-                  <td class="withdrawalTable__col">Aug 19, 2024</td>
-                  <td class="withdrawalTable__col">
-                    <div class="withdrawalTable__tab completed flex-a">Completed</div>
-                  </td>
-                  <td class="withdrawalTable__col">Method</td>
-                  <td class="withdrawalTable__col">Method Details</td>
-                  <td class="withdrawalTable__col">$200</td>
-                </tr>
-                <tr class="withdrawalTable__row profit-row rejected">
-                  <td class="withdrawalTable__col">Aug 19, 2024</td>
-                  <td class="withdrawalTable__col">
-                    <div class="withdrawalTable__tab rejected flex-a">Rejected</div>
-                  </td>
-                  <td class="withdrawalTable__col">Method</td>
-                  <td class="withdrawalTable__col">Method Details</td>
-                  <td class="withdrawalTable__col">$200</td>
-                </tr>
-                <tr class="withdrawalTable__row profit-row pending">
-                  <td class="withdrawalTable__col">Aug 19, 2024</td>
-                  <td class="withdrawalTable__col">
-                    <div class="withdrawalTable__tab pending flex-a">Pending</div>
-                  </td>
-                  <td class="withdrawalTable__col">Method</td>
-                  <td class="withdrawalTable__col">Method Details</td>
-                  <td class="withdrawalTable__col">$200</td>
-                </tr>
-                <tr class="withdrawalTable__row profit-row accepted">
-                  <td class="withdrawalTable__col">Aug 19, 2024</td>
-                  <td class="withdrawalTable__col">
-                    <div class="withdrawalTable__tab accepted flex-a">Accepted</div>
-                  </td>
-                  <td class="withdrawalTable__col">Method</td>
-                  <td class="withdrawalTable__col">Method Details</td>
-                  <td class="withdrawalTable__col">$200</td>
-                </tr>
-                <tr class="withdrawalTable__row profit-row completed">
-                  <td class="withdrawalTable__col">Aug 19, 2024</td>
-                  <td class="withdrawalTable__col">
-                    <div class="withdrawalTable__tab completed flex-a">Completed</div>
-                  </td>
-                  <td class="withdrawalTable__col">Method</td>
-                  <td class="withdrawalTable__col">Method Details</td>
-                  <td class="withdrawalTable__col">$200</td>
-                </tr>
-                <tr class="withdrawalTable__row profit-row rejected">
-                  <td class="withdrawalTable__col">Aug 19, 2024</td>
-                  <td class="withdrawalTable__col">
-                    <div class="withdrawalTable__tab rejected flex-a">Rejected</div>
-                  </td>
-                  <td class="withdrawalTable__col">Method</td>
-                  <td class="withdrawalTable__col">Method Details</td>
-                  <td class="withdrawalTable__col">$200</td>
-                </tr>
-              </tbody>
-            </table>
-          </div>
+      <div class="card cus-details-card ">
+        <div class="flex trnsc-tbl-top-row">
+          <p class="trnsList-text">
+            Following are the records of your withdrawal history
+          </p>
+          <select class="tn-list-card__select filterselect" id="transactionfilterSelect">
+            <option value="all" selected>Show All</option>
+            <option value="pending">Pending</option>
+            <option value="accepted">Accepted</option>
+            <option value="completed">Completed</option>
+            <option value="rejected">Rejected</option>
+          </select>
         </div>
+
+        <table class="table withdrawalTable" id="withdrawalTable">
+          <thead>
+            <tr class="withdrawalTable__row profit-row">
+              <th class="withdrawalTable__col">Requested Date</th>
+              <th class="withdrawalTable__col">Status</th>
+              <th class="withdrawalTable__col">Method</th>
+              <th class="withdrawalTable__col">Method Details</th>
+              <th class="withdrawalTable__col">Amount</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr class="withdrawalTable__row profit-row pending">
+              <td class="withdrawalTable__col">Aug 19, 2024</td>
+              <td class="withdrawalTable__col">
+                <div class="withdrawalTable__tab pending flex-a">Pending</div>
+              </td>
+              <td class="withdrawalTable__col">Method</td>
+              <td class="withdrawalTable__col">Method Details</td>
+              <td class="withdrawalTable__col">$200</td>
+            </tr>
+            <tr class="withdrawalTable__row profit-row accepted">
+              <td class="withdrawalTable__col">Aug 19, 2024</td>
+              <td class="withdrawalTable__col">
+                <div class="withdrawalTable__tab accepted flex-a">Accepted</div>
+              </td>
+              <td class="withdrawalTable__col">Method</td>
+              <td class="withdrawalTable__col">Method Details</td>
+              <td class="withdrawalTable__col">$200</td>
+            </tr>
+            <tr class="withdrawalTable__row profit-row completed">
+              <td class="withdrawalTable__col">Aug 19, 2024</td>
+              <td class="withdrawalTable__col">
+                <div class="withdrawalTable__tab completed flex-a">Completed</div>
+              </td>
+              <td class="withdrawalTable__col">Method</td>
+              <td class="withdrawalTable__col">Method Details</td>
+              <td class="withdrawalTable__col">$200</td>
+            </tr>
+            <tr class="withdrawalTable__row profit-row rejected">
+              <td class="withdrawalTable__col">Aug 19, 2024</td>
+              <td class="withdrawalTable__col">
+                <div class="withdrawalTable__tab rejected flex-a">Rejected</div>
+              </td>
+              <td class="withdrawalTable__col">Method</td>
+              <td class="withdrawalTable__col">Method Details</td>
+              <td class="withdrawalTable__col">$200</td>
+            </tr>
+            <tr class="withdrawalTable__row profit-row pending">
+              <td class="withdrawalTable__col">Aug 19, 2024</td>
+              <td class="withdrawalTable__col">
+                <div class="withdrawalTable__tab pending flex-a">Pending</div>
+              </td>
+              <td class="withdrawalTable__col">Method</td>
+              <td class="withdrawalTable__col">Method Details</td>
+              <td class="withdrawalTable__col">$200</td>
+            </tr>
+            <tr class="withdrawalTable__row profit-row accepted">
+              <td class="withdrawalTable__col">Aug 19, 2024</td>
+              <td class="withdrawalTable__col">
+                <div class="withdrawalTable__tab accepted flex-a">Accepted</div>
+              </td>
+              <td class="withdrawalTable__col">Method</td>
+              <td class="withdrawalTable__col">Method Details</td>
+              <td class="withdrawalTable__col">$200</td>
+            </tr>
+            <tr class="withdrawalTable__row profit-row completed">
+              <td class="withdrawalTable__col">Aug 19, 2024</td>
+              <td class="withdrawalTable__col">
+                <div class="withdrawalTable__tab completed flex-a">Completed</div>
+              </td>
+              <td class="withdrawalTable__col">Method</td>
+              <td class="withdrawalTable__col">Method Details</td>
+              <td class="withdrawalTable__col">$200</td>
+            </tr>
+            <tr class="withdrawalTable__row profit-row rejected">
+              <td class="withdrawalTable__col">Aug 19, 2024</td>
+              <td class="withdrawalTable__col">
+                <div class="withdrawalTable__tab rejected flex-a">Rejected</div>
+              </td>
+              <td class="withdrawalTable__col">Method</td>
+              <td class="withdrawalTable__col">Method Details</td>
+              <td class="withdrawalTable__col">$200</td>
+            </tr>
+          </tbody>
+        </table>
       </div>
     </main>
   </div>
