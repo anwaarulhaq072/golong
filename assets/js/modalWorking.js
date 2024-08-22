@@ -57,16 +57,21 @@ $("#editProfileModalform").submit(function (e) {
 
 
 $('.edit_payout_button').click(function () {
-    let first = $(this).parent().parent().find('td:nth-child(1)').text();
-    let second = $(this).parent().parent().find('td:nth-child(2)').text();
-    let third = $(this).parent().parent().find('td:nth-child(3)').text();
-    var format_two = moment(third).format('YYYY-MM-DD');
-    jQuery('#editPayoutmodal').find('select[name=action] option[value=' + first + ']').attr('selected', true);
-    jQuery('#editPayoutmodal').find('input[name=amount]').attr("value", parseFloat(second.replace('$', '')));
-    jQuery('#editPayoutmodal').find('input[name=payoutdate]').val(format_two);
-    var action = $('#editModalpayout').attr("action");
-    console.log(action);
-    $('#editModalpayout').attr("action", action + first);
+    // Get the values from the table row
+    let id = $(this).closest('tr').find('td:nth-child(1)').text().trim();
+    let amount = $(this).closest('tr').find('td:nth-child(2)').text().trim();
+    let payoutDate = $(this).closest('tr').find('td:nth-child(3)').text().trim();
+
+    // Format the payout date using moment.js
+    var formattedDate = moment(payoutDate).format('YYYY-MM-DD');
+
+    // Populate the modal with the selected payout details
+    $('#editPayoutmodal').find('input[name=amount]').val(parseFloat(amount.replace('$', '')));
+    $('#editPayoutmodal').find('input[name=payoutdate]').val(formattedDate);
+
+    // Update the form action URL
+    var currentAction = $('#editModalpayout').attr("action");
+    $('#editModalpayout').attr("action", currentAction + id);
 });
 
 $('.delete_btn').click(function () {
