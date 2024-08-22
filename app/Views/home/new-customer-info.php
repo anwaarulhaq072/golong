@@ -113,7 +113,7 @@
                         data-bs-target="#editPayoutmodal" value="<?php echo $singlepayout['id'] ?>">
                         <i class="fa-solid fa-pencil"></i>
                       </button>
-                     <button class="table-mdl-btn flex-a r-50 delete_btn" type="button" data-bs-toggle="modal"
+                     <button class="table-mdl-btn flex-a r-50 delete_btn_payout" type="button" data-bs-toggle="modal"
                         data-bs-target="#delete_payout" value="<?php echo $singlepayout['id'] ?>">
                         <i class="fa-solid fa-trash"></i>
                       </button>
@@ -189,13 +189,13 @@
                                                         <?php endif; ?>
                                                     </td>
                                                     <td class="teble__col4">
-                                                        <div class="flex-i table-btns-wrpr">
-                                                        <button class="table-mdl-btn flex-a r-50" type="button" data-bs-toggle="modal"
-                                                            data-bs-target="#editTransec">
+                                                      <div class="flex-i table-btns-wrpr">
+                                                        <button class="table-mdl-btn flex-a r-50 edit_btn" type="button" data-bs-toggle="modal"
+                                                            data-bs-target="#editTransec" value="<?php echo $singleDetail['id'] ?>">
                                                             <i class="fa-solid fa-pencil"></i>
                                                         </button>
-                                                        <button class="table-mdl-btn flex-a r-50" type="button" data-bs-toggle="modal"
-                                                            data-bs-target="#delete">
+                                                        <button class="table-mdl-btn flex-a r-50 delete_btn_profit" type="button" data-bs-toggle="modal"
+                                                            data-bs-target="#delete_profit" value="<?php echo $singleDetail['id'] ?>">
                                                             <i class="fa-solid fa-trash"></i>
                                                         </button>
                                                         </div>
@@ -215,25 +215,29 @@
               data-bs-target="#profilee-dit-modal2">
               <i class="fa-solid fa-pencil"></i>
             </button>
-            <img src="assets/images/profile.png" alt="" class="customerDetailsCard__img">
+            <?php if (isset($userDetails) && empty($userDetails['profile_img'])) : ?>
+            <img src="<?php echo base_url(); ?>/assets-new/images/profile.png" alt="" class="customerDetailsCard__img">
+            <?php else : ?>
+            <img src="<?php echo base_url().$userDetails['profile_img']; ?>" alt="" class="customerDetailsCard__img">
+            <?php endif; ?>
             <div class="flex-i customerDetailsCardRow">
               <span class="sp1">Name: </span>
-              <span class="sp2">Matt Allan</span>
+              <span class="sp2"><?php echo $userDetails['firstName'] . " " . $userDetails['lastName']; ?></span>
             </div>
             <div class="flex-i customerDetailsCardRow">
               <span class="sp1">Mobile: </span>
-              <span class="sp2">03475241255</span>
+              <span class="sp2"><?php echo $userDetails['phone']; ?></span>
             </div>
             <div class="flex-i customerDetailsCardRow">
               <span class="sp1">Email: </span>
-              <span class="sp2"> mallan@woodrowrei.com</span>
+              <span class="sp2"> <?php echo $userDetails['email']; ?></span>
             </div>
             <div class="flex-i customerDetailsCardRow">
               <span class="sp1"> Investment Amount: </span>
-              <span class="sp2"> $250000</span>
+              <span class="sp2"> $<?php echo $userDetails['initialInvestment'] ?></span>
             </div>
           </div>
-          <button class="deleteUserBtn flex-a" data-bs-toggle="modal" data-bs-target="#delete">Delete
+          <button class="deleteUserBtn flex-a delete_btn_user" data-bs-toggle="modal" data-bs-target="#delete_user">Delete
             User</button>
         </div>
       </div>
@@ -270,27 +274,29 @@
           <i class="fa-solid fa-xmark"></i>
         </button>
         <h2 class="profile-edit__hdng">Edit Information</h2>
-        <from class="row row-gap2">
+        <form class="row row-gap2" action="" id="editModalForm" method="POST">
+        <input type="hidden" name="user_id" id="user_id" value="<?php echo $userDetails['id']; ?>">
+        <input type="hidden" name="profit_id" id="profit_id" value="">
           <div class="col-lg-6">
             <p class="label-text">Action</p>
-            <select class="form-control form-select cus-details-input">
-              <option value="profit">Profit</option>
-              <option value="loss">Loss</option>
+            <select name="action" class="form-control form-select cus-details-input">
+              <option value="Profit">Profit</option>
+              <option value="Loss">Loss</option>
             </select>
           </div>
           <div class="col-lg-6">
             <p class="label-text">Amount</p>
-            <input type="number" class="form-control cus-details-input" placeholder="250000" value="250000">
+            <input type="number" name="amount" class="form-control cus-details-input" placeholder="250000" value="">
           </div>
           <div class="col-lg-6">
             <p class="label-text">Date</p>
-            <input type="date" placeholder="MM/DD/YYYY" value=""
+            <input type="date" name="date" placeholder="MM/DD/YYYY" value=""
               class="form-control cus-details-input dateInput">
           </div>
           <div class="col-12 mb-4">
             <button class="flex-a w-fit from-btn">Update</button>
           </div>
-        </from>
+        </form>
       </div>
     </div>
   </div>
@@ -304,9 +310,47 @@
         <h2 class="profile-edit__hdng profile-edit__hdng2--danger text-center">
           <i class="fa-solid fa-trash d-block"></i>
         </h2>
-        <p class="delete-text">Are you sure you want to delete this?</p>
+        <p class="delete-text">Are you sure you want to delete record?</p>
         <div class="flex-a profile-edit-btns-wrpr">
-        <a href="<?php echo base_url(); ?>/admin/deletePayouts?userid=<?php echo $userDetails['id']; ?>&id=" id="delYesProfit"><button type="submit" class="profile-edit__btn profile-edit__btn--del">Delete</button></a>
+        <a href="<?php echo base_url(); ?>/admin/deletePayouts?userid=<?php echo $userDetails['id']; ?>&id=" id="delYesPayout"><button type="submit" class="profile-edit__btn profile-edit__btn--del">Delete</button></a>
+          <button type="button" class="profile-edit__btn profile-edit__btn--tr profile-edit__btn--tr-red"
+            data-bs-dismiss="modal">Cancel</button>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="modal fade" id="delete_profit" tabindex="-1" aria-labelledby="edit-modalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered modal-lg">
+      <div class="modal-content profile-edit profile-edit2">
+        <button class="profile-edit__btnclose flex-a" data-bs-dismiss="modal">
+          <i class="fa-solid fa-xmark"></i>
+        </button>
+
+        <h2 class="profile-edit__hdng profile-edit__hdng2--danger text-center">
+          <i class="fa-solid fa-trash d-block"></i>
+        </h2>
+        <p class="delete-text">Are you sure you want to delete record?</p>
+        <div class="flex-a profile-edit-btns-wrpr">
+        <a href="<?php echo base_url(); ?>/admin/deleteProfit?userid=<?php echo $userDetails['id']; ?>&id=" id="delYesProfit"><button type="submit" class="profile-edit__btn profile-edit__btn--del">Delete</button></a>
+          <button type="button" class="profile-edit__btn profile-edit__btn--tr profile-edit__btn--tr-red"
+            data-bs-dismiss="modal">Cancel</button>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="modal fade" id="delete_user" tabindex="-1" aria-labelledby="edit-modalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered modal-lg">
+      <div class="modal-content profile-edit profile-edit2">
+        <button class="profile-edit__btnclose flex-a" data-bs-dismiss="modal">
+          <i class="fa-solid fa-xmark"></i>
+        </button>
+
+        <h2 class="profile-edit__hdng profile-edit__hdng2--danger text-center">
+          <i class="fa-solid fa-trash d-block"></i>
+        </h2>
+        <p class="delete-text">Are you sure you want to delete record?</p>
+        <div class="flex-a profile-edit-btns-wrpr">
+        <a href="<?php echo base_url(); ?>/admin/deleteUser?userid=<?php echo $userDetails['id']; ?>&adminid=<?php echo $_SESSION['user_data']['id']; ?>" id="delYes_user"><button type="submit" class="profile-edit__btn profile-edit__btn--del">Delete</button></a>
           <button type="button" class="profile-edit__btn profile-edit__btn--tr profile-edit__btn--tr-red"
             data-bs-dismiss="modal">Cancel</button>
         </div>
@@ -320,23 +364,30 @@
         <button class="profile-edit__btnclose flex-a" data-bs-dismiss="modal">
           <i class="fa-solid fa-xmark"></i>
         </button>
-        <img src="assets/images/profile.png" alt="" class="profile-edit__img">
-        <form class="row profile-edit-row">
+        <?php if (isset($userDetails) && empty($userDetails['profile_img'])) : ?>
+            <img src="<?php echo base_url(); ?>/assets-new/images/profile.png" alt="" class="customerDetailsCard__img">
+            <?php else : ?>
+            <img src="<?php echo base_url().$userDetails['profile_img']; ?>" alt="" class="customerDetailsCard__img">
+            <?php endif; ?>
+            <p class="profile_edit__para_message"></p>
+        <form class="row profile-edit-row" id="editProfileModalform" method="POST">
+        <input type="hidden" id="first" value="<?php echo $userDetails['id']; ?>">
+        <input type="hidden" id="base_url" value="<?php echo base_url(); ?>">
           <div class="col-lg-4">
             <p class="profile-edit__para">Name</p>
-            <input type="text" placeholder="Name" value="Ronald" class="form-control profile-edit__input">
+            <input type="text" placeholder="Name" id="name" value="<?php echo $userDetails['firstName'] . " " . $userDetails['lastName']; ?>" class="form-control profile-edit__input">
           </div>
           <div class="col-lg-4">
             <p class="profile-edit__para">Mobile</p>
-            <input type="text" placeholder="03156709807" value="" class="form-control profile-edit__input">
+            <input type="text" placeholder="03156709807" id="phone" value="<?php echo $userDetails['phone']; ?>" class="form-control profile-edit__input">
           </div>
           <div class="col-lg-4">
             <p class="profile-edit__para">Email</p>
-            <input type="text" placeholder="naqashahsanaea@gmail.com" value="" class="form-control profile-edit__input">
+            <input type="text" placeholder="naqashahsanaea@gmail.com" id="email" value="<?php echo $userDetails['email']; ?>" class="form-control profile-edit__input">
           </div>
           <div class="col-lg-12">
             <p class="profile-edit__para">Investment Amount</p>
-            <input type="text" placeholder="$2500" value="" class="form-control profile-edit__input">
+            <input type="text" placeholder="$2500" id="initialInvestment" value="<?php echo $userDetails['initialInvestment'] ?>" class="form-control profile-edit__input">
           </div>
           <div class="col-lg-12">
             <div class="flex-a profile-edit-btns-wrpr">

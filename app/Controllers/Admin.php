@@ -1028,7 +1028,7 @@ class Admin extends BaseController
 			'status' => false,
 			'message' => '* Email or Phone already exists on this date'
 		);
-		log_message('debug', '***************** Edit Profile *****************');
+		log_message('debug', '***************** Edit Profile *****************'.var_export($_POST, true));
 		$users = new Users();
 		$emailExist = $users->emailExist($_POST['email']);
 		$phoneExist = $users->phoneExist($_POST['phone']);
@@ -1042,11 +1042,13 @@ class Admin extends BaseController
 			log_message('debug', '***************** Edit Profile DATA *****************' . $emailExist[0]['email']);
 			return json_encode($message);
 		} else {
+			$name = explode(' ', $_POST['firstName']);
 			$users->update($_POST['userid'], [
-				'firstName' => $_POST['firstName'],
-				'lastName' => $_POST['lastName'],
+				'firstName' => $name[0],
+				'lastName' => $name[1],
 				'email' => $_POST['email'],
 				'phone' => $_POST['phone'],
+				'initialInvestment' => $_POST['initialInvestment'],
 			]);
 			return json_encode(base_url() . '/admin/customerdetails?userid=' . $_POST['userid']);
 		}
@@ -1072,6 +1074,7 @@ class Admin extends BaseController
 
 		// For get current balance
 		$id = $_POST['userid'];
+		$payoutSum = $payout->getsum($id);
 		$userInfo = $users->getrow($id);
 		$profit = $profitLoss->getTotalProfitById($id);
 		$loss = $profitLoss->getTotalLossById($id);
@@ -1677,6 +1680,7 @@ class Admin extends BaseController
 	public function report_genrate()
 	{
 		log_message('debug', '***************** Chart BY Adminaaaaaaaaaaa *****************' . var_export($_POST, true));
+		session_start();
 		$date = '';
 		$cdate = 0;
 		$data = [];

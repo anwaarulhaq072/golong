@@ -1,18 +1,27 @@
-$('.edit_btn').click(function () {
-    jQuery("#Message").text('');
-    let first = $(this).parent().parent().find('td:nth-child(1)').text();
-    let second = $(this).parent().parent().find('td:nth-child(2)').text();
-    let third = $(this).parent().parent().find('td:nth-child(3)').text();
-    third = third.replace('Scheduled', '');
-    let profit_id = $(this).val();
-    var format_two = moment(third).format('YYYY-MM-DD');
-    jQuery('#editModalForm').find('select[name=action] option[value=' + first + ']').attr('selected', true);
-    jQuery('#editModalForm').find('input[name=amount]').attr("value", parseFloat(second.replace('$', '')));
-    jQuery('#editModalForm').find('input[name=date]').val(format_two);
-    jQuery('#editModalForm').find('input[name=profit_id]').val(profit_id);
-    var action = $('#editModalForm').attr("action");
-    $('#editModalForm').attr("action", action + $(this).val());
+$(document).ready(function() {
+    $('.edit_btn').click(function() {
+        // Get the values from the table row
+        let type = $(this).closest('tr').find('td:nth-child(1)').text().trim();
+        let date = $(this).closest('tr').find('td:nth-child(2)').text().trim();
+        let amount = $(this).closest('tr').find('td:nth-child(3)').text().trim().replace('Scheduled', '');
+        let profit_id = $(this).val();
+        console.log(profit_id, type, date, amount);
+
+        // Format the date using moment.js
+        var formattedDate = moment(date, 'MMM D, YYYY').format('YYYY-MM-DD');
+
+        // Populate the modal with the selected transaction details
+        $('#editModalForm').find('select[name=action]').val(type);
+        $('#editModalForm').find('input[name=amount]').val(parseFloat(amount.replace('$', '').replace(',', '')));
+        $('#editModalForm').find('input[name=date]').val(formattedDate);
+        $('#editModalForm').find('input[name=profit_id]').val(profit_id);
+
+        // Update the form action URL
+        var action = $('#editModalForm').attr("action");
+        $('#editModalForm').attr("action", action + profit_id);
+    });
 });
+
 
 $("#editProfileModalform").submit(function (e) {
 
@@ -20,9 +29,8 @@ $("#editProfileModalform").submit(function (e) {
     e.preventDefault();
     let userid = $('#first').val();
     let base_url = $('#base_url').val();
-
     let firstName = $('#name').val();
-    let lastName = $('#last').val();
+    let initialInvestment = $('#initialInvestment').val();
     let phone = $('#phone').val();
     let email = $('#email').val();
 
@@ -35,7 +43,7 @@ $("#editProfileModalform").submit(function (e) {
         data: {
             userid: userid,
             firstName: firstName,
-            lastName: lastName,
+            initialInvestment: initialInvestment,
             phone: phone,
             email: email
         },
@@ -44,7 +52,7 @@ $("#editProfileModalform").submit(function (e) {
         let response = JSON.parse(url);
         console.log(response);
         if (response['status'] == false) {
-            jQuery("#showMessage").text(response['message']);
+            jQuery(".profile_edit__para_message").text(response['message']);
         } else {
             window.location.replace(response);
         }
@@ -74,10 +82,17 @@ $('.edit_payout_button').click(function () {
     $('#editModalpayout').attr("action", currentAction + id);
 });
 
-$('.delete_btn').click(function () {
+$('.delete_btn_payout').click(function () {
+    var _href = $('#delYesPayout').attr("href");
+    $('#delYesPayout').attr("href", _href + $(this).val());
+});
+$('.delete_btn_profit').click(function () {
     var _href = $('#delYesProfit').attr("href");
     $('#delYesProfit').attr("href", _href + $(this).val());
-    console.log($(this).val())
+});
+$('.delete_btn_user').click(function () {
+    var _href = $('#delYes_user').attr("href");
+    $('#delYes_user').attr("href", _href + $(this).val());
 });
 
 
