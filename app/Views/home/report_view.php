@@ -13,28 +13,28 @@
       padding: 10px;
       font-size: 19px;
       text-align: center;
-      color: black;
+      color: var(--white-for-dark);
       border-style: solid;
-      border-color: black;
+      border-color: var(--border-color);
       margin-left: 10px;
     }
 
     .hname {
       font-size: 30px;
       font-weight: bold;
-      color: black;
+      color: var(--white-for-dark);
       font-family: sans-serif;
     }
 
     .csname {
       font-size: 20px;
       font-weight: bold;
-      color: black;
+      color: var(--white-for-dark);
       font-family: sans-serif;
     }
 
     .table_cla {
-      color: black;
+      color: var(--white-for-dark);
       margin-top: 10px;
       margin-bottom: 25px;
     }
@@ -46,7 +46,7 @@
 
     .clientInfo {
       margin-top: -40px;
-      padding-left: 90px;
+      padding-left: 45px;
     }
 
     .serviceInfo {
@@ -62,11 +62,19 @@
 
     .youstatement {
       font-size: 30px !important;
-      color: black;
+      color: var(--white-for-dark);
       font-family: sans-serif;
       letter-spacing: 2px;
       margin-bottom: 25px;
     }
+    .report-table.table.toggle-circle.mb-0 tr th{
+        color: var(--white-for-dark) !important;
+        background-color: var(--table-head-bg) !important;
+        border-bottom: 1px solid var(--border-color);
+      }
+      .report-table.table.toggle-circle.mb-0 thead{
+        background-color: var(--body-bg) !important;
+      }
 
     @media (max-width: 550px) {
       .hname {
@@ -100,6 +108,7 @@
       .serviceInfo {
         padding-left: 0px;
       }
+   
     }
   </style>
 </head>
@@ -152,15 +161,19 @@
                 <div class="card-body" style="padding: 3.5rem 2.5rem;">
                   <div class="row" style="margin-top: -60px;">
                     <div class="hname2 mb-5 col-md-9" style="margin-left: 30px">
-                      <h2 class="hname"><img style="" src="<?php echo base_url(); ?>/assets/images/G_logo.png" alt="" height="200"></h2>
-                      <p style="color: black;margin-left: 50px;margin-top: -30px;">1435 FM 1463 Katy,<br>TX 77494</p>
+                      <h2 class="hname">
+                        <!-- <img style="" src="<?php echo base_url(); ?>/assets/images/G_logo.png" alt="" height="200"> -->
+                        <img src="<?php echo base_url(); ?>/assets-new/images/logo.svg" alt="" class="loginbox1__logo-img loginbox1__logo1">
+                        <img src="<?php echo base_url(); ?>/assets-new/images/logo-for-light.svg" alt="" class="loginbox1__logo-img loginbox1__logo2">
+                      </h2>
+                      <p style="color: var(--white-for-dark);">1435 FM 1463 Katy,<br>TX 77494</p>
                     </div>
                   </div>
                   <div class="row">
                     <div class="hname2 clientInfo col-md-7">
-                      <p style="margin-bottom: 2px;font-size: 12px;font-weight: bold;color: black;"><?php echo $userInfo['firstName'] . " " . $userInfo['lastName'] ?></p>
-                      <p style="margin-bottom: 2px;font-size: 12px;font-weight: bold;color: black;"><?php echo $userInfo['email'] ?></p>
-                      <p style="margin-bottom: 2px;font-size: 12px;font-weight: bold;color: black;"><?php echo $userInfo['phone'] ?></p>
+                      <p style="margin-bottom: 2px;font-size: 12px;font-weight: bold;color: var(--white-for-dark);"><?php echo $userInfo['firstName'] . " " . $userInfo['lastName'] ?></p>
+                      <p style="margin-bottom: 2px;font-size: 12px;font-weight: bold;color: var(--white-for-dark);"><?php echo $userInfo['email'] ?></p>
+                      <p style="margin-bottom: 2px;font-size: 12px;font-weight: bold;color: var(--white-for-dark);"><?php echo $userInfo['phone'] ?></p>
                     </div>
                     <div class="hname2 serviceInfo mb-1 col-md-5">
                       <h2 class="hname2 youstatement">Your Statement</h2>
@@ -171,8 +184,8 @@
                             <td style="text-align: end;">0000<?php echo $userInfo['id']; ?></td>
                           </tr>
                           <tr>
-                            <td><?php echo '<hr style="color: black;height: 3px;margin-top: 5px;margin-bottom: 5px;">'; ?></td>
-                            <td><?php echo '<hr style="color: black;height: 3px;margin-top: 5px;margin-bottom: 5px;">'; ?></td>
+                            <td><?php echo '<hr style="color: var(--white-for-dark);height: 3px;margin-top: 5px;margin-bottom: 5px;">'; ?></td>
+                            <td><?php echo '<hr style="color: var(--white-for-dark);height: 3px;margin-top: 5px;margin-bottom: 5px;">'; ?></td>
                           </tr>
                           <tr>
                             <td>Statement Period</td>
@@ -181,32 +194,32 @@
                                                           echo $start_date . " to " . $end_date; ?></td>
                           </tr>
                           <tr>
-                            <td><?php echo '<hr style="color: black;height: 3px;margin-top: 5px;margin-bottom: 5px;">'; ?></td>
-                            <td><?php echo '<hr style="color: black;height: 3px;margin-top: 5px;margin-bottom: 5px;">'; ?></td>
+                            <td><?php echo '<hr style="color: var(--white-for-dark);height: 3px;margin-top: 5px;margin-bottom: 5px;">'; ?></td>
+                            <td><?php echo '<hr style="color: var(--white-for-dark);height: 3px;margin-top: 5px;margin-bottom: 5px;">'; ?></td>
                           </tr>
                           <tr>
                             <td>Beginning Balance</td>
                             <td style="text-align: end;"><?php echo '$' . number_format($startAmount); ?></td>
                           </tr>
                           <tr>
-                            <td><?php echo '<hr style="color: black;height: 3px;margin-top: 5px;margin-bottom: 5px;">'; ?></td>
-                            <td><?php echo '<hr style="color: black;height: 3px;margin-top: 5px;margin-bottom: 5px;">'; ?></td>
+                            <td><?php echo '<hr style="color: var(--white-for-dark);height: 3px;margin-top: 5px;margin-bottom: 5px;">'; ?></td>
+                            <td><?php echo '<hr style="color: var(--white-for-dark);height: 3px;margin-top: 5px;margin-bottom: 5px;">'; ?></td>
                           </tr>
                           <tr>
                             <td>Deposits And Additions</td>
                             <td style="text-align: end;"><?php echo "+" . number_format($depositSum + ($PSum - $LSum)); ?></td>
                           </tr>
                           <tr>
-                            <td><?php echo '<hr style="color: black;height: 3px;margin-top: 5px;margin-bottom: 5px;">'; ?></td>
-                            <td><?php echo '<hr style="color: black;height: 3px;margin-top: 5px;margin-bottom: 5px;">'; ?></td>
+                            <td><?php echo '<hr style="color: var(--white-for-dark);height: 3px;margin-top: 5px;margin-bottom: 5px;">'; ?></td>
+                            <td><?php echo '<hr style="color: var(--white-for-dark);height: 3px;margin-top: 5px;margin-bottom: 5px;">'; ?></td>
                           </tr>
                           <tr>
                             <td>Withdrawals</td>
                             <td style="text-align: end;"><?php echo "-" . number_format($withdrawSum + $payoutSum); ?></td>
                           </tr>
                           <tr>
-                            <td><?php echo '<hr style="color: black;height: 3px;margin-top: 5px;margin-bottom: 5px;">'; ?></td>
-                            <td><?php echo '<hr style="color: black;height: 3px;margin-top: 5px;margin-bottom: 5px;">'; ?></td>
+                            <td><?php echo '<hr style="color: var(--white-for-dark);height: 3px;margin-top: 5px;margin-bottom: 5px;">'; ?></td>
+                            <td><?php echo '<hr style="color: var(--white-for-dark);height: 3px;margin-top: 5px;margin-bottom: 5px;">'; ?></td>
                           </tr>
                           <tr>
                             <td>Ending Balance</td>
@@ -222,9 +235,9 @@
                     </div>
                     <input type="hidden" id="data_size" value="<?php if (isset($all_Data)) echo sizeof($all_Data) ?>">
                     <div class="col-md-9" style="margin: 16px 0px 0px -12px;">
-                      <hr style="color: black;height: 2px;">
+                      <hr style="color: var(--white-for-dark);height: 2px;">
                     </div>
-                    <p style="color: black">Interested in learning how to diversify? We are currently in developing stages with new partnerships and looking to share them with you! Contact your account representative to learn more!<br><br>
+                    <p style="color: var(--white-for-dark);" class="mb-3">Interested in learning how to diversify? We are currently in developing stages with new partnerships and looking to share them with you! Contact your account representative to learn more!<br><br>
                       <!--Name:  GoLong Investments LLC<br>-->
                       <!--    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;C/O GoLong Investments LLC<br>-->
                       <!--    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;www.golongclients.com<br><br>-->
@@ -235,12 +248,12 @@
                         TRANSACTION DETAIL
                       </div>
                       <div class="col-md-9" style="margin: 16px 0px 0px -12px;">
-                        <hr style="color: black;height: 2px;">
+                        <hr style="color: var(--white-for-dark);height: 2px;">
                       </div>
                     </div>
                     <div class="table-responsive">
-                      <table id="" class="table toggle-circle mb-0" data-page-size="<?php echo sizeof($all_Data); ?>">
-                        <thead style="background-color: #F2F2F2;">
+                      <table id="" class="report-table table toggle-circle mb-0" data-page-size="<?php echo sizeof($all_Data); ?>">
+                        <thead style="background-color: var(--table-head-bg);">
                           <tr>
                             <!-- <th>Name</th> -->
                             <th>Date</th>

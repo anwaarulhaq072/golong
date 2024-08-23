@@ -7,10 +7,10 @@
   <title>New Password</title>
   <  <?php echo view("/home/new-header-links"); ?>
 </head>
-
 <body>
   <div class="app_wrapper app_wrapper-login">
-    <img src="<?php echo base_url(); ?>/assets-new/images/login-bg.svg" alt="" class="logins__bg">
+  <img src="<?php echo base_url(); ?>/assets-new/images/login-bg.svg" alt="" class="logins__bg logins__bg-for-dark">
+    <img src="<?php echo base_url(); ?>/assets-new/images/login-bg-for-white.svg" alt="" class="logins__bg logins__bg-for-light">
     <div class="loginsWrpper">
       <div class="loginbox1">
         <a href="/" class="loginbox1__logo flex-i">
@@ -44,7 +44,8 @@
         </form>
       </div>
       <div class="loginbox2">
-        <img src="<?php echo base_url(); ?>/assets-new/images/logins-img.png" alt="" class="loginbox2__img">
+      <img src="<?php echo base_url(); ?>/assets-new/images/logins-img.png" alt="" class="loginbox2__img loginbox2__img-for-dark">
+        <img src="<?php echo base_url(); ?>/assets-new/images/logins-img-for-white.png" alt="" class="loginbox2__img loginbox2__img-for-light">
         <div class="swiper loginboxSlider">
           <div class="swiper-wrapper">
             <div class="swiper-slide">

@@ -56,6 +56,10 @@ $(document).ready(function () {
       selector: "#withdrawalTable",
       options: { searching: true, pageLength: 10 },
     },
+    {
+      selector: "#all-cutomers",
+      options: { searching: true, pageLength: 10 },
+    },
   ];
   dataTables.forEach(({ selector, options }) => {
     $(selector).DataTable({

@@ -19,8 +19,6 @@
         </div>
         <a href="<?= base_url(); ?>/user/add_withdrawal" class="flex-a wthdrwlBtn">New Withdrawal Request</a>
       </div>
-      <div class="row row-gap">
-        <div class="col-12">
           <div class="card cus-details-card ">
             <div class="flex trnsc-tbl-top-row">
               <p class="trnsList-text">
@@ -72,8 +70,6 @@
               </tbody>
             </table>
           </div>
-        </div>
-      </div>
     </main>
   </div>
   <?php echo view("/home/new-footer-scripts"); ?>

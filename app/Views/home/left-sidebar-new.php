@@ -5,7 +5,7 @@
     <div class="sidebar-list-holder">
         <ul class="sidebar-list sidebar-list1">
             <li class="sidebar-list__item">
-                <a href="<?= base_url(); ?>" class="sidebar-list__link flex-a trn-all active" id="dashboard">
+                <a href="<?= base_url(); ?>" class="sidebar-list__link flex-a trn-all  active" id="dashboard">
                     <img src="<?php echo base_url(); ?>/assets-new/images/icons/dashboard.svg" alt="" class="sidebar-list__icon hide-on-light">
                     <img src="<?php echo base_url(); ?>/assets-new/images/icons/dashboard-brown.svg" alt="" class="sidebar-list__icon hide-on-dark">
                 </a>
@@ -91,10 +91,9 @@
         </ul>
         <ul class="sidebar-list">
             <li class="sidebar-list__item">
-                <div class="sidebar-list__link flex-a trn-all" id="light">
-                    <img src="<?php echo base_url(); ?>/assets-new/images/icons/light.svg" alt="" class="sidebar-list__icon hide-on-light">
-                    <img src="<?php echo base_url(); ?>/assets-new/images/icons/light-brown.svg" alt="" class="sidebar-list__icon hide-on-dark">
-                </div>
+            <div class="sidebar-list__link flex-a trn-all" id="light">
+              <img src="<?php echo base_url(); ?>/assets-new/images/icons/light.svg" alt="" class="sidebar-list__icon">
+            </div> 
             </li>
             <li class="sidebar-list__item">
                 <div class="sidebar-list__link flex-a trn-all" id="dark">

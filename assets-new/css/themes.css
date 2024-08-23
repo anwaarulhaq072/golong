@@ -195,3 +195,43 @@ label {
 .yellow {
   color: var(--admin-notification-tab);
 }
+
+
+[data-bs-theme=dark] .logins__bg-for-dark {
+  display: block;
+}
+
+[data-bs-theme=dark] .logins__bg-for-light {
+  display: none;
+}
+
+[data-bs-theme=light] .logins__bg-for-light {
+  display: block;
+}
+
+[data-bs-theme=light] .logins__bg-for-dark {
+  display: none;
+}
+
+/*  */
+[data-bs-theme=dark] .loginbox2__img-for-dark {
+  display: block;
+}
+
+[data-bs-theme=dark] .loginbox2__img-for-light {
+  display: none;
+}
+
+[data-bs-theme=light] .loginbox2__img-for-light {
+  display: block;
+}
+
+[data-bs-theme=light] .loginbox2__img-for-dark {
+  display: none;
+}
+[data-bs-theme=light] #light {
+  background-color: var(--icons-bg);
+}
+[data-bs-theme=dark] #dark {
+  background-color: var(--icons-bg);
+}

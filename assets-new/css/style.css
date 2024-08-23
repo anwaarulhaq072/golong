@@ -503,6 +503,7 @@ body {
   background-color: var(--card-bg);
   border-radius: 20px;
   overflow: hidden;
+  box-shadow: 0 0 32px 0 #00000024;
 }
 
 .loginbox2__img {
@@ -522,7 +523,7 @@ body {
 
 .logins-sl__hdng {
   font-size: 20px;
-  color: var(--white);
+  color: var(--white-for-dark);
   text-align: center;
   font-weight: 800;
   margin-bottom: 22px;
@@ -1693,11 +1694,13 @@ input[type="date"]::-webkit-datetime-edit-year-field {
   border-radius: 8px;
   margin-bottom: 20px;
   font-weight: 600;
+  color: var(--white);
 }
 
 .statement_btn:hover {
   background-color: transparent;
   transition: all 0.2s;
+  color: var(--icons-bg);
 }
 
 .statement-card {
@@ -1879,6 +1882,48 @@ input[type="date"]::-webkit-datetime-edit-year-field {
   background-color: transparent;
   color: var(--icons-bg);
   transition: all 0.2s;
+}
+
+.successPage {
+  width: 100%;
+  min-height: calc(100vh - 50px);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.successPageCard {
+  padding: 85px 90px 75px 90px;
+  text-align: center;
+  border-radius: 15px;
+  width: 100%;
+  max-width: 550px;
+}
+
+.loginbox1__logo--successPageCard {
+  margin-bottom: 70px;
+  justify-content: center;
+}
+
+.loginbox1__logo--successPageCard .loginbox1__logo-img {
+  margin-bottom: 0 !important;
+}
+
+.successPageCard__img {
+  width: 110px;
+  margin-bottom: 40px;
+}
+
+.successPageCard__hdng {
+  font-size: 30px;
+  font-weight: 500;
+  color: var(--white-for-dark);
+  margin-bottom: 12px;
+}
+
+.successPageCard__para {
+  font-size: 16px;
+  color: var(--card-sub-heading-color);
 }
 
 @media(max-width:1199px) {
@@ -2441,5 +2486,45 @@ input[type="date"]::-webkit-datetime-edit-year-field {
 
   .tn-list-card .tn-list-card__select.filterselect {
     margin-bottom: 15px;
+  }
+
+  .successPage {
+    padding: 30px 20px;
+  }
+
+  .successPageCard {
+    padding: 35px 30px 35px 30px;
+    max-width: 550px;
+  }
+
+  .successPageCard .loginbox1__logo-img {
+    margin-bottom: 140px;
+    justify-content: center;
+  }
+
+  .successPage {
+    min-height: calc(100vh - 30px);
+  }
+
+  .successPageCard__img {
+    width: 90px;
+    margin-bottom: 40px;
+  }
+
+  .successPageCard__hdng {
+    font-size: 26px;
+    margin-bottom: 12px;
+  }
+
+  .inputFile__label-holder--mb-60 {
+    margin-bottom: 20px;
+  }
+
+  .inputFile__label-holder {
+    margin-bottom: 20px;
+  }
+
+  .checkboxRow {
+    margin-bottom: 30px;
   }
 }

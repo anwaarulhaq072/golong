@@ -1,0 +1,23 @@
+CRITICAL - 2024-08-23 06:16:26 --> Undefined array key "request_date"
+#0 C:\xampp\htdocs\golong\app\Views\home\adminDepositRequests.php(56): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined array...', 'C:\\xampp\\htdocs...', 56)
+#1 C:\xampp\htdocs\golong\system\View\View.php(220): include('C:\\xampp\\htdocs...')
+#2 C:\xampp\htdocs\golong\system\View\View.php(222): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+#3 C:\xampp\htdocs\golong\system\Common.php(1217): CodeIgniter\View\View->render('/home/adminDepo...', Array, true)
+#4 C:\xampp\htdocs\golong\app\Controllers\Admin.php(1411): view('/home/adminDepo...', Array)
+#5 C:\xampp\htdocs\golong\system\CodeIgniter.php(939): App\Controllers\Admin->deposit_requests()
+#6 C:\xampp\htdocs\golong\system\CodeIgniter.php(435): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin))
+#7 C:\xampp\htdocs\golong\system\CodeIgniter.php(336): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#8 C:\xampp\htdocs\golong\index.php(44): CodeIgniter\CodeIgniter->run()
+#9 {main}
+DEBUG - 2024-08-23 06:38:49 --> ***************** Status push Notification *****************
+DEBUG - 2024-08-23 06:38:49 --> ***************** push Notification *****************array (
+  0 => 'csi3yqnoQaS7tbOHXcAEbs:APA91bElNXgY-RCOmcCX-PJfYJVNTN68xablAstaiQXDjaUwHfuTk4nZSY_x_xCy0PLpOK803PKF2BE6h_2c30uvDRILZe0QTdfeongFBI86fByaJAoyugFfl7b-moyJnKhpP32cm-eu',
+  1 => 'fNa_IY1AELKkjGSxH9qxnY:APA91bF368VGM2gBbO3xSjNwpd5lRTgxThyh0spMKfvlJkkY_w-DN_V-ZVTEs2ic0NBZO1rI8CAA2Y21p5N7-i2M1V2kO4uEOzU52TARB1n0HY7RP-TrOF_Qdu4BUjE7plnLZWqwVQWA',
+)
+DEBUG - 2024-08-23 06:38:50 --> ***************** push Notification *****************{"multicast_id":7561728730018658431,"success":0,"failure":2,"canonical_ids":0,"results":[{"error":"DeprecatedApi"},{"error":"DeprecatedApi"}]}
+DEBUG - 2024-08-23 07:16:00 --> ***************** Status push Notification *****************
+DEBUG - 2024-08-23 07:16:00 --> ***************** push Notification *****************array (
+  0 => 'csi3yqnoQaS7tbOHXcAEbs:APA91bElNXgY-RCOmcCX-PJfYJVNTN68xablAstaiQXDjaUwHfuTk4nZSY_x_xCy0PLpOK803PKF2BE6h_2c30uvDRILZe0QTdfeongFBI86fByaJAoyugFfl7b-moyJnKhpP32cm-eu',
+  1 => 'fNa_IY1AELKkjGSxH9qxnY:APA91bF368VGM2gBbO3xSjNwpd5lRTgxThyh0spMKfvlJkkY_w-DN_V-ZVTEs2ic0NBZO1rI8CAA2Y21p5N7-i2M1V2kO4uEOzU52TARB1n0HY7RP-TrOF_Qdu4BUjE7plnLZWqwVQWA',
+)
+DEBUG - 2024-08-23 07:16:00 --> ***************** push Notification *****************{"multicast_id":2715383344584029895,"success":0,"failure":2,"canonical_ids":0,"results":[{"error":"NotRegistered"},{"error":"NotRegistered"}]}

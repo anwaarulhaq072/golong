@@ -12,18 +12,13 @@
   <div class="app_wrapper">
     <?php echo view("/home/left-sidebar-new"); ?>
     <main class="main">
-      <div class="row row-gap">
-        <div class="col-12">
           <div class="card all-cutomers-card">
             <div class="flex-i justify-between all-cutomers__table-header">
               <div>
                 <h2 class="all-cutomers__table-hdng">All Customers</h2>
                 <p class="all-cutomers__table-para">Detail of all customers</p>
               </div>
-              <!-- <div class="inputBox inputBox--all-customers flex-i">
-                <input type="text" class="inputBox__feild" placeholder="Search...">
-                <img src="assets/images/icons/search.svg" alt="">
-              </div> -->
+           
             </div>
             <table class="table all-cutomers__table" id="all-cutomers">
               <thead>
@@ -68,8 +63,6 @@
               </tbody>
             </table>
           </div>
-        </div>
-      </div>
     </main>
   </div>
   <?php echo view("/home/new-footer-scripts"); ?>

@@ -12,8 +12,6 @@
   <div class="app_wrapper">
     <?php echo view("/home/left-sidebar-new"); ?>
     <main class="main">
-      <div class="row row-gap">
-        <div class="col-12">
           <div class="card profileCard">
             <div class="profileCard__header">
               <div class="profileCardBox">
@@ -60,8 +58,6 @@
               </form>
             </div>
           </div>
-        </div>
-      </div>
     </main>
   </div>
   <div class="modal fade" id="profilee-dit-modal" tabindex="-1" aria-labelledby="profilee-dit-modalLabel"

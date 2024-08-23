@@ -1,219 +1,239 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
 
 <head>
-    <meta charset="utf-8" />
-    <title>Withdrawal Request - <?php echo APP_NAME ?></title>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta content="Nvest Clients - Where you can invest" name="description" />
-    <meta content="Coderthemes" name="author" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-
-    <?php echo view("/home/header-links"); ?>
-
-    <style>
-        #full-screen-loader{
-            align-items: center;
-            background: #FFF;
-            display: flex;
-            height: 100vh;
-            justify-content: center;
-            left: 1;
-            position: fixed;
-            top: 0;
-            transition: opacity 0.5s linear;
-            width: 85%;
-            z-index: 9999;
-            opacity: 0.5;
-            transform: opacity 0.5s linear;
-        }
-    </style>
-    
+  <meta charset="utf-8" data-bs-theme="dark">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Admin Withdrawal Request</title>
+  <?php echo view("/home/new-header-links"); ?>
 </head>
 
-<body class="loading" data-layout='{"mode": "light", "width": "fluid", "menuPosition": "fixed", "sidebar": { "color": "light", "size": "default", "showuser": false}, "topbar": {"color": "light"}}'>
-    <!-- Begin page -->
-    <div id="wrapper">
-        <?php echo view("/home/left-sidebar"); ?>
-        <?php echo view("/home/top-bar" , $notification); ?>
-
-        <!-- ============================================================== -->
-        <!-- Start Page Content here -->
-        <!-- ============================================================== -->
-        <div class="content-page" style="background-color: #F5F5FC !important;">
-            <div class="content">
-                <!-- Start Content-->
-                <div id="full-screen-loader">
-                    <div class="spinner-grow avatar-lg text-secondary m-2" role="status"></div>
-                </div>
-                <div class="row">
-                    <div class="col-sm-12 mt-4">
-                        <h3 class="header-title mt-4 mb-2">Withdrawal</h3>
-                        <div class="card">
-                            <div class="card-body">
-                                <div class="row">
-                                    <div class="col-md-6">
-                                        <p class="sub-header">Following are the customer withdrawals.</p>
-                                    </div>
-                                    <div class="col-md-6 mb-2">
-                                        <div class="mb-2">
-                                            <div class="row row-cols-sm-auto" style="float: right;">
-                                                <div class="col-6">
-                                                    <input id="demo-foo-search" type="text" placeholder="Search" class="form-control form-control-sm" autocomplete="on">
-                                                </div>
-                                                <div class="col-6 text-sm-end">
-                                                    <select id="demo-foo-filter-status" class="form-select form-select-sm">
-                                                        <option value="">Show all</option>
-                                                        <option value="Pending">Pending</option>
-                                                        <option value="Completed">Completed</option>
-                                                        <option value="Rejected">Rejected</option>
-                                                        <option value="Accepted">Accepted</option>
-                                                    </select>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-
-                                <div class="table-responsive">
-                                    <table id="demo-foo-filtering" class="table toggle-circle mb-0" data-page-size="15">
-                                        <thead style="background-color: #F2F2F2;">
-                                            <?php if (isset($allWithdrawals)) : ?>
-                                                <tr>
-                                                    <th data-toggle="true">Requested Date</th>
-                                                    <th data-hide="">User Name</th>
-                                                    <th data-hide="">Status</th>
-                                                    <th data-hide="">Actions</th>
-                                                    <th data-hide="all">Method</th>
-                                                    <th data-hide="all">Method Details</th>
-                                                    <th data-hide="all">Amount</th>
-                                                    <th data-hide="all">Paid Date</th>
-                                                    <th data-hide="all">Account Details</th>
-                                                    <th data-hide="all">Message</th>
-                                                    <th data-hide="all">Reject Reason (If rejected)</th>
-                                                </tr>
-                                            <?php endif; ?>
-                                        </thead>
-                                        <tbody>
-                                            <?php if (isset($allWithdrawals)) : ?>
-                                                <?php foreach ($allWithdrawals as $singleWithdrawal) : ?>
-                                                    <tr>
-                                                        <td><?php echo date('M d, Y', strtotime($singleWithdrawal['request_date'])); ?></td>
-                                                        <td>
-                                                            <div class="row align-items-center">
-                                                                <div class="col-auto">
-                                                                    <img src="<?= $singleWithdrawal['profile_img'] ? base_url() . $singleWithdrawal['profile_img'] : base_url() . '/assets/images/users/user-1.jpg' ?>" alt="profile-image" class="rounded-circle" width="40" height="40">
-                                                                </div>
-                                                                <div class="col">
-                                                                    <p><?= $singleWithdrawal['firstName'] . ' ' . $singleWithdrawal['lastName']; ?></p>
-                                                                </div>
-                                                            </div>
-                                                        </td>
-                                                        <td>
-                                                            <?php if ($singleWithdrawal['status'] == 'Pending') : ?>
-                                                                <span class="badge badge-warning" style="color: black; background-color:#ffc107;font-size: 13px;"><?= $singleWithdrawal['status']; ?></span>
-                                                            <?php elseif ($singleWithdrawal['status'] == 'Accepted') : ?>
-                                                                <span class="badge badge-success" style="color: white; background-color:#28a745;font-size: 13px;"><?= $singleWithdrawal['status']; ?></span>
-                                                            <?php elseif ($singleWithdrawal['status'] == 'Completed') : ?>
-                                                                <span class="badge badge-success" style="color: white; background-color:#28a745;font-size: 13px;"><?= $singleWithdrawal['status']; ?></span>
-                                                            <?php elseif ($singleWithdrawal['status'] == 'Rejected') : ?>
-                                                                 <span class="badge badge-danger" style="color: white; background-color:#f1556c;font-size: 13px;"><?= $singleWithdrawal['status']; ?></span> 
-                                                            <?php endif; ?>
-                                                        </td>
-                                                        <td>
-                                                             <?php if ($singleWithdrawal['status'] == 'Pending'):?>
-                                                            <a href="<?= base_url(); ?>/admin/accept_withdrawal_requests/<?= $singleWithdrawal['id']; ?>"><button class="btn btn-success accept_btn"> Accept </button></a>
-                                                            <button class="btn btn-danger reject_deposit" data-bs-toggle="modal" data-bs-target="#rejectModal" value="<?= $singleWithdrawal['id']; ?>"> Reject </button>
-                                                            <?php elseif ($singleWithdrawal['status'] == 'Accepted'):?>
-                                                            <a href="<?= base_url(); ?>/admin/complete_withdrawal_requests/<?= $singleWithdrawal['id']; ?>"><button class="btn btn-success"> Complete </button></a>
-                                                            <?php elseif ($singleWithdrawal['status'] == 'Completed'):?>
-                                                            <p style=" width: 145px; color: cadetblue;">Amount deducted from user’s account successfully</p>
-                                                            <?php elseif ($singleWithdrawal['status'] == 'Rejected'):?>
-                                                            <p style=" width: 145px; color: red;">User’s withdrawal request rejected</p>
-                                                            <?php endif; ?>
-                                                            
-                                                        </td>
-                                                        <td><?= $singleWithdrawal['currency'] ?></td>
-                                                        <td><?= $singleWithdrawal['currency_option'] ?></td>
-                                                        <td>$<?= $singleWithdrawal['amount'] ?></td>
-                                                        <td><?php echo $singleWithdrawal['paid_date'] ? date('M d, Y', strtotime($singleWithdrawal['paid_date'])) : 'Not Added'; ?></td>
-                                                        <td>
-                                                            <?php if($singleWithdrawal['currency'] == 'USD'): ?>
-                                                                </br><b>Account Name: </b><?= $singleWithdrawal['account_name']?>
-                                                                </br><b>Account Number: </b><?= $singleWithdrawal['account_no']?>
-                                                                </br><b>Routing Number: </b><?= $singleWithdrawal['routing_no']?>
-                                                            <?php else: ?>
-                                                                </br><b>Wallet address: </b><?= $singleWithdrawal['wallet_address']?>
-                                                            <?php endif; ?>
-                                                        </td>
-                                                        <td><?= $singleWithdrawal['message'] ?></td>
-                                                        <td> <?php echo $singleWithdrawal['status'] !== 'Rejected' ? "" : $singleWithdrawal['reject_reason']; ?> </td>
-                                                    </tr>
-                                                <?php endforeach; ?>
-                                            <?php else : ?>
-                                                <h3 style="text-align: center;">No Record Found</h3>
-                                            <?php endif; ?>
-                                        </tbody>
-                                        <tfoot>
-                                            <tr class="active">
-                                                <td colspan="5" style="border-bottom: none;">
-                                                    <div class="text-end mt-3">
-                                                        <ul class="pagination pagination-rounded justify-content-center footable-pagination mb-0"></ul>
-                                                    </div>
-                                                </td>
-                                            </tr>
-                                        </tfoot>
-                                    </table>
-                                </div> <!-- end .table-responsive-->
-                                
-                                <div class="modal fade" id="rejectModal" tabindex="-1" role="dialog" aria-hidden="true">
-                                    <!-- Modal for delete -->
-                                    <div class="modal-dialog">
-                                        <div class="modal-content mt-5">
-                                            <div class="modal-header">
-                                                <h4 class="modal-title" id="myCenterModalLabel">Please give a reason to Reject</h4>
-                                                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                                            </div>
-                                            <form action="<?php echo base_url(); ?>/admin/reject_withdrawal_requests" id="rejectReasonModal" method="POST">
-                                                <div class="modal-body" >
-                                                    <input type="hidden" name="withdraw_id" id="withdraw_id" value="">
-                                                    <p>The reason will be shared to the customer</p>
-                                                    
-                                                    <label for="reason" class="form-label">Reason:</label></br>
-                                                    <textarea class="form-label" id="reason" name="reason" rows="6" style="min-width: 100%" required></textarea>
-                                                </div>
-                                                <div class="modal-body mt-4">
-                                                    <a href="#" class="btn btn-primary" data-bs-dismiss="modal" style="padding: 7px 60px; border: 1px solid #000000; background-color: #000000; float:right">Cancel</a>
-                                                    <button id="reject_btn" type="submit" class="btn btn-danger" style="padding: 7px 60px;">Reject</button>
-                                                </div>
-                                            </form>
-                                        </div><!-- /.modal-content -->
-                                    </div><!-- /.modal-dialog -->
-                                </div><!-- /.modal -->
-                                
-                            </div>
-                        </div> <!-- end card -->
-                    </div> <!-- end col -->
-                </div> <!-- end row -->
-            </div>
+<body>
+  <div class="app_wrapper">
+    <?php echo view("/home/left-sidebar-new"); ?>
+    <main class="main">
+      <div class="flex-i wdthtopBox-wrpr">
+        <div class="notiHeadingBox notiHeadingBox--wdthtop">
+          <h2 class="notification-card__hdng mb-0">Withdrawal Request</h2>
         </div>
-    </div>
+      </div>
+      <div class="card cus-details-card ">
+        <div class="flex trnsc-tbl-top-row">
+          <p class="trnsList-text">
+            Following are the records of your withdrawal history
+          </p>
+          <select class="tn-list-card__select filterselect" id="transactionfilterSelect">
+            <option value="all" selected>Show All</option>
+            <option value="pending">Pending</option>
+            <option value="accepted">Accepted</option>
+            <option value="completed">Completed</option>
+            <option value="rejected">Rejected</option>
+          </select>
+        </div>
+        <table class="table withdrawalTable admin-withdrawalTable" id="withdrawalTable">
+          <thead>
+            <tr class="withdrawalTable__row profit-row">
+              <th class="withdrawalTable__col">
+                Requested Date
+              </th>
+              <th class="withdrawalTable__col">User Name</th>
+              <th class="withdrawalTable__col">Status</th>
+              <th class="withdrawalTable__col">Action</th>
+            </tr>
+          </thead>
+          <tbody>
+            <?php if (isset($allWithdrawals)) : ?>
+              <?php foreach ($allWithdrawals as $singleWithdrawal) : ?>
+                <tr class="withdrawalTable__row profit-row <?php if ($singleWithdrawal['status'] == 'Pending') echo 'pending';
+                                                            else if ($singleWithdrawal['status'] == 'Accepted') echo 'accepted';
+                                                            else if ($singleWithdrawal['status'] == 'Completed') echo 'completed';
+                                                            else if ($singleWithdrawal['status'] == 'Rejected') echo 'rejected'; ?>">
+                  <td class="withdrawalTable__col">
+                    <div class="flex-i wthtblBtn-wrpr">
+                      <button class="wthtblBtn flex-a detail-modal" single_withdrawal='<?= json_encode($singleWithdrawal) ?>' type="button" data-bs-toggle="modal1" data-bs-target="#modal1">
+                        <i class="fa-solid fa-eye"></i>
+                      </button>
+                      <span><?php echo date('M d, Y', strtotime($singleWithdrawal['request_date'])); ?></span>
+                    </div>
+                  </td>
+                  <td class="withdrawalTable__col">
+                    <div class="flex-i userimg-wrpr">
+                      <img src="<?= $singleWithdrawal['profile_img'] ? base_url() . $singleWithdrawal['profile_img'] : base_url() . '/assets/images/users/user-1.jpg' ?>" alt="" class="userimg__wtdtbl">
+                      <span><?= $singleWithdrawal['firstName'] . ' ' . $singleWithdrawal['lastName']; ?></span>
+                    </div>
+                  </td>
+                  <td class="withdrawalTable__col">
+                    <?php if ($singleWithdrawal['status'] == 'Pending') : ?>
+                      <div class="withdrawalTable__tab pending flex-a"><?= $singleWithdrawal['status']; ?></div>
+                    <?php elseif ($singleWithdrawal['status'] == 'Accepted') : ?>
+                      <div class="withdrawalTable__tab accepted flex-a"><?= $singleWithdrawal['status']; ?></div>
+                    <?php elseif ($singleWithdrawal['status'] == 'Completed') : ?>
+                      <div class="withdrawalTable__tab completed flex-a"><?= $singleWithdrawal['status']; ?></div>
+                    <?php elseif ($singleWithdrawal['status'] == 'Rejected') : ?>
+                      <div class="withdrawalTable__tab rejected flex-a"><?= $singleWithdrawal['status']; ?></div>
+                    <?php endif; ?>
+                  </td>
+                  <td class="withdrawalTable__col">
+                    <?php if ($singleWithdrawal['status'] == 'Pending') : ?>
+                      <div class="flex-i table-btns-wrpr table-btns-wrpr--justify-start">
+                        <a href="<?= base_url(); ?>/admin/accept_withdrawal_requests/<?= $singleWithdrawal['id']; ?>" class="table-btn flex-a table-btn--accept">Accept</a href="<?= base_url(); ?>/admin/accept_withdrawal_requests/<?= $singleWithdrawal['id']; ?>">
+                        <button class="table-btn flex-a table-btn--reject table-btn-reject" withdrawal_id="<?= $singleWithdrawal['id']; ?>">Reject</button>
+                      </div>
+                    <?php elseif ($singleWithdrawal['status'] == 'Accepted') : ?>
+                      <div class="flex-i table-btns-wrpr table-btns-wrpr--justify-start">
+                      <a href="<?= base_url(); ?>/admin/complete_withdrawal_requests/<?= $singleWithdrawal['id']; ?>"><button class="btn btn-success"> Complete </button></a>
+                      </div>
+                    <?php elseif ($singleWithdrawal['status'] == 'Completed') : ?>
+                      <div class="flex-i table-btns-wrpr table-btns-wrpr--justify-start">
+                        <p class="topaz">Amount deducted from user’s account successfully</p>
+                      </div>
+                    <?php elseif ($singleWithdrawal['status'] == 'Rejected') : ?>
+                      <p class="chili-paper">User’s withdrawal request rejected</p>
+                    <?php endif; ?>
 
-    <?php echo view("/home/footer-scripts"); ?>
-    <script>
-        $('#full-screen-loader').hide();
-        $('.reject_deposit').click(function(){
-            $('#withdraw_id').val($(this).val());
+                  </td>
+                </tr>
+              <?php endforeach; ?>
+            <?php else : ?>
+              <h3 style="text-align: center;">No Record Found</h3>
+            <?php endif; ?>
+          </tbody>
+        </table>
+      </div>
+    </main>
+  </div>
+  <div class="modal fade" id="modal" tabindex="-1" aria-labelledby="profilee-dit-modalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered modal-lg">
+      <div class="modal-content profile-edit">
+        <button class="profile-edit__btnclose flex-a" data-bs-dismiss="modal">
+          <i class="fa-solid fa-xmark"></i>
+        </button>
+        <div class="details__row">
+          <span class="details__row-sp1">Method:</span>
+          <span class="details__row-sp2" id="method"></span>
+        </div>
+        <div class="details__row">
+          <span class="details__row-sp1">Method Details:</span>
+          <span class="details__row-sp2" id="methodDatils"></span>
+        </div>
+        <div class="details__row">
+          <span class="details__row-sp1">Amount:</span>
+          <span class="details__row-sp2" id="amount"></span>
+        </div>
+        <div class="details__row">
+          <span class="details__row-sp1">Paid Date:</span>
+          <span class="details__row-sp2" id="paidDate"></span>
+        </div>
+        <div class="details__row">
+          <span class="details__row-sp1">Account Details:</span>
+          <div>
+            <div class="details__row">
+              <span class="details__row-sp1">Account Name:</span>
+              <span class="details__row-sp2" id="accountName"></span>
+            </div>
+            <div class="details__row">
+              <span class="details__row-sp1">Account Number:</span>
+              <span class="details__row-sp2" id="accountNumber"></span>
+            </div>
+            <div class="details__row">
+              <span class="details__row-sp1">Rounting Number:</span>
+              <span class="details__row-sp2" id="rountingNumber"></span>
+            </div>
+          </div>
+        </div>
+        <div class="details__row">
+          <span class="details__row-sp1">Message:</span>
+          <span class="details__row-sp2" id="message"></span>
+        </div>
+        <div class="details__row">
+          <span class="details__row-sp1">Reject Reason (if rejected):</span>
+          <span class="details__row-sp2" id="rejectReason"></span>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="modal fade" id="reject-modal" tabindex="-1" aria-labelledby="profilee-dit-modalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered modal-lg">
+      <div class="modal-content profile-edit">
+        <button class="profile-edit__btnclose flex-a" data-bs-dismiss="modal">
+          <i class="fa-solid fa-xmark"></i>
+        </button>
+        <form action="<?php echo base_url(); ?>/admin/reject_withdrawal_requests" id="rejectReasonModal" method="POST">
+          <div class="modal-body">
+            <input type="hidden" name="withdraw_id" id="withdraw_id" value="">
+            <p>The reason will be shared to the customer</p>
+
+            <label for="reason" class="form-label">Reason:</label></br>
+            <textarea class="form-label" id="reason" name="reason" rows="6" style="min-width: 100%" required></textarea>
+          </div>
+          <div class="modal-body mt-2">
+            <a href="#" class="btn btn-primary" data-bs-dismiss="modal" style="padding: 7px 60px; border: 1px solid #000000; background-color: #000000; float:right">Cancel</a>
+            <button id="reject_btn" type="submit" class="btn btn-danger" style="padding: 7px 60px;">Reject</button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+  <?php echo view("/home/new-footer-scripts"); ?>
+  <script>
+    $(document).ready(function() {
+      $(document).on("click", ".detail-modal", function() {
+        let single_withdrawal = JSON.parse($(this).attr("single_withdrawal"));
+        $("#method").text(single_withdrawal['method']);
+        $("#methodDatils").text(single_withdrawal['method_details']);
+        $("#amount").text(single_withdrawal['amount']);
+        $("#paidDate").text(single_withdrawal['paid_date']);
+        $("#accountName").text(single_withdrawal['account_name']);
+        $("#accountNumber").text(single_withdrawal['account_number']);
+        $("#rountingNumber").text(single_withdrawal['rounting_number']);
+        $("#message").text(single_withdrawal['message']);
+        $("#rejectReason").text(single_withdrawal['reject_reason']);
+
+        $("#modal").modal("show");
+      })
+      $(document).on("click", ".table-btn-reject", function() {
+        let withdrawal_id = $(this).attr("withdrawal_id");
+        console.log(withdrawal_id);
+        $('#withdraw_id').val(withdrawal_id);
+        $("#reject-modal").modal("show");
+      })
+    })
+    document.addEventListener("DOMContentLoaded", function() {
+      function filterTableRows(filterSelector) {
+        const filterElements = document.getElementsByClassName(filterSelector);
+        if (!filterElements.length) {
+          console.error(`Elements with class "${filterSelector}" not found.`);
+          return;
+        }
+        Array.from(filterElements).forEach((filterElement) => {
+          filterElement.addEventListener("change", function() {
+            const filterValue = this.value;
+            const rows = document.querySelectorAll(`.withdrawalTable .withdrawalTable__row`);
+
+            rows.forEach((row) => {
+              const isPending = row.classList.contains("pending");
+              const isAccepted = row.classList.contains("accepted");
+              const isCompleted = row.classList.contains("completed");
+              const isRejected = row.classList.contains("rejected");
+
+              if (filterValue === "pending") {
+                row.style.display = isPending ? "table-row" : "none";
+              } else if (filterValue === "accepted") {
+                row.style.display = isAccepted ? "table-row" : "none";
+              } else if (filterValue === "completed") {
+                row.style.display = isCompleted ? "table-row" : "none";
+              } else if (filterValue === "rejected") {
+                row.style.display = isRejected ? "table-row" : "none";
+              } else {
+                row.style.display = "table-row";
+              }
+            });
+          });
         });
-        $('#reject_btn').click(function(){
-            if($('#reason').val() !== ''){
-                $('#full-screen-loader').show();
-            }
-        });
-        $('.accept_btn').click(function(){
-            $('#full-screen-loader').show();
-        });
-    </script>
+      }
+      filterTableRows("filterselect");
+    });
+  </script>
 </body>
 
 </html>
