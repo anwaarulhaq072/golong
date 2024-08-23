@@ -179,16 +179,17 @@
     $(document).ready(function() {
       $(document).on("click", ".detail-modal", function() {
         let single_withdrawal = JSON.parse($(this).attr("single_withdrawal"));
-        $("#method").text(single_withdrawal['method']);
-        $("#methodDatils").text(single_withdrawal['method_details']);
+        $("#method").text(single_withdrawal['currency']);
+        $("#methodDatils").text(single_withdrawal['currency_option']);
         $("#amount").text(single_withdrawal['amount']);
         $("#paidDate").text(single_withdrawal['paid_date']);
         $("#accountName").text(single_withdrawal['account_name']);
-        $("#accountNumber").text(single_withdrawal['account_number']);
-        $("#rountingNumber").text(single_withdrawal['rounting_number']);
+        $("#accountNumber").text(single_withdrawal['account_no']);
+        $("#rountingNumber").text(single_withdrawal['routing_no']);
         $("#message").text(single_withdrawal['message']);
         $("#rejectReason").text(single_withdrawal['reject_reason']);
-
+        console.log(single_withdrawal);
+        
         $("#modal").modal("show");
       })
       $(document).on("click", ".table-btn-reject", function() {

@@ -125,23 +125,6 @@
           <span class="details__row-sp2" id="paidDate"></span>
         </div>
         <div class="details__row">
-          <span class="details__row-sp1">Account Details:</span>
-          <div>
-            <div class="details__row">
-              <span class="details__row-sp1">Account Name:</span>
-              <span class="details__row-sp2" id="accountName"></span>
-            </div>
-            <div class="details__row">
-              <span class="details__row-sp1">Account Number:</span>
-              <span class="details__row-sp2" id="accountNumber"></span>
-            </div>
-            <div class="details__row">
-              <span class="details__row-sp1">Rounting Number:</span>
-              <span class="details__row-sp2" id="rountingNumber"></span>
-            </div>
-          </div>
-        </div>
-        <div class="details__row">
           <span class="details__row-sp1">Message:</span>
           <span class="details__row-sp2" id="message"></span>
         </div>
@@ -179,15 +162,13 @@
     $(document).ready(function() {
       $(document).on("click", ".detail-modal", function() {
         let single_deposit = JSON.parse($(this).attr("single_deposit"));
-        $("#method").text(single_deposit['method']);
-        $("#methodDatils").text(single_deposit['method_details']);
+        $("#method").text(single_deposit['currency']);
+        $("#methodDatils").text(single_deposit['currency_option']);
         $("#amount").text(single_deposit['amount']);
-        $("#paidDate").text(single_deposit['paid_date']);
-        $("#accountName").text(single_deposit['account_name']);
-        $("#accountNumber").text(single_deposit['account_number']);
-        $("#rountingNumber").text(single_deposit['rounting_number']);
+        $("#paidDate").text(single_deposit['accepted_date']);
         $("#message").text(single_deposit['message']);
         $("#rejectReason").text(single_deposit['reject_reason']);
+        console.log(single_deposit);
 
         $("#modal").modal("show");
       })
