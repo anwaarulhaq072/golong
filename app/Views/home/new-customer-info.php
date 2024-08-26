@@ -369,7 +369,7 @@
             <?php else : ?>
             <img src="<?php echo base_url().$userDetails['profile_img']; ?>" alt="" class="customerDetailsCard__img">
             <?php endif; ?>
-            <p class="profile_edit__para_message"></p>
+            <p class="profile_edit__para_message" style="color:red"></p>
         <form class="row profile-edit-row" id="editProfileModalform" method="POST">
         <input type="hidden" id="first" value="<?php echo $userDetails['id']; ?>">
         <input type="hidden" id="base_url" value="<?php echo base_url(); ?>">
