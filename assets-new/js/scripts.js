@@ -96,5 +96,8 @@ document.addEventListener("DOMContentLoaded", function () {
       });
     });
   }
+  const rows = document.querySelectorAll(`.profitlossTable .table__row`);
+  if(rows.length > 0) {
   filterTableRows("filterselect");
+  }
 });
