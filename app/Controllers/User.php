@@ -178,42 +178,47 @@ class User extends BaseController
             $data['totalProfitNum'] = 0;
             $data['totalLossNum'] = 0;
             for ($a = 0; $a < sizeof($data['profitLossDetails']); $a++) {
-                $data['profitLossDetails'][$a]['type'] == 'Profit' ? $data['totalProfitNum']++ : $data['totalLossNum']++;
-            }
-            $j = $k = 0;
-            if (sizeof($profitByMonth) > 0 && (int)$profitByMonth[$j]['year'] < date("Y")) {
-                while ($j < sizeof($profitByMonth) && (int)$profitByMonth[$j]['year'] < date("Y")) {
-                    $j++;
-                }
-            }
-            if (sizeof($lossByMonth) > 0 && (int)$lossByMonth[$k]['year'] < date("Y")) {
-                while ($k < sizeof($lossByMonth) && (int)$lossByMonth[$k]['year'] < date("Y")) {
-                    $k++;
-                }
-            }
-            // echo (int)$profitByMonth[$j]['month'];
-            // die();
+				$data['profitLossDetails'][$a]['type'] == 'Profit' ? $data['totalProfitNum']++ : $data['totalLossNum']++;
+			}
+			// log_message('debug', '**************************************************' . var_export($profitByMonth, true));
+			// log_message('debug', '**************************************************' . var_export($lossByMonth, true));
+			$j = $k = 0;
+			if (sizeof($profitByMonth) > 0 && (int)$profitByMonth[$j]['year'] < date("Y")) {
+				while ($j < sizeof($profitByMonth) && (int)$profitByMonth[$j]['year'] < date("Y")) {
+					$j++;
+				}
+			}
+			if (sizeof($lossByMonth) > 0 && (int)$lossByMonth[$k]['year'] < date("Y")) {
+				while ($k < sizeof($lossByMonth) && (int)$lossByMonth[$k]['year'] < date("Y")) {
+					$k++;
+				}
+			}
 
-            for ($i = 1; $i < 13; $i++) {
-                if ((!empty($profitByMonth[$j]) && $i == (int)$profitByMonth[$j]['month']) || (!empty($lossByMonth[$k]) && $i == (int)$lossByMonth[$k]['month'])) {
-                    if (!empty($lossByMonth) && !empty($profitByMonth) && isset($lossByMonth[$k])  && isset($profitByMonth[$j]) && (int)$profitByMonth[$j]['month'] === (int)$lossByMonth[$k]['month']) {
-                        $data['profitLossMonthly'][$i] = number_format((float)(($profitByMonth[$j]['amount'] - $lossByMonth[$k]['amount'])), 2, '.', '');
-                        $data['profitLossMonthly']['total'] += (float)($profitByMonth[$j]['amount'] - $lossByMonth[$k]['amount']);
-                        $j++;
-                        $k++;
-                    } else if ((empty($lossByMonth) || !isset($lossByMonth[$k])) || (int)$profitByMonth[$j]['month'] < (int)$lossByMonth[$k]['month']) {
-                        $data['profitLossMonthly'][$i] = number_format((float)(($profitByMonth[$j]['amount'])), 2, '.', '');
-                        $data['profitLossMonthly']['total'] += (float)($profitByMonth[$j]['amount']);
-                        $j++;
-                    } else if ((empty($profitByMonth) || !isset($profitByMonth[$j])) || (int)$profitByMonth[$j]['month'] > (int)$lossByMonth[$k]['month']) {
-                        $data['profitLossMonthly'][$i] = number_format((float)(($lossByMonth[$k]['amount'])), 2, '.', '') * -1;
-                        $data['profitLossMonthly']['total'] += (float)($lossByMonth[$k]['amount']) * -1;
-                        $k++;
-                    }
-                } else {
-                    $data['profitLossMonthly'][$i] = 0;
-                }
-            }
+			// $length = count($profitByMonth) > count($lossByMonth) ? count($profitByMonth) - $j : count($lossByMonth) - $k;
+			// $data['profitLossMonthly']['len'] = $length;
+			// log_message('debug','**************************************************'.var_export($profitByMonth,true));
+			// log_message('debug','**************************************************'.var_export($lossByMonth,true));
+			// log_message('debug','**************************************************'.$j.'  ***    '.$k);
+			for ($i = 1; $i < 13; $i++) {
+				if ((!empty($profitByMonth[$j]) && $i == (int)$profitByMonth[$j]['month']) || (!empty($lossByMonth[$k]) && $i == (int)$lossByMonth[$k]['month'])) {
+					if ((!empty($profitByMonth[$j]) && !empty($lossByMonth[$k])) && ((int)$profitByMonth[$j]['month'] === (int)$lossByMonth[$k]['month'])) {
+						$data['profitLossMonthly'][$i] = number_format(((float)$profitByMonth[$j]['amount'] - (float)$lossByMonth[$k]['amount']), 2, '.', '');
+						$data['profitLossMonthly']['total'] += (($profitByMonth[$j]['amount'] - $lossByMonth[$k]['amount']));
+						$j++;
+						$k++;
+					} else if (empty($lossByMonth[$k]) || (!empty($profitByMonth[$j]) && (int)$profitByMonth[$j]['month'] < (int)$lossByMonth[$k]['month'])) {
+						$data['profitLossMonthly'][$i] = number_format((float)(($profitByMonth[$j]['amount'])), 2, '.', '');
+						$data['profitLossMonthly']['total'] += (float)($profitByMonth[$j]['amount']);
+						$j++;
+					} else if (empty($profitByMonth[$j]) || (!empty($lossByMonth[$k]) && (int)$profitByMonth[$j]['month'] > (int)$lossByMonth[$k]['month'])) {
+						$data['profitLossMonthly'][$i] = number_format((float)((($lossByMonth[$k]['amount']))), 2, '.', '') * -1;
+						$data['profitLossMonthly']['total'] += (float)($lossByMonth[$k]['amount']) * -1;
+						$k++;
+					}
+				} else {
+					$data['profitLossMonthly'][$i] = 0;
+				}
+			}
             $data['profitLossMonthly']['total'] = $data['profitLossMonthly']['total'] ? number_format((float)($data['profitLossMonthly']['total']), 2, '.', '') : 0;
             $waveChart = $this->chartDetails();
             $data['waveChart'] = $waveChart;
