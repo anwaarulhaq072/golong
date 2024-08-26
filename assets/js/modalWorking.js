@@ -86,6 +86,10 @@ $('.delete_btn_payout').click(function () {
     var _href = $('#delYesPayout').attr("href");
     $('#delYesPayout').attr("href", _href + $(this).val());
 });
+$('.delete_btn_notification').click(function () {
+    // var _href = $(this).val();
+    $('#delYesNotification').attr("href", $(this).val());
+});
 $('.delete_btn_profit').click(function () {
     var _href = $('#delYesProfit').attr("href");
     $('#delYesProfit').attr("href", _href + $(this).val());

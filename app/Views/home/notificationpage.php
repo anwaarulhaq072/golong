@@ -1,127 +1,121 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
 
 <head>
-
-    <meta charset="utf-8" />
-    <title>Admin Dashboard - <?php echo APP_NAME ?></title>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta content="Nvest Clients - Where you can invest" name="description" />
-    <meta content="Coderthemes" name="author" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-
-    <?php echo view("/home/header-links"); ?>
-
+  <meta charset="utf-8" data-bs-theme="dark">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Withdrawal History</title>
+  <?php echo view("/home/new-header-links"); ?>
 </head>
 
-<!-- body start -->
-
-<body class="loading" data-layout='{"mode": "light", "width": "fluid", "menuPosition": "fixed", "sidebar": { "color": "light", "size": "default", "showuser": false}, "topbar": {"color": "light"}}'>
-    <!-- Begin page -->
-    <div id="wrapper">
-        <?php echo view("/home/left-sidebar"); ?>
-        <!-- include Top-bar -->
-        <?php echo view("/home/top-bar") ?>
-
-        <!-- ============================================================== -->
-        <!-- Start Page Content here -->
-        <!-- ============================================================== -->
-        <div class="content-page pt-4 col-lg-10 col-md-10" style=" background-color: #F5F5FC !important;">
-            <div class="content" style="margin-top: 50px;">
-                <!-- Start Content-->
-                        <?php if(isset($_GET['success']) && $_GET['success'] == true): ?>
-                        <div class="alert alert-success" role="alert">
-                        Notification sent successfully
-                        </div>
-                        <?php endif; ?>
-                <div class="container-fluid">
-                    <h3 class="header-title mt-4 mb-3">All Notifications</h3>
-                    <div class="row">
-                        <div class="card">
-                            <div class="card-body">
-                                <div class="mb-3" style="display:flex; justify-content: space-between;">
-                                    <p></p>
-                                    <a href="<?php echo base_url(); ?>/admin/addnotification">
-                                        <button class="primary_btn">Add New Notification
-                                            <span class="fa fa-bell ms-2 me-1" style="font-size: 17px;"></span></button>
-                                    </a>
-                                </div>
-                                <div class="table-responsive">
-                                    <table id="demo-foo-filtering" class="table toggle-circle mb-0" data-page-size="10">
-                                        <thead style="background-color: #F2F2F2;">
-                                            <tr>
-                                                <th>Title</th>
-                                                <th data-hide="">Status</th>
-                                                <th data-hide="phone, tablet">Date</th>
-                                                <th data-hide="phone, tablet">Actions</th>
-                                            </tr>
-                                        </thead>
-                                        <tbody>
-                                            <?php foreach ($allNotifications as $singleNotification) :  ?>
-                                            <?php if(strpos($singleNotification['title'],"Request") == ''): ?>
-                                                <tr>
-                                                    <td><?php echo $singleNotification['title'] ?></td>
-                                                    <td><?php echo $singleNotification['status'] ?></td>
-                                                    <td><?php echo  date('M d, Y', strtotime($singleNotification['publishDate'])); ?>
-                                                    </td>
-                                                    <td> 
-                                                        <a href="<?php echo base_url(); ?>/admin/updatenotification?id=<?php echo $singleNotification['id']; ?>" style="width:50px; height:50px"><button class="btn btn-sm" style="box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.15); border-radius:5px; margin-right: 6px;"><b><span class="mdi mdi-pencil" style="color: black; font-size: 16px;"></b></button>
-                                                        <a href="<?php echo base_url(); ?>/admin/deleteNotification?id=<?php echo $singleNotification['id']; ?>" style="width:50px; height:50px"><button class="btn btn-sm" style="box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.15); border-radius:5px; margin-right: 6px;"><b><span class="mdi mdi-delete" style="color: black; font-size: 16px;"></b></button>
-                                                    </td>
-
-                                                </tr>
-                                                <?php endif; ?>
-                                            <?php endforeach; ?>
-                                        </tbody>
-                                        <tfoot>
-                                            <tr class="active">
-                                                <td colspan="7" style="border-bottom: none;">
-                                                    <div class="text-end mt-3">
-                                                        <ul class="pagination pagination-rounded justify-content-center footable-pagination mb-0">
-                                                        </ul>
-                                                    </div>
-                                                </td>
-                                            </tr>
-                                        </tfoot>
-                                    </table>
-                                </div> <!-- end .table-responsive-->
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
+<body>
+  <div class="app_wrapper">
+    <?php echo view("/home/left-sidebar-new"); ?>
+    <main class="main">
+      <div class="flex-i wdthtopBox-wrpr">
+        <div class="notiHeadingBox notiHeadingBox--wdthtop">
+          <h2 class="notification-card__hdng">All Notifications</h2>
         </div>
-        <div class="modal fade" id="delete_notification_Modal" tabindex="-1" role="dialog" aria-hidden="true">
-                                    <!-- Modal for delete -->
-                                    <div class="modal-dialog">
-                                        <div class="modal-content" style="margin-top: 200px">
-                                            <div class="modal-header">
-                                                <h4 class="modal-title" id="myCenterModalLabel">Are you sure you want to delete this notification?</h4>
-                                                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                                            </div>
-                                            <form action="<?php echo base_url(); ?>/admin/deleteNotification" id="rejectReasonModal" method="POST">
-                                                <div class="modal-body" >
-                                                    <input type="hidden" name="notification_id" id="notification_id" value="">
-                                                </div>
-                                                <div class="modal-body">
-                                                <button id="reject_btn" type="submit" class="btn btn-danger">Yes</button>
-                                                    <a href="#" class="btn btn-primary" data-bs-dismiss="modal" style=" border: 1px solid #000000; background-color: #000000;">No</a>
-                                                </div>
-                                            </form>
-                                        </div><!-- /.modal-content -->
-                                    </div><!-- /.modal-dialog -->
-                                </div><!-- /.modal -->
+        <a href="<?php echo base_url(); ?>/admin/addnotification" class="flex-a wthdrwlBtn">Add New Notification</a>
+      </div>
+      <div class="card cus-details-card ">
+        <div class="flex trnsc-tbl-top-row">
+        </div>
 
-        <!-- ============================================================== -->
-        <!-- End Page content -->
-        <!-- ============================================================== -->
+        <table class="table withdrawalTable" id="withdrawalTable">
+          <thead>
+            <tr class="withdrawalTable__row profit-row">
+              <th class="withdrawalTable__col">Title</th>
+              <th class="withdrawalTable__col">Status</th>
+              <th class="withdrawalTable__col">Date</th>
+              <th class="withdrawalTable__col">Actions</th>
+            </tr>
+          </thead>
+          <tbody>
+            <?php foreach ($allNotifications as $singleNotification) :  ?>
+              <?php if (strpos($singleNotification['title'], "Request") == ''): ?>
+                <tr class="withdrawalTable__row profit-row">
+                  <td class="withdrawalTable__col"><?php echo $singleNotification['title'] ?></td>
+                  <td class="withdrawalTable__col"><?php echo $singleNotification['status'] ?></td>
+                  <td class="withdrawalTable__col"><?php echo  date('M d, Y', strtotime($singleNotification['publishDate'])); ?></td>
+                  <td class="withdrawalTable__col">
+                    <div class="flex-i " style="column-gap: 22px;">
+                      <a href="<?php echo base_url(); ?>/admin/updatenotification?id=<?php echo $singleNotification['id']; ?>" class="table-mdl-btn flex-a r-50 edit_notification_button">
+                        <i class="fa-solid fa-pencil"></i>
+                      </a>
+                      <button  value="<?php echo base_url(); ?>/admin/deleteNotification?id=<?php echo $singleNotification['id']; ?>" class="table-mdl-btn flex-a r-50 delete_btn_notification" type="button" data-bs-toggle="modal"
+                      data-bs-target="#delete_notification">
+                        <i class="fa-solid fa-trash"></i>
+                      </button>
+                    </div>
+                  </td>
+                </tr>
+              <?php endif; ?>
+            <?php endforeach; ?>
+          </tbody>
+        </table>
+      </div>
+    </main>
+    <div class="modal fade" id="delete_notification" tabindex="-1" aria-labelledby="edit-modalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered modal-lg">
+      <div class="modal-content profile-edit profile-edit2">
+        <button class="profile-edit__btnclose flex-a" data-bs-dismiss="modal">
+          <i class="fa-solid fa-xmark"></i>
+        </button>
+
+        <h2 class="profile-edit__hdng profile-edit__hdng2--danger text-center">
+          <i class="fa-solid fa-trash d-block"></i>
+        </h2>
+        <p class="delete-text">Are you sure you want to delete record?</p>
+        <div class="flex-a profile-edit-btns-wrpr">
+        <a href="" id="delYesNotification"><button type="submit" class="profile-edit__btn profile-edit__btn--del">Delete</button></a>
+          <button type="button" class="profile-edit__btn profile-edit__btn--tr profile-edit__btn--tr-red"
+            data-bs-dismiss="modal">Cancel</button>
+        </div>
+      </div>
     </div>
-    <!-- END wrapper -->
-    <?php echo view("/home/footer-scripts"); ?>
-    <<script>
-        $('.alert-success').fadeOut(5000);
-    </script>
+  </div>
+  </div>
 
+  <?php echo view("/home/new-footer-scripts"); ?>
+  <script src="<?= base_url(); ?>/assets/js/modalWorking.js"></script>
+  <script>
+    document.addEventListener("DOMContentLoaded", function() {
+      function filterTableRows(filterSelector) {
+        const filterElements = document.getElementsByClassName(filterSelector);
+        if (!filterElements.length) {
+          console.error(`Elements with class "${filterSelector}" not found.`);
+          return;
+        }
+        Array.from(filterElements).forEach((filterElement) => {
+          filterElement.addEventListener("change", function() {
+            const filterValue = this.value;
+            const rows = document.querySelectorAll(`.withdrawalTable .withdrawalTable__row`);
+
+            rows.forEach((row) => {
+              const isPending = row.classList.contains("pending");
+              const isAccepted = row.classList.contains("accepted");
+              const isCompleted = row.classList.contains("completed");
+              const isRejected = row.classList.contains("rejected");
+
+              if (filterValue === "pending") {
+                row.style.display = isPending ? "table-row" : "none";
+              } else if (filterValue === "accepted") {
+                row.style.display = isAccepted ? "table-row" : "none";
+              } else if (filterValue === "completed") {
+                row.style.display = isCompleted ? "table-row" : "none";
+              } else if (filterValue === "rejected") {
+                row.style.display = isRejected ? "table-row" : "none";
+              } else {
+                row.style.display = "table-row";
+              }
+            });
+          });
+        });
+      }
+      filterTableRows("filterselect");
+    });
+  </script>
 </body>
 
 </html>
