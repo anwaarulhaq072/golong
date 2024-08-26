@@ -636,6 +636,7 @@ class User extends BaseController
 
     public function submit_deposit()
     {
+        session_start();
         $permission_library = new permissions();
         $response = $permission_library->checksessionuser();
         if ($response == true) {
@@ -690,6 +691,11 @@ class User extends BaseController
             $data = [];
             $singleNotification = new Singlenotification();
             $data['notification'] = $singleNotification->getCurrentDataNotificationsByUserId($id);
+            if (isset($deposit)) {
+				$_SESSION['success'] = 'Deposit added successfully!';
+			}else{
+				$_SESSION['danger'] = 'Something went wrong!';
+			}
             return redirect()->to('/user/deposit');
             // return view('/home/successDeposit', $data);
         } else {
@@ -718,6 +724,7 @@ class User extends BaseController
 
     public function add_withdrawal()
     {
+     
         $permission_library = new permissions();
         $response = $permission_library->checksessionuser();
         if ($response == true) {
@@ -763,7 +770,7 @@ class User extends BaseController
                 $data['currency_options'][$single['slug']] = $currency_option->getByCurrencyId($single['id']);
             }
             $data['notification'] = $singleNotification->getCurrentDataNotificationsByUserId($id);
-
+         
             return view('/home/addWithdrawal', $data);
         } else {
             return redirect()->to('/');
@@ -772,6 +779,7 @@ class User extends BaseController
 
     public function submit_withdrawal()
     {
+        session_start();
         $permission_library = new permissions();
         $response = $permission_library->checksessionuser();
         if ($response == true) {
@@ -824,13 +832,18 @@ class User extends BaseController
             $opcurrency = $opcur->getById($_POST['crypto_type']);
             $opcurrname = $opcurrency['name'];
 
-            $emailslib = new Emails;  //Sending Email 
-            $emailslib->sendWithdrawa($fullName, $currname, $_POST['amount'], $opcurrname, $allAdminEmails, $_POST['wallet_address']);
+            // $emailslib = new Emails;  //Sending Email 
+            // $emailslib->sendWithdrawa($fullName, $currname, $_POST['amount'], $opcurrname, $allAdminEmails, $_POST['wallet_address']);
 
 
             $data = [];
             $singleNotification = new Singlenotification();
             $data['notification'] = $singleNotification->getCurrentDataNotificationsByUserId($id);
+            if (isset($withdraw)) {
+				$_SESSION['success'] = 'Withdraw request added successfully!';
+			}else{
+				$_SESSION['danger'] = 'Something went wrong!';
+			}
             return redirect()->to('/user/withdrawal');
             // return view('/home/withdrawal', $data);
         } else {

@@ -788,6 +788,7 @@ class Admin extends BaseController
 	}
 	public function addBulkUpdate()
 	{
+		session_start();
 		$permission_library = new permissions();
 		$response = $permission_library->checksessionadmin();
 		if ($response == true) {
@@ -849,9 +850,10 @@ class Admin extends BaseController
 					$profitLoss->save($data);
 				}
 			}
-
+			$_SESSION['success'] = 'Data updated successfully!';
 			return json_encode(base_url() . '/admin/bulkUpdate');
 		} else {
+			$_SESSION['danger'] = 'Something went wrong!';
 			return redirect()->to('/');
 		}
 	}
@@ -922,10 +924,10 @@ class Admin extends BaseController
 		$nextpayoutdate = date('Y-m-d', strtotime($_POST['nextpayoutdate']));
 		$users = new Users();
 		$showtoaccount = 'N';
-		if(isset($_POST['showtoaccount']) && $_POST['showtoaccount'] == 'on'){
+		if (isset($_POST['showtoaccount']) && $_POST['showtoaccount'] == 'on') {
 			$showtoaccount = 'Y';
 		}
-		
+
 		$users->update($_POST['id'], [
 			'initialInvestment' => $_POST['amount'],
 			// 'transactionType' => $_POST['transaction'],
@@ -938,7 +940,7 @@ class Admin extends BaseController
 		]);
 		if (isset($users)) {
 			$_SESSION['success'] = 'Investment updated successfully!';
-		}else{
+		} else {
 			$_SESSION['danger'] = 'Something went wrong!';
 		}
 		// $this->session->setFlashdata('success', 'Investment updated successfully!');
@@ -956,7 +958,7 @@ class Admin extends BaseController
 		]);
 		if (isset($pauout)) {
 			$_SESSION['success'] = 'Payout added successfully!';
-		}else{
+		} else {
 			$_SESSION['danger'] = 'Something went wrong!';
 		}
 		return redirect()->to('/admin/customerdetails?userid=' . $_POST['id']);
@@ -969,7 +971,7 @@ class Admin extends BaseController
 		$pauout->delete($_GET['id']);
 		if (isset($pauout)) {
 			$_SESSION['success'] = 'Payout deleted successfully!';
-		}else{
+		} else {
 			$_SESSION['danger'] = 'Something went wrong!';
 		}
 		return redirect()->to('/admin/customerdetails?userid=' . $_GET['userid']);
@@ -989,7 +991,7 @@ class Admin extends BaseController
 		]);
 		if (isset($pauout)) {
 			$_SESSION['success'] = 'Payout updated successfully!';
-		}else{
+		} else {
 			$_SESSION['danger'] = 'Something went wrong!';
 		}
 		// log_message('debug', '***************** PayOut Amount succefuly Edited in database *****************');
@@ -999,7 +1001,7 @@ class Admin extends BaseController
 	public function addProfitLoss()
 	{
 		session_start();
-		log_message('debug', '***************** Add Profit/Loss Amount *****************'.var_export($_POST, true));
+		log_message('debug', '***************** Add Profit/Loss Amount *****************' . var_export($_POST, true));
 		$profitFound = array(
 			'status' => true,
 			'message' => '* Record already exist on this date you can only update or delete a record once a record is added.'
@@ -1029,7 +1031,7 @@ class Admin extends BaseController
 		$payoutAll += $completedWithdrawals;
 		$totalBalance = ((float)$userInfo['initialInvestment'] + (float)$depositAcceptedAll + (float)$data['profitLoss']) - (float)$pendingWithdraw - (float)$payoutAll;
 		if ($profitResult != NULL) {
-			
+
 			return json_encode($profitFound);
 		} else {
 			$profitLoss->save([
@@ -1041,7 +1043,7 @@ class Admin extends BaseController
 			]);
 			if (isset($profitLoss)) {
 				$_SESSION['success'] = 'Payout updated successfully!';
-			}else{
+			} else {
 				$_SESSION['danger'] = 'Something went wrong!';
 			}
 			return json_encode(base_url() . '/admin/customerdetails?userid=' . $_POST['id']);
@@ -1055,7 +1057,7 @@ class Admin extends BaseController
 		$profitLoss->delete($_GET['id']);
 		if (isset($profitLoss)) {
 			$_SESSION['success'] = 'Payout deleted successfully!';
-		}else{
+		} else {
 			$_SESSION['danger'] = 'Something went wrong!';
 		}
 		return redirect()->to('/admin/customerdetails?userid=' . $_GET['userid']);;
@@ -1091,7 +1093,7 @@ class Admin extends BaseController
 			]);
 			if (isset($users)) {
 				$_SESSION['success'] = 'Profile updated successfully!';
-			}else{
+			} else {
 				$_SESSION['danger'] = 'Something went wrong!';
 			}
 			return json_encode(base_url() . '/admin/customerdetails?userid=' . $_POST['userid']);
@@ -1205,7 +1207,7 @@ class Admin extends BaseController
 	}
 	public function notifications()
 	{
-		
+
 		$permission_library = new permissions();
 		$response = $permission_library->checksessionadmin();
 		if ($response == true) {
@@ -1240,6 +1242,7 @@ class Admin extends BaseController
 	}
 	public function updatenotification()
 	{
+
 		$permission_library = new permissions();
 		$response = $permission_library->checksessionadmin();
 		if ($response == true) {
@@ -1247,13 +1250,16 @@ class Admin extends BaseController
 			$data = [];
 			$data['notificationInfo'] = $notification->getrow($_GET['id']);
 			//log_message('debug', '***************** Profit/Loss Amount succefuly added in database *****************' . var_export($data['notificationInfo'], true));
+
 			return view('/home/addnotification', $data);
 		} else {
+			$_SESSION['danger'] = 'Something went wrong!';
 			return redirect()->to('/');
 		}
 	}
 	public function updatenotificationData()
 	{
+		session_start();
 		$permission_library = new permissions();
 		$response = $permission_library->checksessionadmin();
 		if ($response == true) {
@@ -1265,7 +1271,11 @@ class Admin extends BaseController
 				'description' => $_POST['description'],
 				'status' => $_POST['status'],
 			]);
-
+			if (isset($notification)) {
+				$_SESSION['success'] = 'Notification updated successfully!';
+			} else {
+				$_SESSION['danger'] = 'Something went wrong!';
+			}
 			//log_message('debug', '***************** Profit/Loss Amount succefuly added in database *****************' . var_export($data['notificationInfo'], true));
 			return redirect()->to('/admin/updatenotification?id=' . $_GET['id']);
 		} else {
@@ -1274,6 +1284,7 @@ class Admin extends BaseController
 	}
 	public function submitnotification()
 	{
+		session_start();
 		$permission_library = new permissions();
 		$response = $permission_library->checksessionadmin();
 		if ($response == true) {
@@ -1333,9 +1344,14 @@ class Admin extends BaseController
 			// 	$emailsss->sendNotification($UserEmail[0]['email'], $notification);
 			// }
 			// }
-
+			if (isset($notification)) {
+				$_SESSION['success'] = 'Notification added successfully!';
+			} else {
+				$_SESSION['danger'] = 'Something went wrong!';
+			}
 			return redirect()->to('/admin/notifications?success=true');
 		} else {
+			$_SESSION['danger'] = 'Something went wrong!';
 			return redirect()->to('/');
 		}
 	}
@@ -1422,6 +1438,7 @@ class Admin extends BaseController
 	}
 	public function deleteNotification()
 	{
+		session_start();
 		$notificationId = $_GET['id'];
 		$singleNotification = new Singlenotification();
 		$notification = new Notifications();
@@ -1436,6 +1453,11 @@ class Admin extends BaseController
 		}
 
 		$notification->delete($_GET['id']);
+		if (isset($notification)) {
+			$_SESSION['success'] = 'Notification deleted successfully!';
+		} else {
+			$_SESSION['danger'] = 'Something went wrong!';
+		}
 
 		return redirect()->to('/admin/notifications');
 	}
@@ -1459,6 +1481,7 @@ class Admin extends BaseController
 	}
 	public function accept_deposit_requests($id)
 	{
+		session_start();
 		$permission_library = new permissions();
 		$deposit = new Deposit();
 		$users = new Users();
@@ -1492,13 +1515,20 @@ class Admin extends BaseController
 			// 			log_message('debug', '***************** Edit Profile DATA *****************' . var_export($user_data,true)."ID".$id);
 			$emailsss = new Emails();
 			$emailsss->sendDepositaccept($name, $email, $message, '');
+			if (isset($deposit)) {
+				$_SESSION['success'] = 'Deposit accepted successfully!';
+			} else {
+				$_SESSION['danger'] = 'Something went wrong!';
+			}
 			return redirect()->to('/admin/deposit_requests');
 		} else {
+			$_SESSION['danger'] = 'Something went wrong!';
 			return redirect()->to('/');
 		}
 	}
 	public function reject_deposit_requests()
 	{
+		session_start();
 		$permission_library = new permissions();
 		$deposit = new Deposit();
 		$users = new Users();
@@ -1532,13 +1562,20 @@ class Admin extends BaseController
 			// 			log_message('debug', '***************** Edit Profile DATA *****************' . var_export($user_data,true)."ID".$id);
 			$emailsss = new Emails();
 			$emailsss->sendDepositaccept($name, $email, $message, $_POST['reason']);
+			if (isset($deposit)) {
+				$_SESSION['success'] = 'Deposit rejected successfully!';
+			} else {
+				$_SESSION['danger'] = 'Something went wrong!';
+			}
 			return redirect()->to('/admin/deposit_requests');
 		} else {
+			$_SESSION['danger'] = 'Something went wrong!';
 			return redirect()->to('/');
 		}
 	}
 	public function complete_deposit_requests($id)
 	{
+		session_start();
 		$permission_library = new permissions();
 		$users = new Users();
 		$notification = new Notifications();
@@ -1568,8 +1605,14 @@ class Admin extends BaseController
 			]);
 
 			$this->statusNotification($title, $message, $userId[0]['user_id']);
+			if (isset($deposit)) {
+				$_SESSION['success'] = 'Deposit request completed successfully!';
+			} else {
+				$_SESSION['danger'] = 'Something went wrong!';
+			}
 			return redirect()->to('/admin/deposit_requests');
 		} else {
+			$_SESSION['danger'] = 'Something went wrong!';
 			return redirect()->to('/');
 		}
 	}
@@ -1593,6 +1636,7 @@ class Admin extends BaseController
 	}
 	public function accept_withdrawal_requests($id)
 	{
+		session_start();
 		$permission_library = new permissions();
 		$users = new Users();
 		$notification = new Notifications();
@@ -1624,13 +1668,20 @@ class Admin extends BaseController
 			$email = $user_data['email'];
 			$emailsss = new Emails();
 			$emailsss->sendDepositaccept($name, $email, $message, '');
+			if (isset($withdraw)) {
+				$_SESSION['success'] = 'withdrawl accepted successfully!';
+			} else {
+				$_SESSION['danger'] = 'Something went wrong!';
+			}
 			return redirect()->to('/admin/withdrawal_requests');
 		} else {
+			$_SESSION['danger'] = 'Something went wrong!';
 			return redirect()->to('/');
 		}
 	}
 	public function reject_withdrawal_requests()
 	{
+		session_start();
 		$permission_library = new permissions();
 		$response = $permission_library->checksessionadmin();
 		$users = new Users();
@@ -1663,6 +1714,11 @@ class Admin extends BaseController
 			$email = $user_data['email'];
 			$emailsss = new Emails();
 			$emailsss->sendDepositaccept($name, $email, $message, $_POST['reason']);
+			if (isset($withdraw)) {
+				$_SESSION['success'] = 'withdrawl rejected successfully!';
+			} else {
+				$_SESSION['danger'] = 'Something went wrong!';
+			}
 			return redirect()->to('/admin/withdrawal_requests');
 		} else {
 			return redirect()->to('/');
@@ -1670,6 +1726,7 @@ class Admin extends BaseController
 	}
 	public function complete_withdrawal_requests($id)
 	{
+		session_start();
 		$permission_library = new permissions();
 		$users = new Users();
 		$notification = new Notifications();
@@ -1699,6 +1756,11 @@ class Admin extends BaseController
 			]);
 
 			$this->statusNotification($title, $message, $userId[0]['user_id']);
+			if (isset($withdraw)) {
+				$_SESSION['success'] = 'withdrawl completed successfully!';
+			} else {
+				$_SESSION['danger'] = 'Something went wrong!';
+			}
 			return redirect()->to('/admin/withdrawal_requests');
 		} else {
 			return redirect()->to('/');

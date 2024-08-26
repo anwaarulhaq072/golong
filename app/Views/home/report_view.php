@@ -154,7 +154,7 @@
       <div class="card statement-card">
         <?php if (isset($userInfo) && isset($all_Data)): ?>
           <!-- end row -->
-          <h3 class="header-title mt-4 mb-3">Client's Report</h3>
+          <h3 class="header-title mt-4 mb-3" style="color: var(--white-for-dark);">Client's Report</h3>
           <div class="row" id="contentToPrint" style="font-family: sans-serif;">
             <div class="col-12">
               <div class="card">
@@ -272,20 +272,20 @@
                           <?php for ($i = 0; $i < sizeof($all_Data); $i++): ?>
                             <?php if ($i == 0): ?>
                               <tr>
-                                <td><?php if (isset($start_date)) $date = explode(" ", $start_date);
+                                <td style="color: var(--white-for-dark);"><?php if (isset($start_date)) $date = explode(" ", $start_date);
                                     echo date('m/d/y', strtotime($start_date)); ?></td>
-                                <td> Starting Balance </td>
-                                <td> - </td>
-                                <td><?php if (isset($startAmount)) echo '$' . number_format($startAmount) ?></td>
+                                <td style="color: var(--white-for-dark);"> Starting Balance </td>
+                                <td style="color: var(--white-for-dark);"> - </td>
+                                <td style="color: var(--white-for-dark);"><?php if (isset($startAmount)) echo '$' . number_format($startAmount) ?></td>
 
                               </tr>
                             <?php endif; ?>
                             <?php if ($all_Data[$i]['type'] != 'Swing'): ?>
                               <tr>
-                                <!-- <td></td> -->
-                                <td><?php if (isset($all_Data[$i]['date'])) $date = explode(" ", $all_Data[$i]['date']);
+                                <!-- <td style="color: var(--white-for-dark);"></td> -->
+                                <td style="color: var(--white-for-dark);"><?php if (isset($all_Data[$i]['date'])) $date = explode(" ", $all_Data[$i]['date']);
                                     echo date('m/d/y', strtotime($date[0])); ?></td>
-                                <!-- <td>
+                                <!-- <td style="color: var(--white-for-dark);">
                                                         <?php if (isset($all_Data[$i]['type']) && $all_Data[$i]['type'] == 'Profit') : ?>
                                                             <i class="fa fa-arrow-circle-up" aria-hidden="true" style="font-size: 23px; color: #1ABC9C;"></i> &nbsp; $<?php echo $all_Data[$i]['trasition']; ?>
                                                             <?php elseif (isset($all_Data[$i]['type']) && $all_Data[$i]['type'] == 'Loss') : ?>
@@ -294,24 +294,24 @@
                                                                     $<?php echo "(S)" . $all_Data[$i]['trasition']; ?>
                                                                     <?php endif; ?>
                                                                 </td>
-                                                    <td><?php if (isset($all_Data[$i]['widthra'])) echo $all_Data[$i]['widthra'] ?></td>
-                                                    <td><?php if (isset($all_Data[$i]['deposit'])) echo $all_Data[$i]['deposit'] ?></td>
-                                                    <td><?php if (isset($all_Data[$i]['payout'])) echo $all_Data[$i]['payout'] ?></td> -->
-                                <td><?php if (isset($all_Data[$i]['payout'])): echo 'Payout Sent To Client';
+                                                    <td style="color: var(--white-for-dark);"><?php if (isset($all_Data[$i]['widthra'])) echo $all_Data[$i]['widthra'] ?></td>
+                                                    <td style="color: var(--white-for-dark);"><?php if (isset($all_Data[$i]['deposit'])) echo $all_Data[$i]['deposit'] ?></td>
+                                                    <td style="color: var(--white-for-dark);"><?php if (isset($all_Data[$i]['payout'])) echo $all_Data[$i]['payout'] ?></td> -->
+                                <td style="color: var(--white-for-dark);"><?php if (isset($all_Data[$i]['payout'])): echo 'Payout Sent To Client';
                                     elseif (isset($all_Data[$i]['widthra'])): echo 'Amount Withdrawn By Client';
                                     elseif (isset($all_Data[$i]['deposit'])): echo 'Amount Deposited By Client';
                                     elseif (isset($all_Data[$i]['trasition'])): if (isset($all_Data[$i]['type']) && $all_Data[$i]['type'] == 'Profit'): echo 'Profit Added In Account';
                                       elseif (isset($all_Data[$i]['type']) && $all_Data[$i]['type'] == 'Loss'): echo 'Loss Deduct From Account';
                                       endif;
                                     endif; ?></td>
-                                <td><?php if (isset($all_Data[$i]['payout'])): echo '$' . number_format($all_Data[$i]['payout']);
+                                <td style="color: var(--white-for-dark);"><?php if (isset($all_Data[$i]['payout'])): echo '$' . number_format($all_Data[$i]['payout']);
                                     elseif (isset($all_Data[$i]['widthra'])): echo '$' . number_format($all_Data[$i]['widthra']);
                                     elseif (isset($all_Data[$i]['deposit'])): echo '$' . number_format($all_Data[$i]['deposit']);
                                     elseif (isset($all_Data[$i]['trasition'])): if (isset($all_Data[$i]['type']) && $all_Data[$i]['type'] == 'Profit'): echo '$' . number_format($all_Data[$i]['trasition']);
                                       elseif (isset($all_Data[$i]['type']) && $all_Data[$i]['type'] == 'Loss'): echo '-$' . number_format($all_Data[$i]['trasition']);
                                       endif;
                                     endif; ?></td>
-                                <td><?php if (isset($all_Data[$i]['balance'])) echo '$' . number_format($all_Data[$i]['balance']) ?></td>
+                                <td style="color: var(--white-for-dark);"><?php if (isset($all_Data[$i]['balance'])) echo '$' . number_format($all_Data[$i]['balance']) ?></td>
 
                               </tr>
                             <?php endif; ?>

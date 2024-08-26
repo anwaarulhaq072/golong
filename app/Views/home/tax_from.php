@@ -25,7 +25,7 @@
       <div class="card addusercard">
         <form class="row profile-edit-row align-items-end row-gap--adduser" id="deposit_form" action="<?php echo base_url(); ?>/user/submit_tax_from" method="POST">
           <div class="col-lg-12">
-            <p class="profile-edit__para">PAYER'S name, street address, city or town, state or province, country, ZIP or
+            <p class="profile-edit__para" >PAYER'S name, street address, city or town, state or province, country, ZIP or
               foreign postal code, and telephone no. </p>
             <textarea name="address" placeholder="First Name" id="address" class="form-control profile-edit__input profile-edit__input--textarea"
               important></textarea>

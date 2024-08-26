@@ -85,17 +85,17 @@ class Home extends BaseController
 		return view('/home/confirm-mail');
 	}
 	public function profile()
-	{  
+	{
 		session_start();
 		$users = new Users();
 		$singleNotification = new Singlenotification();
 		$id = $_SESSION['user_data']['id'];
-		$alert_status = new AlertStatus() ;
+		$alert_status = new AlertStatus();
 		$data['profileInfo'] = $users->getrow($id);
-		if($_SESSION['user_data']['userTypeId'] == 1){
-		$data['notification'] = $alert_status->getCurrentAlertNotificationById($id);
-		}else{
-		$data['notification'] = $singleNotification->getCurrentDataNotificationsByUserId($id);
+		if ($_SESSION['user_data']['userTypeId'] == 1) {
+			$data['notification'] = $alert_status->getCurrentAlertNotificationById($id);
+		} else {
+			$data['notification'] = $singleNotification->getCurrentDataNotificationsByUserId($id);
 		}
 		return view('/home/profile', $data);
 	}
@@ -113,8 +113,15 @@ class Home extends BaseController
 				'phone' => $_POST['phone'],
 				'bio' => $_POST['bio'],
 			]);
+			if (isset($users)) {
+				$_SESSION['success'] = 'Profile updated successfully!';
+			} else {
+				$_SESSION['danger'] = 'Something went wrong!';
+			}
 			return redirect()->to('/home/profile?success_data=true');
 		} else {
+
+			$_SESSION['danger'] = 'Something went wrong!';
 			return redirect()->to('/');
 		}
 	}
@@ -133,11 +140,17 @@ class Home extends BaseController
 				$users->update($_POST['id'], [
 					'password' => $encrypted_password,
 				]);
+				if (isset($users)) {
+					$_SESSION['success'] = 'Password updated successfully!';
+				}else{
+					$_SESSION['danger'] = 'Something went wrong!';
+				}
 				return json_encode(base_url() . "/home/profile?success_ps=true");
 			} else {
 				return json_encode($wrong_data);
 			}
 		} else {
+			$_SESSION['danger'] = 'Something went wrong!';
 			return redirect()->to('/');
 		}
 	}
@@ -158,7 +171,7 @@ class Home extends BaseController
 		$users->update($user_data['id'], [
 			'otp' => $code,
 		]);
-		log_message('debug', '***************** Login verification *****************' . $code." ".$user_data['email']);
+		log_message('debug', '***************** Login verification *****************' . $code . " " . $user_data['email']);
 		$fullName = $user_data['firstName'] . " " . $user_data['lastName'];
 
 		$emailslib->sendOtp($user_data['email'], $code, $fullName);
@@ -179,7 +192,7 @@ class Home extends BaseController
 		$form_email = $_POST['emailaddress'];
 		$form_password = $_POST['password'];
 		$users = new Users();
-		$attempt = new LoginAttempt() ;
+		$attempt = new LoginAttempt();
 		$ip = $this->request->getIPAddress();
 		$user_data = $users->getuser_email($form_email);
 		log_message('debug', 'User IP: ' . $ip);
@@ -195,7 +208,7 @@ class Home extends BaseController
 					// log_message('debug', 'User login: ' . $_SESSION['email']);
 					$attempt->save([
 						'userid' => $user_data['id'],
-						'ip' => $ip ,
+						'ip' => $ip,
 						'status' => 'Success',
 					]);
 					// $users->tokenUpdate($token , $user_data['id']) ;
@@ -205,7 +218,7 @@ class Home extends BaseController
 					log_message('debug', 'User enters wrong password: ' . $form_email);
 					$attempt->save([
 						'userid' => $user_data['id'],
-						'ip' => $ip ,
+						'ip' => $ip,
 						'status' => 'Fail',
 					]);
 					return json_encode($wrong_data);
@@ -214,74 +227,74 @@ class Home extends BaseController
 		} else {
 			// Incorrect username or password
 			log_message('debug', 'No user Exist: ' . $form_email);
-			
+
 			$attempt->save([
 				'userid' => 'User Not Find',
-				'ip' => $ip ,
+				'ip' => $ip,
 				'status' => 'Fail',
 			]);
 			return json_encode($wrong_data);
 		}
 	}
-	public function update_device_token(){
-	    session_start();
-	    $users = new Users();
-	    $message = "";
-	    $user_data = $users->getuser_email($_SESSION['user_data']['email']);
-	    $token = $_POST['device_token'];
-	    if($user_data['token'] != NULL){
-						$append = true ;
-						$arr = array() ;
-						$d =  unserialize($user_data['token']) ;
-				// 		log_message("debug" , "Data type ".gettype($d)) ;
-						if(gettype($d)=="string"){
-							if($d != $token){
-							     $message = "Token Update";
-								array_push($arr , $d) ;
-								array_push($arr , $token) ;
-							}
-							else{
-							    $message = "Token Already Exist";
-								array_push($arr , $d) ;
-							}
-							$data = serialize($arr);
-						}else{
-							foreach ($d as $key => $value) {
-								if($value == $token){
-									$append = false ;
-								}
-							}
-							if($append){
-							    $tok = explode(":",$token);
-							    $find = 0;
-    						    for($i = 0; $i<sizeof($d);$i++) {
-        						    $old_tok = explode(":",$d[$i]);
-    							    if($old_tok[0] == $tok[0]){
-    							        $d[$i] = $token;
-    							         $find++;
-    							    }
-							    }
-							    if($find == 0){
-							    array_push($d ,$token);
-							    }
-							}
-							$data = serialize($d) ;
-						}
-						log_message("debug" , "Serialize Data".var_export($d,true)) ;
-					}elseif(isset($_POST['device_token'])){
-						$data = serialize($token) ;
+	public function update_device_token()
+	{
+		session_start();
+		$users = new Users();
+		$message = "";
+		$user_data = $users->getuser_email($_SESSION['user_data']['email']);
+		$token = $_POST['device_token'];
+		if ($user_data['token'] != NULL) {
+			$append = true;
+			$arr = array();
+			$d =  unserialize($user_data['token']);
+			// 		log_message("debug" , "Data type ".gettype($d)) ;
+			if (gettype($d) == "string") {
+				if ($d != $token) {
+					$message = "Token Update";
+					array_push($arr, $d);
+					array_push($arr, $token);
+				} else {
+					$message = "Token Already Exist";
+					array_push($arr, $d);
+				}
+				$data = serialize($arr);
+			} else {
+				foreach ($d as $key => $value) {
+					if ($value == $token) {
+						$append = false;
 					}
-					if(isset($_POST['device_token']))
-					$message = "Token Update in database";
-					$users->where('id' , $user_data['id'])->update($users, [
-						'token' => $data,
-					]);
-					return json_encode($message);
+				}
+				if ($append) {
+					$tok = explode(":", $token);
+					$find = 0;
+					for ($i = 0; $i < sizeof($d); $i++) {
+						$old_tok = explode(":", $d[$i]);
+						if ($old_tok[0] == $tok[0]) {
+							$d[$i] = $token;
+							$find++;
+						}
+					}
+					if ($find == 0) {
+						array_push($d, $token);
+					}
+				}
+				$data = serialize($d);
+			}
+			log_message("debug", "Serialize Data" . var_export($d, true));
+		} elseif (isset($_POST['device_token'])) {
+			$data = serialize($token);
+		}
+		if (isset($_POST['device_token']))
+			$message = "Token Update in database";
+		$users->where('id', $user_data['id'])->update($users, [
+			'token' => $data,
+		]);
+		return json_encode($message);
 	}
 	public function saveSignupData()
 	{
-		log_message('debug', '***************** SignUp *****************');
-
+		// log_message('debug', '***************** SignUp *****************');
+		session_start();
 		$email_exist = array(
 			'status' => 'false',
 			'message' => 'Account already exists against this email. Please use a different email address to create a new account.'
@@ -316,24 +329,30 @@ class Home extends BaseController
 				// Sending a mail to user
 				$fullname = $_POST['firstname'] . " " . $_POST['lastname'];
 				// $emailslib->accountCreationEmail($email, $password, $fullname);
-				
-                $curl = curl_init();                
-                curl_setopt($curl, CURLOPT_URL, "https://golongclients.com/user_creation");
-                curl_setopt ($curl, CURLOPT_POST, TRUE);
-                curl_setopt ($curl, CURLOPT_POSTFIELDS, "email=$email&password=$password&name=$fullname");
-                curl_setopt($curl, CURLOPT_HEADER, 0);
-                curl_setopt($curl,  CURLOPT_RETURNTRANSFER, false); 
-                curl_setopt($curl,  CURLOPT_TIMEOUT_MS, 500);
-                curl_exec($curl);   
-                
-                curl_close($curl);
+
+				$curl = curl_init();
+				curl_setopt($curl, CURLOPT_URL, "https://golongclients.com/user_creation");
+				curl_setopt($curl, CURLOPT_POST, TRUE);
+				curl_setopt($curl, CURLOPT_POSTFIELDS, "email=$email&password=$password&name=$fullname");
+				curl_setopt($curl, CURLOPT_HEADER, 0);
+				curl_setopt($curl,  CURLOPT_RETURNTRANSFER, false);
+				curl_setopt($curl,  CURLOPT_TIMEOUT_MS, 500);
+				curl_exec($curl);
+
+				curl_close($curl);
 				log_message('debug', 'Record Saved in Database: ' . $email);
+				if (isset($users)) {
+					$_SESSION['success'] = 'User added successfully!';
+				}else{
+					$_SESSION['danger'] = 'Something went wrong!';
+				}
 				return json_encode(base_url("/admin/usercreatedsuccess"));
 			}
 		} else {
 			// This email is used before....
-			log_message('debug', 'Account already Exist on this email: ' . $email);
-			return json_encode($email_exist);
+			// log_message('debug', 'Account already Exist on this email: ' . $email);
+			$_SESSION['danger'] = 'Account already Exist on this email: ' . $email;
+			return json_encode(base_url("/admin/createuser"));
 		}
 	}
 
@@ -362,7 +381,7 @@ class Home extends BaseController
 			$msg = wordwrap($msg, 70);
 			// send email
 			// mail($response_email['email'], "Update your password", $msg);
-			$userName = $response_email['firstName']." ".$response_email['lastName'];
+			$userName = $response_email['firstName'] . " " . $response_email['lastName'];
 			$emailslib->sendreset_ps($response_email['email'], $code, $userName);
 			return json_encode($userFound);
 		}
@@ -459,36 +478,38 @@ class Home extends BaseController
 			return json_encode($deleteUser);
 		}
 	}
-	public function updateProfileImage(){
+	public function updateProfileImage()
+	{
 		// log_message('debug', 'send_user_creation_email: '.var_export($_FILES["profile_photo"]["name"],true));
 		session_start();
 		$id = $_SESSION['user_data']['id'];
 		$ext = pathinfo($_FILES["profile_photo"]["name"], PATHINFO_EXTENSION);
 		$target_dir = "assets/images/users/";
-		if($_SESSION['user_data']['profile_img']){
-		    if (file_exists($_SESSION['user_data']['profile_img'])) {
-    		    unlink($_SESSION['user_data']['profile_img']);
-		    }
+		if ($_SESSION['user_data']['profile_img']) {
+			if (file_exists($_SESSION['user_data']['profile_img'])) {
+				unlink($_SESSION['user_data']['profile_img']);
+			}
 		}
-		$target_dir = $target_dir .'user_id-'.$id.'.'.$ext;
+		$target_dir = $target_dir . 'user_id-' . $id . '.' . $ext;
 		$users = new Users();
 		if (move_uploaded_file($_FILES["profile_photo"]["tmp_name"], $target_dir)) {
 			// echo $id.' ................ '.$target_dir;
 			$users->update($id, [
-				'profile_img' => '/'.$target_dir
+				'profile_img' => '/' . $target_dir
 			]);
-			$_SESSION['user_data']['profile_img'] = '/'.$target_dir;
+			$_SESSION['user_data']['profile_img'] = '/' . $target_dir;
 		} else {
 			// echo "Sorry, there was an error uploading your file.";
 		}
 		return redirect()->to('/home/profile?success=true');
 	}
-	public function send_user_creation_email(){
-	   // log_message('debug', 'send_user_creation_email: '.var_export($_POST,true));
-	    $email = $_POST['email'];
-	    $password = $_POST['password'];
-	    $name = $_POST['name'];
-	    $emailslib = new Emails();
+	public function send_user_creation_email()
+	{
+		// log_message('debug', 'send_user_creation_email: '.var_export($_POST,true));
+		$email = $_POST['email'];
+		$password = $_POST['password'];
+		$name = $_POST['name'];
+		$emailslib = new Emails();
 		$emailslib->accountCreationEmail($email, $password, $name);
 	}
 }
