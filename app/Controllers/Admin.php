@@ -275,7 +275,12 @@ class Admin extends BaseController
 	public function adminTransactionChart()
 	{
 		log_message('debug', '***************** Transaction Chart BY Admin *****************');
-		$id = $_GET['userid'];
+		if(isset($_GET['userid']) && $_GET['userid']){
+			$id = $_GET['userid'];
+		}else{
+			session_start();
+			$id = $_SESSION['user_data']['id'];
+		}
 		$data = [];
 		$profitLoss = new ProfitLoss();
 		$profitLossDetails = $profitLoss->getByUserId($id);
