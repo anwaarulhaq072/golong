@@ -218,97 +218,79 @@ function cal_percentage(id, field_id) {
 //     }
 
 // });
-// $("#submitBulkUpdate").submit(function (event) {
-    let icon = {
-        success: '<span class="material-symbols-outlined">Success</span>',
-        danger: '<span class="material-symbols-outlined">error</span>',
-        warning: '<span class="material-symbols-outlined">warning</span>',
-        info: '<span class="material-symbols-outlined">info</span>',
-      };
-    
-      const showToast = (
-        message = "Sample Message",
-        toastType = "info",
-        duration = 5000) => {
-    
-        if (
-          !Object.keys(icon).includes(toastType))
-          toastType = "info";
-    
-        let box = document.createElement("div");
-        box.classList.add(
-          "toast", `toast-${toastType}`);
-        box.innerHTML = ` <div class="toast-content-wrapper">
-                      <div class="toast-icon">
-                      ${icon[toastType]}
-                      </div>
-                      <div class="toast-message">${message}</div>
-                      <div class="toast-progress"></div>
-                      </div>`;
-        duration = duration || 5000;
-    
-        box.querySelector(".toast-progress").style.animationDuration =
-          `${duration / 5000}s`;
-    
-        let toastAlready =
-          document.body.querySelector(".toast");
-    
-        if (toastAlready) {
-          toastAlready.remove();
-        }
-        console.log(toastAlready);
-        document.body.appendChild(box)
-        // $('toast').addClass('d-block');
-      };
-document
-  .getElementById("submitBulkUpdate")
-  .addEventListener("submit", function (event) {
-    event.preventDefault(); // Prevent the form from submitting the traditional way
+let icon = {
+  success: '<span class="material-symbols-outlined">Success</span>',
+  danger: '<span class="material-symbols-outlined">error</span>',
+  warning: '<span class="material-symbols-outlined">warning</span>',
+  info: '<span class="material-symbols-outlined">info</span>',
+};
 
-    let itemArray = { item: [] }; // Initialize an object to store the collected data
-    let base_url = $("#baseurl").val(); // Get the base URL
-    let date = $("#dateRangeSelector").val(); // Get the selected date
-    let totalRows = $(".cover").length; // Get the number of rows
+const showToast = (
+  message = "Sample Message",
+  toastType = "info",
+  duration = 5000) => {
 
-    // Loop over each row
+  if (
+    !Object.keys(icon).includes(toastType))
+    toastType = "info";
+
+  let box = document.createElement("div");
+  box.classList.add(
+    "toast", `toast-${toastType}`);
+  box.innerHTML = ` <div class="toast-content-wrapper">
+                <div class="toast-icon">
+                ${icon[toastType]}
+                </div>
+                <div class="toast-message">${message}</div>
+                <div class="toast-progress"></div>
+                </div>`;
+  duration = duration || 5000;
+
+  box.querySelector(".toast-progress").style.animationDuration =
+    `${duration / 5000}s`;
+
+  let toastAlready =
+    document.body.querySelector(".toast");
+
+  if (toastAlready) {
+    toastAlready.remove();
+  }
+  console.log(toastAlready);
+  document.body.appendChild(box)
+  // $('toast').addClass('d-block');
+};
+$("#submitBulkUpdate").submit(function (event) {
+
+    event.preventDefault();
+    let itemArray = {}; // Array to contain array of fruits
+    // will get all children
+    var totalRows = $(".cover").length;
+    // console.log(totalRows);
+    // console.log($(".cover:eq(9)").find("input[type='date'][name='date']").val());
+    // console.log($(".cover:eq(9)").find("select[name='action']").val());
+    // console.log($(".cover:eq(0)").find("input[type = 'number'][name = 'amount']").val());
+    itemArray.item = [];
+    let base_url = $('#baseurl').val();
+    let date = $("#dateRangeSelector").val();
+    // loop over them
     for (let index = 0; index < totalRows; index++) {
-      // Check if the amount field is not empty
-      if (
-        $(".cover:eq(" + index + ")")
-          .find("input[type='number'][name='amount']")
-          .val() !== ""
-      ) {
-        // Collect the necessary values from the current row
-        let amount = $(".cover:eq(" + index + ")")
-          .find("input[type='number'][name='amount']")
-          .val();
-        let percentage = $(".cover:eq(" + index + ")")
-          .find("input[type='number'][name='percentage']")
-          .val();
-        let id = $(".cover:eq(" + index + ")")
-          .find("input[type='hidden'][name='id']")
-          .val();
-        let action = $(".cover:eq(" + index + ")")
-          .find("select[name='action']")
-          .find(":selected")
-          .val();
-
-        // Create an object for the current row and push it to the item array
-        let inputValues = {
-          id: id,
-          date: date,
-          amount: amount,
-          percentage: percentage,
-          action: action,
-        };
-        itemArray.item.push(inputValues);
-      }
+        if ($(".cover:eq(" + index + ")").find("input[type='number'][name='amount']").val() !== '') {
+            let amount = $(".cover:eq(" + index + ")").find("input[type='number'][name='amount']").val();
+            let percentage = $(".cover:eq(" + index + ")").find("input[type='number'][name='percentage']").val();
+            let id = $(".cover:eq(" + index + ")").find("input[type='hidden'][name='id']").val();
+            let action = $(".cover:eq(" + index + ")").find("select[name='action']").find(":selected").val();
+            let inputValues = {
+                id: id,
+                date: date,
+                amount: amount,
+                percentage: percentage,
+                action: action
+            };
+            itemArray.item.push(inputValues);
+        }
     }
-
-    // Output the collected data as a JSON string to the console
-    console.log("Collected Data: ", JSON.stringify(itemArray));
-
-    // You can also make an AJAX call here to send the itemArray data to the server if needed
+    // console.log("1122=== "+itemArray);
+    console.log("1122=== "+JSON.stringify(itemArray));
     let posting = $.post(base_url + "/admin/addBulkUpdate", {
       data: {
         json: JSON.stringify(itemArray),

@@ -38,7 +38,7 @@
         <div class="col-md-6 col-xl-3">
           <div class="card archiveHistoryCard">
             <h6 class="archiveHistoryCard__sub-hdng">Percentage Profit</h6>
-            <h2 class="archiveHistoryCard__hdng"><?php if ($profitLoss > 0) : echo (($profitLoss) / $initial) * 100;
+            <h2 class="archiveHistoryCard__hdng"><?php if ($profitLoss > 0) : echo round(($profitLoss / $initial) * 100, 2);
                                                   else: echo 0;
                                                   endif; ?>%</h2>
           </div>

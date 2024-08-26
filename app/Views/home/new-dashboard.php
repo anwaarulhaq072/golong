@@ -409,7 +409,6 @@
     var value3 = <?php echo json_encode($losing); ?>;
     var waveChart = <?php echo $waveChart; ?>;
   </script>
-
   <?php if (isset($callChartAdmin) && $callChartAdmin == true) : ?>
     <script src="<?php echo base_url(); ?>/assets/js/pages/admincharts.init.js"></script>
   <?php else : ?>
