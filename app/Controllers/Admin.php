@@ -916,42 +916,62 @@ class Admin extends BaseController
 
 	public function addInvestment()
 	{
+		session_start();
 		// log_message('debug', '***************** Update Investment Amount *****************'.var_export($_POST, true));
-
+		$payoutdate = date('Y-m-d', strtotime($_POST['payoutdate']));
+		$nextpayoutdate = date('Y-m-d', strtotime($_POST['nextpayoutdate']));
 		$users = new Users();
 		$showtoaccount = 'N';
 		if(isset($_POST['showtoaccount']) && $_POST['showtoaccount'] == 'on'){
 			$showtoaccount = 'Y';
 		}
+		
 		$users->update($_POST['id'], [
 			'initialInvestment' => $_POST['amount'],
 			// 'transactionType' => $_POST['transaction'],
 			// 'returntype_id' => $_POST['payout'],
-			// 'payoutDate' => $_POST['payoutdate'],
-			// 'payout_per' => $_POST['payout_per'],
-			// 'nextpayoutDate' => $_POST['nextpayoutdate'],
+			'payoutDate' => $payoutdate,
+			'payout_per' => $_POST['payout_per'],
+			'nextpayoutDate' => $nextpayoutdate,
 			'updatedAt' => date('Y-m-d H:i:s'),
 			'flagfor_accountant' => $showtoaccount,
 		]);
+		if (isset($users)) {
+			$_SESSION['success'] = 'Investment updated successfully!';
+		}else{
+			$_SESSION['danger'] = 'Something went wrong!';
+		}
+		// $this->session->setFlashdata('success', 'Investment updated successfully!');
 		return redirect()->to('/admin/customerdetails?userid=' . $_POST['id']);
 	}
 	public function addPayouts()
 	{
 		// log_message('debug', '***************** Update Investment Amount *****************');
-
+		session_start();
 		$pauout = new Payout();
 		$pauout->save([
 			'user_id' => $_POST['id'],
 			'amount' => $_POST['amount'],
 			'payoutdate' => $_POST['payoutdate'],
 		]);
+		if (isset($pauout)) {
+			$_SESSION['success'] = 'Payout added successfully!';
+		}else{
+			$_SESSION['danger'] = 'Something went wrong!';
+		}
 		return redirect()->to('/admin/customerdetails?userid=' . $_POST['id']);
 	}
 
 	public function deletePayouts()
 	{
+		session_start();
 		$pauout = new Payout();
 		$pauout->delete($_GET['id']);
+		if (isset($pauout)) {
+			$_SESSION['success'] = 'Payout deleted successfully!';
+		}else{
+			$_SESSION['danger'] = 'Something went wrong!';
+		}
 		return redirect()->to('/admin/customerdetails?userid=' . $_GET['userid']);
 	}
 
@@ -959,7 +979,7 @@ class Admin extends BaseController
 	{
 		// log_message('debug', '***************** Edit PayOut Amount *****************' . var_export($_GET, true));
 
-
+		session_start();
 		$pauout = new Payout();
 
 		$pauout->update($_GET['id'], [
@@ -967,12 +987,18 @@ class Admin extends BaseController
 			'amount' => $_POST['amount'],
 			'payoutdate' => $_POST['payoutdate'],
 		]);
-		log_message('debug', '***************** PayOut Amount succefuly Edited in database *****************');
+		if (isset($pauout)) {
+			$_SESSION['success'] = 'Payout updated successfully!';
+		}else{
+			$_SESSION['danger'] = 'Something went wrong!';
+		}
+		// log_message('debug', '***************** PayOut Amount succefuly Edited in database *****************');
 		return redirect()->to('/admin/customerdetails?userid=' . $_POST['user_id']);
 	}
 
 	public function addProfitLoss()
 	{
+		session_start();
 		log_message('debug', '***************** Add Profit/Loss Amount *****************'.var_export($_POST, true));
 		$profitFound = array(
 			'status' => true,
@@ -1003,6 +1029,7 @@ class Admin extends BaseController
 		$payoutAll += $completedWithdrawals;
 		$totalBalance = ((float)$userInfo['initialInvestment'] + (float)$depositAcceptedAll + (float)$data['profitLoss']) - (float)$pendingWithdraw - (float)$payoutAll;
 		if ($profitResult != NULL) {
+			
 			return json_encode($profitFound);
 		} else {
 			$profitLoss->save([
@@ -1012,23 +1039,35 @@ class Admin extends BaseController
 				'current_balance' => $totalBalance,
 				'publishDate' => $creationDate,
 			]);
+			if (isset($profitLoss)) {
+				$_SESSION['success'] = 'Payout updated successfully!';
+			}else{
+				$_SESSION['danger'] = 'Something went wrong!';
+			}
 			return json_encode(base_url() . '/admin/customerdetails?userid=' . $_POST['id']);
 		}
 		// return redirect()->to('/admin/customerdetails?userid=' . $_POST['id']);
 	}
 	public function deleteProfit()
 	{
+		session_start();
 		$profitLoss = new ProfitLoss();
 		$profitLoss->delete($_GET['id']);
+		if (isset($profitLoss)) {
+			$_SESSION['success'] = 'Payout deleted successfully!';
+		}else{
+			$_SESSION['danger'] = 'Something went wrong!';
+		}
 		return redirect()->to('/admin/customerdetails?userid=' . $_GET['userid']);;
 	}
 	public function editProfile()
 	{
+		session_start();
 		$message = array(
 			'status' => false,
 			'message' => '* Email or Phone already exists on this date'
 		);
-		log_message('debug', '***************** Edit Profile *****************'.var_export($_POST, true));
+		// log_message('debug', '***************** Edit Profile *****************'.var_export($_POST, true));
 		$users = new Users();
 		$emailExist = $users->emailExist($_POST['email']);
 		$phoneExist = $users->phoneExist($_POST['phone']);
@@ -1050,6 +1089,11 @@ class Admin extends BaseController
 				'phone' => $_POST['phone'],
 				'initialInvestment' => $_POST['initialInvestment'],
 			]);
+			if (isset($users)) {
+				$_SESSION['success'] = 'Profile updated successfully!';
+			}else{
+				$_SESSION['danger'] = 'Something went wrong!';
+			}
 			return json_encode(base_url() . '/admin/customerdetails?userid=' . $_POST['userid']);
 		}
 	}

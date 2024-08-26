@@ -6,24 +6,247 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Customers Details - <?php echo APP_NAME ?></title>
   <?php echo view("/home/new-header-links"); ?>
- 
+  <style>
+    h3 {
+      text-align: center;
+    }
+
+    .toast:not(.show) {
+      display: block !important;
+    }
+
+    .toast-buttons {
+      max-width: 700px;
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 15px;
+      margin: 2em auto;
+    }
+
+    .toast-row {
+      display: flex;
+      justify-content: center;
+      margin: 1em 0;
+      padding: 1rem;
+      flex-wrap: wrap;
+    }
+
+    button.custom-toast {
+      padding: 0.5rem 1rem;
+      border: none;
+      color: #fff;
+      font-weight: 500;
+      border-radius: 5px;
+      box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.785);
+      cursor: pointer;
+      width: 150px;
+      margin: 0.5em;
+      transition: filter 0.2s ease-in-out,
+        transform 0.3s ease-in-out;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      font-size: 1rem;
+      background-color: transparent;
+      outline: none;
+      background: #3498db;
+      color: #fff;
+    }
+
+    button.custom-toast:hover {
+      filter: brightness(0.9);
+    }
+
+    button.success-toast {
+      background-color: #2ecc71;
+    }
+
+    button.danger-toast {
+      background-color: #e74c3c;
+    }
+
+    button.info-toast {
+      background-color: #3498db;
+    }
+
+    button.warning-toast {
+      background-color: #f1c40f;
+    }
+
+    h1 {
+      color: green;
+    }
+
+    .toast {
+      position: fixed;
+      top: 25px;
+      right: 25px;
+      max-width: 300px;
+      background: #fff;
+      padding: 0.5rem;
+      border-radius: 4px;
+      box-shadow: -1px 1px 10px rgba(0, 0, 0, 0.3);
+      z-index: 1023;
+      animation: slideInRight 0.3s ease-in-out forwards,
+        fadeOut 0.5s ease-in-out forwards 3s;
+      transform: translateX(110%);
+    }
+
+    .toast.closing {
+      animation: slideOutRight 0.5s ease-in-out forwards;
+    }
+
+    .toast-progress {
+      position: absolute;
+      display: block;
+      bottom: 0;
+      left: 0;
+      height: 4px;
+      width: 100%;
+      background: #b7b7b7;
+      animation: toastProgress 3s ease-in-out forwards;
+    }
+
+    .toast-content-wrapper {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .toast-icon {
+      padding: 0.35rem 0.5rem;
+      font-size: 1.5rem;
+    }
+
+    .toast-message {
+      flex: 1;
+      font-size: 0.9rem;
+      color: #000000;
+      padding: 0.5rem;
+    }
+
+    .toast.toast-success {
+      background: #95eab8;
+    }
+
+    .toast.toast-success .toast-progress {
+      background-color: #2ecc71;
+    }
+
+    .toast.toast-danger {
+      background: #efaca5;
+    }
+
+    .toast.toast-danger .toast-progress {
+      background-color: #e74c3c;
+    }
+
+    .toast.toast-info {
+      background: #bddaed;
+    }
+
+    .toast.toast-info .toast-progress {
+      background-color: #3498db;
+    }
+
+    .toast.toast-warning {
+      background: #ead994;
+    }
+
+    .toast.toast-warning .toast-progress {
+      background-color: #f1c40f;
+    }
+
+    @keyframes slideInRight {
+      0% {
+        transform: translateX(110%);
+      }
+
+      75% {
+        transform: translateX(-10%);
+      }
+
+      100% {
+        transform: translateX(0%);
+      }
+    }
+
+    @keyframes slideOutRight {
+      0% {
+        transform: translateX(0%);
+      }
+
+      25% {
+        transform: translateX(-10%);
+      }
+
+      100% {
+        transform: translateX(110%);
+      }
+    }
+
+    @keyframes fadeOut {
+      0% {
+        opacity: 1;
+      }
+
+      100% {
+        opacity: 0;
+      }
+    }
+
+    @keyframes toastProgress {
+      0% {
+        width: 100%;
+      }
+
+      100% {
+        width: 0%;
+      }
+    }
+  </style>
 </head>
 
 <body>
   <div class="app_wrapper">
+  <?php  if (isset($_SESSION['success'])):  ?>
+    <div class="toast toast-success">
+      <div class="toast-content-wrapper">
+        <div class="toast-icon">
+          <span class="material-symbols-outlined">Success</span>
+        </div>
+        <div class="toast-message"> <?php echo $_SESSION['success']; ?></div>
+        <div class="toast-progress" style="animation-duration: 5s;"></div>
+      </div>
+    </div>
+    <?php endif;  unset($_SESSION['success']);?>
+  <?php  if (isset($_SESSION['danger'])):  ?>
+    <div class="toast toast-danger">
+      <div class="toast-content-wrapper">
+        <div class="toast-icon">
+          <span class="material-symbols-outlined">Error</span>
+        </div>
+        <div class="toast-message"><?php echo $_SESSION['danger']; ?></div>
+        <div class="toast-progress" style="animation-duration: 5s;"></div>
+      </div>
+    </div>
+    <?php endif;  unset($_SESSION['danger']);?>
 
+    
 
     <?php echo view("/home/left-sidebar-new"); ?>
 
 
     <main class="main">
       <h2 class="cus-details-card__hadng">Update Total Investment</h2>
+
       <div class="row row-gap">
         <div class="col-xl-9">
           <div class="card cus-details-card">
-          <form class="row row-gap2" action="<?php echo base_url(); ?>/admin/addInvestment" method="POST">
+            <form class="row row-gap2" action="<?php echo base_url(); ?>/admin/addInvestment" method="POST">
               <div class="col-sm-6">
-              <input type="hidden" name="id" value="<?php echo $userDetails['id']; ?>">
+                <input type="hidden" name="id" value="<?php echo $userDetails['id']; ?>">
                 <p class="label-text">Change Amount</p>
                 <input type="number" class="form-control cus-details-input" step="0.01" name="amount" value="<?php echo $userDetails['initialInvestment'] ?>" required>
                 <!-- <div class="flex-i radioes-wraper">
@@ -40,8 +263,14 @@
                 </div> -->
               </div>
               <div class="col-sm-6">
+                <?php
+                $payoutDateString = $userDetails['payoutDate'];
+                $payoutDate = DateTime::createFromFormat('Y-m-d', $payoutDateString);
+                $nextpayoutDate = $userDetails['nextpayoutDate'];
+                $nextpayoutDate = DateTime::createFromFormat('Y-m-d', $nextpayoutDate);
+                ?>
                 <p class="label-text">Payout Date</p>
-                <input type="date" class="form-control cus-details-input dateInput" name="payoutdate" value="<?php echo $userDetails['payoutDate'] ?>">
+                <input type="date" class="form-control cus-details-input dateInput" name="payoutdate" value="">
                 <!-- <div class="flex-i radioes-wraper">
                   <label class="radio-label flex-i">
                     <input type="radio" class="radiobtn" name="returnAmount">
@@ -68,7 +297,7 @@
               </div>
               <div class="col-sm-6">
                 <p class="label-text">Next Payout Date</p>
-                <input type="date" class="form-control cus-details-input dateInput" name="nextpayoutdate" value="<?php echo $userDetails['nextpayoutDate'] ?>">
+                <input type="date" class="form-control cus-details-input dateInput" name="nextpayoutdate" value="">
               </div>
               <div class="col-12">
                 <button class="flex-a w-fit from-btn">Update</button>
@@ -77,14 +306,14 @@
           </div>
           <div class="card cus-details-card">
             <form class="row row-gap2" action="<?php echo base_url(); ?>/admin/addPayouts" method="POST">
-            <input type="hidden" name="id" value="<?php echo $userDetails['id']; ?>">
+              <input type="hidden" name="id" value="<?php echo $userDetails['id']; ?>">
               <div class="col-sm-6">
                 <p class="label-text">Payout Amount</p>
                 <input type="number" class="form-control cus-details-input" step="0.01" name="amount" value="" required>
               </div>
               <div class="col-sm-6">
                 <p class="label-text">Payout Date</p>
-                <input type="date" class="form-control cus-details-input dateInput" name="payoutdate" value="<?php echo date('Y-m-d'); ?>" required>
+                <input type="date" class="form-control cus-details-input dateInput" name="payoutdate" value="" required>
               </div>
               <div class="col-12 mb-4">
                 <button class="flex-a w-fit from-btn">Submit</button>
@@ -102,42 +331,42 @@
                 </tr>
               </thead>
               <tbody>
-              <?php foreach ($payoutInfo as $singlepayout) : ?>
-                <tr class="all-cutomers-t__row">
-                  <td class="all-cutomers-t__col"><?php echo $singlepayout['id'] ?></td>
-                  <td class="all-cutomers-t__col">$<?php echo $singlepayout['amount'] ?></td>
-                  <td class="all-cutomers-t__col"><?php echo $singlepayout['payoutdate'] ?></td>
-                  <td class="all-cutomers-t__col">
-                    <div class="flex-i table-btns-wrpr">
-                      <button class="table-mdl-btn flex-a r-50 edit_payout_button" id="editbutton" type="button" data-bs-toggle="modal"
-                        data-bs-target="#editPayoutmodal" value="<?php echo $singlepayout['id'] ?>">
-                        <i class="fa-solid fa-pencil"></i>
-                      </button>
-                     <button class="table-mdl-btn flex-a r-50 delete_btn_payout" type="button" data-bs-toggle="modal"
-                        data-bs-target="#delete_payout" value="<?php echo $singlepayout['id'] ?>">
-                        <i class="fa-solid fa-trash"></i>
-                      </button>
-                    </div>
-                  </td>
-                </tr>
-                                        
+                <?php foreach ($payoutInfo as $singlepayout) : ?>
+                  <tr class="all-cutomers-t__row">
+                    <td class="all-cutomers-t__col"><?php echo $singlepayout['id'] ?></td>
+                    <td class="all-cutomers-t__col">$<?php echo $singlepayout['amount'] ?></td>
+                    <td class="all-cutomers-t__col"><?php echo $singlepayout['payoutdate'] ?></td>
+                    <td class="all-cutomers-t__col">
+                      <div class="flex-i table-btns-wrpr">
+                        <button class="table-mdl-btn flex-a r-50 edit_payout_button" id="editbutton" type="button" data-bs-toggle="modal"
+                          data-bs-target="#editPayoutmodal" value="<?php echo $singlepayout['id'] ?>">
+                          <i class="fa-solid fa-pencil"></i>
+                        </button>
+                        <button class="table-mdl-btn flex-a r-50 delete_btn_payout" type="button" data-bs-toggle="modal"
+                          data-bs-target="#delete_payout" value="<?php echo $singlepayout['id'] ?>">
+                          <i class="fa-solid fa-trash"></i>
+                        </button>
+                      </div>
+                    </td>
+                  </tr>
+
                 <?php endforeach; ?>
               </tbody>
             </table>
           </div>
-      <h2 class="cus-details-card__hadng">Enter Profit & Loss</h2>
+          <h2 class="cus-details-card__hadng">Enter Profit & Loss</h2>
           <div class="card cus-details-card">
-          <form class="row row-gap2" id="formProfitLoss" method="POST">
-            <input type="hidden" id="id" name="id" value="<?php echo $userDetails['id']; ?>">
-            <input type="hidden" id="baseurl" value="<?php echo base_url(); ?>">
+            <form class="row row-gap2" id="formProfitLoss" method="POST">
+              <input type="hidden" id="id" name="id" value="<?php echo $userDetails['id']; ?>">
+              <input type="hidden" id="baseurl" value="<?php echo base_url(); ?>">
               <div class="col-sm-6 col-lg-4">
-              <input type="hidden" name="id" value="<?php echo $userDetails['id']; ?>">
+                <input type="hidden" name="id" value="<?php echo $userDetails['id']; ?>">
                 <p class="label-text">Action</p>
                 <select name="action" id="dropDown" class="form-control form-select cus-details-input" required>
-                                            <option>Profit</option>
-                                            <option>Loss</option>
-                                            <option value="0">Swing</option>
-                                        </select>
+                  <option>Profit</option>
+                  <option>Loss</option>
+                  <option value="0">Swing</option>
+                </select>
               </div>
               <div class="col-sm-6 col-lg-4">
                 <p class="label-text">Amount</p>
@@ -145,7 +374,7 @@
               </div>
               <div class="col-sm-6 col-lg-4">
                 <p class="label-text">Date</p>
-                <input type="date" value="<?= date("Y-m-d"); ?>" class="form-control cus-details-input dateInput" name="date" required>
+                <input type="date" value="<?= date("Y-m-d"); ?>" class="form-control cus-details-input dateInput" id="profit-loss" name="date" required>
               </div>
               <div class="col-12">
                 <button class="flex-a w-fit from-btn">Submit</button>
@@ -177,34 +406,35 @@
               </thead>
               <tbody>
                 <?php if (isset($profitLossDetails)) : ?>
-                                            <?php foreach ($profitLossDetails as $singleDetail) : ?>
-                                                <tr class="table__row <?php if ($singleDetail['type'] == 'Profit') :  echo "profit-row"; ?><?php else : echo "loss-row"; endif;?>">
-                                                    <td class="teble__col1" name="type"><?php echo $singleDetail['type']; ?></td>
-                                                    <td class="teble__col2"><?php echo date('M d, Y', strtotime($singleDetail['publishDate'])); ?></td>
-                                                    <td class="teble__col3">
-                                                        <?php if ($singleDetail['type'] == 'Profit') : ?>
-                                                            <i class="fa fa-arrow-circle-up" aria-hidden="true" style="font-size: 23px; color: #1ABC9C;"></i> &nbsp; $<?php echo $singleDetail['amount']; ?>
-                                                        <?php else : ?>
-                                                            <i class="fa fa-arrow-circle-down" aria-hidden="true" style="font-size: 23px; color: #D06162;"></i> &nbsp; $<?php echo $singleDetail['amount']; ?>
-                                                        <?php endif; ?>
-                                                    </td>
-                                                    <td class="teble__col4">
-                                                      <div class="flex-i table-btns-wrpr">
-                                                        <button class="table-mdl-btn flex-a r-50 edit_btn" type="button" data-bs-toggle="modal"
-                                                            data-bs-target="#editTransec" value="<?php echo $singleDetail['id'] ?>">
-                                                            <i class="fa-solid fa-pencil"></i>
-                                                        </button>
-                                                        <button class="table-mdl-btn flex-a r-50 delete_btn_profit" type="button" data-bs-toggle="modal"
-                                                            data-bs-target="#delete_profit" value="<?php echo $singleDetail['id'] ?>">
-                                                            <i class="fa-solid fa-trash"></i>
-                                                        </button>
-                                                        </div>
-                                                    </td>
-                                                </tr>
-                                            <?php endforeach; ?>
-                                        <?php else : ?>
-                                            <h3 style="text-align: center;">No Profit/Loss found</h3>
-                                        <?php endif; ?>
+                  <?php foreach ($profitLossDetails as $singleDetail) : ?>
+                    <tr class="table__row <?php if ($singleDetail['type'] == 'Profit') :  echo "profit-row"; ?><?php else : echo "loss-row";
+                                                                                                              endif; ?>">
+                      <td class="teble__col1" name="type"><?php echo $singleDetail['type']; ?></td>
+                      <td class="teble__col2"><?php echo date('M d, Y', strtotime($singleDetail['publishDate'])); ?></td>
+                      <td class="teble__col3">
+                        <?php if ($singleDetail['type'] == 'Profit') : ?>
+                          <i class="fa fa-arrow-circle-up" aria-hidden="true" style="font-size: 23px; color: #1ABC9C;"></i> &nbsp; $<?php echo $singleDetail['amount']; ?>
+                        <?php else : ?>
+                          <i class="fa fa-arrow-circle-down" aria-hidden="true" style="font-size: 23px; color: #D06162;"></i> &nbsp; $<?php echo $singleDetail['amount']; ?>
+                        <?php endif; ?>
+                      </td>
+                      <td class="teble__col4">
+                        <div class="flex-i table-btns-wrpr">
+                          <button class="table-mdl-btn flex-a r-50 edit_btn" type="button" data-bs-toggle="modal"
+                            data-bs-target="#editTransec" value="<?php echo $singleDetail['id'] ?>">
+                            <i class="fa-solid fa-pencil"></i>
+                          </button>
+                          <button class="table-mdl-btn flex-a r-50 delete_btn_profit" type="button" data-bs-toggle="modal"
+                            data-bs-target="#delete_profit" value="<?php echo $singleDetail['id'] ?>">
+                            <i class="fa-solid fa-trash"></i>
+                          </button>
+                        </div>
+                      </td>
+                    </tr>
+                  <?php endforeach; ?>
+                <?php else : ?>
+                  <h3 style="text-align: center;">No Profit/Loss found</h3>
+                <?php endif; ?>
               </tbody>
             </table>
           </div>
@@ -216,9 +446,9 @@
               <i class="fa-solid fa-pencil"></i>
             </button>
             <?php if (isset($userDetails) && empty($userDetails['profile_img'])) : ?>
-            <img src="<?php echo base_url(); ?>/assets-new/images/profile.png" alt="" class="customerDetailsCard__img">
+              <img src="<?php echo base_url(); ?>/assets-new/images/profile.png" alt="" class="customerDetailsCard__img">
             <?php else : ?>
-            <img src="<?php echo base_url().$userDetails['profile_img']; ?>" alt="" class="customerDetailsCard__img">
+              <img src="<?php echo base_url() . $userDetails['profile_img']; ?>" alt="" class="customerDetailsCard__img">
             <?php endif; ?>
             <div class="flex-i customerDetailsCardRow">
               <span class="sp1">Name: </span>
@@ -252,7 +482,7 @@
         <h2 class="profile-edit__hdng">Edit Information</h2>
         <form class="row row-gap2" action="<?php echo base_url(); ?>/admin/editPayout?id=" id="editModalpayout" method="POST">
           <div class="col-lg-6">
-          <input type="hidden" name="user_id" value="<?php echo $userDetails['id']; ?>">
+            <input type="hidden" name="user_id" value="<?php echo $userDetails['id']; ?>">
             <p class="label-text">Payout Amount</p>
             <input type="number" step="0.01" class="form-control cus-details-input" name="amount" required>
           </div>
@@ -275,8 +505,8 @@
         </button>
         <h2 class="profile-edit__hdng">Edit Information</h2>
         <form class="row row-gap2" action="" id="editModalForm" method="POST">
-        <input type="hidden" name="user_id" id="user_id" value="<?php echo $userDetails['id']; ?>">
-        <input type="hidden" name="profit_id" id="profit_id" value="">
+          <input type="hidden" name="user_id" id="user_id" value="<?php echo $userDetails['id']; ?>">
+          <input type="hidden" name="profit_id" id="profit_id" value="">
           <div class="col-lg-6">
             <p class="label-text">Action</p>
             <select name="action" class="form-control form-select cus-details-input">
@@ -312,7 +542,7 @@
         </h2>
         <p class="delete-text">Are you sure you want to delete record?</p>
         <div class="flex-a profile-edit-btns-wrpr">
-        <a href="<?php echo base_url(); ?>/admin/deletePayouts?userid=<?php echo $userDetails['id']; ?>&id=" id="delYesPayout"><button type="submit" class="profile-edit__btn profile-edit__btn--del">Delete</button></a>
+          <a href="<?php echo base_url(); ?>/admin/deletePayouts?userid=<?php echo $userDetails['id']; ?>&id=" id="delYesPayout"><button type="submit" class="profile-edit__btn profile-edit__btn--del">Delete</button></a>
           <button type="button" class="profile-edit__btn profile-edit__btn--tr profile-edit__btn--tr-red"
             data-bs-dismiss="modal">Cancel</button>
         </div>
@@ -331,7 +561,7 @@
         </h2>
         <p class="delete-text">Are you sure you want to delete record?</p>
         <div class="flex-a profile-edit-btns-wrpr">
-        <a href="<?php echo base_url(); ?>/admin/deleteProfit?userid=<?php echo $userDetails['id']; ?>&id=" id="delYesProfit"><button type="submit" class="profile-edit__btn profile-edit__btn--del">Delete</button></a>
+          <a href="<?php echo base_url(); ?>/admin/deleteProfit?userid=<?php echo $userDetails['id']; ?>&id=" id="delYesProfit"><button type="submit" class="profile-edit__btn profile-edit__btn--del">Delete</button></a>
           <button type="button" class="profile-edit__btn profile-edit__btn--tr profile-edit__btn--tr-red"
             data-bs-dismiss="modal">Cancel</button>
         </div>
@@ -350,7 +580,7 @@
         </h2>
         <p class="delete-text">Are you sure you want to delete record?</p>
         <div class="flex-a profile-edit-btns-wrpr">
-        <a href="<?php echo base_url(); ?>/admin/deleteUser?userid=<?php echo $userDetails['id']; ?>&adminid=<?php echo $_SESSION['user_data']['id']; ?>" id="delYes_user"><button type="submit" class="profile-edit__btn profile-edit__btn--del">Delete</button></a>
+          <a href="<?php echo base_url(); ?>/admin/deleteUser?userid=<?php echo $userDetails['id']; ?>&adminid=<?php echo $_SESSION['user_data']['id']; ?>" id="delYes_user"><button type="submit" class="profile-edit__btn profile-edit__btn--del">Delete</button></a>
           <button type="button" class="profile-edit__btn profile-edit__btn--tr profile-edit__btn--tr-red"
             data-bs-dismiss="modal">Cancel</button>
         </div>
@@ -365,14 +595,14 @@
           <i class="fa-solid fa-xmark"></i>
         </button>
         <?php if (isset($userDetails) && empty($userDetails['profile_img'])) : ?>
-            <img src="<?php echo base_url(); ?>/assets-new/images/profile.png" alt="" class="customerDetailsCard__img">
-            <?php else : ?>
-            <img src="<?php echo base_url().$userDetails['profile_img']; ?>" alt="" class="customerDetailsCard__img">
-            <?php endif; ?>
-            <p class="profile_edit__para_message" style="color:red"></p>
+          <img src="<?php echo base_url(); ?>/assets-new/images/profile.png" alt="" class="customerDetailsCard__img">
+        <?php else : ?>
+          <img src="<?php echo base_url() . $userDetails['profile_img']; ?>" alt="" class="customerDetailsCard__img">
+        <?php endif; ?>
+        <p class="profile_edit__para_message" style="color:red"></p>
         <form class="row profile-edit-row" id="editProfileModalform" method="POST">
-        <input type="hidden" id="first" value="<?php echo $userDetails['id']; ?>">
-        <input type="hidden" id="base_url" value="<?php echo base_url(); ?>">
+          <input type="hidden" id="first" value="<?php echo $userDetails['id']; ?>">
+          <input type="hidden" id="base_url" value="<?php echo base_url(); ?>">
           <div class="col-lg-4">
             <p class="profile-edit__para">Name</p>
             <input type="text" placeholder="Name" id="name" value="<?php echo $userDetails['firstName'] . " " . $userDetails['lastName']; ?>" class="form-control profile-edit__input">
@@ -400,28 +630,99 @@
       </div>
     </div>
   </div>
+
   <?php echo view("/home/new-footer-scripts"); ?>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.18.1/moment.min.js"></script>
-      <script src="<?= base_url(); ?>/assets/js/modalWorking.js"></script>
-    <script src="<?= base_url(); ?>/assets/js/addProfitLoss.js"></script>
+  <script src="<?= base_url(); ?>/assets/js/modalWorking.js"></script>
+  <script src="<?= base_url(); ?>/assets/js/addProfitLoss.js"></script>
   <script>
-    $(document).ready(function () {
-     const dataTables = [
-      {selector: "#transactionTable",
-      options: { searching: true, pageLength: 10 },}
-  ];
-  dataTables.forEach(({ selector, options }) => {
-    $(selector).DataTable({
-      ...options,
-      info: false,
-      ordering: false,
-      lengthChange: false,
-      pagingType: "simple_numbers",
+    $(document).ready(function() {
+      // let icon = {
+      //   success: '<span class="material-symbols-outlined">task_alt</span>',
+      //   danger: '<span class="material-symbols-outlined">error</span>',
+      //   warning: '<span class="material-symbols-outlined">warning</span>',
+      //   info: '<span class="material-symbols-outlined">info</span>',
+      // };
+
+      // const showToast = (
+      //   message = "Sample Message",
+      //   toastType = "info",
+      //   duration = 5000) => {
+
+      //   if (
+      //     !Object.keys(icon).includes(toastType))
+      //     toastType = "info";
+
+      //   let box = document.createElement("div");
+      //   box.classList.add(
+      //     "toast", `toast-${toastType}`);
+      //   box.innerHTML = ` <div class="toast-content-wrapper">
+      //                 <div class="toast-icon">
+      //                 ${icon[toastType]}
+      //                 </div>
+      //                 <div class="toast-message">${message}</div>
+      //                 <div class="toast-progress"></div>
+      //                 </div>`;
+      //   duration = duration || 5000;
+
+      //   box.querySelector(".toast-progress").style.animationDuration =
+      //     `${duration / 1000}s`;
+
+      //   let toastAlready =
+      //     document.body.querySelector(".toast");
+
+      //   if (toastAlready) {
+      //     toastAlready.remove();
+      //   }
+      //   console.log(toastAlready);
+      //   document.body.appendChild(box)
+      //   $('toast').addClass('d-block');
+      // };
+      // submit.addEventListener("click", (e) => {
+      //   e.preventDefault();
+      //   showToast("Article Submitted Successfully", "success", 5000);
+      // });
+
+      // information.addEventListener("click", (e) => {
+      //   e.preventDefault();
+      //   showToast("Do POTD and Earn Coins", "info", 5000);
+      // });
+
+      // failed.addEventListener("click", (e) => {
+      //   e.preventDefault();
+      //   showToast("Failed unexpected error", "danger", 5000);
+      // });
+
+      // warn.addEventListener("click", (e) => {
+      //   e.preventDefault();
+      //   showToast("!warning! server error", "warning", 5000);
+      // });
+    })
+    $(document).ready(function() {
+
+
+      const dataTables = [{
+        selector: "#transactionTable",
+        options: {
+          searching: true,
+          pageLength: 10
+        },
+      }];
+      dataTables.forEach(({
+        selector,
+        options
+      }) => {
+        $(selector).DataTable({
+          ...options,
+          info: false,
+          ordering: false,
+          lengthChange: false,
+          pagingType: "simple_numbers",
+        });
+      });
+      $(".dt-input").attr("placeholder", "Search...");
     });
-  });
-  $(".dt-input").attr("placeholder", "Search...");
-    });
- new Datepicker(".dateInput");
+    // new Datepicker(".dateInput");
   </script>
 </body>
 

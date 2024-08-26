@@ -64,15 +64,15 @@
                 <!-- <div class="usd_inputs d-none row-gap row"> -->
                   <div class="col-md-6 usd_inputs d-none">
                     <label for="" class="wrc__label">Account Name <span>*</span></label>
-                    <input type="text" id="account_name" name="account_name" class="wrc__input form-control" placeholder="Enter Details" required>
+                    <input type="text" id="account_name" name="account_name" class="wrc__input form-control" placeholder="Enter Details" >
                   </div>
                   <div class="col-md-6 usd_inputs d-none">
                     <label for="" class="wrc__label">Account Number <span>*</span></label>
-                    <input type="text" id="account_no" name="account_no" class="wrc__input form-control" placeholder="Enter Details" required>
+                    <input type="text" id="account_no" name="account_no" class="wrc__input form-control" placeholder="Enter Details" >
                   </div>
                   <div class="col-md-12 usd_inputs d-none">
                     <label for="" class="wrc__label">Routing Number <span>*</span></label>
-                    <input type="text" id="routing_no" name="routing_no" class="wrc__input form-control" placeholder="Enter Details" required>
+                    <input type="text" id="routing_no" name="routing_no" class="wrc__input form-control" placeholder="Enter Details" >
                   </div>
                 <!-- </div> -->
                 <div class="col-12">

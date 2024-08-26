@@ -21,7 +21,47 @@ $(document).ready(function() {
         $('#editModalForm').attr("action", action + profit_id);
     });
 });
+let icon = {
+    success: '<span class="material-symbols-outlined">task_alt</span>',
+    danger: '<span class="material-symbols-outlined">error</span>',
+    warning: '<span class="material-symbols-outlined">warning</span>',
+    info: '<span class="material-symbols-outlined">info</span>',
+  };
 
+  const showToast = (
+    message = "Sample Message",
+    toastType = "info",
+    duration = 5000) => {
+
+    if (
+      !Object.keys(icon).includes(toastType))
+      toastType = "info";
+
+    let box = document.createElement("div");
+    box.classList.add(
+      "toast", `toast-${toastType}`);
+    box.innerHTML = ` <div class="toast-content-wrapper">
+                  <div class="toast-icon">
+                  ${icon[toastType]}
+                  </div>
+                  <div class="toast-message">${message}</div>
+                  <div class="toast-progress"></div>
+                  </div>`;
+    duration = duration || 5000;
+
+    box.querySelector(".toast-progress").style.animationDuration =
+      `${duration / 5000}s`;
+
+    let toastAlready =
+      document.body.querySelector(".toast");
+
+    if (toastAlready) {
+      toastAlready.remove();
+    }
+    console.log(toastAlready);
+    document.body.appendChild(box)
+    // $('toast').addClass('d-block');
+  };
 
 $("#editProfileModalform").submit(function (e) {
 
@@ -52,8 +92,10 @@ $("#editProfileModalform").submit(function (e) {
         let response = JSON.parse(url);
         console.log(response);
         if (response['status'] == false) {
+            showToast(response['message'], "danger", 5000);
             jQuery(".profile_edit__para_message").text(response['message']);
         } else {
+            showToast("Profile Updated Successfully", "success", 5000);
             window.location.replace(response);
         }
 

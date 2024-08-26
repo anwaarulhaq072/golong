@@ -8,9 +8,7 @@ $("#formProfitLoss").submit(function (e) {
     let $form = $(this),
         amount = $form.find("input[type = 'number'][name = 'amount']").val();
     action = $form.find("select[name='action']").find(":selected").text();
-    date = $form.find("input[type='date'][name='date']").val();
-
-    console.log(action);
+    date = $('#profit-loss').val();
 
     base_url = $('#baseurl').val();
 

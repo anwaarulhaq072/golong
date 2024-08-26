@@ -690,7 +690,8 @@ class User extends BaseController
             $data = [];
             $singleNotification = new Singlenotification();
             $data['notification'] = $singleNotification->getCurrentDataNotificationsByUserId($id);
-            return view('/home/successDeposit', $data);
+            return redirect()->to('/user/deposit');
+            // return view('/home/successDeposit', $data);
         } else {
             return redirect()->to('/');
         }
@@ -830,7 +831,8 @@ class User extends BaseController
             $data = [];
             $singleNotification = new Singlenotification();
             $data['notification'] = $singleNotification->getCurrentDataNotificationsByUserId($id);
-            return view('/home/successWithdrawal', $data);
+            return redirect()->to('/user/withdrawal');
+            // return view('/home/withdrawal', $data);
         } else {
             return redirect()->to('/');
         }
