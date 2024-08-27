@@ -64,7 +64,7 @@
     </div>
   </div>
   <?php echo view("/home/new-footer-script"); ?>
-  <script src="<?php echo base_url(); ?>/assets/js/ajax_login.js"></script>
+  <script src="<?php echo base_url(); ?>/assets-new/js/ajax_login.js"></script>
   <script src="<?php echo base_url(); ?>/assets/js/sendOtp.js"></script>
 </body>
 

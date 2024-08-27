@@ -1,4 +1,45 @@
 /* attach a submit handler to the form */
+let icon = {
+  success: '<span class="material-symbols-outlined text-dark">Success</span>',
+  danger: '<span class="material-symbols-outlined text-dark"></span>',
+  warning: '<span class="material-symbols-outlined text-dark">warning</span>',
+  info: '<span class="material-symbols-outlined text-dark">info</span>',
+};
+
+const showToast = (
+  message = "Sample Message",
+  toastType = "info",
+  duration = 5000) => {
+
+  if (
+    !Object.keys(icon).includes(toastType))
+    toastType = "info";
+
+  let box = document.createElement("div");
+  box.classList.add(
+    "toast", `toast-${toastType}`);
+  box.innerHTML = ` <div class="toast-content-wrapper">
+                <div class="toast-icon">
+                ${icon[toastType]}
+                </div>
+                <div class="toast-message">${message}</div>
+                <div class="toast-progress"></div>
+                </div>`;
+  duration = duration || 5000;
+
+  box.querySelector(".toast-progress").style.animationDuration =
+    `${duration / 5000}s`;
+
+  let toastAlready =
+    document.body.querySelector(".toast");
+
+  if (toastAlready) {
+    toastAlready.remove();
+  }
+  console.log(toastAlready);
+  document.body.appendChild(box)
+  // $('toast').addClass('d-block');
+};
 $("#loginForm1").submit(function (event) {
   let base_url = $("#base").val();
   /* stop form from submitting normally */
@@ -18,6 +59,7 @@ $("#loginForm1").submit(function (event) {
   posting.done(function (data) {
     let response = JSON.parse(data);
     if (response["status"] == "false") {
+      showToast(response["message"], "danger", 5000);
       jQuery("#loginMessage").text(response["message"]);
     } else {
       window.location.replace(response);
@@ -48,6 +90,7 @@ $("#otpForm").submit(function (event) {
     let response = JSON.parse(data);
     // console.log(response);
     if (response["status"] == "false") {
+      showToast(response["message"], "danger", 5000);
       jQuery("#loginMessage").text(response["message"]);
     } else {
       window.location.replace(response);
