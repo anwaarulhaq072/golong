@@ -690,7 +690,10 @@ h1 {
 }
 
 .loginbox1 {
-  width: 58%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
   padding: 75px 100px 63px 80px;
 }
 
