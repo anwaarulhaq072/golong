@@ -103,8 +103,6 @@ class Home extends BaseController
 	{
 
 		$users = new Users();
-		// echo $_POST['bio'];
-		// exit;
 		session_start();
 		if ($_POST['id'] == $_SESSION['user_data']['id']) {
 			$users->update($_POST['id'], [
@@ -113,6 +111,25 @@ class Home extends BaseController
 				'phone' => $_POST['phone'],
 				'bio' => $_POST['bio'],
 			]);
+
+			$id = $_SESSION['user_data']['id'];
+			$ext = pathinfo($_FILES["profile_photo"]["name"], PATHINFO_EXTENSION);
+			$target_dir = "assets/images/users/";
+			if ($_SESSION['user_data']['profile_img']) {
+				if (file_exists($_SESSION['user_data']['profile_img'])) {
+					unlink($_SESSION['user_data']['profile_img']);
+				}
+			}
+			$target_dir = $target_dir . 'user_id-' . $id . '.' . $ext;
+			if (move_uploaded_file($_FILES["profile_photo"]["tmp_name"], $target_dir)) {
+				// echo $id.' ................ '.$target_dir;
+				$users->update($id, [
+					'profile_img' => '/' . $target_dir
+				]);
+				$_SESSION['user_data']['profile_img'] = '/' . $target_dir;
+			} else {
+				// echo "Sorry, there was an error uploading your file.";
+			}
 			if (isset($users)) {
 				$_SESSION['success'] = 'Profile updated successfully!';
 			} else {
@@ -142,7 +159,7 @@ class Home extends BaseController
 				]);
 				if (isset($users)) {
 					$_SESSION['success'] = 'Password updated successfully!';
-				}else{
+				} else {
 					$_SESSION['danger'] = 'Something went wrong!';
 				}
 				return json_encode(base_url() . "/home/profile?success_ps=true");
@@ -343,7 +360,7 @@ class Home extends BaseController
 				log_message('debug', 'Record Saved in Database: ' . $email);
 				if (isset($users)) {
 					$_SESSION['success'] = 'User added successfully!';
-				}else{
+				} else {
 					$_SESSION['danger'] = 'Something went wrong!';
 				}
 				return json_encode(base_url("/admin/usercreatedsuccess"));
