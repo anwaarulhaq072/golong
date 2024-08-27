@@ -68,7 +68,7 @@ class Home extends BaseController
 	{
 		session_start();
 		session_destroy();
-		return redirect()->to('/');
+		return view('/home/logout');
 	}
 	public function superadminlogin()
 	{
