@@ -16,10 +16,10 @@
 
     <main class="main">
       <?php if (isset($callChartAdmin) && $callChartAdmin == true) : ?>
-        <a href="<?php echo base_url(); ?>"><button style="margin-bottom: 10px;" class="btn btn-primary">Back</button></a>
-        <a href="<?php echo base_url() . "/admin/report_genrate?userid=" . $_GET['userid']; ?>"><button style="margin-bottom: 10px;" class="btn btn-primary">Client Statement</button></a>
+        <a href="<?php echo base_url(); ?>"><button style="margin-bottom: 10px;" class="statement_btn">Back</button></a>
+        <a href="<?php echo base_url() . "/admin/report_genrate?userid=" . $_GET['userid']; ?>"><button style="margin-bottom: 10px;" class="statement_btn">Client Statement</button></a>
         <?php if (array_key_exists(0, $tax_form_data)) : ?>
-          <a href="<?php echo base_url() . "/admin/admin_tax_form?userid=" . $_GET['userid']; ?>"><button style="margin-bottom: 10px;" class="btn btn-primary">Tax Form</button></a>
+          <a href="<?php echo base_url() . "/admin/admin_tax_form?userid=" . $_GET['userid']; ?>"><button style="margin-bottom: 10px;" class="statement_btn">Tax Form</button></a>
         <?php endif; ?>
         <input type="hidden" id="forChartUserId" value="<?php echo $userInfo['id']; ?>">
       <?php endif; ?>

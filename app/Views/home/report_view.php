@@ -158,13 +158,13 @@
           <div class="row" id="contentToPrint" style="font-family: sans-serif;">
             <div class="col-12">
               <div class="card">
-                <div class="card-body" style="padding: 3.5rem 2.5rem;">
+                <div class="card-body" style="padding: 5.5rem 2.5rem;">
                   <div class="row" style="margin-top: -60px;">
                     <div class="hname2 mb-5 col-md-9" style="margin-left: 30px">
                       <h2 class="hname">
                         <!-- <img style="" src="<?php echo base_url(); ?>/assets/images/G_logo.png" alt="" height="200"> -->
-                        <img src="<?php echo base_url(); ?>/assets-new/images/logo.svg" alt="" class="loginbox1__logo-img loginbox1__logo1">
-                        <img src="<?php echo base_url(); ?>/assets-new/images/logo-for-light.svg" alt="" class="loginbox1__logo-img loginbox1__logo2">
+                        <img src="<?php echo base_url(); ?>/assets-new/images/logo-for-light.png" alt="" class="loginbox1__logo-img loginbox1__logo1">
+                        <img src="<?php echo base_url(); ?>/assets-new/images/logo.png" alt="" class="loginbox1__logo-img loginbox1__logo2">
                       </h2>
                       <p style="color: var(--white-for-dark);">1435 FM 1463 Katy,<br>TX 77494</p>
                     </div>
@@ -345,10 +345,12 @@
             // Convert HTML content to PDF
             function Convert_HTML_To_PDF() {
                 var size = document.getElementById("data_size").value;
+                console.log(size);
                 var doc = new jsPDF("pl", "mm");
 
                 // Source HTMLElement or a string containing HTML.
                 var elementHTML = document.querySelector("#contentToPrint");
+                console.log(elementHTML);
                 const options = {
                     compress: true, // Enable compression
                     precision: 2, // Set compression precision (optional)
