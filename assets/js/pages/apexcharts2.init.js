@@ -163,7 +163,7 @@ getcalling.done(function (result) {
             <div class="pr-loss-abs__body">
               <div class="pr-loss-abs__row">
                 <div class="dot pdot"></div>
-                Profit/Loss: <span style="color: #1ABC9C">$${profit.toFixed(2)}</span>
+                Profit/Loss: <span style="color: #0073B6">$${profit.toFixed(2)}</span>
                 </div>
             </div>
           </div>`;
@@ -178,29 +178,26 @@ getcalling.done(function (result) {
         width: 15,
         fill: { color: `url(#Gradient2)` },
         stroke: {
-          color: "#1ABC9C",
+          color: "#0073B6",
           dashArray: 0,
-          fill: "#1ABC9C",
+          fill: "#0073B6",
         },
       },
     },
-    colors: ["#1ABC9C"],
+    colors: ["#0073B6","#1E1E2000"],
     fill: {
       type: "gradient",
       gradient: {
-        shadeIntensity: 1,
-        opacityFrom: 1,
-        opacityTo: 0.1,
+        shadeIntensity: 0,
+        opacityFrom: 0.8,
+        opacityTo: 0,
         stops: [0, 100],
       },
     },
     markers: {
-      size: 5,
-      colors: ["#1ABC9C"],
-      strokeColors: "#fff",
-      strokeWidth: 2,
       hover: {
         size: 7,
+        show: true,
       },
     },
     grid: {

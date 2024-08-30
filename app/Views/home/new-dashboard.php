@@ -13,8 +13,8 @@
 <svg style="width: 0; height: 0; position: absolute;">
     <defs>
       <linearGradient id="Gradient2" x1="0" x2="0" y1="0" y2="1">
-        <stop offset="0%" stop-color="#50E1AA" />
-        <stop offset="100%" stop-color="#50E1AA" stop-opacity="0" />
+        <stop offset="0%" stop-color="#0073B6" />
+        <stop offset="100%" stop-color="#0073B6" stop-opacity="0" />
       </linearGradient>
     </defs>
   </svg>
