@@ -14,6 +14,7 @@
     <img src="<?php echo base_url(); ?>/assets-new/images/login-bg-for-white.svg" alt="" class="logins__bg logins__bg-for-light">
     <div class="loginsWrpper">
       <div class="loginbox1">
+          <div class="logIn">
         <a href="<?php echo base_url(); ?>" class="loginbox1__logo flex-i">
           <img src="<?php echo base_url(); ?>/assets-new/images/logo.svg" alt="" class="loginbox1__logo-img loginbox1__logo1">
           <img src="<?php echo base_url(); ?>/assets-new/images/logo-for-light.svg" alt="" class="loginbox1__logo-img loginbox1__logo2">
@@ -38,34 +39,35 @@
           </label>
           <button id="loginBtn" type="submit" class="formBtn flex-a">Log In</button>
         </form>
-      </div>
-      <div class="loginbox2">
-        <img src="<?php echo base_url(); ?>/assets-new/images/logins-img.png" alt="" class="loginbox2__img loginbox2__img-for-dark">
-        <img src="<?php echo base_url(); ?>/assets-new/images/logins-img-for-white.png" alt="" class="loginbox2__img loginbox2__img-for-light">
-        <div class="swiper loginboxSlider">
-          <div class="swiper-wrapper">
-            <div class="swiper-slide">
-              <h3 class="logins-sl__hdng">Unlocking Your Financial Potential</h3>
-              <p class="logins-sl__para">
-                Unlocking Your Financial Potential with tailored insights and tools to maximize your investment returns.
-              </p>
-            </div>
-            <div class="swiper-slide">
-              <h3 class="logins-sl__hdng">Unlocking Your Financial Potential</h3>
-              <p class="logins-sl__para">
-                Unlocking Your Financial Potential with tailored insights and tools to maximize your investment returns.
-              </p>
-            </div>
-            <div class="swiper-slide">
-              <h3 class="logins-sl__hdng">Unlocking Your Financial Potential</h3>
-              <p class="logins-sl__para">
-                Unlocking Your Financial Potential with tailored insights and tools to maximize your investment returns.
-              </p>
-            </div>
-          </div>
-          <div class="loginboxSlider-pagination"></div>
         </div>
       </div>
+      <!--<div class="loginbox2">-->
+      <!--  <img src="<?php echo base_url(); ?>/assets-new/images/logins-img.png" alt="" class="loginbox2__img loginbox2__img-for-dark">-->
+      <!--  <img src="<?php echo base_url(); ?>/assets-new/images/logins-img-for-white.png" alt="" class="loginbox2__img loginbox2__img-for-light">-->
+      <!--  <div class="swiper loginboxSlider">-->
+      <!--    <div class="swiper-wrapper">-->
+      <!--      <div class="swiper-slide">-->
+      <!--        <h3 class="logins-sl__hdng">Unlocking Your Financial Potential</h3>-->
+      <!--        <p class="logins-sl__para">-->
+      <!--          Unlocking Your Financial Potential with tailored insights and tools to maximize your investment returns.-->
+      <!--        </p>-->
+      <!--      </div>-->
+      <!--      <div class="swiper-slide">-->
+      <!--        <h3 class="logins-sl__hdng">Unlocking Your Financial Potential</h3>-->
+      <!--        <p class="logins-sl__para">-->
+      <!--          Unlocking Your Financial Potential with tailored insights and tools to maximize your investment returns.-->
+      <!--        </p>-->
+      <!--      </div>-->
+      <!--      <div class="swiper-slide">-->
+      <!--        <h3 class="logins-sl__hdng">Unlocking Your Financial Potential</h3>-->
+      <!--        <p class="logins-sl__para">-->
+      <!--          Unlocking Your Financial Potential with tailored insights and tools to maximize your investment returns.-->
+      <!--        </p>-->
+      <!--      </div>-->
+      <!--    </div>-->
+      <!--    <div class="loginboxSlider-pagination"></div>-->
+      <!--  </div>-->
+      <!--</div>-->
     </div>
   </div>
   <?php echo view("/home/new-footer-script"); ?>

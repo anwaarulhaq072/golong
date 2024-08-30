@@ -44,7 +44,7 @@
                             <p id="loginMessage" style="color: red; text-align:center;"></p>
 
                             <form action="#" id="loginFormSuperAdmin">
-                                <input type="hidden" id="baseurl" value="<?php echo base_url(); ?>">
+                                <input type="hidden" id="baseu" value="<?php echo base_url(); ?>">
 
                                 <div class="mb-3">
                                     <label for="emailaddress" class="form-label">User Email address</label>

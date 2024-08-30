@@ -153,7 +153,8 @@
                     </div>
                   </li>
                   <li class="monthly-return-list__item flex-i justify-between">
-                    February
+                    <div class="">February</div>
+                    <div class="">
                     <?php if ($profitLossMonthly[2] == 0) : ?>
                       <?php echo $profitLossMonthly[2]; ?>
                     <?php elseif ($profitLossMonthly[2] > 0) : ?>
@@ -167,6 +168,7 @@
                         &nbsp; <?php echo $profitLossMonthly[2]; ?>
                       </div>
                     <?php endif; ?>
+                    </div>
                   </li>
                   <li class="monthly-return-list__item flex-i justify-between">
                     <div class="">March</div>
@@ -235,7 +237,7 @@
                     <?php endif; ?>
                   </li>
                   <li class="monthly-return-list__item flex-i justify-between">
-                    <div class="">july</div>
+                    <div class="">July</div>
                     <?php if ($profitLossMonthly[7] == 0) : ?>
                       <?php echo $profitLossMonthly[7]; ?>
                     <?php elseif ($profitLossMonthly[7] > 0) : ?>
@@ -349,7 +351,7 @@
           </div>
         </div>
         <div class="col-lg-4 col-xl-3">
-          <div class="card tn-list-card">
+          <div class="card tn-list-card" style="    height: 100%;">
             <h2 class="tn-list-card__hdng">Transaction List</h2>
             <p class="tn-list-card__desc">
               Following are the detail records of your transactions
@@ -410,9 +412,9 @@
     var waveChart = <?php echo $waveChart; ?>;
   </script>
   <?php if (isset($callChartAdmin) && $callChartAdmin == true) : ?>
-    <script src="<?php echo base_url(); ?>/assets/js/pages/admincharts.init.js"></script>
+    <script src="<?php echo base_url(); ?>/assets/js/pages/admincharts.init.js?v=<?php echo date('Y-m-d H:i:s'); ?>"></script>
   <?php else : ?>
-    <script src="<?php echo base_url(); ?>/assets/js/pages/apexcharts.init.js"></script>
+    <script src="<?php echo base_url(); ?>/assets/js/pages/apexcharts2.init.js?v=<?php echo date('Y-m-d H:i:s') ?>"></script>
   <?php endif; ?>
 </body>
 </html>
