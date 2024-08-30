@@ -32278,3 +32278,7344 @@ CRITICAL - 2024-08-30 05:50:47 --> mail(): Failed to connect to mailserver at &q
 #5 C:\xampp\htdocs\golong\system\CodeIgniter.php(336): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
 #6 C:\xampp\htdocs\golong\index.php(44): CodeIgniter\CodeIgniter->run()
 #7 {main}
+DEBUG - 2024-08-30 06:34:42 --> Notifications CHeck array (
+  0 => 
+  array (
+    'id' => '182',
+    'title' => 'Withdrawal Request has been Accepted',
+    'description' => 'Your withdrawal request has been Accepted.',
+    'publishDate' => '2024-08-30 17:50:44',
+    'user_id' => '49',
+    'is_read' => 'N',
+  ),
+  1 => 
+  array (
+    'id' => '180',
+    'title' => 'Deposit Request has been Accepted',
+    'description' => 'Your deposit request has been Accepted.',
+    'publishDate' => '2024-08-30 16:27:11',
+    'user_id' => '49',
+    'is_read' => 'N',
+  ),
+  2 => 
+  array (
+    'id' => '179',
+    'title' => 'Withdrawal Request has been Completed',
+    'description' => 'Your Withdrawal request has been Completed.',
+    'publishDate' => '2024-08-26 18:20:34',
+    'user_id' => '49',
+    'is_read' => 'N',
+  ),
+  3 => 
+  array (
+    'id' => '178',
+    'title' => 'Withdrawal Request has been Rejected',
+    'description' => 'Your withdrawal request has been rejected.',
+    'publishDate' => '2024-08-26 18:19:54',
+    'user_id' => '49',
+    'is_read' => 'N',
+  ),
+  4 => 
+  array (
+    'id' => '177',
+    'title' => 'Withdrawal Request has been Accepted',
+    'description' => 'Your withdrawal request has been Accepted.',
+    'publishDate' => '2024-08-26 18:19:31',
+    'user_id' => '49',
+    'is_read' => 'N',
+  ),
+  5 => 
+  array (
+    'id' => '175',
+    'title' => 'Deposit Request has been Completed',
+    'description' => 'Your deposit request has been Completed.',
+    'publishDate' => '2024-08-26 18:11:42',
+    'user_id' => '49',
+    'is_read' => 'N',
+  ),
+  6 => 
+  array (
+    'id' => '174',
+    'title' => 'Deposit Request has been Accepted',
+    'description' => 'Your deposit request has been Accepted.',
+    'publishDate' => '2024-08-26 18:08:27',
+    'user_id' => '49',
+    'is_read' => 'N',
+  ),
+  7 => 
+  array (
+    'id' => '171',
+    'title' => 'Withdrawal Request has been Completed',
+    'description' => 'Your Withdrawal request has been Completed.',
+    'publishDate' => '2024-08-23 19:16:00',
+    'user_id' => '49',
+    'is_read' => 'N',
+  ),
+  8 => 
+  array (
+    'id' => '170',
+    'title' => 'Deposit Request has been Completed',
+    'description' => 'Your deposit request has been Completed.',
+    'publishDate' => '2024-08-23 18:38:49',
+    'user_id' => '49',
+    'is_read' => 'N',
+  ),
+  9 => 
+  array (
+    'id' => '167',
+    'title' => 'Deposit Request has been Rejected',
+    'description' => 'Your deposit request has been Rejected.',
+    'publishDate' => '2024-08-22 13:01:42',
+    'user_id' => '49',
+    'is_read' => 'N',
+  ),
+  10 => 
+  array (
+    'id' => '166',
+    'title' => 'Deposit Request has been Accepted',
+    'description' => 'Your deposit request has been Accepted.',
+    'publishDate' => '2024-08-22 13:01:23',
+    'user_id' => '49',
+    'is_read' => 'N',
+  ),
+  11 => 
+  array (
+    'id' => '165',
+    'title' => 'Withdrawal Request has been Accepted',
+    'description' => 'Your withdrawal request has been Accepted.',
+    'publishDate' => '2024-08-22 11:41:23',
+    'user_id' => '49',
+    'is_read' => 'N',
+  ),
+  12 => 
+  array (
+    'id' => '164',
+    'title' => 'Withdrawal Request has been Rejected',
+    'description' => 'Your withdrawal request has been rejected.',
+    'publishDate' => '2024-08-22 11:41:05',
+    'user_id' => '49',
+    'is_read' => 'N',
+  ),
+  13 => 
+  array (
+    'id' => '129',
+    'title' => 'Withdrawal Request Accepted',
+    'description' => 'Your withdrawal request has been Accepted.',
+    'publishDate' => '2024-08-21 12:52:54',
+    'user_id' => '49',
+    'is_read' => 'N',
+  ),
+  14 => 
+  array (
+    'id' => '140',
+    'title' => 'Withdrawal Request Accepted',
+    'description' => 'Your withdrawal request has been Accepted.',
+    'publishDate' => '2024-08-21 12:52:54',
+    'user_id' => '49',
+    'is_read' => 'N',
+  ),
+  15 => 
+  array (
+    'id' => '133',
+    'title' => 'Withdrawal Request has been Completed',
+    'description' => 'Your Withdrawal request has been Completed.',
+    'publishDate' => '2023-02-24 08:15:40',
+    'user_id' => '49',
+    'is_read' => 'N',
+  ),
+  16 => 
+  array (
+    'id' => '132',
+    'title' => 'Withdrawal Request has been Accepted',
+    'description' => 'Your withdrawal request has been Accepted.',
+    'publishDate' => '2023-02-24 08:15:31',
+    'user_id' => '49',
+    'is_read' => 'N',
+  ),
+  17 => 
+  array (
+    'id' => '131',
+    'title' => 'Withdrawal Request has been Completed',
+    'description' => 'Your Withdrawal request has been Completed.',
+    'publishDate' => '2023-02-24 08:14:42',
+    'user_id' => '49',
+    'is_read' => 'N',
+  ),
+  18 => 
+  array (
+    'id' => '130',
+    'title' => 'Withdrawal Request has been Accepted',
+    'description' => 'Your withdrawal request has been Accepted.',
+    'publishDate' => '2023-02-24 08:14:31',
+    'user_id' => '49',
+    'is_read' => 'N',
+  ),
+  19 => 
+  array (
+    'id' => '88',
+    'title' => 'Deposit Request has been Accepted',
+    'description' => 'Your deposit request has been Accepted.',
+    'publishDate' => '2023-01-31 07:47:51',
+    'user_id' => '49',
+    'is_read' => 'N',
+  ),
+  20 => 
+  array (
+    'id' => '87',
+    'title' => 'Deposit Request has been Completed',
+    'description' => 'Your deposit request has been Completed.',
+    'publishDate' => '2023-01-31 07:47:27',
+    'user_id' => '49',
+    'is_read' => 'N',
+  ),
+  21 => 
+  array (
+    'id' => '86',
+    'title' => 'Deposit Request has been Rejected',
+    'description' => 'Your deposit request has been Rejected.',
+    'publishDate' => '2023-01-31 07:30:54',
+    'user_id' => '49',
+    'is_read' => 'N',
+  ),
+  22 => 
+  array (
+    'id' => '85',
+    'title' => 'Deposit Request has been Completed',
+    'description' => 'Your deposit request has been Completed.',
+    'publishDate' => '2023-01-31 07:30:08',
+    'user_id' => '49',
+    'is_read' => 'N',
+  ),
+  23 => 
+  array (
+    'id' => '84',
+    'title' => 'Deposit Request has been Accepted',
+    'description' => 'Your deposit request has been Accepted.',
+    'publishDate' => '2023-01-31 07:29:28',
+    'user_id' => '49',
+    'is_read' => 'N',
+  ),
+  24 => 
+  array (
+    'id' => '82',
+    'title' => 'Withdrawal Request has been Completed',
+    'description' => 'Your Withdrawal request has been Completed.',
+    'publishDate' => '2023-01-31 07:27:58',
+    'user_id' => '49',
+    'is_read' => 'N',
+  ),
+  25 => 
+  array (
+    'id' => '81',
+    'title' => 'Withdrawal Request has been Completed',
+    'description' => 'Your Withdrawal request has been Completed.',
+    'publishDate' => '2023-01-31 07:27:48',
+    'user_id' => '49',
+    'is_read' => 'N',
+  ),
+  26 => 
+  array (
+    'id' => '80',
+    'title' => 'Withdrawal Request has been Accepted',
+    'description' => 'Your withdrawal request has been Accepted.',
+    'publishDate' => '2023-01-31 07:27:19',
+    'user_id' => '49',
+    'is_read' => 'N',
+  ),
+  27 => 
+  array (
+    'id' => '79',
+    'title' => 'Withdrawal Request has been Completed',
+    'description' => 'Your Withdrawal request has been Completed.',
+    'publishDate' => '2023-01-31 07:26:58',
+    'user_id' => '49',
+    'is_read' => 'Y',
+  ),
+  28 => 
+  array (
+    'id' => '78',
+    'title' => 'Withdrawal Request has been Accepted',
+    'description' => 'Your withdrawal request has been Accepted.',
+    'publishDate' => '2023-01-31 07:26:42',
+    'user_id' => '49',
+    'is_read' => 'N',
+  ),
+  29 => 
+  array (
+    'id' => '77',
+    'title' => 'Withdrawal Request has been Accepted',
+    'description' => 'Your withdrawal request has been Accepted.',
+    'publishDate' => '2023-01-31 07:26:19',
+    'user_id' => '49',
+    'is_read' => 'N',
+  ),
+  30 => 
+  array (
+    'id' => '76',
+    'title' => 'Withdrawal Request has been Completed',
+    'description' => 'Your Withdrawal request has been Completed.',
+    'publishDate' => '2023-01-31 07:26:01',
+    'user_id' => '49',
+    'is_read' => 'N',
+  ),
+  31 => 
+  array (
+    'id' => '75',
+    'title' => 'Withdrawal Request has been Accepted',
+    'description' => 'Your withdrawal request has been Accepted.',
+    'publishDate' => '2023-01-31 07:24:06',
+    'user_id' => '49',
+    'is_read' => 'N',
+  ),
+)
+DEBUG - 2024-08-30 06:34:42 --> PLID: 49
+ERROR - 2024-08-30 06:34:43 --> 49
+DEBUG - 2024-08-30 06:34:43 --> ***************** Transaction Chart BY Admin *****************
+DEBUG - 2024-08-30 06:34:43 --> PLID: 49
+DEBUG - 2024-08-30 06:38:45 --> **********************Tax Form Data****************************array (
+)
+DEBUG - 2024-08-30 06:38:45 --> **************************************************array (
+  0 => 
+  array (
+    'amount' => NULL,
+    'positions' => '2',
+    'year' => '2024',
+    'month' => '8',
+  ),
+)
+DEBUG - 2024-08-30 06:38:45 --> **************************************************array (
+)
+DEBUG - 2024-08-30 06:38:45 --> ***************** Chart BY Admin *****************
+DEBUG - 2024-08-30 06:38:45 --> PLID: 79
+DEBUG - 2024-08-30 06:38:46 --> ***************** Chart BY Admin *****************
+DEBUG - 2024-08-30 06:38:46 --> ***************** Transaction Chart BY Admin *****************
+DEBUG - 2024-08-30 06:38:46 --> PLID: 79
+DEBUG - 2024-08-30 06:38:51 --> **********************Tax Form Data****************************array (
+  0 => 
+  array (
+    'id' => '16',
+    'user_id' => '52',
+    'address' => 'Test By 66loop',
+    'payers_tin' => 'Mollit occaecat maxi',
+    'recipients_tin' => 'Officia obcaecati nu',
+    'recipients_name' => '123',
+    'street_address' => 'At numquam ut recusa',
+    'city_or_town_state_or_province_country' => 'Alias et quod labore',
+    'account_number' => '718',
+    'rents' => 'Enim pariatur Tempo',
+    'royalties' => 'Voluptatem Quae eu ',
+    'other_income' => '631',
+    'federal_income_tax_withheld' => '373',
+    'fishing_boat_proceeds' => 'Architecto maiores a',
+    'medical_and_health_care_payments' => 'Ipsam at qui dolor N',
+    'payer_made_direct' => 'No',
+    'substitute_payments' => 'Aliquid suscipit qui',
+    'crop_insurance_proceeds' => 'Rerum aliquam possim',
+    'gross_proceeds' => 'Dolore rem molestiae',
+    'fish_purchased_for_resale' => 'Dolore facilis digni',
+    'section_409A_deferrals' => 'Tempore dolore sequ',
+    'fatca_filing_requirement' => 'No',
+    'excess_golden' => 'Aperiam dolorum vero',
+    'nonqualified_deferred_compensation' => '66loop',
+    'state_tax_withheld' => 'Sed esse ut est beat',
+    'State_or_Payers_state_no' => 'Qui recusandae Nemo',
+    'state_income' => '250',
+    '2nd_tin_not' => 'Yes',
+    'created_at' => '2024-05-20 06:39:50',
+    'updated_at' => '2024-05-20 06:39:50',
+  ),
+)
+DEBUG - 2024-08-30 06:38:51 --> **************************************************array (
+  0 => 
+  array (
+    'amount' => NULL,
+    'positions' => '1',
+    'year' => '2022',
+    'month' => '9',
+  ),
+  1 => 
+  array (
+    'amount' => NULL,
+    'positions' => '1',
+    'year' => '2022',
+    'month' => '10',
+  ),
+  2 => 
+  array (
+    'amount' => NULL,
+    'positions' => '1',
+    'year' => '2022',
+    'month' => '11',
+  ),
+  3 => 
+  array (
+    'amount' => NULL,
+    'positions' => '7',
+    'year' => '2022',
+    'month' => '12',
+  ),
+  4 => 
+  array (
+    'amount' => '11.741258562394977',
+    'positions' => '9',
+    'year' => '2023',
+    'month' => '1',
+  ),
+  5 => 
+  array (
+    'amount' => '8.110386103362952',
+    'positions' => '8',
+    'year' => '2023',
+    'month' => '2',
+  ),
+  6 => 
+  array (
+    'amount' => '7.138001125413441',
+    'positions' => '7',
+    'year' => '2023',
+    'month' => '3',
+  ),
+  7 => 
+  array (
+    'amount' => '0.18996006845407873',
+    'positions' => '1',
+    'year' => '2023',
+    'month' => '4',
+  ),
+  8 => 
+  array (
+    'amount' => '5.694760820045558',
+    'positions' => '1',
+    'year' => '2024',
+    'month' => '2',
+  ),
+  9 => 
+  array (
+    'amount' => '67.9989265983751',
+    'positions' => '2',
+    'year' => '2024',
+    'month' => '8',
+  ),
+)
+DEBUG - 2024-08-30 06:38:51 --> **************************************************array (
+  0 => 
+  array (
+    'amount' => NULL,
+    'positions' => '1',
+    'year' => '2022',
+    'month' => '11',
+  ),
+  1 => 
+  array (
+    'amount' => NULL,
+    'positions' => '1',
+    'year' => '2022',
+    'month' => '12',
+  ),
+  2 => 
+  array (
+    'amount' => '0.7099995369134013',
+    'positions' => '2',
+    'year' => '2023',
+    'month' => '1',
+  ),
+  3 => 
+  array (
+    'amount' => '1.3398807762692178',
+    'positions' => '2',
+    'year' => '2023',
+    'month' => '2',
+  ),
+  4 => 
+  array (
+    'amount' => '1.6900961997453299',
+    'positions' => '4',
+    'year' => '2023',
+    'month' => '3',
+  ),
+)
+DEBUG - 2024-08-30 06:38:51 --> ***************** Chart BY Admin *****************
+DEBUG - 2024-08-30 06:38:51 --> PLID: 52
+DEBUG - 2024-08-30 06:38:52 --> ***************** Chart BY Admin *****************
+DEBUG - 2024-08-30 06:38:52 --> PLID: 52
+DEBUG - 2024-08-30 06:38:52 --> ***************** Transaction Chart BY Admin *****************
+DEBUG - 2024-08-30 06:39:04 --> **********************Tax Form Data****************************array (
+)
+DEBUG - 2024-08-30 06:39:04 --> **************************************************array (
+  0 => 
+  array (
+    'amount' => NULL,
+    'positions' => '12',
+    'year' => '2022',
+    'month' => '10',
+  ),
+  1 => 
+  array (
+    'amount' => NULL,
+    'positions' => '13',
+    'year' => '2022',
+    'month' => '11',
+  ),
+  2 => 
+  array (
+    'amount' => NULL,
+    'positions' => '7',
+    'year' => '2022',
+    'month' => '12',
+  ),
+  3 => 
+  array (
+    'amount' => '9.309922776117405',
+    'positions' => '9',
+    'year' => '2023',
+    'month' => '1',
+  ),
+  4 => 
+  array (
+    'amount' => '8.110029825408619',
+    'positions' => '8',
+    'year' => '2023',
+    'month' => '2',
+  ),
+  5 => 
+  array (
+    'amount' => '7.239879932857962',
+    'positions' => '7',
+    'year' => '2023',
+    'month' => '3',
+  ),
+  6 => 
+  array (
+    'amount' => '0.19000567859170928',
+    'positions' => '1',
+    'year' => '2023',
+    'month' => '4',
+  ),
+  7 => 
+  array (
+    'amount' => '68.00160253093607',
+    'positions' => '2',
+    'year' => '2024',
+    'month' => '8',
+  ),
+)
+DEBUG - 2024-08-30 06:39:04 --> **************************************************array (
+  0 => 
+  array (
+    'amount' => NULL,
+    'positions' => '1',
+    'year' => '2022',
+    'month' => '10',
+  ),
+  1 => 
+  array (
+    'amount' => NULL,
+    'positions' => '4',
+    'year' => '2022',
+    'month' => '11',
+  ),
+  2 => 
+  array (
+    'amount' => NULL,
+    'positions' => '1',
+    'year' => '2022',
+    'month' => '12',
+  ),
+  3 => 
+  array (
+    'amount' => '0.9800653855957936',
+    'positions' => '3',
+    'year' => '2023',
+    'month' => '1',
+  ),
+  4 => 
+  array (
+    'amount' => '1.3400859554614024',
+    'positions' => '2',
+    'year' => '2023',
+    'month' => '2',
+  ),
+  5 => 
+  array (
+    'amount' => '1.7200354195255114',
+    'positions' => '4',
+    'year' => '2023',
+    'month' => '3',
+  ),
+)
+DEBUG - 2024-08-30 06:39:04 --> ***************** Chart BY Admin *****************
+DEBUG - 2024-08-30 06:39:04 --> PLID: 53
+DEBUG - 2024-08-30 06:39:05 --> ***************** Chart BY Admin *****************
+DEBUG - 2024-08-30 06:39:05 --> PLID: 53
+DEBUG - 2024-08-30 06:39:05 --> ***************** Transaction Chart BY Admin *****************
+DEBUG - 2024-08-30 06:39:35 --> **********************Tax Form Data****************************array (
+)
+DEBUG - 2024-08-30 06:39:35 --> **************************************************array (
+  0 => 
+  array (
+    'amount' => NULL,
+    'positions' => '12',
+    'year' => '2022',
+    'month' => '10',
+  ),
+  1 => 
+  array (
+    'amount' => NULL,
+    'positions' => '13',
+    'year' => '2022',
+    'month' => '11',
+  ),
+  2 => 
+  array (
+    'amount' => NULL,
+    'positions' => '7',
+    'year' => '2022',
+    'month' => '12',
+  ),
+  3 => 
+  array (
+    'amount' => '9.309922776117405',
+    'positions' => '9',
+    'year' => '2023',
+    'month' => '1',
+  ),
+  4 => 
+  array (
+    'amount' => '8.110029825408619',
+    'positions' => '8',
+    'year' => '2023',
+    'month' => '2',
+  ),
+  5 => 
+  array (
+    'amount' => '7.239879932857962',
+    'positions' => '7',
+    'year' => '2023',
+    'month' => '3',
+  ),
+  6 => 
+  array (
+    'amount' => '0.19000567859170928',
+    'positions' => '1',
+    'year' => '2023',
+    'month' => '4',
+  ),
+  7 => 
+  array (
+    'amount' => '68.00160253093607',
+    'positions' => '2',
+    'year' => '2024',
+    'month' => '8',
+  ),
+)
+DEBUG - 2024-08-30 06:39:35 --> **************************************************array (
+  0 => 
+  array (
+    'amount' => NULL,
+    'positions' => '1',
+    'year' => '2022',
+    'month' => '10',
+  ),
+  1 => 
+  array (
+    'amount' => NULL,
+    'positions' => '4',
+    'year' => '2022',
+    'month' => '11',
+  ),
+  2 => 
+  array (
+    'amount' => NULL,
+    'positions' => '1',
+    'year' => '2022',
+    'month' => '12',
+  ),
+  3 => 
+  array (
+    'amount' => '0.9800653855957936',
+    'positions' => '3',
+    'year' => '2023',
+    'month' => '1',
+  ),
+  4 => 
+  array (
+    'amount' => '1.3400859554614024',
+    'positions' => '2',
+    'year' => '2023',
+    'month' => '2',
+  ),
+  5 => 
+  array (
+    'amount' => '1.7200354195255114',
+    'positions' => '4',
+    'year' => '2023',
+    'month' => '3',
+  ),
+)
+DEBUG - 2024-08-30 06:39:35 --> ***************** Chart BY Admin *****************
+DEBUG - 2024-08-30 06:39:35 --> PLID: 53
+DEBUG - 2024-08-30 06:39:35 --> ***************** Chart BY Admin *****************
+DEBUG - 2024-08-30 06:39:35 --> ***************** Transaction Chart BY Admin *****************
+DEBUG - 2024-08-30 06:39:36 --> PLID: 53
+DEBUG - 2024-08-30 06:40:08 --> **********************Tax Form Data****************************array (
+)
+DEBUG - 2024-08-30 06:40:08 --> **************************************************array (
+  0 => 
+  array (
+    'amount' => NULL,
+    'positions' => '12',
+    'year' => '2022',
+    'month' => '10',
+  ),
+  1 => 
+  array (
+    'amount' => NULL,
+    'positions' => '13',
+    'year' => '2022',
+    'month' => '11',
+  ),
+  2 => 
+  array (
+    'amount' => NULL,
+    'positions' => '7',
+    'year' => '2022',
+    'month' => '12',
+  ),
+  3 => 
+  array (
+    'amount' => '9.309922776117405',
+    'positions' => '9',
+    'year' => '2023',
+    'month' => '1',
+  ),
+  4 => 
+  array (
+    'amount' => '8.110029825408619',
+    'positions' => '8',
+    'year' => '2023',
+    'month' => '2',
+  ),
+  5 => 
+  array (
+    'amount' => '7.239879932857962',
+    'positions' => '7',
+    'year' => '2023',
+    'month' => '3',
+  ),
+  6 => 
+  array (
+    'amount' => '0.19000567859170928',
+    'positions' => '1',
+    'year' => '2023',
+    'month' => '4',
+  ),
+  7 => 
+  array (
+    'amount' => '68.00160253093607',
+    'positions' => '2',
+    'year' => '2024',
+    'month' => '8',
+  ),
+)
+DEBUG - 2024-08-30 06:40:08 --> **************************************************array (
+  0 => 
+  array (
+    'amount' => NULL,
+    'positions' => '1',
+    'year' => '2022',
+    'month' => '10',
+  ),
+  1 => 
+  array (
+    'amount' => NULL,
+    'positions' => '4',
+    'year' => '2022',
+    'month' => '11',
+  ),
+  2 => 
+  array (
+    'amount' => NULL,
+    'positions' => '1',
+    'year' => '2022',
+    'month' => '12',
+  ),
+  3 => 
+  array (
+    'amount' => '0.9800653855957936',
+    'positions' => '3',
+    'year' => '2023',
+    'month' => '1',
+  ),
+  4 => 
+  array (
+    'amount' => '1.3400859554614024',
+    'positions' => '2',
+    'year' => '2023',
+    'month' => '2',
+  ),
+  5 => 
+  array (
+    'amount' => '1.7200354195255114',
+    'positions' => '4',
+    'year' => '2023',
+    'month' => '3',
+  ),
+)
+DEBUG - 2024-08-30 06:40:08 --> ***************** Chart BY Admin *****************
+DEBUG - 2024-08-30 06:40:08 --> PLID: 53
+DEBUG - 2024-08-30 06:40:09 --> ***************** Chart BY Admin *****************
+DEBUG - 2024-08-30 06:40:09 --> PLID: 53
+DEBUG - 2024-08-30 06:40:10 --> ***************** Transaction Chart BY Admin *****************
+DEBUG - 2024-08-30 06:40:34 --> **********************Tax Form Data****************************array (
+)
+DEBUG - 2024-08-30 06:40:34 --> **************************************************array (
+  0 => 
+  array (
+    'amount' => NULL,
+    'positions' => '12',
+    'year' => '2022',
+    'month' => '10',
+  ),
+  1 => 
+  array (
+    'amount' => NULL,
+    'positions' => '13',
+    'year' => '2022',
+    'month' => '11',
+  ),
+  2 => 
+  array (
+    'amount' => NULL,
+    'positions' => '7',
+    'year' => '2022',
+    'month' => '12',
+  ),
+  3 => 
+  array (
+    'amount' => '9.309922776117405',
+    'positions' => '9',
+    'year' => '2023',
+    'month' => '1',
+  ),
+  4 => 
+  array (
+    'amount' => '8.110029825408619',
+    'positions' => '8',
+    'year' => '2023',
+    'month' => '2',
+  ),
+  5 => 
+  array (
+    'amount' => '7.239879932857962',
+    'positions' => '7',
+    'year' => '2023',
+    'month' => '3',
+  ),
+  6 => 
+  array (
+    'amount' => '0.19000567859170928',
+    'positions' => '1',
+    'year' => '2023',
+    'month' => '4',
+  ),
+  7 => 
+  array (
+    'amount' => '68.00160253093607',
+    'positions' => '2',
+    'year' => '2024',
+    'month' => '8',
+  ),
+)
+DEBUG - 2024-08-30 06:40:34 --> **************************************************array (
+  0 => 
+  array (
+    'amount' => NULL,
+    'positions' => '1',
+    'year' => '2022',
+    'month' => '10',
+  ),
+  1 => 
+  array (
+    'amount' => NULL,
+    'positions' => '4',
+    'year' => '2022',
+    'month' => '11',
+  ),
+  2 => 
+  array (
+    'amount' => NULL,
+    'positions' => '1',
+    'year' => '2022',
+    'month' => '12',
+  ),
+  3 => 
+  array (
+    'amount' => '0.9800653855957936',
+    'positions' => '3',
+    'year' => '2023',
+    'month' => '1',
+  ),
+  4 => 
+  array (
+    'amount' => '1.3400859554614024',
+    'positions' => '2',
+    'year' => '2023',
+    'month' => '2',
+  ),
+  5 => 
+  array (
+    'amount' => '1.7200354195255114',
+    'positions' => '4',
+    'year' => '2023',
+    'month' => '3',
+  ),
+)
+DEBUG - 2024-08-30 06:40:34 --> ***************** Chart BY Admin *****************
+DEBUG - 2024-08-30 06:40:34 --> PLID: 53
+DEBUG - 2024-08-30 06:40:35 --> ***************** Transaction Chart BY Admin *****************
+DEBUG - 2024-08-30 06:40:36 --> ***************** Chart BY Admin *****************
+DEBUG - 2024-08-30 06:40:36 --> PLID: 53
+DEBUG - 2024-08-30 06:41:45 --> **********************Tax Form Data****************************array (
+)
+DEBUG - 2024-08-30 06:41:45 --> **************************************************array (
+  0 => 
+  array (
+    'amount' => NULL,
+    'positions' => '12',
+    'year' => '2022',
+    'month' => '10',
+  ),
+  1 => 
+  array (
+    'amount' => NULL,
+    'positions' => '13',
+    'year' => '2022',
+    'month' => '11',
+  ),
+  2 => 
+  array (
+    'amount' => NULL,
+    'positions' => '7',
+    'year' => '2022',
+    'month' => '12',
+  ),
+  3 => 
+  array (
+    'amount' => '9.309922776117405',
+    'positions' => '9',
+    'year' => '2023',
+    'month' => '1',
+  ),
+  4 => 
+  array (
+    'amount' => '8.110029825408619',
+    'positions' => '8',
+    'year' => '2023',
+    'month' => '2',
+  ),
+  5 => 
+  array (
+    'amount' => '7.239879932857962',
+    'positions' => '7',
+    'year' => '2023',
+    'month' => '3',
+  ),
+  6 => 
+  array (
+    'amount' => '0.19000567859170928',
+    'positions' => '1',
+    'year' => '2023',
+    'month' => '4',
+  ),
+  7 => 
+  array (
+    'amount' => '68.00160253093607',
+    'positions' => '2',
+    'year' => '2024',
+    'month' => '8',
+  ),
+)
+DEBUG - 2024-08-30 06:41:45 --> **************************************************array (
+  0 => 
+  array (
+    'amount' => NULL,
+    'positions' => '1',
+    'year' => '2022',
+    'month' => '10',
+  ),
+  1 => 
+  array (
+    'amount' => NULL,
+    'positions' => '4',
+    'year' => '2022',
+    'month' => '11',
+  ),
+  2 => 
+  array (
+    'amount' => NULL,
+    'positions' => '1',
+    'year' => '2022',
+    'month' => '12',
+  ),
+  3 => 
+  array (
+    'amount' => '0.9800653855957936',
+    'positions' => '3',
+    'year' => '2023',
+    'month' => '1',
+  ),
+  4 => 
+  array (
+    'amount' => '1.3400859554614024',
+    'positions' => '2',
+    'year' => '2023',
+    'month' => '2',
+  ),
+  5 => 
+  array (
+    'amount' => '1.7200354195255114',
+    'positions' => '4',
+    'year' => '2023',
+    'month' => '3',
+  ),
+)
+DEBUG - 2024-08-30 06:41:45 --> ***************** Chart BY Admin *****************
+DEBUG - 2024-08-30 06:41:45 --> PLID: 53
+DEBUG - 2024-08-30 06:41:46 --> ***************** Chart BY Admin *****************
+DEBUG - 2024-08-30 06:41:46 --> PLID: 53
+DEBUG - 2024-08-30 06:41:46 --> ***************** Transaction Chart BY Admin *****************
+DEBUG - 2024-08-30 06:42:55 --> **********************Tax Form Data****************************array (
+)
+DEBUG - 2024-08-30 06:42:55 --> **************************************************array (
+  0 => 
+  array (
+    'amount' => NULL,
+    'positions' => '12',
+    'year' => '2022',
+    'month' => '10',
+  ),
+  1 => 
+  array (
+    'amount' => NULL,
+    'positions' => '13',
+    'year' => '2022',
+    'month' => '11',
+  ),
+  2 => 
+  array (
+    'amount' => NULL,
+    'positions' => '7',
+    'year' => '2022',
+    'month' => '12',
+  ),
+  3 => 
+  array (
+    'amount' => '9.309922776117405',
+    'positions' => '9',
+    'year' => '2023',
+    'month' => '1',
+  ),
+  4 => 
+  array (
+    'amount' => '8.110029825408619',
+    'positions' => '8',
+    'year' => '2023',
+    'month' => '2',
+  ),
+  5 => 
+  array (
+    'amount' => '7.239879932857962',
+    'positions' => '7',
+    'year' => '2023',
+    'month' => '3',
+  ),
+  6 => 
+  array (
+    'amount' => '0.19000567859170928',
+    'positions' => '1',
+    'year' => '2023',
+    'month' => '4',
+  ),
+  7 => 
+  array (
+    'amount' => '68.00160253093607',
+    'positions' => '2',
+    'year' => '2024',
+    'month' => '8',
+  ),
+)
+DEBUG - 2024-08-30 06:42:55 --> **************************************************array (
+  0 => 
+  array (
+    'amount' => NULL,
+    'positions' => '1',
+    'year' => '2022',
+    'month' => '10',
+  ),
+  1 => 
+  array (
+    'amount' => NULL,
+    'positions' => '4',
+    'year' => '2022',
+    'month' => '11',
+  ),
+  2 => 
+  array (
+    'amount' => NULL,
+    'positions' => '1',
+    'year' => '2022',
+    'month' => '12',
+  ),
+  3 => 
+  array (
+    'amount' => '0.9800653855957936',
+    'positions' => '3',
+    'year' => '2023',
+    'month' => '1',
+  ),
+  4 => 
+  array (
+    'amount' => '1.3400859554614024',
+    'positions' => '2',
+    'year' => '2023',
+    'month' => '2',
+  ),
+  5 => 
+  array (
+    'amount' => '1.7200354195255114',
+    'positions' => '4',
+    'year' => '2023',
+    'month' => '3',
+  ),
+)
+DEBUG - 2024-08-30 06:42:55 --> ***************** Chart BY Admin *****************
+DEBUG - 2024-08-30 06:42:55 --> PLID: 53
+DEBUG - 2024-08-30 06:42:57 --> ***************** Chart BY Admin *****************
+DEBUG - 2024-08-30 06:42:57 --> ***************** Transaction Chart BY Admin *****************
+DEBUG - 2024-08-30 06:42:57 --> PLID: 53
+DEBUG - 2024-08-30 06:43:11 --> **********************Tax Form Data****************************array (
+)
+DEBUG - 2024-08-30 06:43:11 --> **************************************************array (
+  0 => 
+  array (
+    'amount' => NULL,
+    'positions' => '12',
+    'year' => '2022',
+    'month' => '10',
+  ),
+  1 => 
+  array (
+    'amount' => NULL,
+    'positions' => '13',
+    'year' => '2022',
+    'month' => '11',
+  ),
+  2 => 
+  array (
+    'amount' => NULL,
+    'positions' => '7',
+    'year' => '2022',
+    'month' => '12',
+  ),
+  3 => 
+  array (
+    'amount' => '9.309922776117405',
+    'positions' => '9',
+    'year' => '2023',
+    'month' => '1',
+  ),
+  4 => 
+  array (
+    'amount' => '8.110029825408619',
+    'positions' => '8',
+    'year' => '2023',
+    'month' => '2',
+  ),
+  5 => 
+  array (
+    'amount' => '7.239879932857962',
+    'positions' => '7',
+    'year' => '2023',
+    'month' => '3',
+  ),
+  6 => 
+  array (
+    'amount' => '0.19000567859170928',
+    'positions' => '1',
+    'year' => '2023',
+    'month' => '4',
+  ),
+  7 => 
+  array (
+    'amount' => '68.00160253093607',
+    'positions' => '2',
+    'year' => '2024',
+    'month' => '8',
+  ),
+)
+DEBUG - 2024-08-30 06:43:11 --> **************************************************array (
+  0 => 
+  array (
+    'amount' => NULL,
+    'positions' => '1',
+    'year' => '2022',
+    'month' => '10',
+  ),
+  1 => 
+  array (
+    'amount' => NULL,
+    'positions' => '4',
+    'year' => '2022',
+    'month' => '11',
+  ),
+  2 => 
+  array (
+    'amount' => NULL,
+    'positions' => '1',
+    'year' => '2022',
+    'month' => '12',
+  ),
+  3 => 
+  array (
+    'amount' => '0.9800653855957936',
+    'positions' => '3',
+    'year' => '2023',
+    'month' => '1',
+  ),
+  4 => 
+  array (
+    'amount' => '1.3400859554614024',
+    'positions' => '2',
+    'year' => '2023',
+    'month' => '2',
+  ),
+  5 => 
+  array (
+    'amount' => '1.7200354195255114',
+    'positions' => '4',
+    'year' => '2023',
+    'month' => '3',
+  ),
+)
+DEBUG - 2024-08-30 06:43:11 --> ***************** Chart BY Admin *****************
+DEBUG - 2024-08-30 06:43:11 --> PLID: 53
+DEBUG - 2024-08-30 06:43:12 --> ***************** Chart BY Admin *****************
+DEBUG - 2024-08-30 06:43:12 --> PLID: 53
+DEBUG - 2024-08-30 06:43:12 --> ***************** Transaction Chart BY Admin *****************
+DEBUG - 2024-08-30 06:43:54 --> Notifications CHeck array (
+  0 => 
+  array (
+    'id' => '182',
+    'title' => 'Withdrawal Request has been Accepted',
+    'description' => 'Your withdrawal request has been Accepted.',
+    'publishDate' => '2024-08-30 17:50:44',
+    'user_id' => '49',
+    'is_read' => 'N',
+  ),
+  1 => 
+  array (
+    'id' => '180',
+    'title' => 'Deposit Request has been Accepted',
+    'description' => 'Your deposit request has been Accepted.',
+    'publishDate' => '2024-08-30 16:27:11',
+    'user_id' => '49',
+    'is_read' => 'N',
+  ),
+  2 => 
+  array (
+    'id' => '179',
+    'title' => 'Withdrawal Request has been Completed',
+    'description' => 'Your Withdrawal request has been Completed.',
+    'publishDate' => '2024-08-26 18:20:34',
+    'user_id' => '49',
+    'is_read' => 'N',
+  ),
+  3 => 
+  array (
+    'id' => '178',
+    'title' => 'Withdrawal Request has been Rejected',
+    'description' => 'Your withdrawal request has been rejected.',
+    'publishDate' => '2024-08-26 18:19:54',
+    'user_id' => '49',
+    'is_read' => 'N',
+  ),
+  4 => 
+  array (
+    'id' => '177',
+    'title' => 'Withdrawal Request has been Accepted',
+    'description' => 'Your withdrawal request has been Accepted.',
+    'publishDate' => '2024-08-26 18:19:31',
+    'user_id' => '49',
+    'is_read' => 'N',
+  ),
+  5 => 
+  array (
+    'id' => '175',
+    'title' => 'Deposit Request has been Completed',
+    'description' => 'Your deposit request has been Completed.',
+    'publishDate' => '2024-08-26 18:11:42',
+    'user_id' => '49',
+    'is_read' => 'N',
+  ),
+  6 => 
+  array (
+    'id' => '174',
+    'title' => 'Deposit Request has been Accepted',
+    'description' => 'Your deposit request has been Accepted.',
+    'publishDate' => '2024-08-26 18:08:27',
+    'user_id' => '49',
+    'is_read' => 'N',
+  ),
+  7 => 
+  array (
+    'id' => '171',
+    'title' => 'Withdrawal Request has been Completed',
+    'description' => 'Your Withdrawal request has been Completed.',
+    'publishDate' => '2024-08-23 19:16:00',
+    'user_id' => '49',
+    'is_read' => 'N',
+  ),
+  8 => 
+  array (
+    'id' => '170',
+    'title' => 'Deposit Request has been Completed',
+    'description' => 'Your deposit request has been Completed.',
+    'publishDate' => '2024-08-23 18:38:49',
+    'user_id' => '49',
+    'is_read' => 'N',
+  ),
+  9 => 
+  array (
+    'id' => '167',
+    'title' => 'Deposit Request has been Rejected',
+    'description' => 'Your deposit request has been Rejected.',
+    'publishDate' => '2024-08-22 13:01:42',
+    'user_id' => '49',
+    'is_read' => 'N',
+  ),
+  10 => 
+  array (
+    'id' => '166',
+    'title' => 'Deposit Request has been Accepted',
+    'description' => 'Your deposit request has been Accepted.',
+    'publishDate' => '2024-08-22 13:01:23',
+    'user_id' => '49',
+    'is_read' => 'N',
+  ),
+  11 => 
+  array (
+    'id' => '165',
+    'title' => 'Withdrawal Request has been Accepted',
+    'description' => 'Your withdrawal request has been Accepted.',
+    'publishDate' => '2024-08-22 11:41:23',
+    'user_id' => '49',
+    'is_read' => 'N',
+  ),
+  12 => 
+  array (
+    'id' => '164',
+    'title' => 'Withdrawal Request has been Rejected',
+    'description' => 'Your withdrawal request has been rejected.',
+    'publishDate' => '2024-08-22 11:41:05',
+    'user_id' => '49',
+    'is_read' => 'N',
+  ),
+  13 => 
+  array (
+    'id' => '129',
+    'title' => 'Withdrawal Request Accepted',
+    'description' => 'Your withdrawal request has been Accepted.',
+    'publishDate' => '2024-08-21 12:52:54',
+    'user_id' => '49',
+    'is_read' => 'N',
+  ),
+  14 => 
+  array (
+    'id' => '140',
+    'title' => 'Withdrawal Request Accepted',
+    'description' => 'Your withdrawal request has been Accepted.',
+    'publishDate' => '2024-08-21 12:52:54',
+    'user_id' => '49',
+    'is_read' => 'N',
+  ),
+  15 => 
+  array (
+    'id' => '133',
+    'title' => 'Withdrawal Request has been Completed',
+    'description' => 'Your Withdrawal request has been Completed.',
+    'publishDate' => '2023-02-24 08:15:40',
+    'user_id' => '49',
+    'is_read' => 'N',
+  ),
+  16 => 
+  array (
+    'id' => '132',
+    'title' => 'Withdrawal Request has been Accepted',
+    'description' => 'Your withdrawal request has been Accepted.',
+    'publishDate' => '2023-02-24 08:15:31',
+    'user_id' => '49',
+    'is_read' => 'N',
+  ),
+  17 => 
+  array (
+    'id' => '131',
+    'title' => 'Withdrawal Request has been Completed',
+    'description' => 'Your Withdrawal request has been Completed.',
+    'publishDate' => '2023-02-24 08:14:42',
+    'user_id' => '49',
+    'is_read' => 'N',
+  ),
+  18 => 
+  array (
+    'id' => '130',
+    'title' => 'Withdrawal Request has been Accepted',
+    'description' => 'Your withdrawal request has been Accepted.',
+    'publishDate' => '2023-02-24 08:14:31',
+    'user_id' => '49',
+    'is_read' => 'N',
+  ),
+  19 => 
+  array (
+    'id' => '88',
+    'title' => 'Deposit Request has been Accepted',
+    'description' => 'Your deposit request has been Accepted.',
+    'publishDate' => '2023-01-31 07:47:51',
+    'user_id' => '49',
+    'is_read' => 'N',
+  ),
+  20 => 
+  array (
+    'id' => '87',
+    'title' => 'Deposit Request has been Completed',
+    'description' => 'Your deposit request has been Completed.',
+    'publishDate' => '2023-01-31 07:47:27',
+    'user_id' => '49',
+    'is_read' => 'N',
+  ),
+  21 => 
+  array (
+    'id' => '86',
+    'title' => 'Deposit Request has been Rejected',
+    'description' => 'Your deposit request has been Rejected.',
+    'publishDate' => '2023-01-31 07:30:54',
+    'user_id' => '49',
+    'is_read' => 'N',
+  ),
+  22 => 
+  array (
+    'id' => '85',
+    'title' => 'Deposit Request has been Completed',
+    'description' => 'Your deposit request has been Completed.',
+    'publishDate' => '2023-01-31 07:30:08',
+    'user_id' => '49',
+    'is_read' => 'N',
+  ),
+  23 => 
+  array (
+    'id' => '84',
+    'title' => 'Deposit Request has been Accepted',
+    'description' => 'Your deposit request has been Accepted.',
+    'publishDate' => '2023-01-31 07:29:28',
+    'user_id' => '49',
+    'is_read' => 'N',
+  ),
+  24 => 
+  array (
+    'id' => '82',
+    'title' => 'Withdrawal Request has been Completed',
+    'description' => 'Your Withdrawal request has been Completed.',
+    'publishDate' => '2023-01-31 07:27:58',
+    'user_id' => '49',
+    'is_read' => 'N',
+  ),
+  25 => 
+  array (
+    'id' => '81',
+    'title' => 'Withdrawal Request has been Completed',
+    'description' => 'Your Withdrawal request has been Completed.',
+    'publishDate' => '2023-01-31 07:27:48',
+    'user_id' => '49',
+    'is_read' => 'N',
+  ),
+  26 => 
+  array (
+    'id' => '80',
+    'title' => 'Withdrawal Request has been Accepted',
+    'description' => 'Your withdrawal request has been Accepted.',
+    'publishDate' => '2023-01-31 07:27:19',
+    'user_id' => '49',
+    'is_read' => 'N',
+  ),
+  27 => 
+  array (
+    'id' => '79',
+    'title' => 'Withdrawal Request has been Completed',
+    'description' => 'Your Withdrawal request has been Completed.',
+    'publishDate' => '2023-01-31 07:26:58',
+    'user_id' => '49',
+    'is_read' => 'Y',
+  ),
+  28 => 
+  array (
+    'id' => '78',
+    'title' => 'Withdrawal Request has been Accepted',
+    'description' => 'Your withdrawal request has been Accepted.',
+    'publishDate' => '2023-01-31 07:26:42',
+    'user_id' => '49',
+    'is_read' => 'N',
+  ),
+  29 => 
+  array (
+    'id' => '77',
+    'title' => 'Withdrawal Request has been Accepted',
+    'description' => 'Your withdrawal request has been Accepted.',
+    'publishDate' => '2023-01-31 07:26:19',
+    'user_id' => '49',
+    'is_read' => 'N',
+  ),
+  30 => 
+  array (
+    'id' => '76',
+    'title' => 'Withdrawal Request has been Completed',
+    'description' => 'Your Withdrawal request has been Completed.',
+    'publishDate' => '2023-01-31 07:26:01',
+    'user_id' => '49',
+    'is_read' => 'N',
+  ),
+  31 => 
+  array (
+    'id' => '75',
+    'title' => 'Withdrawal Request has been Accepted',
+    'description' => 'Your withdrawal request has been Accepted.',
+    'publishDate' => '2023-01-31 07:24:06',
+    'user_id' => '49',
+    'is_read' => 'N',
+  ),
+)
+DEBUG - 2024-08-30 06:43:54 --> PLID: 49
+ERROR - 2024-08-30 06:43:55 --> 49
+DEBUG - 2024-08-30 06:43:55 --> ***************** Transaction Chart BY Admin *****************
+DEBUG - 2024-08-30 06:43:55 --> PLID: 49
+DEBUG - 2024-08-30 06:44:21 --> Notifications CHeck array (
+  0 => 
+  array (
+    'id' => '182',
+    'title' => 'Withdrawal Request has been Accepted',
+    'description' => 'Your withdrawal request has been Accepted.',
+    'publishDate' => '2024-08-30 17:50:44',
+    'user_id' => '49',
+    'is_read' => 'N',
+  ),
+  1 => 
+  array (
+    'id' => '180',
+    'title' => 'Deposit Request has been Accepted',
+    'description' => 'Your deposit request has been Accepted.',
+    'publishDate' => '2024-08-30 16:27:11',
+    'user_id' => '49',
+    'is_read' => 'N',
+  ),
+  2 => 
+  array (
+    'id' => '179',
+    'title' => 'Withdrawal Request has been Completed',
+    'description' => 'Your Withdrawal request has been Completed.',
+    'publishDate' => '2024-08-26 18:20:34',
+    'user_id' => '49',
+    'is_read' => 'N',
+  ),
+  3 => 
+  array (
+    'id' => '178',
+    'title' => 'Withdrawal Request has been Rejected',
+    'description' => 'Your withdrawal request has been rejected.',
+    'publishDate' => '2024-08-26 18:19:54',
+    'user_id' => '49',
+    'is_read' => 'N',
+  ),
+  4 => 
+  array (
+    'id' => '177',
+    'title' => 'Withdrawal Request has been Accepted',
+    'description' => 'Your withdrawal request has been Accepted.',
+    'publishDate' => '2024-08-26 18:19:31',
+    'user_id' => '49',
+    'is_read' => 'N',
+  ),
+  5 => 
+  array (
+    'id' => '175',
+    'title' => 'Deposit Request has been Completed',
+    'description' => 'Your deposit request has been Completed.',
+    'publishDate' => '2024-08-26 18:11:42',
+    'user_id' => '49',
+    'is_read' => 'N',
+  ),
+  6 => 
+  array (
+    'id' => '174',
+    'title' => 'Deposit Request has been Accepted',
+    'description' => 'Your deposit request has been Accepted.',
+    'publishDate' => '2024-08-26 18:08:27',
+    'user_id' => '49',
+    'is_read' => 'N',
+  ),
+  7 => 
+  array (
+    'id' => '171',
+    'title' => 'Withdrawal Request has been Completed',
+    'description' => 'Your Withdrawal request has been Completed.',
+    'publishDate' => '2024-08-23 19:16:00',
+    'user_id' => '49',
+    'is_read' => 'N',
+  ),
+  8 => 
+  array (
+    'id' => '170',
+    'title' => 'Deposit Request has been Completed',
+    'description' => 'Your deposit request has been Completed.',
+    'publishDate' => '2024-08-23 18:38:49',
+    'user_id' => '49',
+    'is_read' => 'N',
+  ),
+  9 => 
+  array (
+    'id' => '167',
+    'title' => 'Deposit Request has been Rejected',
+    'description' => 'Your deposit request has been Rejected.',
+    'publishDate' => '2024-08-22 13:01:42',
+    'user_id' => '49',
+    'is_read' => 'N',
+  ),
+  10 => 
+  array (
+    'id' => '166',
+    'title' => 'Deposit Request has been Accepted',
+    'description' => 'Your deposit request has been Accepted.',
+    'publishDate' => '2024-08-22 13:01:23',
+    'user_id' => '49',
+    'is_read' => 'N',
+  ),
+  11 => 
+  array (
+    'id' => '165',
+    'title' => 'Withdrawal Request has been Accepted',
+    'description' => 'Your withdrawal request has been Accepted.',
+    'publishDate' => '2024-08-22 11:41:23',
+    'user_id' => '49',
+    'is_read' => 'N',
+  ),
+  12 => 
+  array (
+    'id' => '164',
+    'title' => 'Withdrawal Request has been Rejected',
+    'description' => 'Your withdrawal request has been rejected.',
+    'publishDate' => '2024-08-22 11:41:05',
+    'user_id' => '49',
+    'is_read' => 'N',
+  ),
+  13 => 
+  array (
+    'id' => '129',
+    'title' => 'Withdrawal Request Accepted',
+    'description' => 'Your withdrawal request has been Accepted.',
+    'publishDate' => '2024-08-21 12:52:54',
+    'user_id' => '49',
+    'is_read' => 'N',
+  ),
+  14 => 
+  array (
+    'id' => '140',
+    'title' => 'Withdrawal Request Accepted',
+    'description' => 'Your withdrawal request has been Accepted.',
+    'publishDate' => '2024-08-21 12:52:54',
+    'user_id' => '49',
+    'is_read' => 'N',
+  ),
+  15 => 
+  array (
+    'id' => '133',
+    'title' => 'Withdrawal Request has been Completed',
+    'description' => 'Your Withdrawal request has been Completed.',
+    'publishDate' => '2023-02-24 08:15:40',
+    'user_id' => '49',
+    'is_read' => 'N',
+  ),
+  16 => 
+  array (
+    'id' => '132',
+    'title' => 'Withdrawal Request has been Accepted',
+    'description' => 'Your withdrawal request has been Accepted.',
+    'publishDate' => '2023-02-24 08:15:31',
+    'user_id' => '49',
+    'is_read' => 'N',
+  ),
+  17 => 
+  array (
+    'id' => '131',
+    'title' => 'Withdrawal Request has been Completed',
+    'description' => 'Your Withdrawal request has been Completed.',
+    'publishDate' => '2023-02-24 08:14:42',
+    'user_id' => '49',
+    'is_read' => 'N',
+  ),
+  18 => 
+  array (
+    'id' => '130',
+    'title' => 'Withdrawal Request has been Accepted',
+    'description' => 'Your withdrawal request has been Accepted.',
+    'publishDate' => '2023-02-24 08:14:31',
+    'user_id' => '49',
+    'is_read' => 'N',
+  ),
+  19 => 
+  array (
+    'id' => '88',
+    'title' => 'Deposit Request has been Accepted',
+    'description' => 'Your deposit request has been Accepted.',
+    'publishDate' => '2023-01-31 07:47:51',
+    'user_id' => '49',
+    'is_read' => 'N',
+  ),
+  20 => 
+  array (
+    'id' => '87',
+    'title' => 'Deposit Request has been Completed',
+    'description' => 'Your deposit request has been Completed.',
+    'publishDate' => '2023-01-31 07:47:27',
+    'user_id' => '49',
+    'is_read' => 'N',
+  ),
+  21 => 
+  array (
+    'id' => '86',
+    'title' => 'Deposit Request has been Rejected',
+    'description' => 'Your deposit request has been Rejected.',
+    'publishDate' => '2023-01-31 07:30:54',
+    'user_id' => '49',
+    'is_read' => 'N',
+  ),
+  22 => 
+  array (
+    'id' => '85',
+    'title' => 'Deposit Request has been Completed',
+    'description' => 'Your deposit request has been Completed.',
+    'publishDate' => '2023-01-31 07:30:08',
+    'user_id' => '49',
+    'is_read' => 'N',
+  ),
+  23 => 
+  array (
+    'id' => '84',
+    'title' => 'Deposit Request has been Accepted',
+    'description' => 'Your deposit request has been Accepted.',
+    'publishDate' => '2023-01-31 07:29:28',
+    'user_id' => '49',
+    'is_read' => 'N',
+  ),
+  24 => 
+  array (
+    'id' => '82',
+    'title' => 'Withdrawal Request has been Completed',
+    'description' => 'Your Withdrawal request has been Completed.',
+    'publishDate' => '2023-01-31 07:27:58',
+    'user_id' => '49',
+    'is_read' => 'N',
+  ),
+  25 => 
+  array (
+    'id' => '81',
+    'title' => 'Withdrawal Request has been Completed',
+    'description' => 'Your Withdrawal request has been Completed.',
+    'publishDate' => '2023-01-31 07:27:48',
+    'user_id' => '49',
+    'is_read' => 'N',
+  ),
+  26 => 
+  array (
+    'id' => '80',
+    'title' => 'Withdrawal Request has been Accepted',
+    'description' => 'Your withdrawal request has been Accepted.',
+    'publishDate' => '2023-01-31 07:27:19',
+    'user_id' => '49',
+    'is_read' => 'N',
+  ),
+  27 => 
+  array (
+    'id' => '79',
+    'title' => 'Withdrawal Request has been Completed',
+    'description' => 'Your Withdrawal request has been Completed.',
+    'publishDate' => '2023-01-31 07:26:58',
+    'user_id' => '49',
+    'is_read' => 'Y',
+  ),
+  28 => 
+  array (
+    'id' => '78',
+    'title' => 'Withdrawal Request has been Accepted',
+    'description' => 'Your withdrawal request has been Accepted.',
+    'publishDate' => '2023-01-31 07:26:42',
+    'user_id' => '49',
+    'is_read' => 'N',
+  ),
+  29 => 
+  array (
+    'id' => '77',
+    'title' => 'Withdrawal Request has been Accepted',
+    'description' => 'Your withdrawal request has been Accepted.',
+    'publishDate' => '2023-01-31 07:26:19',
+    'user_id' => '49',
+    'is_read' => 'N',
+  ),
+  30 => 
+  array (
+    'id' => '76',
+    'title' => 'Withdrawal Request has been Completed',
+    'description' => 'Your Withdrawal request has been Completed.',
+    'publishDate' => '2023-01-31 07:26:01',
+    'user_id' => '49',
+    'is_read' => 'N',
+  ),
+  31 => 
+  array (
+    'id' => '75',
+    'title' => 'Withdrawal Request has been Accepted',
+    'description' => 'Your withdrawal request has been Accepted.',
+    'publishDate' => '2023-01-31 07:24:06',
+    'user_id' => '49',
+    'is_read' => 'N',
+  ),
+)
+DEBUG - 2024-08-30 06:44:21 --> PLID: 49
+DEBUG - 2024-08-30 06:44:22 --> ***************** Transaction Chart BY Admin *****************
+DEBUG - 2024-08-30 06:44:22 --> PLID: 49
+ERROR - 2024-08-30 06:44:22 --> 49
+DEBUG - 2024-08-30 06:45:10 --> Notifications CHeck array (
+  0 => 
+  array (
+    'id' => '182',
+    'title' => 'Withdrawal Request has been Accepted',
+    'description' => 'Your withdrawal request has been Accepted.',
+    'publishDate' => '2024-08-30 17:50:44',
+    'user_id' => '49',
+    'is_read' => 'N',
+  ),
+  1 => 
+  array (
+    'id' => '180',
+    'title' => 'Deposit Request has been Accepted',
+    'description' => 'Your deposit request has been Accepted.',
+    'publishDate' => '2024-08-30 16:27:11',
+    'user_id' => '49',
+    'is_read' => 'N',
+  ),
+  2 => 
+  array (
+    'id' => '179',
+    'title' => 'Withdrawal Request has been Completed',
+    'description' => 'Your Withdrawal request has been Completed.',
+    'publishDate' => '2024-08-26 18:20:34',
+    'user_id' => '49',
+    'is_read' => 'N',
+  ),
+  3 => 
+  array (
+    'id' => '178',
+    'title' => 'Withdrawal Request has been Rejected',
+    'description' => 'Your withdrawal request has been rejected.',
+    'publishDate' => '2024-08-26 18:19:54',
+    'user_id' => '49',
+    'is_read' => 'N',
+  ),
+  4 => 
+  array (
+    'id' => '177',
+    'title' => 'Withdrawal Request has been Accepted',
+    'description' => 'Your withdrawal request has been Accepted.',
+    'publishDate' => '2024-08-26 18:19:31',
+    'user_id' => '49',
+    'is_read' => 'N',
+  ),
+  5 => 
+  array (
+    'id' => '175',
+    'title' => 'Deposit Request has been Completed',
+    'description' => 'Your deposit request has been Completed.',
+    'publishDate' => '2024-08-26 18:11:42',
+    'user_id' => '49',
+    'is_read' => 'N',
+  ),
+  6 => 
+  array (
+    'id' => '174',
+    'title' => 'Deposit Request has been Accepted',
+    'description' => 'Your deposit request has been Accepted.',
+    'publishDate' => '2024-08-26 18:08:27',
+    'user_id' => '49',
+    'is_read' => 'N',
+  ),
+  7 => 
+  array (
+    'id' => '171',
+    'title' => 'Withdrawal Request has been Completed',
+    'description' => 'Your Withdrawal request has been Completed.',
+    'publishDate' => '2024-08-23 19:16:00',
+    'user_id' => '49',
+    'is_read' => 'N',
+  ),
+  8 => 
+  array (
+    'id' => '170',
+    'title' => 'Deposit Request has been Completed',
+    'description' => 'Your deposit request has been Completed.',
+    'publishDate' => '2024-08-23 18:38:49',
+    'user_id' => '49',
+    'is_read' => 'N',
+  ),
+  9 => 
+  array (
+    'id' => '167',
+    'title' => 'Deposit Request has been Rejected',
+    'description' => 'Your deposit request has been Rejected.',
+    'publishDate' => '2024-08-22 13:01:42',
+    'user_id' => '49',
+    'is_read' => 'N',
+  ),
+  10 => 
+  array (
+    'id' => '166',
+    'title' => 'Deposit Request has been Accepted',
+    'description' => 'Your deposit request has been Accepted.',
+    'publishDate' => '2024-08-22 13:01:23',
+    'user_id' => '49',
+    'is_read' => 'N',
+  ),
+  11 => 
+  array (
+    'id' => '165',
+    'title' => 'Withdrawal Request has been Accepted',
+    'description' => 'Your withdrawal request has been Accepted.',
+    'publishDate' => '2024-08-22 11:41:23',
+    'user_id' => '49',
+    'is_read' => 'N',
+  ),
+  12 => 
+  array (
+    'id' => '164',
+    'title' => 'Withdrawal Request has been Rejected',
+    'description' => 'Your withdrawal request has been rejected.',
+    'publishDate' => '2024-08-22 11:41:05',
+    'user_id' => '49',
+    'is_read' => 'N',
+  ),
+  13 => 
+  array (
+    'id' => '129',
+    'title' => 'Withdrawal Request Accepted',
+    'description' => 'Your withdrawal request has been Accepted.',
+    'publishDate' => '2024-08-21 12:52:54',
+    'user_id' => '49',
+    'is_read' => 'N',
+  ),
+  14 => 
+  array (
+    'id' => '140',
+    'title' => 'Withdrawal Request Accepted',
+    'description' => 'Your withdrawal request has been Accepted.',
+    'publishDate' => '2024-08-21 12:52:54',
+    'user_id' => '49',
+    'is_read' => 'N',
+  ),
+  15 => 
+  array (
+    'id' => '133',
+    'title' => 'Withdrawal Request has been Completed',
+    'description' => 'Your Withdrawal request has been Completed.',
+    'publishDate' => '2023-02-24 08:15:40',
+    'user_id' => '49',
+    'is_read' => 'N',
+  ),
+  16 => 
+  array (
+    'id' => '132',
+    'title' => 'Withdrawal Request has been Accepted',
+    'description' => 'Your withdrawal request has been Accepted.',
+    'publishDate' => '2023-02-24 08:15:31',
+    'user_id' => '49',
+    'is_read' => 'N',
+  ),
+  17 => 
+  array (
+    'id' => '131',
+    'title' => 'Withdrawal Request has been Completed',
+    'description' => 'Your Withdrawal request has been Completed.',
+    'publishDate' => '2023-02-24 08:14:42',
+    'user_id' => '49',
+    'is_read' => 'N',
+  ),
+  18 => 
+  array (
+    'id' => '130',
+    'title' => 'Withdrawal Request has been Accepted',
+    'description' => 'Your withdrawal request has been Accepted.',
+    'publishDate' => '2023-02-24 08:14:31',
+    'user_id' => '49',
+    'is_read' => 'N',
+  ),
+  19 => 
+  array (
+    'id' => '88',
+    'title' => 'Deposit Request has been Accepted',
+    'description' => 'Your deposit request has been Accepted.',
+    'publishDate' => '2023-01-31 07:47:51',
+    'user_id' => '49',
+    'is_read' => 'N',
+  ),
+  20 => 
+  array (
+    'id' => '87',
+    'title' => 'Deposit Request has been Completed',
+    'description' => 'Your deposit request has been Completed.',
+    'publishDate' => '2023-01-31 07:47:27',
+    'user_id' => '49',
+    'is_read' => 'N',
+  ),
+  21 => 
+  array (
+    'id' => '86',
+    'title' => 'Deposit Request has been Rejected',
+    'description' => 'Your deposit request has been Rejected.',
+    'publishDate' => '2023-01-31 07:30:54',
+    'user_id' => '49',
+    'is_read' => 'N',
+  ),
+  22 => 
+  array (
+    'id' => '85',
+    'title' => 'Deposit Request has been Completed',
+    'description' => 'Your deposit request has been Completed.',
+    'publishDate' => '2023-01-31 07:30:08',
+    'user_id' => '49',
+    'is_read' => 'N',
+  ),
+  23 => 
+  array (
+    'id' => '84',
+    'title' => 'Deposit Request has been Accepted',
+    'description' => 'Your deposit request has been Accepted.',
+    'publishDate' => '2023-01-31 07:29:28',
+    'user_id' => '49',
+    'is_read' => 'N',
+  ),
+  24 => 
+  array (
+    'id' => '82',
+    'title' => 'Withdrawal Request has been Completed',
+    'description' => 'Your Withdrawal request has been Completed.',
+    'publishDate' => '2023-01-31 07:27:58',
+    'user_id' => '49',
+    'is_read' => 'N',
+  ),
+  25 => 
+  array (
+    'id' => '81',
+    'title' => 'Withdrawal Request has been Completed',
+    'description' => 'Your Withdrawal request has been Completed.',
+    'publishDate' => '2023-01-31 07:27:48',
+    'user_id' => '49',
+    'is_read' => 'N',
+  ),
+  26 => 
+  array (
+    'id' => '80',
+    'title' => 'Withdrawal Request has been Accepted',
+    'description' => 'Your withdrawal request has been Accepted.',
+    'publishDate' => '2023-01-31 07:27:19',
+    'user_id' => '49',
+    'is_read' => 'N',
+  ),
+  27 => 
+  array (
+    'id' => '79',
+    'title' => 'Withdrawal Request has been Completed',
+    'description' => 'Your Withdrawal request has been Completed.',
+    'publishDate' => '2023-01-31 07:26:58',
+    'user_id' => '49',
+    'is_read' => 'Y',
+  ),
+  28 => 
+  array (
+    'id' => '78',
+    'title' => 'Withdrawal Request has been Accepted',
+    'description' => 'Your withdrawal request has been Accepted.',
+    'publishDate' => '2023-01-31 07:26:42',
+    'user_id' => '49',
+    'is_read' => 'N',
+  ),
+  29 => 
+  array (
+    'id' => '77',
+    'title' => 'Withdrawal Request has been Accepted',
+    'description' => 'Your withdrawal request has been Accepted.',
+    'publishDate' => '2023-01-31 07:26:19',
+    'user_id' => '49',
+    'is_read' => 'N',
+  ),
+  30 => 
+  array (
+    'id' => '76',
+    'title' => 'Withdrawal Request has been Completed',
+    'description' => 'Your Withdrawal request has been Completed.',
+    'publishDate' => '2023-01-31 07:26:01',
+    'user_id' => '49',
+    'is_read' => 'N',
+  ),
+  31 => 
+  array (
+    'id' => '75',
+    'title' => 'Withdrawal Request has been Accepted',
+    'description' => 'Your withdrawal request has been Accepted.',
+    'publishDate' => '2023-01-31 07:24:06',
+    'user_id' => '49',
+    'is_read' => 'N',
+  ),
+)
+DEBUG - 2024-08-30 06:45:10 --> PLID: 49
+DEBUG - 2024-08-30 06:45:10 --> ***************** Transaction Chart BY Admin *****************
+DEBUG - 2024-08-30 06:45:10 --> PLID: 49
+ERROR - 2024-08-30 06:45:10 --> 49
+DEBUG - 2024-08-30 06:46:07 --> Notifications CHeck array (
+  0 => 
+  array (
+    'id' => '182',
+    'title' => 'Withdrawal Request has been Accepted',
+    'description' => 'Your withdrawal request has been Accepted.',
+    'publishDate' => '2024-08-30 17:50:44',
+    'user_id' => '49',
+    'is_read' => 'N',
+  ),
+  1 => 
+  array (
+    'id' => '180',
+    'title' => 'Deposit Request has been Accepted',
+    'description' => 'Your deposit request has been Accepted.',
+    'publishDate' => '2024-08-30 16:27:11',
+    'user_id' => '49',
+    'is_read' => 'N',
+  ),
+  2 => 
+  array (
+    'id' => '179',
+    'title' => 'Withdrawal Request has been Completed',
+    'description' => 'Your Withdrawal request has been Completed.',
+    'publishDate' => '2024-08-26 18:20:34',
+    'user_id' => '49',
+    'is_read' => 'N',
+  ),
+  3 => 
+  array (
+    'id' => '178',
+    'title' => 'Withdrawal Request has been Rejected',
+    'description' => 'Your withdrawal request has been rejected.',
+    'publishDate' => '2024-08-26 18:19:54',
+    'user_id' => '49',
+    'is_read' => 'N',
+  ),
+  4 => 
+  array (
+    'id' => '177',
+    'title' => 'Withdrawal Request has been Accepted',
+    'description' => 'Your withdrawal request has been Accepted.',
+    'publishDate' => '2024-08-26 18:19:31',
+    'user_id' => '49',
+    'is_read' => 'N',
+  ),
+  5 => 
+  array (
+    'id' => '175',
+    'title' => 'Deposit Request has been Completed',
+    'description' => 'Your deposit request has been Completed.',
+    'publishDate' => '2024-08-26 18:11:42',
+    'user_id' => '49',
+    'is_read' => 'N',
+  ),
+  6 => 
+  array (
+    'id' => '174',
+    'title' => 'Deposit Request has been Accepted',
+    'description' => 'Your deposit request has been Accepted.',
+    'publishDate' => '2024-08-26 18:08:27',
+    'user_id' => '49',
+    'is_read' => 'N',
+  ),
+  7 => 
+  array (
+    'id' => '171',
+    'title' => 'Withdrawal Request has been Completed',
+    'description' => 'Your Withdrawal request has been Completed.',
+    'publishDate' => '2024-08-23 19:16:00',
+    'user_id' => '49',
+    'is_read' => 'N',
+  ),
+  8 => 
+  array (
+    'id' => '170',
+    'title' => 'Deposit Request has been Completed',
+    'description' => 'Your deposit request has been Completed.',
+    'publishDate' => '2024-08-23 18:38:49',
+    'user_id' => '49',
+    'is_read' => 'N',
+  ),
+  9 => 
+  array (
+    'id' => '167',
+    'title' => 'Deposit Request has been Rejected',
+    'description' => 'Your deposit request has been Rejected.',
+    'publishDate' => '2024-08-22 13:01:42',
+    'user_id' => '49',
+    'is_read' => 'N',
+  ),
+  10 => 
+  array (
+    'id' => '166',
+    'title' => 'Deposit Request has been Accepted',
+    'description' => 'Your deposit request has been Accepted.',
+    'publishDate' => '2024-08-22 13:01:23',
+    'user_id' => '49',
+    'is_read' => 'N',
+  ),
+  11 => 
+  array (
+    'id' => '165',
+    'title' => 'Withdrawal Request has been Accepted',
+    'description' => 'Your withdrawal request has been Accepted.',
+    'publishDate' => '2024-08-22 11:41:23',
+    'user_id' => '49',
+    'is_read' => 'N',
+  ),
+  12 => 
+  array (
+    'id' => '164',
+    'title' => 'Withdrawal Request has been Rejected',
+    'description' => 'Your withdrawal request has been rejected.',
+    'publishDate' => '2024-08-22 11:41:05',
+    'user_id' => '49',
+    'is_read' => 'N',
+  ),
+  13 => 
+  array (
+    'id' => '129',
+    'title' => 'Withdrawal Request Accepted',
+    'description' => 'Your withdrawal request has been Accepted.',
+    'publishDate' => '2024-08-21 12:52:54',
+    'user_id' => '49',
+    'is_read' => 'N',
+  ),
+  14 => 
+  array (
+    'id' => '140',
+    'title' => 'Withdrawal Request Accepted',
+    'description' => 'Your withdrawal request has been Accepted.',
+    'publishDate' => '2024-08-21 12:52:54',
+    'user_id' => '49',
+    'is_read' => 'N',
+  ),
+  15 => 
+  array (
+    'id' => '133',
+    'title' => 'Withdrawal Request has been Completed',
+    'description' => 'Your Withdrawal request has been Completed.',
+    'publishDate' => '2023-02-24 08:15:40',
+    'user_id' => '49',
+    'is_read' => 'N',
+  ),
+  16 => 
+  array (
+    'id' => '132',
+    'title' => 'Withdrawal Request has been Accepted',
+    'description' => 'Your withdrawal request has been Accepted.',
+    'publishDate' => '2023-02-24 08:15:31',
+    'user_id' => '49',
+    'is_read' => 'N',
+  ),
+  17 => 
+  array (
+    'id' => '131',
+    'title' => 'Withdrawal Request has been Completed',
+    'description' => 'Your Withdrawal request has been Completed.',
+    'publishDate' => '2023-02-24 08:14:42',
+    'user_id' => '49',
+    'is_read' => 'N',
+  ),
+  18 => 
+  array (
+    'id' => '130',
+    'title' => 'Withdrawal Request has been Accepted',
+    'description' => 'Your withdrawal request has been Accepted.',
+    'publishDate' => '2023-02-24 08:14:31',
+    'user_id' => '49',
+    'is_read' => 'N',
+  ),
+  19 => 
+  array (
+    'id' => '88',
+    'title' => 'Deposit Request has been Accepted',
+    'description' => 'Your deposit request has been Accepted.',
+    'publishDate' => '2023-01-31 07:47:51',
+    'user_id' => '49',
+    'is_read' => 'N',
+  ),
+  20 => 
+  array (
+    'id' => '87',
+    'title' => 'Deposit Request has been Completed',
+    'description' => 'Your deposit request has been Completed.',
+    'publishDate' => '2023-01-31 07:47:27',
+    'user_id' => '49',
+    'is_read' => 'N',
+  ),
+  21 => 
+  array (
+    'id' => '86',
+    'title' => 'Deposit Request has been Rejected',
+    'description' => 'Your deposit request has been Rejected.',
+    'publishDate' => '2023-01-31 07:30:54',
+    'user_id' => '49',
+    'is_read' => 'N',
+  ),
+  22 => 
+  array (
+    'id' => '85',
+    'title' => 'Deposit Request has been Completed',
+    'description' => 'Your deposit request has been Completed.',
+    'publishDate' => '2023-01-31 07:30:08',
+    'user_id' => '49',
+    'is_read' => 'N',
+  ),
+  23 => 
+  array (
+    'id' => '84',
+    'title' => 'Deposit Request has been Accepted',
+    'description' => 'Your deposit request has been Accepted.',
+    'publishDate' => '2023-01-31 07:29:28',
+    'user_id' => '49',
+    'is_read' => 'N',
+  ),
+  24 => 
+  array (
+    'id' => '82',
+    'title' => 'Withdrawal Request has been Completed',
+    'description' => 'Your Withdrawal request has been Completed.',
+    'publishDate' => '2023-01-31 07:27:58',
+    'user_id' => '49',
+    'is_read' => 'N',
+  ),
+  25 => 
+  array (
+    'id' => '81',
+    'title' => 'Withdrawal Request has been Completed',
+    'description' => 'Your Withdrawal request has been Completed.',
+    'publishDate' => '2023-01-31 07:27:48',
+    'user_id' => '49',
+    'is_read' => 'N',
+  ),
+  26 => 
+  array (
+    'id' => '80',
+    'title' => 'Withdrawal Request has been Accepted',
+    'description' => 'Your withdrawal request has been Accepted.',
+    'publishDate' => '2023-01-31 07:27:19',
+    'user_id' => '49',
+    'is_read' => 'N',
+  ),
+  27 => 
+  array (
+    'id' => '79',
+    'title' => 'Withdrawal Request has been Completed',
+    'description' => 'Your Withdrawal request has been Completed.',
+    'publishDate' => '2023-01-31 07:26:58',
+    'user_id' => '49',
+    'is_read' => 'Y',
+  ),
+  28 => 
+  array (
+    'id' => '78',
+    'title' => 'Withdrawal Request has been Accepted',
+    'description' => 'Your withdrawal request has been Accepted.',
+    'publishDate' => '2023-01-31 07:26:42',
+    'user_id' => '49',
+    'is_read' => 'N',
+  ),
+  29 => 
+  array (
+    'id' => '77',
+    'title' => 'Withdrawal Request has been Accepted',
+    'description' => 'Your withdrawal request has been Accepted.',
+    'publishDate' => '2023-01-31 07:26:19',
+    'user_id' => '49',
+    'is_read' => 'N',
+  ),
+  30 => 
+  array (
+    'id' => '76',
+    'title' => 'Withdrawal Request has been Completed',
+    'description' => 'Your Withdrawal request has been Completed.',
+    'publishDate' => '2023-01-31 07:26:01',
+    'user_id' => '49',
+    'is_read' => 'N',
+  ),
+  31 => 
+  array (
+    'id' => '75',
+    'title' => 'Withdrawal Request has been Accepted',
+    'description' => 'Your withdrawal request has been Accepted.',
+    'publishDate' => '2023-01-31 07:24:06',
+    'user_id' => '49',
+    'is_read' => 'N',
+  ),
+)
+DEBUG - 2024-08-30 06:46:07 --> PLID: 49
+DEBUG - 2024-08-30 06:46:08 --> PLID: 49
+ERROR - 2024-08-30 06:46:08 --> 49
+DEBUG - 2024-08-30 06:46:08 --> ***************** Transaction Chart BY Admin *****************
+DEBUG - 2024-08-30 06:46:43 --> Notifications CHeck array (
+  0 => 
+  array (
+    'id' => '182',
+    'title' => 'Withdrawal Request has been Accepted',
+    'description' => 'Your withdrawal request has been Accepted.',
+    'publishDate' => '2024-08-30 17:50:44',
+    'user_id' => '49',
+    'is_read' => 'N',
+  ),
+  1 => 
+  array (
+    'id' => '180',
+    'title' => 'Deposit Request has been Accepted',
+    'description' => 'Your deposit request has been Accepted.',
+    'publishDate' => '2024-08-30 16:27:11',
+    'user_id' => '49',
+    'is_read' => 'N',
+  ),
+  2 => 
+  array (
+    'id' => '179',
+    'title' => 'Withdrawal Request has been Completed',
+    'description' => 'Your Withdrawal request has been Completed.',
+    'publishDate' => '2024-08-26 18:20:34',
+    'user_id' => '49',
+    'is_read' => 'N',
+  ),
+  3 => 
+  array (
+    'id' => '178',
+    'title' => 'Withdrawal Request has been Rejected',
+    'description' => 'Your withdrawal request has been rejected.',
+    'publishDate' => '2024-08-26 18:19:54',
+    'user_id' => '49',
+    'is_read' => 'N',
+  ),
+  4 => 
+  array (
+    'id' => '177',
+    'title' => 'Withdrawal Request has been Accepted',
+    'description' => 'Your withdrawal request has been Accepted.',
+    'publishDate' => '2024-08-26 18:19:31',
+    'user_id' => '49',
+    'is_read' => 'N',
+  ),
+  5 => 
+  array (
+    'id' => '175',
+    'title' => 'Deposit Request has been Completed',
+    'description' => 'Your deposit request has been Completed.',
+    'publishDate' => '2024-08-26 18:11:42',
+    'user_id' => '49',
+    'is_read' => 'N',
+  ),
+  6 => 
+  array (
+    'id' => '174',
+    'title' => 'Deposit Request has been Accepted',
+    'description' => 'Your deposit request has been Accepted.',
+    'publishDate' => '2024-08-26 18:08:27',
+    'user_id' => '49',
+    'is_read' => 'N',
+  ),
+  7 => 
+  array (
+    'id' => '171',
+    'title' => 'Withdrawal Request has been Completed',
+    'description' => 'Your Withdrawal request has been Completed.',
+    'publishDate' => '2024-08-23 19:16:00',
+    'user_id' => '49',
+    'is_read' => 'N',
+  ),
+  8 => 
+  array (
+    'id' => '170',
+    'title' => 'Deposit Request has been Completed',
+    'description' => 'Your deposit request has been Completed.',
+    'publishDate' => '2024-08-23 18:38:49',
+    'user_id' => '49',
+    'is_read' => 'N',
+  ),
+  9 => 
+  array (
+    'id' => '167',
+    'title' => 'Deposit Request has been Rejected',
+    'description' => 'Your deposit request has been Rejected.',
+    'publishDate' => '2024-08-22 13:01:42',
+    'user_id' => '49',
+    'is_read' => 'N',
+  ),
+  10 => 
+  array (
+    'id' => '166',
+    'title' => 'Deposit Request has been Accepted',
+    'description' => 'Your deposit request has been Accepted.',
+    'publishDate' => '2024-08-22 13:01:23',
+    'user_id' => '49',
+    'is_read' => 'N',
+  ),
+  11 => 
+  array (
+    'id' => '165',
+    'title' => 'Withdrawal Request has been Accepted',
+    'description' => 'Your withdrawal request has been Accepted.',
+    'publishDate' => '2024-08-22 11:41:23',
+    'user_id' => '49',
+    'is_read' => 'N',
+  ),
+  12 => 
+  array (
+    'id' => '164',
+    'title' => 'Withdrawal Request has been Rejected',
+    'description' => 'Your withdrawal request has been rejected.',
+    'publishDate' => '2024-08-22 11:41:05',
+    'user_id' => '49',
+    'is_read' => 'N',
+  ),
+  13 => 
+  array (
+    'id' => '129',
+    'title' => 'Withdrawal Request Accepted',
+    'description' => 'Your withdrawal request has been Accepted.',
+    'publishDate' => '2024-08-21 12:52:54',
+    'user_id' => '49',
+    'is_read' => 'N',
+  ),
+  14 => 
+  array (
+    'id' => '140',
+    'title' => 'Withdrawal Request Accepted',
+    'description' => 'Your withdrawal request has been Accepted.',
+    'publishDate' => '2024-08-21 12:52:54',
+    'user_id' => '49',
+    'is_read' => 'N',
+  ),
+  15 => 
+  array (
+    'id' => '133',
+    'title' => 'Withdrawal Request has been Completed',
+    'description' => 'Your Withdrawal request has been Completed.',
+    'publishDate' => '2023-02-24 08:15:40',
+    'user_id' => '49',
+    'is_read' => 'N',
+  ),
+  16 => 
+  array (
+    'id' => '132',
+    'title' => 'Withdrawal Request has been Accepted',
+    'description' => 'Your withdrawal request has been Accepted.',
+    'publishDate' => '2023-02-24 08:15:31',
+    'user_id' => '49',
+    'is_read' => 'N',
+  ),
+  17 => 
+  array (
+    'id' => '131',
+    'title' => 'Withdrawal Request has been Completed',
+    'description' => 'Your Withdrawal request has been Completed.',
+    'publishDate' => '2023-02-24 08:14:42',
+    'user_id' => '49',
+    'is_read' => 'N',
+  ),
+  18 => 
+  array (
+    'id' => '130',
+    'title' => 'Withdrawal Request has been Accepted',
+    'description' => 'Your withdrawal request has been Accepted.',
+    'publishDate' => '2023-02-24 08:14:31',
+    'user_id' => '49',
+    'is_read' => 'N',
+  ),
+  19 => 
+  array (
+    'id' => '88',
+    'title' => 'Deposit Request has been Accepted',
+    'description' => 'Your deposit request has been Accepted.',
+    'publishDate' => '2023-01-31 07:47:51',
+    'user_id' => '49',
+    'is_read' => 'N',
+  ),
+  20 => 
+  array (
+    'id' => '87',
+    'title' => 'Deposit Request has been Completed',
+    'description' => 'Your deposit request has been Completed.',
+    'publishDate' => '2023-01-31 07:47:27',
+    'user_id' => '49',
+    'is_read' => 'N',
+  ),
+  21 => 
+  array (
+    'id' => '86',
+    'title' => 'Deposit Request has been Rejected',
+    'description' => 'Your deposit request has been Rejected.',
+    'publishDate' => '2023-01-31 07:30:54',
+    'user_id' => '49',
+    'is_read' => 'N',
+  ),
+  22 => 
+  array (
+    'id' => '85',
+    'title' => 'Deposit Request has been Completed',
+    'description' => 'Your deposit request has been Completed.',
+    'publishDate' => '2023-01-31 07:30:08',
+    'user_id' => '49',
+    'is_read' => 'N',
+  ),
+  23 => 
+  array (
+    'id' => '84',
+    'title' => 'Deposit Request has been Accepted',
+    'description' => 'Your deposit request has been Accepted.',
+    'publishDate' => '2023-01-31 07:29:28',
+    'user_id' => '49',
+    'is_read' => 'N',
+  ),
+  24 => 
+  array (
+    'id' => '82',
+    'title' => 'Withdrawal Request has been Completed',
+    'description' => 'Your Withdrawal request has been Completed.',
+    'publishDate' => '2023-01-31 07:27:58',
+    'user_id' => '49',
+    'is_read' => 'N',
+  ),
+  25 => 
+  array (
+    'id' => '81',
+    'title' => 'Withdrawal Request has been Completed',
+    'description' => 'Your Withdrawal request has been Completed.',
+    'publishDate' => '2023-01-31 07:27:48',
+    'user_id' => '49',
+    'is_read' => 'N',
+  ),
+  26 => 
+  array (
+    'id' => '80',
+    'title' => 'Withdrawal Request has been Accepted',
+    'description' => 'Your withdrawal request has been Accepted.',
+    'publishDate' => '2023-01-31 07:27:19',
+    'user_id' => '49',
+    'is_read' => 'N',
+  ),
+  27 => 
+  array (
+    'id' => '79',
+    'title' => 'Withdrawal Request has been Completed',
+    'description' => 'Your Withdrawal request has been Completed.',
+    'publishDate' => '2023-01-31 07:26:58',
+    'user_id' => '49',
+    'is_read' => 'Y',
+  ),
+  28 => 
+  array (
+    'id' => '78',
+    'title' => 'Withdrawal Request has been Accepted',
+    'description' => 'Your withdrawal request has been Accepted.',
+    'publishDate' => '2023-01-31 07:26:42',
+    'user_id' => '49',
+    'is_read' => 'N',
+  ),
+  29 => 
+  array (
+    'id' => '77',
+    'title' => 'Withdrawal Request has been Accepted',
+    'description' => 'Your withdrawal request has been Accepted.',
+    'publishDate' => '2023-01-31 07:26:19',
+    'user_id' => '49',
+    'is_read' => 'N',
+  ),
+  30 => 
+  array (
+    'id' => '76',
+    'title' => 'Withdrawal Request has been Completed',
+    'description' => 'Your Withdrawal request has been Completed.',
+    'publishDate' => '2023-01-31 07:26:01',
+    'user_id' => '49',
+    'is_read' => 'N',
+  ),
+  31 => 
+  array (
+    'id' => '75',
+    'title' => 'Withdrawal Request has been Accepted',
+    'description' => 'Your withdrawal request has been Accepted.',
+    'publishDate' => '2023-01-31 07:24:06',
+    'user_id' => '49',
+    'is_read' => 'N',
+  ),
+)
+DEBUG - 2024-08-30 06:46:43 --> PLID: 49
+DEBUG - 2024-08-30 06:46:44 --> ***************** Transaction Chart BY Admin *****************
+DEBUG - 2024-08-30 06:46:44 --> PLID: 49
+ERROR - 2024-08-30 06:46:44 --> 49
+DEBUG - 2024-08-30 06:47:05 --> Notifications CHeck array (
+  0 => 
+  array (
+    'id' => '182',
+    'title' => 'Withdrawal Request has been Accepted',
+    'description' => 'Your withdrawal request has been Accepted.',
+    'publishDate' => '2024-08-30 17:50:44',
+    'user_id' => '49',
+    'is_read' => 'N',
+  ),
+  1 => 
+  array (
+    'id' => '180',
+    'title' => 'Deposit Request has been Accepted',
+    'description' => 'Your deposit request has been Accepted.',
+    'publishDate' => '2024-08-30 16:27:11',
+    'user_id' => '49',
+    'is_read' => 'N',
+  ),
+  2 => 
+  array (
+    'id' => '179',
+    'title' => 'Withdrawal Request has been Completed',
+    'description' => 'Your Withdrawal request has been Completed.',
+    'publishDate' => '2024-08-26 18:20:34',
+    'user_id' => '49',
+    'is_read' => 'N',
+  ),
+  3 => 
+  array (
+    'id' => '178',
+    'title' => 'Withdrawal Request has been Rejected',
+    'description' => 'Your withdrawal request has been rejected.',
+    'publishDate' => '2024-08-26 18:19:54',
+    'user_id' => '49',
+    'is_read' => 'N',
+  ),
+  4 => 
+  array (
+    'id' => '177',
+    'title' => 'Withdrawal Request has been Accepted',
+    'description' => 'Your withdrawal request has been Accepted.',
+    'publishDate' => '2024-08-26 18:19:31',
+    'user_id' => '49',
+    'is_read' => 'N',
+  ),
+  5 => 
+  array (
+    'id' => '175',
+    'title' => 'Deposit Request has been Completed',
+    'description' => 'Your deposit request has been Completed.',
+    'publishDate' => '2024-08-26 18:11:42',
+    'user_id' => '49',
+    'is_read' => 'N',
+  ),
+  6 => 
+  array (
+    'id' => '174',
+    'title' => 'Deposit Request has been Accepted',
+    'description' => 'Your deposit request has been Accepted.',
+    'publishDate' => '2024-08-26 18:08:27',
+    'user_id' => '49',
+    'is_read' => 'N',
+  ),
+  7 => 
+  array (
+    'id' => '171',
+    'title' => 'Withdrawal Request has been Completed',
+    'description' => 'Your Withdrawal request has been Completed.',
+    'publishDate' => '2024-08-23 19:16:00',
+    'user_id' => '49',
+    'is_read' => 'N',
+  ),
+  8 => 
+  array (
+    'id' => '170',
+    'title' => 'Deposit Request has been Completed',
+    'description' => 'Your deposit request has been Completed.',
+    'publishDate' => '2024-08-23 18:38:49',
+    'user_id' => '49',
+    'is_read' => 'N',
+  ),
+  9 => 
+  array (
+    'id' => '167',
+    'title' => 'Deposit Request has been Rejected',
+    'description' => 'Your deposit request has been Rejected.',
+    'publishDate' => '2024-08-22 13:01:42',
+    'user_id' => '49',
+    'is_read' => 'N',
+  ),
+  10 => 
+  array (
+    'id' => '166',
+    'title' => 'Deposit Request has been Accepted',
+    'description' => 'Your deposit request has been Accepted.',
+    'publishDate' => '2024-08-22 13:01:23',
+    'user_id' => '49',
+    'is_read' => 'N',
+  ),
+  11 => 
+  array (
+    'id' => '165',
+    'title' => 'Withdrawal Request has been Accepted',
+    'description' => 'Your withdrawal request has been Accepted.',
+    'publishDate' => '2024-08-22 11:41:23',
+    'user_id' => '49',
+    'is_read' => 'N',
+  ),
+  12 => 
+  array (
+    'id' => '164',
+    'title' => 'Withdrawal Request has been Rejected',
+    'description' => 'Your withdrawal request has been rejected.',
+    'publishDate' => '2024-08-22 11:41:05',
+    'user_id' => '49',
+    'is_read' => 'N',
+  ),
+  13 => 
+  array (
+    'id' => '129',
+    'title' => 'Withdrawal Request Accepted',
+    'description' => 'Your withdrawal request has been Accepted.',
+    'publishDate' => '2024-08-21 12:52:54',
+    'user_id' => '49',
+    'is_read' => 'N',
+  ),
+  14 => 
+  array (
+    'id' => '140',
+    'title' => 'Withdrawal Request Accepted',
+    'description' => 'Your withdrawal request has been Accepted.',
+    'publishDate' => '2024-08-21 12:52:54',
+    'user_id' => '49',
+    'is_read' => 'N',
+  ),
+  15 => 
+  array (
+    'id' => '133',
+    'title' => 'Withdrawal Request has been Completed',
+    'description' => 'Your Withdrawal request has been Completed.',
+    'publishDate' => '2023-02-24 08:15:40',
+    'user_id' => '49',
+    'is_read' => 'N',
+  ),
+  16 => 
+  array (
+    'id' => '132',
+    'title' => 'Withdrawal Request has been Accepted',
+    'description' => 'Your withdrawal request has been Accepted.',
+    'publishDate' => '2023-02-24 08:15:31',
+    'user_id' => '49',
+    'is_read' => 'N',
+  ),
+  17 => 
+  array (
+    'id' => '131',
+    'title' => 'Withdrawal Request has been Completed',
+    'description' => 'Your Withdrawal request has been Completed.',
+    'publishDate' => '2023-02-24 08:14:42',
+    'user_id' => '49',
+    'is_read' => 'N',
+  ),
+  18 => 
+  array (
+    'id' => '130',
+    'title' => 'Withdrawal Request has been Accepted',
+    'description' => 'Your withdrawal request has been Accepted.',
+    'publishDate' => '2023-02-24 08:14:31',
+    'user_id' => '49',
+    'is_read' => 'N',
+  ),
+  19 => 
+  array (
+    'id' => '88',
+    'title' => 'Deposit Request has been Accepted',
+    'description' => 'Your deposit request has been Accepted.',
+    'publishDate' => '2023-01-31 07:47:51',
+    'user_id' => '49',
+    'is_read' => 'N',
+  ),
+  20 => 
+  array (
+    'id' => '87',
+    'title' => 'Deposit Request has been Completed',
+    'description' => 'Your deposit request has been Completed.',
+    'publishDate' => '2023-01-31 07:47:27',
+    'user_id' => '49',
+    'is_read' => 'N',
+  ),
+  21 => 
+  array (
+    'id' => '86',
+    'title' => 'Deposit Request has been Rejected',
+    'description' => 'Your deposit request has been Rejected.',
+    'publishDate' => '2023-01-31 07:30:54',
+    'user_id' => '49',
+    'is_read' => 'N',
+  ),
+  22 => 
+  array (
+    'id' => '85',
+    'title' => 'Deposit Request has been Completed',
+    'description' => 'Your deposit request has been Completed.',
+    'publishDate' => '2023-01-31 07:30:08',
+    'user_id' => '49',
+    'is_read' => 'N',
+  ),
+  23 => 
+  array (
+    'id' => '84',
+    'title' => 'Deposit Request has been Accepted',
+    'description' => 'Your deposit request has been Accepted.',
+    'publishDate' => '2023-01-31 07:29:28',
+    'user_id' => '49',
+    'is_read' => 'N',
+  ),
+  24 => 
+  array (
+    'id' => '82',
+    'title' => 'Withdrawal Request has been Completed',
+    'description' => 'Your Withdrawal request has been Completed.',
+    'publishDate' => '2023-01-31 07:27:58',
+    'user_id' => '49',
+    'is_read' => 'N',
+  ),
+  25 => 
+  array (
+    'id' => '81',
+    'title' => 'Withdrawal Request has been Completed',
+    'description' => 'Your Withdrawal request has been Completed.',
+    'publishDate' => '2023-01-31 07:27:48',
+    'user_id' => '49',
+    'is_read' => 'N',
+  ),
+  26 => 
+  array (
+    'id' => '80',
+    'title' => 'Withdrawal Request has been Accepted',
+    'description' => 'Your withdrawal request has been Accepted.',
+    'publishDate' => '2023-01-31 07:27:19',
+    'user_id' => '49',
+    'is_read' => 'N',
+  ),
+  27 => 
+  array (
+    'id' => '79',
+    'title' => 'Withdrawal Request has been Completed',
+    'description' => 'Your Withdrawal request has been Completed.',
+    'publishDate' => '2023-01-31 07:26:58',
+    'user_id' => '49',
+    'is_read' => 'Y',
+  ),
+  28 => 
+  array (
+    'id' => '78',
+    'title' => 'Withdrawal Request has been Accepted',
+    'description' => 'Your withdrawal request has been Accepted.',
+    'publishDate' => '2023-01-31 07:26:42',
+    'user_id' => '49',
+    'is_read' => 'N',
+  ),
+  29 => 
+  array (
+    'id' => '77',
+    'title' => 'Withdrawal Request has been Accepted',
+    'description' => 'Your withdrawal request has been Accepted.',
+    'publishDate' => '2023-01-31 07:26:19',
+    'user_id' => '49',
+    'is_read' => 'N',
+  ),
+  30 => 
+  array (
+    'id' => '76',
+    'title' => 'Withdrawal Request has been Completed',
+    'description' => 'Your Withdrawal request has been Completed.',
+    'publishDate' => '2023-01-31 07:26:01',
+    'user_id' => '49',
+    'is_read' => 'N',
+  ),
+  31 => 
+  array (
+    'id' => '75',
+    'title' => 'Withdrawal Request has been Accepted',
+    'description' => 'Your withdrawal request has been Accepted.',
+    'publishDate' => '2023-01-31 07:24:06',
+    'user_id' => '49',
+    'is_read' => 'N',
+  ),
+)
+DEBUG - 2024-08-30 06:47:05 --> PLID: 49
+DEBUG - 2024-08-30 06:47:06 --> PLID: 49
+ERROR - 2024-08-30 06:47:06 --> 49
+DEBUG - 2024-08-30 06:47:06 --> ***************** Transaction Chart BY Admin *****************
+DEBUG - 2024-08-30 06:47:23 --> Notifications CHeck array (
+  0 => 
+  array (
+    'id' => '182',
+    'title' => 'Withdrawal Request has been Accepted',
+    'description' => 'Your withdrawal request has been Accepted.',
+    'publishDate' => '2024-08-30 17:50:44',
+    'user_id' => '49',
+    'is_read' => 'N',
+  ),
+  1 => 
+  array (
+    'id' => '180',
+    'title' => 'Deposit Request has been Accepted',
+    'description' => 'Your deposit request has been Accepted.',
+    'publishDate' => '2024-08-30 16:27:11',
+    'user_id' => '49',
+    'is_read' => 'N',
+  ),
+  2 => 
+  array (
+    'id' => '179',
+    'title' => 'Withdrawal Request has been Completed',
+    'description' => 'Your Withdrawal request has been Completed.',
+    'publishDate' => '2024-08-26 18:20:34',
+    'user_id' => '49',
+    'is_read' => 'N',
+  ),
+  3 => 
+  array (
+    'id' => '178',
+    'title' => 'Withdrawal Request has been Rejected',
+    'description' => 'Your withdrawal request has been rejected.',
+    'publishDate' => '2024-08-26 18:19:54',
+    'user_id' => '49',
+    'is_read' => 'N',
+  ),
+  4 => 
+  array (
+    'id' => '177',
+    'title' => 'Withdrawal Request has been Accepted',
+    'description' => 'Your withdrawal request has been Accepted.',
+    'publishDate' => '2024-08-26 18:19:31',
+    'user_id' => '49',
+    'is_read' => 'N',
+  ),
+  5 => 
+  array (
+    'id' => '175',
+    'title' => 'Deposit Request has been Completed',
+    'description' => 'Your deposit request has been Completed.',
+    'publishDate' => '2024-08-26 18:11:42',
+    'user_id' => '49',
+    'is_read' => 'N',
+  ),
+  6 => 
+  array (
+    'id' => '174',
+    'title' => 'Deposit Request has been Accepted',
+    'description' => 'Your deposit request has been Accepted.',
+    'publishDate' => '2024-08-26 18:08:27',
+    'user_id' => '49',
+    'is_read' => 'N',
+  ),
+  7 => 
+  array (
+    'id' => '171',
+    'title' => 'Withdrawal Request has been Completed',
+    'description' => 'Your Withdrawal request has been Completed.',
+    'publishDate' => '2024-08-23 19:16:00',
+    'user_id' => '49',
+    'is_read' => 'N',
+  ),
+  8 => 
+  array (
+    'id' => '170',
+    'title' => 'Deposit Request has been Completed',
+    'description' => 'Your deposit request has been Completed.',
+    'publishDate' => '2024-08-23 18:38:49',
+    'user_id' => '49',
+    'is_read' => 'N',
+  ),
+  9 => 
+  array (
+    'id' => '167',
+    'title' => 'Deposit Request has been Rejected',
+    'description' => 'Your deposit request has been Rejected.',
+    'publishDate' => '2024-08-22 13:01:42',
+    'user_id' => '49',
+    'is_read' => 'N',
+  ),
+  10 => 
+  array (
+    'id' => '166',
+    'title' => 'Deposit Request has been Accepted',
+    'description' => 'Your deposit request has been Accepted.',
+    'publishDate' => '2024-08-22 13:01:23',
+    'user_id' => '49',
+    'is_read' => 'N',
+  ),
+  11 => 
+  array (
+    'id' => '165',
+    'title' => 'Withdrawal Request has been Accepted',
+    'description' => 'Your withdrawal request has been Accepted.',
+    'publishDate' => '2024-08-22 11:41:23',
+    'user_id' => '49',
+    'is_read' => 'N',
+  ),
+  12 => 
+  array (
+    'id' => '164',
+    'title' => 'Withdrawal Request has been Rejected',
+    'description' => 'Your withdrawal request has been rejected.',
+    'publishDate' => '2024-08-22 11:41:05',
+    'user_id' => '49',
+    'is_read' => 'N',
+  ),
+  13 => 
+  array (
+    'id' => '129',
+    'title' => 'Withdrawal Request Accepted',
+    'description' => 'Your withdrawal request has been Accepted.',
+    'publishDate' => '2024-08-21 12:52:54',
+    'user_id' => '49',
+    'is_read' => 'N',
+  ),
+  14 => 
+  array (
+    'id' => '140',
+    'title' => 'Withdrawal Request Accepted',
+    'description' => 'Your withdrawal request has been Accepted.',
+    'publishDate' => '2024-08-21 12:52:54',
+    'user_id' => '49',
+    'is_read' => 'N',
+  ),
+  15 => 
+  array (
+    'id' => '133',
+    'title' => 'Withdrawal Request has been Completed',
+    'description' => 'Your Withdrawal request has been Completed.',
+    'publishDate' => '2023-02-24 08:15:40',
+    'user_id' => '49',
+    'is_read' => 'N',
+  ),
+  16 => 
+  array (
+    'id' => '132',
+    'title' => 'Withdrawal Request has been Accepted',
+    'description' => 'Your withdrawal request has been Accepted.',
+    'publishDate' => '2023-02-24 08:15:31',
+    'user_id' => '49',
+    'is_read' => 'N',
+  ),
+  17 => 
+  array (
+    'id' => '131',
+    'title' => 'Withdrawal Request has been Completed',
+    'description' => 'Your Withdrawal request has been Completed.',
+    'publishDate' => '2023-02-24 08:14:42',
+    'user_id' => '49',
+    'is_read' => 'N',
+  ),
+  18 => 
+  array (
+    'id' => '130',
+    'title' => 'Withdrawal Request has been Accepted',
+    'description' => 'Your withdrawal request has been Accepted.',
+    'publishDate' => '2023-02-24 08:14:31',
+    'user_id' => '49',
+    'is_read' => 'N',
+  ),
+  19 => 
+  array (
+    'id' => '88',
+    'title' => 'Deposit Request has been Accepted',
+    'description' => 'Your deposit request has been Accepted.',
+    'publishDate' => '2023-01-31 07:47:51',
+    'user_id' => '49',
+    'is_read' => 'N',
+  ),
+  20 => 
+  array (
+    'id' => '87',
+    'title' => 'Deposit Request has been Completed',
+    'description' => 'Your deposit request has been Completed.',
+    'publishDate' => '2023-01-31 07:47:27',
+    'user_id' => '49',
+    'is_read' => 'N',
+  ),
+  21 => 
+  array (
+    'id' => '86',
+    'title' => 'Deposit Request has been Rejected',
+    'description' => 'Your deposit request has been Rejected.',
+    'publishDate' => '2023-01-31 07:30:54',
+    'user_id' => '49',
+    'is_read' => 'N',
+  ),
+  22 => 
+  array (
+    'id' => '85',
+    'title' => 'Deposit Request has been Completed',
+    'description' => 'Your deposit request has been Completed.',
+    'publishDate' => '2023-01-31 07:30:08',
+    'user_id' => '49',
+    'is_read' => 'N',
+  ),
+  23 => 
+  array (
+    'id' => '84',
+    'title' => 'Deposit Request has been Accepted',
+    'description' => 'Your deposit request has been Accepted.',
+    'publishDate' => '2023-01-31 07:29:28',
+    'user_id' => '49',
+    'is_read' => 'N',
+  ),
+  24 => 
+  array (
+    'id' => '82',
+    'title' => 'Withdrawal Request has been Completed',
+    'description' => 'Your Withdrawal request has been Completed.',
+    'publishDate' => '2023-01-31 07:27:58',
+    'user_id' => '49',
+    'is_read' => 'N',
+  ),
+  25 => 
+  array (
+    'id' => '81',
+    'title' => 'Withdrawal Request has been Completed',
+    'description' => 'Your Withdrawal request has been Completed.',
+    'publishDate' => '2023-01-31 07:27:48',
+    'user_id' => '49',
+    'is_read' => 'N',
+  ),
+  26 => 
+  array (
+    'id' => '80',
+    'title' => 'Withdrawal Request has been Accepted',
+    'description' => 'Your withdrawal request has been Accepted.',
+    'publishDate' => '2023-01-31 07:27:19',
+    'user_id' => '49',
+    'is_read' => 'N',
+  ),
+  27 => 
+  array (
+    'id' => '79',
+    'title' => 'Withdrawal Request has been Completed',
+    'description' => 'Your Withdrawal request has been Completed.',
+    'publishDate' => '2023-01-31 07:26:58',
+    'user_id' => '49',
+    'is_read' => 'Y',
+  ),
+  28 => 
+  array (
+    'id' => '78',
+    'title' => 'Withdrawal Request has been Accepted',
+    'description' => 'Your withdrawal request has been Accepted.',
+    'publishDate' => '2023-01-31 07:26:42',
+    'user_id' => '49',
+    'is_read' => 'N',
+  ),
+  29 => 
+  array (
+    'id' => '77',
+    'title' => 'Withdrawal Request has been Accepted',
+    'description' => 'Your withdrawal request has been Accepted.',
+    'publishDate' => '2023-01-31 07:26:19',
+    'user_id' => '49',
+    'is_read' => 'N',
+  ),
+  30 => 
+  array (
+    'id' => '76',
+    'title' => 'Withdrawal Request has been Completed',
+    'description' => 'Your Withdrawal request has been Completed.',
+    'publishDate' => '2023-01-31 07:26:01',
+    'user_id' => '49',
+    'is_read' => 'N',
+  ),
+  31 => 
+  array (
+    'id' => '75',
+    'title' => 'Withdrawal Request has been Accepted',
+    'description' => 'Your withdrawal request has been Accepted.',
+    'publishDate' => '2023-01-31 07:24:06',
+    'user_id' => '49',
+    'is_read' => 'N',
+  ),
+)
+DEBUG - 2024-08-30 06:47:23 --> PLID: 49
+DEBUG - 2024-08-30 06:47:24 --> ***************** Transaction Chart BY Admin *****************
+DEBUG - 2024-08-30 06:47:24 --> PLID: 49
+ERROR - 2024-08-30 06:47:24 --> 49
+DEBUG - 2024-08-30 06:47:38 --> Notifications CHeck array (
+  0 => 
+  array (
+    'id' => '182',
+    'title' => 'Withdrawal Request has been Accepted',
+    'description' => 'Your withdrawal request has been Accepted.',
+    'publishDate' => '2024-08-30 17:50:44',
+    'user_id' => '49',
+    'is_read' => 'N',
+  ),
+  1 => 
+  array (
+    'id' => '180',
+    'title' => 'Deposit Request has been Accepted',
+    'description' => 'Your deposit request has been Accepted.',
+    'publishDate' => '2024-08-30 16:27:11',
+    'user_id' => '49',
+    'is_read' => 'N',
+  ),
+  2 => 
+  array (
+    'id' => '179',
+    'title' => 'Withdrawal Request has been Completed',
+    'description' => 'Your Withdrawal request has been Completed.',
+    'publishDate' => '2024-08-26 18:20:34',
+    'user_id' => '49',
+    'is_read' => 'N',
+  ),
+  3 => 
+  array (
+    'id' => '178',
+    'title' => 'Withdrawal Request has been Rejected',
+    'description' => 'Your withdrawal request has been rejected.',
+    'publishDate' => '2024-08-26 18:19:54',
+    'user_id' => '49',
+    'is_read' => 'N',
+  ),
+  4 => 
+  array (
+    'id' => '177',
+    'title' => 'Withdrawal Request has been Accepted',
+    'description' => 'Your withdrawal request has been Accepted.',
+    'publishDate' => '2024-08-26 18:19:31',
+    'user_id' => '49',
+    'is_read' => 'N',
+  ),
+  5 => 
+  array (
+    'id' => '175',
+    'title' => 'Deposit Request has been Completed',
+    'description' => 'Your deposit request has been Completed.',
+    'publishDate' => '2024-08-26 18:11:42',
+    'user_id' => '49',
+    'is_read' => 'N',
+  ),
+  6 => 
+  array (
+    'id' => '174',
+    'title' => 'Deposit Request has been Accepted',
+    'description' => 'Your deposit request has been Accepted.',
+    'publishDate' => '2024-08-26 18:08:27',
+    'user_id' => '49',
+    'is_read' => 'N',
+  ),
+  7 => 
+  array (
+    'id' => '171',
+    'title' => 'Withdrawal Request has been Completed',
+    'description' => 'Your Withdrawal request has been Completed.',
+    'publishDate' => '2024-08-23 19:16:00',
+    'user_id' => '49',
+    'is_read' => 'N',
+  ),
+  8 => 
+  array (
+    'id' => '170',
+    'title' => 'Deposit Request has been Completed',
+    'description' => 'Your deposit request has been Completed.',
+    'publishDate' => '2024-08-23 18:38:49',
+    'user_id' => '49',
+    'is_read' => 'N',
+  ),
+  9 => 
+  array (
+    'id' => '167',
+    'title' => 'Deposit Request has been Rejected',
+    'description' => 'Your deposit request has been Rejected.',
+    'publishDate' => '2024-08-22 13:01:42',
+    'user_id' => '49',
+    'is_read' => 'N',
+  ),
+  10 => 
+  array (
+    'id' => '166',
+    'title' => 'Deposit Request has been Accepted',
+    'description' => 'Your deposit request has been Accepted.',
+    'publishDate' => '2024-08-22 13:01:23',
+    'user_id' => '49',
+    'is_read' => 'N',
+  ),
+  11 => 
+  array (
+    'id' => '165',
+    'title' => 'Withdrawal Request has been Accepted',
+    'description' => 'Your withdrawal request has been Accepted.',
+    'publishDate' => '2024-08-22 11:41:23',
+    'user_id' => '49',
+    'is_read' => 'N',
+  ),
+  12 => 
+  array (
+    'id' => '164',
+    'title' => 'Withdrawal Request has been Rejected',
+    'description' => 'Your withdrawal request has been rejected.',
+    'publishDate' => '2024-08-22 11:41:05',
+    'user_id' => '49',
+    'is_read' => 'N',
+  ),
+  13 => 
+  array (
+    'id' => '129',
+    'title' => 'Withdrawal Request Accepted',
+    'description' => 'Your withdrawal request has been Accepted.',
+    'publishDate' => '2024-08-21 12:52:54',
+    'user_id' => '49',
+    'is_read' => 'N',
+  ),
+  14 => 
+  array (
+    'id' => '140',
+    'title' => 'Withdrawal Request Accepted',
+    'description' => 'Your withdrawal request has been Accepted.',
+    'publishDate' => '2024-08-21 12:52:54',
+    'user_id' => '49',
+    'is_read' => 'N',
+  ),
+  15 => 
+  array (
+    'id' => '133',
+    'title' => 'Withdrawal Request has been Completed',
+    'description' => 'Your Withdrawal request has been Completed.',
+    'publishDate' => '2023-02-24 08:15:40',
+    'user_id' => '49',
+    'is_read' => 'N',
+  ),
+  16 => 
+  array (
+    'id' => '132',
+    'title' => 'Withdrawal Request has been Accepted',
+    'description' => 'Your withdrawal request has been Accepted.',
+    'publishDate' => '2023-02-24 08:15:31',
+    'user_id' => '49',
+    'is_read' => 'N',
+  ),
+  17 => 
+  array (
+    'id' => '131',
+    'title' => 'Withdrawal Request has been Completed',
+    'description' => 'Your Withdrawal request has been Completed.',
+    'publishDate' => '2023-02-24 08:14:42',
+    'user_id' => '49',
+    'is_read' => 'N',
+  ),
+  18 => 
+  array (
+    'id' => '130',
+    'title' => 'Withdrawal Request has been Accepted',
+    'description' => 'Your withdrawal request has been Accepted.',
+    'publishDate' => '2023-02-24 08:14:31',
+    'user_id' => '49',
+    'is_read' => 'N',
+  ),
+  19 => 
+  array (
+    'id' => '88',
+    'title' => 'Deposit Request has been Accepted',
+    'description' => 'Your deposit request has been Accepted.',
+    'publishDate' => '2023-01-31 07:47:51',
+    'user_id' => '49',
+    'is_read' => 'N',
+  ),
+  20 => 
+  array (
+    'id' => '87',
+    'title' => 'Deposit Request has been Completed',
+    'description' => 'Your deposit request has been Completed.',
+    'publishDate' => '2023-01-31 07:47:27',
+    'user_id' => '49',
+    'is_read' => 'N',
+  ),
+  21 => 
+  array (
+    'id' => '86',
+    'title' => 'Deposit Request has been Rejected',
+    'description' => 'Your deposit request has been Rejected.',
+    'publishDate' => '2023-01-31 07:30:54',
+    'user_id' => '49',
+    'is_read' => 'N',
+  ),
+  22 => 
+  array (
+    'id' => '85',
+    'title' => 'Deposit Request has been Completed',
+    'description' => 'Your deposit request has been Completed.',
+    'publishDate' => '2023-01-31 07:30:08',
+    'user_id' => '49',
+    'is_read' => 'N',
+  ),
+  23 => 
+  array (
+    'id' => '84',
+    'title' => 'Deposit Request has been Accepted',
+    'description' => 'Your deposit request has been Accepted.',
+    'publishDate' => '2023-01-31 07:29:28',
+    'user_id' => '49',
+    'is_read' => 'N',
+  ),
+  24 => 
+  array (
+    'id' => '82',
+    'title' => 'Withdrawal Request has been Completed',
+    'description' => 'Your Withdrawal request has been Completed.',
+    'publishDate' => '2023-01-31 07:27:58',
+    'user_id' => '49',
+    'is_read' => 'N',
+  ),
+  25 => 
+  array (
+    'id' => '81',
+    'title' => 'Withdrawal Request has been Completed',
+    'description' => 'Your Withdrawal request has been Completed.',
+    'publishDate' => '2023-01-31 07:27:48',
+    'user_id' => '49',
+    'is_read' => 'N',
+  ),
+  26 => 
+  array (
+    'id' => '80',
+    'title' => 'Withdrawal Request has been Accepted',
+    'description' => 'Your withdrawal request has been Accepted.',
+    'publishDate' => '2023-01-31 07:27:19',
+    'user_id' => '49',
+    'is_read' => 'N',
+  ),
+  27 => 
+  array (
+    'id' => '79',
+    'title' => 'Withdrawal Request has been Completed',
+    'description' => 'Your Withdrawal request has been Completed.',
+    'publishDate' => '2023-01-31 07:26:58',
+    'user_id' => '49',
+    'is_read' => 'Y',
+  ),
+  28 => 
+  array (
+    'id' => '78',
+    'title' => 'Withdrawal Request has been Accepted',
+    'description' => 'Your withdrawal request has been Accepted.',
+    'publishDate' => '2023-01-31 07:26:42',
+    'user_id' => '49',
+    'is_read' => 'N',
+  ),
+  29 => 
+  array (
+    'id' => '77',
+    'title' => 'Withdrawal Request has been Accepted',
+    'description' => 'Your withdrawal request has been Accepted.',
+    'publishDate' => '2023-01-31 07:26:19',
+    'user_id' => '49',
+    'is_read' => 'N',
+  ),
+  30 => 
+  array (
+    'id' => '76',
+    'title' => 'Withdrawal Request has been Completed',
+    'description' => 'Your Withdrawal request has been Completed.',
+    'publishDate' => '2023-01-31 07:26:01',
+    'user_id' => '49',
+    'is_read' => 'N',
+  ),
+  31 => 
+  array (
+    'id' => '75',
+    'title' => 'Withdrawal Request has been Accepted',
+    'description' => 'Your withdrawal request has been Accepted.',
+    'publishDate' => '2023-01-31 07:24:06',
+    'user_id' => '49',
+    'is_read' => 'N',
+  ),
+)
+DEBUG - 2024-08-30 06:47:38 --> PLID: 49
+DEBUG - 2024-08-30 06:47:39 --> PLID: 49
+ERROR - 2024-08-30 06:47:39 --> 49
+DEBUG - 2024-08-30 06:47:39 --> ***************** Transaction Chart BY Admin *****************
+DEBUG - 2024-08-30 06:47:51 --> Notifications CHeck array (
+  0 => 
+  array (
+    'id' => '182',
+    'title' => 'Withdrawal Request has been Accepted',
+    'description' => 'Your withdrawal request has been Accepted.',
+    'publishDate' => '2024-08-30 17:50:44',
+    'user_id' => '49',
+    'is_read' => 'N',
+  ),
+  1 => 
+  array (
+    'id' => '180',
+    'title' => 'Deposit Request has been Accepted',
+    'description' => 'Your deposit request has been Accepted.',
+    'publishDate' => '2024-08-30 16:27:11',
+    'user_id' => '49',
+    'is_read' => 'N',
+  ),
+  2 => 
+  array (
+    'id' => '179',
+    'title' => 'Withdrawal Request has been Completed',
+    'description' => 'Your Withdrawal request has been Completed.',
+    'publishDate' => '2024-08-26 18:20:34',
+    'user_id' => '49',
+    'is_read' => 'N',
+  ),
+  3 => 
+  array (
+    'id' => '178',
+    'title' => 'Withdrawal Request has been Rejected',
+    'description' => 'Your withdrawal request has been rejected.',
+    'publishDate' => '2024-08-26 18:19:54',
+    'user_id' => '49',
+    'is_read' => 'N',
+  ),
+  4 => 
+  array (
+    'id' => '177',
+    'title' => 'Withdrawal Request has been Accepted',
+    'description' => 'Your withdrawal request has been Accepted.',
+    'publishDate' => '2024-08-26 18:19:31',
+    'user_id' => '49',
+    'is_read' => 'N',
+  ),
+  5 => 
+  array (
+    'id' => '175',
+    'title' => 'Deposit Request has been Completed',
+    'description' => 'Your deposit request has been Completed.',
+    'publishDate' => '2024-08-26 18:11:42',
+    'user_id' => '49',
+    'is_read' => 'N',
+  ),
+  6 => 
+  array (
+    'id' => '174',
+    'title' => 'Deposit Request has been Accepted',
+    'description' => 'Your deposit request has been Accepted.',
+    'publishDate' => '2024-08-26 18:08:27',
+    'user_id' => '49',
+    'is_read' => 'N',
+  ),
+  7 => 
+  array (
+    'id' => '171',
+    'title' => 'Withdrawal Request has been Completed',
+    'description' => 'Your Withdrawal request has been Completed.',
+    'publishDate' => '2024-08-23 19:16:00',
+    'user_id' => '49',
+    'is_read' => 'N',
+  ),
+  8 => 
+  array (
+    'id' => '170',
+    'title' => 'Deposit Request has been Completed',
+    'description' => 'Your deposit request has been Completed.',
+    'publishDate' => '2024-08-23 18:38:49',
+    'user_id' => '49',
+    'is_read' => 'N',
+  ),
+  9 => 
+  array (
+    'id' => '167',
+    'title' => 'Deposit Request has been Rejected',
+    'description' => 'Your deposit request has been Rejected.',
+    'publishDate' => '2024-08-22 13:01:42',
+    'user_id' => '49',
+    'is_read' => 'N',
+  ),
+  10 => 
+  array (
+    'id' => '166',
+    'title' => 'Deposit Request has been Accepted',
+    'description' => 'Your deposit request has been Accepted.',
+    'publishDate' => '2024-08-22 13:01:23',
+    'user_id' => '49',
+    'is_read' => 'N',
+  ),
+  11 => 
+  array (
+    'id' => '165',
+    'title' => 'Withdrawal Request has been Accepted',
+    'description' => 'Your withdrawal request has been Accepted.',
+    'publishDate' => '2024-08-22 11:41:23',
+    'user_id' => '49',
+    'is_read' => 'N',
+  ),
+  12 => 
+  array (
+    'id' => '164',
+    'title' => 'Withdrawal Request has been Rejected',
+    'description' => 'Your withdrawal request has been rejected.',
+    'publishDate' => '2024-08-22 11:41:05',
+    'user_id' => '49',
+    'is_read' => 'N',
+  ),
+  13 => 
+  array (
+    'id' => '129',
+    'title' => 'Withdrawal Request Accepted',
+    'description' => 'Your withdrawal request has been Accepted.',
+    'publishDate' => '2024-08-21 12:52:54',
+    'user_id' => '49',
+    'is_read' => 'N',
+  ),
+  14 => 
+  array (
+    'id' => '140',
+    'title' => 'Withdrawal Request Accepted',
+    'description' => 'Your withdrawal request has been Accepted.',
+    'publishDate' => '2024-08-21 12:52:54',
+    'user_id' => '49',
+    'is_read' => 'N',
+  ),
+  15 => 
+  array (
+    'id' => '133',
+    'title' => 'Withdrawal Request has been Completed',
+    'description' => 'Your Withdrawal request has been Completed.',
+    'publishDate' => '2023-02-24 08:15:40',
+    'user_id' => '49',
+    'is_read' => 'N',
+  ),
+  16 => 
+  array (
+    'id' => '132',
+    'title' => 'Withdrawal Request has been Accepted',
+    'description' => 'Your withdrawal request has been Accepted.',
+    'publishDate' => '2023-02-24 08:15:31',
+    'user_id' => '49',
+    'is_read' => 'N',
+  ),
+  17 => 
+  array (
+    'id' => '131',
+    'title' => 'Withdrawal Request has been Completed',
+    'description' => 'Your Withdrawal request has been Completed.',
+    'publishDate' => '2023-02-24 08:14:42',
+    'user_id' => '49',
+    'is_read' => 'N',
+  ),
+  18 => 
+  array (
+    'id' => '130',
+    'title' => 'Withdrawal Request has been Accepted',
+    'description' => 'Your withdrawal request has been Accepted.',
+    'publishDate' => '2023-02-24 08:14:31',
+    'user_id' => '49',
+    'is_read' => 'N',
+  ),
+  19 => 
+  array (
+    'id' => '88',
+    'title' => 'Deposit Request has been Accepted',
+    'description' => 'Your deposit request has been Accepted.',
+    'publishDate' => '2023-01-31 07:47:51',
+    'user_id' => '49',
+    'is_read' => 'N',
+  ),
+  20 => 
+  array (
+    'id' => '87',
+    'title' => 'Deposit Request has been Completed',
+    'description' => 'Your deposit request has been Completed.',
+    'publishDate' => '2023-01-31 07:47:27',
+    'user_id' => '49',
+    'is_read' => 'N',
+  ),
+  21 => 
+  array (
+    'id' => '86',
+    'title' => 'Deposit Request has been Rejected',
+    'description' => 'Your deposit request has been Rejected.',
+    'publishDate' => '2023-01-31 07:30:54',
+    'user_id' => '49',
+    'is_read' => 'N',
+  ),
+  22 => 
+  array (
+    'id' => '85',
+    'title' => 'Deposit Request has been Completed',
+    'description' => 'Your deposit request has been Completed.',
+    'publishDate' => '2023-01-31 07:30:08',
+    'user_id' => '49',
+    'is_read' => 'N',
+  ),
+  23 => 
+  array (
+    'id' => '84',
+    'title' => 'Deposit Request has been Accepted',
+    'description' => 'Your deposit request has been Accepted.',
+    'publishDate' => '2023-01-31 07:29:28',
+    'user_id' => '49',
+    'is_read' => 'N',
+  ),
+  24 => 
+  array (
+    'id' => '82',
+    'title' => 'Withdrawal Request has been Completed',
+    'description' => 'Your Withdrawal request has been Completed.',
+    'publishDate' => '2023-01-31 07:27:58',
+    'user_id' => '49',
+    'is_read' => 'N',
+  ),
+  25 => 
+  array (
+    'id' => '81',
+    'title' => 'Withdrawal Request has been Completed',
+    'description' => 'Your Withdrawal request has been Completed.',
+    'publishDate' => '2023-01-31 07:27:48',
+    'user_id' => '49',
+    'is_read' => 'N',
+  ),
+  26 => 
+  array (
+    'id' => '80',
+    'title' => 'Withdrawal Request has been Accepted',
+    'description' => 'Your withdrawal request has been Accepted.',
+    'publishDate' => '2023-01-31 07:27:19',
+    'user_id' => '49',
+    'is_read' => 'N',
+  ),
+  27 => 
+  array (
+    'id' => '79',
+    'title' => 'Withdrawal Request has been Completed',
+    'description' => 'Your Withdrawal request has been Completed.',
+    'publishDate' => '2023-01-31 07:26:58',
+    'user_id' => '49',
+    'is_read' => 'Y',
+  ),
+  28 => 
+  array (
+    'id' => '78',
+    'title' => 'Withdrawal Request has been Accepted',
+    'description' => 'Your withdrawal request has been Accepted.',
+    'publishDate' => '2023-01-31 07:26:42',
+    'user_id' => '49',
+    'is_read' => 'N',
+  ),
+  29 => 
+  array (
+    'id' => '77',
+    'title' => 'Withdrawal Request has been Accepted',
+    'description' => 'Your withdrawal request has been Accepted.',
+    'publishDate' => '2023-01-31 07:26:19',
+    'user_id' => '49',
+    'is_read' => 'N',
+  ),
+  30 => 
+  array (
+    'id' => '76',
+    'title' => 'Withdrawal Request has been Completed',
+    'description' => 'Your Withdrawal request has been Completed.',
+    'publishDate' => '2023-01-31 07:26:01',
+    'user_id' => '49',
+    'is_read' => 'N',
+  ),
+  31 => 
+  array (
+    'id' => '75',
+    'title' => 'Withdrawal Request has been Accepted',
+    'description' => 'Your withdrawal request has been Accepted.',
+    'publishDate' => '2023-01-31 07:24:06',
+    'user_id' => '49',
+    'is_read' => 'N',
+  ),
+)
+DEBUG - 2024-08-30 06:47:51 --> PLID: 49
+DEBUG - 2024-08-30 06:47:52 --> ***************** Transaction Chart BY Admin *****************
+DEBUG - 2024-08-30 06:47:52 --> PLID: 49
+ERROR - 2024-08-30 06:47:52 --> 49
+DEBUG - 2024-08-30 06:49:02 --> Notifications CHeck array (
+  0 => 
+  array (
+    'id' => '182',
+    'title' => 'Withdrawal Request has been Accepted',
+    'description' => 'Your withdrawal request has been Accepted.',
+    'publishDate' => '2024-08-30 17:50:44',
+    'user_id' => '49',
+    'is_read' => 'N',
+  ),
+  1 => 
+  array (
+    'id' => '180',
+    'title' => 'Deposit Request has been Accepted',
+    'description' => 'Your deposit request has been Accepted.',
+    'publishDate' => '2024-08-30 16:27:11',
+    'user_id' => '49',
+    'is_read' => 'N',
+  ),
+  2 => 
+  array (
+    'id' => '179',
+    'title' => 'Withdrawal Request has been Completed',
+    'description' => 'Your Withdrawal request has been Completed.',
+    'publishDate' => '2024-08-26 18:20:34',
+    'user_id' => '49',
+    'is_read' => 'N',
+  ),
+  3 => 
+  array (
+    'id' => '178',
+    'title' => 'Withdrawal Request has been Rejected',
+    'description' => 'Your withdrawal request has been rejected.',
+    'publishDate' => '2024-08-26 18:19:54',
+    'user_id' => '49',
+    'is_read' => 'N',
+  ),
+  4 => 
+  array (
+    'id' => '177',
+    'title' => 'Withdrawal Request has been Accepted',
+    'description' => 'Your withdrawal request has been Accepted.',
+    'publishDate' => '2024-08-26 18:19:31',
+    'user_id' => '49',
+    'is_read' => 'N',
+  ),
+  5 => 
+  array (
+    'id' => '175',
+    'title' => 'Deposit Request has been Completed',
+    'description' => 'Your deposit request has been Completed.',
+    'publishDate' => '2024-08-26 18:11:42',
+    'user_id' => '49',
+    'is_read' => 'N',
+  ),
+  6 => 
+  array (
+    'id' => '174',
+    'title' => 'Deposit Request has been Accepted',
+    'description' => 'Your deposit request has been Accepted.',
+    'publishDate' => '2024-08-26 18:08:27',
+    'user_id' => '49',
+    'is_read' => 'N',
+  ),
+  7 => 
+  array (
+    'id' => '171',
+    'title' => 'Withdrawal Request has been Completed',
+    'description' => 'Your Withdrawal request has been Completed.',
+    'publishDate' => '2024-08-23 19:16:00',
+    'user_id' => '49',
+    'is_read' => 'N',
+  ),
+  8 => 
+  array (
+    'id' => '170',
+    'title' => 'Deposit Request has been Completed',
+    'description' => 'Your deposit request has been Completed.',
+    'publishDate' => '2024-08-23 18:38:49',
+    'user_id' => '49',
+    'is_read' => 'N',
+  ),
+  9 => 
+  array (
+    'id' => '167',
+    'title' => 'Deposit Request has been Rejected',
+    'description' => 'Your deposit request has been Rejected.',
+    'publishDate' => '2024-08-22 13:01:42',
+    'user_id' => '49',
+    'is_read' => 'N',
+  ),
+  10 => 
+  array (
+    'id' => '166',
+    'title' => 'Deposit Request has been Accepted',
+    'description' => 'Your deposit request has been Accepted.',
+    'publishDate' => '2024-08-22 13:01:23',
+    'user_id' => '49',
+    'is_read' => 'N',
+  ),
+  11 => 
+  array (
+    'id' => '165',
+    'title' => 'Withdrawal Request has been Accepted',
+    'description' => 'Your withdrawal request has been Accepted.',
+    'publishDate' => '2024-08-22 11:41:23',
+    'user_id' => '49',
+    'is_read' => 'N',
+  ),
+  12 => 
+  array (
+    'id' => '164',
+    'title' => 'Withdrawal Request has been Rejected',
+    'description' => 'Your withdrawal request has been rejected.',
+    'publishDate' => '2024-08-22 11:41:05',
+    'user_id' => '49',
+    'is_read' => 'N',
+  ),
+  13 => 
+  array (
+    'id' => '129',
+    'title' => 'Withdrawal Request Accepted',
+    'description' => 'Your withdrawal request has been Accepted.',
+    'publishDate' => '2024-08-21 12:52:54',
+    'user_id' => '49',
+    'is_read' => 'N',
+  ),
+  14 => 
+  array (
+    'id' => '140',
+    'title' => 'Withdrawal Request Accepted',
+    'description' => 'Your withdrawal request has been Accepted.',
+    'publishDate' => '2024-08-21 12:52:54',
+    'user_id' => '49',
+    'is_read' => 'N',
+  ),
+  15 => 
+  array (
+    'id' => '133',
+    'title' => 'Withdrawal Request has been Completed',
+    'description' => 'Your Withdrawal request has been Completed.',
+    'publishDate' => '2023-02-24 08:15:40',
+    'user_id' => '49',
+    'is_read' => 'N',
+  ),
+  16 => 
+  array (
+    'id' => '132',
+    'title' => 'Withdrawal Request has been Accepted',
+    'description' => 'Your withdrawal request has been Accepted.',
+    'publishDate' => '2023-02-24 08:15:31',
+    'user_id' => '49',
+    'is_read' => 'N',
+  ),
+  17 => 
+  array (
+    'id' => '131',
+    'title' => 'Withdrawal Request has been Completed',
+    'description' => 'Your Withdrawal request has been Completed.',
+    'publishDate' => '2023-02-24 08:14:42',
+    'user_id' => '49',
+    'is_read' => 'N',
+  ),
+  18 => 
+  array (
+    'id' => '130',
+    'title' => 'Withdrawal Request has been Accepted',
+    'description' => 'Your withdrawal request has been Accepted.',
+    'publishDate' => '2023-02-24 08:14:31',
+    'user_id' => '49',
+    'is_read' => 'N',
+  ),
+  19 => 
+  array (
+    'id' => '88',
+    'title' => 'Deposit Request has been Accepted',
+    'description' => 'Your deposit request has been Accepted.',
+    'publishDate' => '2023-01-31 07:47:51',
+    'user_id' => '49',
+    'is_read' => 'N',
+  ),
+  20 => 
+  array (
+    'id' => '87',
+    'title' => 'Deposit Request has been Completed',
+    'description' => 'Your deposit request has been Completed.',
+    'publishDate' => '2023-01-31 07:47:27',
+    'user_id' => '49',
+    'is_read' => 'N',
+  ),
+  21 => 
+  array (
+    'id' => '86',
+    'title' => 'Deposit Request has been Rejected',
+    'description' => 'Your deposit request has been Rejected.',
+    'publishDate' => '2023-01-31 07:30:54',
+    'user_id' => '49',
+    'is_read' => 'N',
+  ),
+  22 => 
+  array (
+    'id' => '85',
+    'title' => 'Deposit Request has been Completed',
+    'description' => 'Your deposit request has been Completed.',
+    'publishDate' => '2023-01-31 07:30:08',
+    'user_id' => '49',
+    'is_read' => 'N',
+  ),
+  23 => 
+  array (
+    'id' => '84',
+    'title' => 'Deposit Request has been Accepted',
+    'description' => 'Your deposit request has been Accepted.',
+    'publishDate' => '2023-01-31 07:29:28',
+    'user_id' => '49',
+    'is_read' => 'N',
+  ),
+  24 => 
+  array (
+    'id' => '82',
+    'title' => 'Withdrawal Request has been Completed',
+    'description' => 'Your Withdrawal request has been Completed.',
+    'publishDate' => '2023-01-31 07:27:58',
+    'user_id' => '49',
+    'is_read' => 'N',
+  ),
+  25 => 
+  array (
+    'id' => '81',
+    'title' => 'Withdrawal Request has been Completed',
+    'description' => 'Your Withdrawal request has been Completed.',
+    'publishDate' => '2023-01-31 07:27:48',
+    'user_id' => '49',
+    'is_read' => 'N',
+  ),
+  26 => 
+  array (
+    'id' => '80',
+    'title' => 'Withdrawal Request has been Accepted',
+    'description' => 'Your withdrawal request has been Accepted.',
+    'publishDate' => '2023-01-31 07:27:19',
+    'user_id' => '49',
+    'is_read' => 'N',
+  ),
+  27 => 
+  array (
+    'id' => '79',
+    'title' => 'Withdrawal Request has been Completed',
+    'description' => 'Your Withdrawal request has been Completed.',
+    'publishDate' => '2023-01-31 07:26:58',
+    'user_id' => '49',
+    'is_read' => 'Y',
+  ),
+  28 => 
+  array (
+    'id' => '78',
+    'title' => 'Withdrawal Request has been Accepted',
+    'description' => 'Your withdrawal request has been Accepted.',
+    'publishDate' => '2023-01-31 07:26:42',
+    'user_id' => '49',
+    'is_read' => 'N',
+  ),
+  29 => 
+  array (
+    'id' => '77',
+    'title' => 'Withdrawal Request has been Accepted',
+    'description' => 'Your withdrawal request has been Accepted.',
+    'publishDate' => '2023-01-31 07:26:19',
+    'user_id' => '49',
+    'is_read' => 'N',
+  ),
+  30 => 
+  array (
+    'id' => '76',
+    'title' => 'Withdrawal Request has been Completed',
+    'description' => 'Your Withdrawal request has been Completed.',
+    'publishDate' => '2023-01-31 07:26:01',
+    'user_id' => '49',
+    'is_read' => 'N',
+  ),
+  31 => 
+  array (
+    'id' => '75',
+    'title' => 'Withdrawal Request has been Accepted',
+    'description' => 'Your withdrawal request has been Accepted.',
+    'publishDate' => '2023-01-31 07:24:06',
+    'user_id' => '49',
+    'is_read' => 'N',
+  ),
+)
+DEBUG - 2024-08-30 06:49:02 --> PLID: 49
+DEBUG - 2024-08-30 06:49:04 --> PLID: 49
+DEBUG - 2024-08-30 06:49:04 --> ***************** Transaction Chart BY Admin *****************
+ERROR - 2024-08-30 06:49:04 --> 49
+DEBUG - 2024-08-30 06:49:51 --> **********************Tax Form Data****************************array (
+)
+DEBUG - 2024-08-30 06:49:51 --> **************************************************array (
+  0 => 
+  array (
+    'amount' => NULL,
+    'positions' => '12',
+    'year' => '2022',
+    'month' => '10',
+  ),
+  1 => 
+  array (
+    'amount' => NULL,
+    'positions' => '13',
+    'year' => '2022',
+    'month' => '11',
+  ),
+  2 => 
+  array (
+    'amount' => NULL,
+    'positions' => '7',
+    'year' => '2022',
+    'month' => '12',
+  ),
+  3 => 
+  array (
+    'amount' => '9.309922776117405',
+    'positions' => '9',
+    'year' => '2023',
+    'month' => '1',
+  ),
+  4 => 
+  array (
+    'amount' => '8.110029825408619',
+    'positions' => '8',
+    'year' => '2023',
+    'month' => '2',
+  ),
+  5 => 
+  array (
+    'amount' => '7.239879932857962',
+    'positions' => '7',
+    'year' => '2023',
+    'month' => '3',
+  ),
+  6 => 
+  array (
+    'amount' => '0.19000567859170928',
+    'positions' => '1',
+    'year' => '2023',
+    'month' => '4',
+  ),
+  7 => 
+  array (
+    'amount' => '68.00160253093607',
+    'positions' => '2',
+    'year' => '2024',
+    'month' => '8',
+  ),
+)
+DEBUG - 2024-08-30 06:49:51 --> **************************************************array (
+  0 => 
+  array (
+    'amount' => NULL,
+    'positions' => '1',
+    'year' => '2022',
+    'month' => '10',
+  ),
+  1 => 
+  array (
+    'amount' => NULL,
+    'positions' => '4',
+    'year' => '2022',
+    'month' => '11',
+  ),
+  2 => 
+  array (
+    'amount' => NULL,
+    'positions' => '1',
+    'year' => '2022',
+    'month' => '12',
+  ),
+  3 => 
+  array (
+    'amount' => '0.9800653855957936',
+    'positions' => '3',
+    'year' => '2023',
+    'month' => '1',
+  ),
+  4 => 
+  array (
+    'amount' => '1.3400859554614024',
+    'positions' => '2',
+    'year' => '2023',
+    'month' => '2',
+  ),
+  5 => 
+  array (
+    'amount' => '1.7200354195255114',
+    'positions' => '4',
+    'year' => '2023',
+    'month' => '3',
+  ),
+)
+DEBUG - 2024-08-30 06:49:51 --> ***************** Chart BY Admin *****************
+DEBUG - 2024-08-30 06:49:51 --> PLID: 53
+DEBUG - 2024-08-30 06:49:52 --> ***************** Chart BY Admin *****************
+DEBUG - 2024-08-30 06:49:52 --> PLID: 53
+DEBUG - 2024-08-30 06:49:52 --> ***************** Transaction Chart BY Admin *****************
+DEBUG - 2024-08-30 07:08:05 --> **********************Tax Form Data****************************array (
+)
+DEBUG - 2024-08-30 07:08:05 --> **************************************************array (
+  0 => 
+  array (
+    'amount' => NULL,
+    'positions' => '12',
+    'year' => '2022',
+    'month' => '10',
+  ),
+  1 => 
+  array (
+    'amount' => NULL,
+    'positions' => '13',
+    'year' => '2022',
+    'month' => '11',
+  ),
+  2 => 
+  array (
+    'amount' => NULL,
+    'positions' => '7',
+    'year' => '2022',
+    'month' => '12',
+  ),
+  3 => 
+  array (
+    'amount' => '9.309922776117405',
+    'positions' => '9',
+    'year' => '2023',
+    'month' => '1',
+  ),
+  4 => 
+  array (
+    'amount' => '8.110029825408619',
+    'positions' => '8',
+    'year' => '2023',
+    'month' => '2',
+  ),
+  5 => 
+  array (
+    'amount' => '7.239879932857962',
+    'positions' => '7',
+    'year' => '2023',
+    'month' => '3',
+  ),
+  6 => 
+  array (
+    'amount' => '0.19000567859170928',
+    'positions' => '1',
+    'year' => '2023',
+    'month' => '4',
+  ),
+  7 => 
+  array (
+    'amount' => '68.00160253093607',
+    'positions' => '2',
+    'year' => '2024',
+    'month' => '8',
+  ),
+)
+DEBUG - 2024-08-30 07:08:05 --> **************************************************array (
+  0 => 
+  array (
+    'amount' => NULL,
+    'positions' => '1',
+    'year' => '2022',
+    'month' => '10',
+  ),
+  1 => 
+  array (
+    'amount' => NULL,
+    'positions' => '4',
+    'year' => '2022',
+    'month' => '11',
+  ),
+  2 => 
+  array (
+    'amount' => NULL,
+    'positions' => '1',
+    'year' => '2022',
+    'month' => '12',
+  ),
+  3 => 
+  array (
+    'amount' => '0.9800653855957936',
+    'positions' => '3',
+    'year' => '2023',
+    'month' => '1',
+  ),
+  4 => 
+  array (
+    'amount' => '1.3400859554614024',
+    'positions' => '2',
+    'year' => '2023',
+    'month' => '2',
+  ),
+  5 => 
+  array (
+    'amount' => '1.7200354195255114',
+    'positions' => '4',
+    'year' => '2023',
+    'month' => '3',
+  ),
+)
+DEBUG - 2024-08-30 07:08:05 --> ***************** Chart BY Admin *****************
+DEBUG - 2024-08-30 07:08:05 --> PLID: 53
+DEBUG - 2024-08-30 07:08:06 --> ***************** Chart BY Admin *****************
+DEBUG - 2024-08-30 07:08:06 --> ***************** Transaction Chart BY Admin *****************
+DEBUG - 2024-08-30 07:08:06 --> PLID: 53
+DEBUG - 2024-08-30 07:08:31 --> **********************Tax Form Data****************************array (
+)
+DEBUG - 2024-08-30 07:08:31 --> **************************************************array (
+  0 => 
+  array (
+    'amount' => NULL,
+    'positions' => '12',
+    'year' => '2022',
+    'month' => '10',
+  ),
+  1 => 
+  array (
+    'amount' => NULL,
+    'positions' => '13',
+    'year' => '2022',
+    'month' => '11',
+  ),
+  2 => 
+  array (
+    'amount' => NULL,
+    'positions' => '7',
+    'year' => '2022',
+    'month' => '12',
+  ),
+  3 => 
+  array (
+    'amount' => '9.309922776117405',
+    'positions' => '9',
+    'year' => '2023',
+    'month' => '1',
+  ),
+  4 => 
+  array (
+    'amount' => '8.110029825408619',
+    'positions' => '8',
+    'year' => '2023',
+    'month' => '2',
+  ),
+  5 => 
+  array (
+    'amount' => '7.239879932857962',
+    'positions' => '7',
+    'year' => '2023',
+    'month' => '3',
+  ),
+  6 => 
+  array (
+    'amount' => '0.19000567859170928',
+    'positions' => '1',
+    'year' => '2023',
+    'month' => '4',
+  ),
+  7 => 
+  array (
+    'amount' => '68.00160253093607',
+    'positions' => '2',
+    'year' => '2024',
+    'month' => '8',
+  ),
+)
+DEBUG - 2024-08-30 07:08:31 --> **************************************************array (
+  0 => 
+  array (
+    'amount' => NULL,
+    'positions' => '1',
+    'year' => '2022',
+    'month' => '10',
+  ),
+  1 => 
+  array (
+    'amount' => NULL,
+    'positions' => '4',
+    'year' => '2022',
+    'month' => '11',
+  ),
+  2 => 
+  array (
+    'amount' => NULL,
+    'positions' => '1',
+    'year' => '2022',
+    'month' => '12',
+  ),
+  3 => 
+  array (
+    'amount' => '0.9800653855957936',
+    'positions' => '3',
+    'year' => '2023',
+    'month' => '1',
+  ),
+  4 => 
+  array (
+    'amount' => '1.3400859554614024',
+    'positions' => '2',
+    'year' => '2023',
+    'month' => '2',
+  ),
+  5 => 
+  array (
+    'amount' => '1.7200354195255114',
+    'positions' => '4',
+    'year' => '2023',
+    'month' => '3',
+  ),
+)
+DEBUG - 2024-08-30 07:08:31 --> ***************** Chart BY Admin *****************
+DEBUG - 2024-08-30 07:08:31 --> PLID: 53
+DEBUG - 2024-08-30 07:08:32 --> ***************** Chart BY Admin *****************
+DEBUG - 2024-08-30 07:08:32 --> ***************** Transaction Chart BY Admin *****************
+DEBUG - 2024-08-30 07:08:32 --> PLID: 53
+DEBUG - 2024-08-30 07:08:56 --> **********************Tax Form Data****************************array (
+)
+DEBUG - 2024-08-30 07:08:56 --> **************************************************array (
+  0 => 
+  array (
+    'amount' => NULL,
+    'positions' => '12',
+    'year' => '2022',
+    'month' => '10',
+  ),
+  1 => 
+  array (
+    'amount' => NULL,
+    'positions' => '13',
+    'year' => '2022',
+    'month' => '11',
+  ),
+  2 => 
+  array (
+    'amount' => NULL,
+    'positions' => '7',
+    'year' => '2022',
+    'month' => '12',
+  ),
+  3 => 
+  array (
+    'amount' => '9.309922776117405',
+    'positions' => '9',
+    'year' => '2023',
+    'month' => '1',
+  ),
+  4 => 
+  array (
+    'amount' => '8.110029825408619',
+    'positions' => '8',
+    'year' => '2023',
+    'month' => '2',
+  ),
+  5 => 
+  array (
+    'amount' => '7.239879932857962',
+    'positions' => '7',
+    'year' => '2023',
+    'month' => '3',
+  ),
+  6 => 
+  array (
+    'amount' => '0.19000567859170928',
+    'positions' => '1',
+    'year' => '2023',
+    'month' => '4',
+  ),
+  7 => 
+  array (
+    'amount' => '68.00160253093607',
+    'positions' => '2',
+    'year' => '2024',
+    'month' => '8',
+  ),
+)
+DEBUG - 2024-08-30 07:08:56 --> **************************************************array (
+  0 => 
+  array (
+    'amount' => NULL,
+    'positions' => '1',
+    'year' => '2022',
+    'month' => '10',
+  ),
+  1 => 
+  array (
+    'amount' => NULL,
+    'positions' => '4',
+    'year' => '2022',
+    'month' => '11',
+  ),
+  2 => 
+  array (
+    'amount' => NULL,
+    'positions' => '1',
+    'year' => '2022',
+    'month' => '12',
+  ),
+  3 => 
+  array (
+    'amount' => '0.9800653855957936',
+    'positions' => '3',
+    'year' => '2023',
+    'month' => '1',
+  ),
+  4 => 
+  array (
+    'amount' => '1.3400859554614024',
+    'positions' => '2',
+    'year' => '2023',
+    'month' => '2',
+  ),
+  5 => 
+  array (
+    'amount' => '1.7200354195255114',
+    'positions' => '4',
+    'year' => '2023',
+    'month' => '3',
+  ),
+)
+DEBUG - 2024-08-30 07:08:56 --> ***************** Chart BY Admin *****************
+DEBUG - 2024-08-30 07:08:56 --> PLID: 53
+DEBUG - 2024-08-30 07:08:57 --> ***************** Chart BY Admin *****************
+DEBUG - 2024-08-30 07:08:57 --> PLID: 53
+DEBUG - 2024-08-30 07:08:57 --> ***************** Transaction Chart BY Admin *****************
+DEBUG - 2024-08-30 07:09:27 --> **********************Tax Form Data****************************array (
+)
+DEBUG - 2024-08-30 07:09:27 --> **************************************************array (
+  0 => 
+  array (
+    'amount' => NULL,
+    'positions' => '12',
+    'year' => '2022',
+    'month' => '10',
+  ),
+  1 => 
+  array (
+    'amount' => NULL,
+    'positions' => '13',
+    'year' => '2022',
+    'month' => '11',
+  ),
+  2 => 
+  array (
+    'amount' => NULL,
+    'positions' => '7',
+    'year' => '2022',
+    'month' => '12',
+  ),
+  3 => 
+  array (
+    'amount' => '9.309922776117405',
+    'positions' => '9',
+    'year' => '2023',
+    'month' => '1',
+  ),
+  4 => 
+  array (
+    'amount' => '8.110029825408619',
+    'positions' => '8',
+    'year' => '2023',
+    'month' => '2',
+  ),
+  5 => 
+  array (
+    'amount' => '7.239879932857962',
+    'positions' => '7',
+    'year' => '2023',
+    'month' => '3',
+  ),
+  6 => 
+  array (
+    'amount' => '0.19000567859170928',
+    'positions' => '1',
+    'year' => '2023',
+    'month' => '4',
+  ),
+  7 => 
+  array (
+    'amount' => '68.00160253093607',
+    'positions' => '2',
+    'year' => '2024',
+    'month' => '8',
+  ),
+)
+DEBUG - 2024-08-30 07:09:27 --> **************************************************array (
+  0 => 
+  array (
+    'amount' => NULL,
+    'positions' => '1',
+    'year' => '2022',
+    'month' => '10',
+  ),
+  1 => 
+  array (
+    'amount' => NULL,
+    'positions' => '4',
+    'year' => '2022',
+    'month' => '11',
+  ),
+  2 => 
+  array (
+    'amount' => NULL,
+    'positions' => '1',
+    'year' => '2022',
+    'month' => '12',
+  ),
+  3 => 
+  array (
+    'amount' => '0.9800653855957936',
+    'positions' => '3',
+    'year' => '2023',
+    'month' => '1',
+  ),
+  4 => 
+  array (
+    'amount' => '1.3400859554614024',
+    'positions' => '2',
+    'year' => '2023',
+    'month' => '2',
+  ),
+  5 => 
+  array (
+    'amount' => '1.7200354195255114',
+    'positions' => '4',
+    'year' => '2023',
+    'month' => '3',
+  ),
+)
+DEBUG - 2024-08-30 07:09:27 --> ***************** Chart BY Admin *****************
+DEBUG - 2024-08-30 07:09:27 --> PLID: 53
+DEBUG - 2024-08-30 07:09:28 --> ***************** Chart BY Admin *****************
+DEBUG - 2024-08-30 07:09:28 --> ***************** Transaction Chart BY Admin *****************
+DEBUG - 2024-08-30 07:09:28 --> PLID: 53
+DEBUG - 2024-08-30 07:10:21 --> **********************Tax Form Data****************************array (
+)
+DEBUG - 2024-08-30 07:10:21 --> **************************************************array (
+  0 => 
+  array (
+    'amount' => NULL,
+    'positions' => '12',
+    'year' => '2022',
+    'month' => '10',
+  ),
+  1 => 
+  array (
+    'amount' => NULL,
+    'positions' => '13',
+    'year' => '2022',
+    'month' => '11',
+  ),
+  2 => 
+  array (
+    'amount' => NULL,
+    'positions' => '7',
+    'year' => '2022',
+    'month' => '12',
+  ),
+  3 => 
+  array (
+    'amount' => '9.309922776117405',
+    'positions' => '9',
+    'year' => '2023',
+    'month' => '1',
+  ),
+  4 => 
+  array (
+    'amount' => '8.110029825408619',
+    'positions' => '8',
+    'year' => '2023',
+    'month' => '2',
+  ),
+  5 => 
+  array (
+    'amount' => '7.239879932857962',
+    'positions' => '7',
+    'year' => '2023',
+    'month' => '3',
+  ),
+  6 => 
+  array (
+    'amount' => '0.19000567859170928',
+    'positions' => '1',
+    'year' => '2023',
+    'month' => '4',
+  ),
+  7 => 
+  array (
+    'amount' => '68.00160253093607',
+    'positions' => '2',
+    'year' => '2024',
+    'month' => '8',
+  ),
+)
+DEBUG - 2024-08-30 07:10:21 --> **************************************************array (
+  0 => 
+  array (
+    'amount' => NULL,
+    'positions' => '1',
+    'year' => '2022',
+    'month' => '10',
+  ),
+  1 => 
+  array (
+    'amount' => NULL,
+    'positions' => '4',
+    'year' => '2022',
+    'month' => '11',
+  ),
+  2 => 
+  array (
+    'amount' => NULL,
+    'positions' => '1',
+    'year' => '2022',
+    'month' => '12',
+  ),
+  3 => 
+  array (
+    'amount' => '0.9800653855957936',
+    'positions' => '3',
+    'year' => '2023',
+    'month' => '1',
+  ),
+  4 => 
+  array (
+    'amount' => '1.3400859554614024',
+    'positions' => '2',
+    'year' => '2023',
+    'month' => '2',
+  ),
+  5 => 
+  array (
+    'amount' => '1.7200354195255114',
+    'positions' => '4',
+    'year' => '2023',
+    'month' => '3',
+  ),
+)
+DEBUG - 2024-08-30 07:10:21 --> ***************** Chart BY Admin *****************
+DEBUG - 2024-08-30 07:10:21 --> PLID: 53
+DEBUG - 2024-08-30 07:10:22 --> ***************** Chart BY Admin *****************
+DEBUG - 2024-08-30 07:10:22 --> PLID: 53
+DEBUG - 2024-08-30 07:10:22 --> ***************** Transaction Chart BY Admin *****************
+DEBUG - 2024-08-30 07:10:38 --> **********************Tax Form Data****************************array (
+)
+DEBUG - 2024-08-30 07:10:38 --> **************************************************array (
+  0 => 
+  array (
+    'amount' => NULL,
+    'positions' => '12',
+    'year' => '2022',
+    'month' => '10',
+  ),
+  1 => 
+  array (
+    'amount' => NULL,
+    'positions' => '13',
+    'year' => '2022',
+    'month' => '11',
+  ),
+  2 => 
+  array (
+    'amount' => NULL,
+    'positions' => '7',
+    'year' => '2022',
+    'month' => '12',
+  ),
+  3 => 
+  array (
+    'amount' => '9.309922776117405',
+    'positions' => '9',
+    'year' => '2023',
+    'month' => '1',
+  ),
+  4 => 
+  array (
+    'amount' => '8.110029825408619',
+    'positions' => '8',
+    'year' => '2023',
+    'month' => '2',
+  ),
+  5 => 
+  array (
+    'amount' => '7.239879932857962',
+    'positions' => '7',
+    'year' => '2023',
+    'month' => '3',
+  ),
+  6 => 
+  array (
+    'amount' => '0.19000567859170928',
+    'positions' => '1',
+    'year' => '2023',
+    'month' => '4',
+  ),
+  7 => 
+  array (
+    'amount' => '68.00160253093607',
+    'positions' => '2',
+    'year' => '2024',
+    'month' => '8',
+  ),
+)
+DEBUG - 2024-08-30 07:10:38 --> **************************************************array (
+  0 => 
+  array (
+    'amount' => NULL,
+    'positions' => '1',
+    'year' => '2022',
+    'month' => '10',
+  ),
+  1 => 
+  array (
+    'amount' => NULL,
+    'positions' => '4',
+    'year' => '2022',
+    'month' => '11',
+  ),
+  2 => 
+  array (
+    'amount' => NULL,
+    'positions' => '1',
+    'year' => '2022',
+    'month' => '12',
+  ),
+  3 => 
+  array (
+    'amount' => '0.9800653855957936',
+    'positions' => '3',
+    'year' => '2023',
+    'month' => '1',
+  ),
+  4 => 
+  array (
+    'amount' => '1.3400859554614024',
+    'positions' => '2',
+    'year' => '2023',
+    'month' => '2',
+  ),
+  5 => 
+  array (
+    'amount' => '1.7200354195255114',
+    'positions' => '4',
+    'year' => '2023',
+    'month' => '3',
+  ),
+)
+DEBUG - 2024-08-30 07:10:38 --> ***************** Chart BY Admin *****************
+DEBUG - 2024-08-30 07:10:38 --> PLID: 53
+DEBUG - 2024-08-30 07:10:39 --> ***************** Chart BY Admin *****************
+DEBUG - 2024-08-30 07:10:39 --> PLID: 53
+DEBUG - 2024-08-30 07:10:39 --> ***************** Transaction Chart BY Admin *****************
+DEBUG - 2024-08-30 07:10:57 --> **********************Tax Form Data****************************array (
+)
+DEBUG - 2024-08-30 07:10:57 --> **************************************************array (
+  0 => 
+  array (
+    'amount' => NULL,
+    'positions' => '12',
+    'year' => '2022',
+    'month' => '10',
+  ),
+  1 => 
+  array (
+    'amount' => NULL,
+    'positions' => '13',
+    'year' => '2022',
+    'month' => '11',
+  ),
+  2 => 
+  array (
+    'amount' => NULL,
+    'positions' => '7',
+    'year' => '2022',
+    'month' => '12',
+  ),
+  3 => 
+  array (
+    'amount' => '9.309922776117405',
+    'positions' => '9',
+    'year' => '2023',
+    'month' => '1',
+  ),
+  4 => 
+  array (
+    'amount' => '8.110029825408619',
+    'positions' => '8',
+    'year' => '2023',
+    'month' => '2',
+  ),
+  5 => 
+  array (
+    'amount' => '7.239879932857962',
+    'positions' => '7',
+    'year' => '2023',
+    'month' => '3',
+  ),
+  6 => 
+  array (
+    'amount' => '0.19000567859170928',
+    'positions' => '1',
+    'year' => '2023',
+    'month' => '4',
+  ),
+  7 => 
+  array (
+    'amount' => '68.00160253093607',
+    'positions' => '2',
+    'year' => '2024',
+    'month' => '8',
+  ),
+)
+DEBUG - 2024-08-30 07:10:57 --> **************************************************array (
+  0 => 
+  array (
+    'amount' => NULL,
+    'positions' => '1',
+    'year' => '2022',
+    'month' => '10',
+  ),
+  1 => 
+  array (
+    'amount' => NULL,
+    'positions' => '4',
+    'year' => '2022',
+    'month' => '11',
+  ),
+  2 => 
+  array (
+    'amount' => NULL,
+    'positions' => '1',
+    'year' => '2022',
+    'month' => '12',
+  ),
+  3 => 
+  array (
+    'amount' => '0.9800653855957936',
+    'positions' => '3',
+    'year' => '2023',
+    'month' => '1',
+  ),
+  4 => 
+  array (
+    'amount' => '1.3400859554614024',
+    'positions' => '2',
+    'year' => '2023',
+    'month' => '2',
+  ),
+  5 => 
+  array (
+    'amount' => '1.7200354195255114',
+    'positions' => '4',
+    'year' => '2023',
+    'month' => '3',
+  ),
+)
+DEBUG - 2024-08-30 07:10:57 --> ***************** Chart BY Admin *****************
+DEBUG - 2024-08-30 07:10:57 --> PLID: 53
+DEBUG - 2024-08-30 07:10:58 --> ***************** Transaction Chart BY Admin *****************
+DEBUG - 2024-08-30 07:10:58 --> ***************** Chart BY Admin *****************
+DEBUG - 2024-08-30 07:10:58 --> PLID: 53
+DEBUG - 2024-08-30 07:11:11 --> **********************Tax Form Data****************************array (
+)
+DEBUG - 2024-08-30 07:11:11 --> **************************************************array (
+  0 => 
+  array (
+    'amount' => NULL,
+    'positions' => '12',
+    'year' => '2022',
+    'month' => '10',
+  ),
+  1 => 
+  array (
+    'amount' => NULL,
+    'positions' => '13',
+    'year' => '2022',
+    'month' => '11',
+  ),
+  2 => 
+  array (
+    'amount' => NULL,
+    'positions' => '7',
+    'year' => '2022',
+    'month' => '12',
+  ),
+  3 => 
+  array (
+    'amount' => '9.309922776117405',
+    'positions' => '9',
+    'year' => '2023',
+    'month' => '1',
+  ),
+  4 => 
+  array (
+    'amount' => '8.110029825408619',
+    'positions' => '8',
+    'year' => '2023',
+    'month' => '2',
+  ),
+  5 => 
+  array (
+    'amount' => '7.239879932857962',
+    'positions' => '7',
+    'year' => '2023',
+    'month' => '3',
+  ),
+  6 => 
+  array (
+    'amount' => '0.19000567859170928',
+    'positions' => '1',
+    'year' => '2023',
+    'month' => '4',
+  ),
+  7 => 
+  array (
+    'amount' => '68.00160253093607',
+    'positions' => '2',
+    'year' => '2024',
+    'month' => '8',
+  ),
+)
+DEBUG - 2024-08-30 07:11:11 --> **************************************************array (
+  0 => 
+  array (
+    'amount' => NULL,
+    'positions' => '1',
+    'year' => '2022',
+    'month' => '10',
+  ),
+  1 => 
+  array (
+    'amount' => NULL,
+    'positions' => '4',
+    'year' => '2022',
+    'month' => '11',
+  ),
+  2 => 
+  array (
+    'amount' => NULL,
+    'positions' => '1',
+    'year' => '2022',
+    'month' => '12',
+  ),
+  3 => 
+  array (
+    'amount' => '0.9800653855957936',
+    'positions' => '3',
+    'year' => '2023',
+    'month' => '1',
+  ),
+  4 => 
+  array (
+    'amount' => '1.3400859554614024',
+    'positions' => '2',
+    'year' => '2023',
+    'month' => '2',
+  ),
+  5 => 
+  array (
+    'amount' => '1.7200354195255114',
+    'positions' => '4',
+    'year' => '2023',
+    'month' => '3',
+  ),
+)
+DEBUG - 2024-08-30 07:11:11 --> ***************** Chart BY Admin *****************
+DEBUG - 2024-08-30 07:11:11 --> PLID: 53
+DEBUG - 2024-08-30 07:11:12 --> ***************** Transaction Chart BY Admin *****************
+DEBUG - 2024-08-30 07:11:12 --> ***************** Chart BY Admin *****************
+DEBUG - 2024-08-30 07:11:12 --> PLID: 53
+DEBUG - 2024-08-30 07:12:08 --> **********************Tax Form Data****************************array (
+)
+DEBUG - 2024-08-30 07:12:08 --> **************************************************array (
+  0 => 
+  array (
+    'amount' => NULL,
+    'positions' => '12',
+    'year' => '2022',
+    'month' => '10',
+  ),
+  1 => 
+  array (
+    'amount' => NULL,
+    'positions' => '13',
+    'year' => '2022',
+    'month' => '11',
+  ),
+  2 => 
+  array (
+    'amount' => NULL,
+    'positions' => '7',
+    'year' => '2022',
+    'month' => '12',
+  ),
+  3 => 
+  array (
+    'amount' => '9.309922776117405',
+    'positions' => '9',
+    'year' => '2023',
+    'month' => '1',
+  ),
+  4 => 
+  array (
+    'amount' => '8.110029825408619',
+    'positions' => '8',
+    'year' => '2023',
+    'month' => '2',
+  ),
+  5 => 
+  array (
+    'amount' => '7.239879932857962',
+    'positions' => '7',
+    'year' => '2023',
+    'month' => '3',
+  ),
+  6 => 
+  array (
+    'amount' => '0.19000567859170928',
+    'positions' => '1',
+    'year' => '2023',
+    'month' => '4',
+  ),
+  7 => 
+  array (
+    'amount' => '68.00160253093607',
+    'positions' => '2',
+    'year' => '2024',
+    'month' => '8',
+  ),
+)
+DEBUG - 2024-08-30 07:12:08 --> **************************************************array (
+  0 => 
+  array (
+    'amount' => NULL,
+    'positions' => '1',
+    'year' => '2022',
+    'month' => '10',
+  ),
+  1 => 
+  array (
+    'amount' => NULL,
+    'positions' => '4',
+    'year' => '2022',
+    'month' => '11',
+  ),
+  2 => 
+  array (
+    'amount' => NULL,
+    'positions' => '1',
+    'year' => '2022',
+    'month' => '12',
+  ),
+  3 => 
+  array (
+    'amount' => '0.9800653855957936',
+    'positions' => '3',
+    'year' => '2023',
+    'month' => '1',
+  ),
+  4 => 
+  array (
+    'amount' => '1.3400859554614024',
+    'positions' => '2',
+    'year' => '2023',
+    'month' => '2',
+  ),
+  5 => 
+  array (
+    'amount' => '1.7200354195255114',
+    'positions' => '4',
+    'year' => '2023',
+    'month' => '3',
+  ),
+)
+DEBUG - 2024-08-30 07:12:08 --> ***************** Chart BY Admin *****************
+DEBUG - 2024-08-30 07:12:08 --> PLID: 53
+DEBUG - 2024-08-30 07:12:09 --> ***************** Chart BY Admin *****************
+DEBUG - 2024-08-30 07:12:09 --> PLID: 53
+DEBUG - 2024-08-30 07:12:09 --> ***************** Transaction Chart BY Admin *****************
+DEBUG - 2024-08-30 07:12:31 --> **********************Tax Form Data****************************array (
+)
+DEBUG - 2024-08-30 07:12:31 --> **************************************************array (
+  0 => 
+  array (
+    'amount' => NULL,
+    'positions' => '12',
+    'year' => '2022',
+    'month' => '10',
+  ),
+  1 => 
+  array (
+    'amount' => NULL,
+    'positions' => '13',
+    'year' => '2022',
+    'month' => '11',
+  ),
+  2 => 
+  array (
+    'amount' => NULL,
+    'positions' => '7',
+    'year' => '2022',
+    'month' => '12',
+  ),
+  3 => 
+  array (
+    'amount' => '9.309922776117405',
+    'positions' => '9',
+    'year' => '2023',
+    'month' => '1',
+  ),
+  4 => 
+  array (
+    'amount' => '8.110029825408619',
+    'positions' => '8',
+    'year' => '2023',
+    'month' => '2',
+  ),
+  5 => 
+  array (
+    'amount' => '7.239879932857962',
+    'positions' => '7',
+    'year' => '2023',
+    'month' => '3',
+  ),
+  6 => 
+  array (
+    'amount' => '0.19000567859170928',
+    'positions' => '1',
+    'year' => '2023',
+    'month' => '4',
+  ),
+  7 => 
+  array (
+    'amount' => '68.00160253093607',
+    'positions' => '2',
+    'year' => '2024',
+    'month' => '8',
+  ),
+)
+DEBUG - 2024-08-30 07:12:31 --> **************************************************array (
+  0 => 
+  array (
+    'amount' => NULL,
+    'positions' => '1',
+    'year' => '2022',
+    'month' => '10',
+  ),
+  1 => 
+  array (
+    'amount' => NULL,
+    'positions' => '4',
+    'year' => '2022',
+    'month' => '11',
+  ),
+  2 => 
+  array (
+    'amount' => NULL,
+    'positions' => '1',
+    'year' => '2022',
+    'month' => '12',
+  ),
+  3 => 
+  array (
+    'amount' => '0.9800653855957936',
+    'positions' => '3',
+    'year' => '2023',
+    'month' => '1',
+  ),
+  4 => 
+  array (
+    'amount' => '1.3400859554614024',
+    'positions' => '2',
+    'year' => '2023',
+    'month' => '2',
+  ),
+  5 => 
+  array (
+    'amount' => '1.7200354195255114',
+    'positions' => '4',
+    'year' => '2023',
+    'month' => '3',
+  ),
+)
+DEBUG - 2024-08-30 07:12:31 --> ***************** Chart BY Admin *****************
+DEBUG - 2024-08-30 07:12:31 --> PLID: 53
+DEBUG - 2024-08-30 07:12:32 --> ***************** Transaction Chart BY Admin *****************
+DEBUG - 2024-08-30 07:12:32 --> ***************** Chart BY Admin *****************
+DEBUG - 2024-08-30 07:12:33 --> PLID: 53
+DEBUG - 2024-08-30 07:12:59 --> **********************Tax Form Data****************************array (
+)
+DEBUG - 2024-08-30 07:12:59 --> **************************************************array (
+  0 => 
+  array (
+    'amount' => NULL,
+    'positions' => '12',
+    'year' => '2022',
+    'month' => '10',
+  ),
+  1 => 
+  array (
+    'amount' => NULL,
+    'positions' => '13',
+    'year' => '2022',
+    'month' => '11',
+  ),
+  2 => 
+  array (
+    'amount' => NULL,
+    'positions' => '7',
+    'year' => '2022',
+    'month' => '12',
+  ),
+  3 => 
+  array (
+    'amount' => '9.309922776117405',
+    'positions' => '9',
+    'year' => '2023',
+    'month' => '1',
+  ),
+  4 => 
+  array (
+    'amount' => '8.110029825408619',
+    'positions' => '8',
+    'year' => '2023',
+    'month' => '2',
+  ),
+  5 => 
+  array (
+    'amount' => '7.239879932857962',
+    'positions' => '7',
+    'year' => '2023',
+    'month' => '3',
+  ),
+  6 => 
+  array (
+    'amount' => '0.19000567859170928',
+    'positions' => '1',
+    'year' => '2023',
+    'month' => '4',
+  ),
+  7 => 
+  array (
+    'amount' => '68.00160253093607',
+    'positions' => '2',
+    'year' => '2024',
+    'month' => '8',
+  ),
+)
+DEBUG - 2024-08-30 07:12:59 --> **************************************************array (
+  0 => 
+  array (
+    'amount' => NULL,
+    'positions' => '1',
+    'year' => '2022',
+    'month' => '10',
+  ),
+  1 => 
+  array (
+    'amount' => NULL,
+    'positions' => '4',
+    'year' => '2022',
+    'month' => '11',
+  ),
+  2 => 
+  array (
+    'amount' => NULL,
+    'positions' => '1',
+    'year' => '2022',
+    'month' => '12',
+  ),
+  3 => 
+  array (
+    'amount' => '0.9800653855957936',
+    'positions' => '3',
+    'year' => '2023',
+    'month' => '1',
+  ),
+  4 => 
+  array (
+    'amount' => '1.3400859554614024',
+    'positions' => '2',
+    'year' => '2023',
+    'month' => '2',
+  ),
+  5 => 
+  array (
+    'amount' => '1.7200354195255114',
+    'positions' => '4',
+    'year' => '2023',
+    'month' => '3',
+  ),
+)
+DEBUG - 2024-08-30 07:12:59 --> ***************** Chart BY Admin *****************
+DEBUG - 2024-08-30 07:12:59 --> PLID: 53
+DEBUG - 2024-08-30 07:13:00 --> ***************** Transaction Chart BY Admin *****************
+DEBUG - 2024-08-30 07:13:00 --> ***************** Chart BY Admin *****************
+DEBUG - 2024-08-30 07:13:00 --> PLID: 53
+DEBUG - 2024-08-30 07:14:06 --> **********************Tax Form Data****************************array (
+)
+DEBUG - 2024-08-30 07:14:06 --> **************************************************array (
+  0 => 
+  array (
+    'amount' => NULL,
+    'positions' => '12',
+    'year' => '2022',
+    'month' => '10',
+  ),
+  1 => 
+  array (
+    'amount' => NULL,
+    'positions' => '13',
+    'year' => '2022',
+    'month' => '11',
+  ),
+  2 => 
+  array (
+    'amount' => NULL,
+    'positions' => '7',
+    'year' => '2022',
+    'month' => '12',
+  ),
+  3 => 
+  array (
+    'amount' => '9.309922776117405',
+    'positions' => '9',
+    'year' => '2023',
+    'month' => '1',
+  ),
+  4 => 
+  array (
+    'amount' => '8.110029825408619',
+    'positions' => '8',
+    'year' => '2023',
+    'month' => '2',
+  ),
+  5 => 
+  array (
+    'amount' => '7.239879932857962',
+    'positions' => '7',
+    'year' => '2023',
+    'month' => '3',
+  ),
+  6 => 
+  array (
+    'amount' => '0.19000567859170928',
+    'positions' => '1',
+    'year' => '2023',
+    'month' => '4',
+  ),
+  7 => 
+  array (
+    'amount' => '68.00160253093607',
+    'positions' => '2',
+    'year' => '2024',
+    'month' => '8',
+  ),
+)
+DEBUG - 2024-08-30 07:14:06 --> **************************************************array (
+  0 => 
+  array (
+    'amount' => NULL,
+    'positions' => '1',
+    'year' => '2022',
+    'month' => '10',
+  ),
+  1 => 
+  array (
+    'amount' => NULL,
+    'positions' => '4',
+    'year' => '2022',
+    'month' => '11',
+  ),
+  2 => 
+  array (
+    'amount' => NULL,
+    'positions' => '1',
+    'year' => '2022',
+    'month' => '12',
+  ),
+  3 => 
+  array (
+    'amount' => '0.9800653855957936',
+    'positions' => '3',
+    'year' => '2023',
+    'month' => '1',
+  ),
+  4 => 
+  array (
+    'amount' => '1.3400859554614024',
+    'positions' => '2',
+    'year' => '2023',
+    'month' => '2',
+  ),
+  5 => 
+  array (
+    'amount' => '1.7200354195255114',
+    'positions' => '4',
+    'year' => '2023',
+    'month' => '3',
+  ),
+)
+DEBUG - 2024-08-30 07:14:06 --> ***************** Chart BY Admin *****************
+DEBUG - 2024-08-30 07:14:06 --> PLID: 53
+DEBUG - 2024-08-30 07:14:07 --> ***************** Transaction Chart BY Admin *****************
+DEBUG - 2024-08-30 07:14:07 --> ***************** Chart BY Admin *****************
+DEBUG - 2024-08-30 07:14:07 --> PLID: 53
+DEBUG - 2024-08-30 07:14:57 --> **********************Tax Form Data****************************array (
+)
+DEBUG - 2024-08-30 07:14:57 --> **************************************************array (
+  0 => 
+  array (
+    'amount' => NULL,
+    'positions' => '12',
+    'year' => '2022',
+    'month' => '10',
+  ),
+  1 => 
+  array (
+    'amount' => NULL,
+    'positions' => '13',
+    'year' => '2022',
+    'month' => '11',
+  ),
+  2 => 
+  array (
+    'amount' => NULL,
+    'positions' => '7',
+    'year' => '2022',
+    'month' => '12',
+  ),
+  3 => 
+  array (
+    'amount' => '9.309922776117405',
+    'positions' => '9',
+    'year' => '2023',
+    'month' => '1',
+  ),
+  4 => 
+  array (
+    'amount' => '8.110029825408619',
+    'positions' => '8',
+    'year' => '2023',
+    'month' => '2',
+  ),
+  5 => 
+  array (
+    'amount' => '7.239879932857962',
+    'positions' => '7',
+    'year' => '2023',
+    'month' => '3',
+  ),
+  6 => 
+  array (
+    'amount' => '0.19000567859170928',
+    'positions' => '1',
+    'year' => '2023',
+    'month' => '4',
+  ),
+  7 => 
+  array (
+    'amount' => '68.00160253093607',
+    'positions' => '2',
+    'year' => '2024',
+    'month' => '8',
+  ),
+)
+DEBUG - 2024-08-30 07:14:57 --> **************************************************array (
+  0 => 
+  array (
+    'amount' => NULL,
+    'positions' => '1',
+    'year' => '2022',
+    'month' => '10',
+  ),
+  1 => 
+  array (
+    'amount' => NULL,
+    'positions' => '4',
+    'year' => '2022',
+    'month' => '11',
+  ),
+  2 => 
+  array (
+    'amount' => NULL,
+    'positions' => '1',
+    'year' => '2022',
+    'month' => '12',
+  ),
+  3 => 
+  array (
+    'amount' => '0.9800653855957936',
+    'positions' => '3',
+    'year' => '2023',
+    'month' => '1',
+  ),
+  4 => 
+  array (
+    'amount' => '1.3400859554614024',
+    'positions' => '2',
+    'year' => '2023',
+    'month' => '2',
+  ),
+  5 => 
+  array (
+    'amount' => '1.7200354195255114',
+    'positions' => '4',
+    'year' => '2023',
+    'month' => '3',
+  ),
+)
+DEBUG - 2024-08-30 07:14:57 --> ***************** Chart BY Admin *****************
+DEBUG - 2024-08-30 07:14:57 --> PLID: 53
+DEBUG - 2024-08-30 07:14:58 --> ***************** Chart BY Admin *****************
+DEBUG - 2024-08-30 07:14:58 --> PLID: 53
+DEBUG - 2024-08-30 07:14:58 --> ***************** Transaction Chart BY Admin *****************
+DEBUG - 2024-08-30 07:16:01 --> **********************Tax Form Data****************************array (
+)
+DEBUG - 2024-08-30 07:16:01 --> **************************************************array (
+  0 => 
+  array (
+    'amount' => NULL,
+    'positions' => '12',
+    'year' => '2022',
+    'month' => '10',
+  ),
+  1 => 
+  array (
+    'amount' => NULL,
+    'positions' => '13',
+    'year' => '2022',
+    'month' => '11',
+  ),
+  2 => 
+  array (
+    'amount' => NULL,
+    'positions' => '7',
+    'year' => '2022',
+    'month' => '12',
+  ),
+  3 => 
+  array (
+    'amount' => '9.309922776117405',
+    'positions' => '9',
+    'year' => '2023',
+    'month' => '1',
+  ),
+  4 => 
+  array (
+    'amount' => '8.110029825408619',
+    'positions' => '8',
+    'year' => '2023',
+    'month' => '2',
+  ),
+  5 => 
+  array (
+    'amount' => '7.239879932857962',
+    'positions' => '7',
+    'year' => '2023',
+    'month' => '3',
+  ),
+  6 => 
+  array (
+    'amount' => '0.19000567859170928',
+    'positions' => '1',
+    'year' => '2023',
+    'month' => '4',
+  ),
+  7 => 
+  array (
+    'amount' => '68.00160253093607',
+    'positions' => '2',
+    'year' => '2024',
+    'month' => '8',
+  ),
+)
+DEBUG - 2024-08-30 07:16:01 --> **************************************************array (
+  0 => 
+  array (
+    'amount' => NULL,
+    'positions' => '1',
+    'year' => '2022',
+    'month' => '10',
+  ),
+  1 => 
+  array (
+    'amount' => NULL,
+    'positions' => '4',
+    'year' => '2022',
+    'month' => '11',
+  ),
+  2 => 
+  array (
+    'amount' => NULL,
+    'positions' => '1',
+    'year' => '2022',
+    'month' => '12',
+  ),
+  3 => 
+  array (
+    'amount' => '0.9800653855957936',
+    'positions' => '3',
+    'year' => '2023',
+    'month' => '1',
+  ),
+  4 => 
+  array (
+    'amount' => '1.3400859554614024',
+    'positions' => '2',
+    'year' => '2023',
+    'month' => '2',
+  ),
+  5 => 
+  array (
+    'amount' => '1.7200354195255114',
+    'positions' => '4',
+    'year' => '2023',
+    'month' => '3',
+  ),
+)
+DEBUG - 2024-08-30 07:16:01 --> ***************** Chart BY Admin *****************
+DEBUG - 2024-08-30 07:16:01 --> PLID: 53
+DEBUG - 2024-08-30 07:16:02 --> ***************** Chart BY Admin *****************
+DEBUG - 2024-08-30 07:16:02 --> PLID: 53
+DEBUG - 2024-08-30 07:16:02 --> ***************** Transaction Chart BY Admin *****************
+DEBUG - 2024-08-30 07:16:52 --> **********************Tax Form Data****************************array (
+)
+DEBUG - 2024-08-30 07:16:52 --> **************************************************array (
+  0 => 
+  array (
+    'amount' => NULL,
+    'positions' => '12',
+    'year' => '2022',
+    'month' => '10',
+  ),
+  1 => 
+  array (
+    'amount' => NULL,
+    'positions' => '13',
+    'year' => '2022',
+    'month' => '11',
+  ),
+  2 => 
+  array (
+    'amount' => NULL,
+    'positions' => '7',
+    'year' => '2022',
+    'month' => '12',
+  ),
+  3 => 
+  array (
+    'amount' => '9.309922776117405',
+    'positions' => '9',
+    'year' => '2023',
+    'month' => '1',
+  ),
+  4 => 
+  array (
+    'amount' => '8.110029825408619',
+    'positions' => '8',
+    'year' => '2023',
+    'month' => '2',
+  ),
+  5 => 
+  array (
+    'amount' => '7.239879932857962',
+    'positions' => '7',
+    'year' => '2023',
+    'month' => '3',
+  ),
+  6 => 
+  array (
+    'amount' => '0.19000567859170928',
+    'positions' => '1',
+    'year' => '2023',
+    'month' => '4',
+  ),
+  7 => 
+  array (
+    'amount' => '68.00160253093607',
+    'positions' => '2',
+    'year' => '2024',
+    'month' => '8',
+  ),
+)
+DEBUG - 2024-08-30 07:16:52 --> **************************************************array (
+  0 => 
+  array (
+    'amount' => NULL,
+    'positions' => '1',
+    'year' => '2022',
+    'month' => '10',
+  ),
+  1 => 
+  array (
+    'amount' => NULL,
+    'positions' => '4',
+    'year' => '2022',
+    'month' => '11',
+  ),
+  2 => 
+  array (
+    'amount' => NULL,
+    'positions' => '1',
+    'year' => '2022',
+    'month' => '12',
+  ),
+  3 => 
+  array (
+    'amount' => '0.9800653855957936',
+    'positions' => '3',
+    'year' => '2023',
+    'month' => '1',
+  ),
+  4 => 
+  array (
+    'amount' => '1.3400859554614024',
+    'positions' => '2',
+    'year' => '2023',
+    'month' => '2',
+  ),
+  5 => 
+  array (
+    'amount' => '1.7200354195255114',
+    'positions' => '4',
+    'year' => '2023',
+    'month' => '3',
+  ),
+)
+DEBUG - 2024-08-30 07:16:52 --> ***************** Chart BY Admin *****************
+DEBUG - 2024-08-30 07:16:52 --> PLID: 53
+DEBUG - 2024-08-30 07:16:53 --> ***************** Chart BY Admin *****************
+DEBUG - 2024-08-30 07:16:53 --> ***************** Transaction Chart BY Admin *****************
+DEBUG - 2024-08-30 07:16:53 --> PLID: 53
+DEBUG - 2024-08-30 07:17:12 --> **********************Tax Form Data****************************array (
+)
+DEBUG - 2024-08-30 07:17:12 --> **************************************************array (
+  0 => 
+  array (
+    'amount' => NULL,
+    'positions' => '12',
+    'year' => '2022',
+    'month' => '10',
+  ),
+  1 => 
+  array (
+    'amount' => NULL,
+    'positions' => '13',
+    'year' => '2022',
+    'month' => '11',
+  ),
+  2 => 
+  array (
+    'amount' => NULL,
+    'positions' => '7',
+    'year' => '2022',
+    'month' => '12',
+  ),
+  3 => 
+  array (
+    'amount' => '9.309922776117405',
+    'positions' => '9',
+    'year' => '2023',
+    'month' => '1',
+  ),
+  4 => 
+  array (
+    'amount' => '8.110029825408619',
+    'positions' => '8',
+    'year' => '2023',
+    'month' => '2',
+  ),
+  5 => 
+  array (
+    'amount' => '7.239879932857962',
+    'positions' => '7',
+    'year' => '2023',
+    'month' => '3',
+  ),
+  6 => 
+  array (
+    'amount' => '0.19000567859170928',
+    'positions' => '1',
+    'year' => '2023',
+    'month' => '4',
+  ),
+  7 => 
+  array (
+    'amount' => '68.00160253093607',
+    'positions' => '2',
+    'year' => '2024',
+    'month' => '8',
+  ),
+)
+DEBUG - 2024-08-30 07:17:12 --> **************************************************array (
+  0 => 
+  array (
+    'amount' => NULL,
+    'positions' => '1',
+    'year' => '2022',
+    'month' => '10',
+  ),
+  1 => 
+  array (
+    'amount' => NULL,
+    'positions' => '4',
+    'year' => '2022',
+    'month' => '11',
+  ),
+  2 => 
+  array (
+    'amount' => NULL,
+    'positions' => '1',
+    'year' => '2022',
+    'month' => '12',
+  ),
+  3 => 
+  array (
+    'amount' => '0.9800653855957936',
+    'positions' => '3',
+    'year' => '2023',
+    'month' => '1',
+  ),
+  4 => 
+  array (
+    'amount' => '1.3400859554614024',
+    'positions' => '2',
+    'year' => '2023',
+    'month' => '2',
+  ),
+  5 => 
+  array (
+    'amount' => '1.7200354195255114',
+    'positions' => '4',
+    'year' => '2023',
+    'month' => '3',
+  ),
+)
+DEBUG - 2024-08-30 07:17:12 --> ***************** Chart BY Admin *****************
+DEBUG - 2024-08-30 07:17:12 --> PLID: 53
+DEBUG - 2024-08-30 07:17:13 --> ***************** Transaction Chart BY Admin *****************
+DEBUG - 2024-08-30 07:17:13 --> ***************** Chart BY Admin *****************
+DEBUG - 2024-08-30 07:17:13 --> PLID: 53
+DEBUG - 2024-08-30 07:17:16 --> **********************Tax Form Data****************************array (
+)
+DEBUG - 2024-08-30 07:17:16 --> **************************************************array (
+  0 => 
+  array (
+    'amount' => NULL,
+    'positions' => '12',
+    'year' => '2022',
+    'month' => '10',
+  ),
+  1 => 
+  array (
+    'amount' => NULL,
+    'positions' => '13',
+    'year' => '2022',
+    'month' => '11',
+  ),
+  2 => 
+  array (
+    'amount' => NULL,
+    'positions' => '7',
+    'year' => '2022',
+    'month' => '12',
+  ),
+  3 => 
+  array (
+    'amount' => '9.309922776117405',
+    'positions' => '9',
+    'year' => '2023',
+    'month' => '1',
+  ),
+  4 => 
+  array (
+    'amount' => '8.110029825408619',
+    'positions' => '8',
+    'year' => '2023',
+    'month' => '2',
+  ),
+  5 => 
+  array (
+    'amount' => '7.239879932857962',
+    'positions' => '7',
+    'year' => '2023',
+    'month' => '3',
+  ),
+  6 => 
+  array (
+    'amount' => '0.19000567859170928',
+    'positions' => '1',
+    'year' => '2023',
+    'month' => '4',
+  ),
+  7 => 
+  array (
+    'amount' => '68.00160253093607',
+    'positions' => '2',
+    'year' => '2024',
+    'month' => '8',
+  ),
+)
+DEBUG - 2024-08-30 07:17:16 --> **************************************************array (
+  0 => 
+  array (
+    'amount' => NULL,
+    'positions' => '1',
+    'year' => '2022',
+    'month' => '10',
+  ),
+  1 => 
+  array (
+    'amount' => NULL,
+    'positions' => '4',
+    'year' => '2022',
+    'month' => '11',
+  ),
+  2 => 
+  array (
+    'amount' => NULL,
+    'positions' => '1',
+    'year' => '2022',
+    'month' => '12',
+  ),
+  3 => 
+  array (
+    'amount' => '0.9800653855957936',
+    'positions' => '3',
+    'year' => '2023',
+    'month' => '1',
+  ),
+  4 => 
+  array (
+    'amount' => '1.3400859554614024',
+    'positions' => '2',
+    'year' => '2023',
+    'month' => '2',
+  ),
+  5 => 
+  array (
+    'amount' => '1.7200354195255114',
+    'positions' => '4',
+    'year' => '2023',
+    'month' => '3',
+  ),
+)
+DEBUG - 2024-08-30 07:17:16 --> ***************** Chart BY Admin *****************
+DEBUG - 2024-08-30 07:17:16 --> PLID: 53
+DEBUG - 2024-08-30 07:17:17 --> ***************** Chart BY Admin *****************
+DEBUG - 2024-08-30 07:17:17 --> PLID: 53
+DEBUG - 2024-08-30 07:17:17 --> ***************** Transaction Chart BY Admin *****************
+DEBUG - 2024-08-30 07:17:30 --> **********************Tax Form Data****************************array (
+)
+DEBUG - 2024-08-30 07:17:30 --> **************************************************array (
+  0 => 
+  array (
+    'amount' => NULL,
+    'positions' => '12',
+    'year' => '2022',
+    'month' => '10',
+  ),
+  1 => 
+  array (
+    'amount' => NULL,
+    'positions' => '13',
+    'year' => '2022',
+    'month' => '11',
+  ),
+  2 => 
+  array (
+    'amount' => NULL,
+    'positions' => '7',
+    'year' => '2022',
+    'month' => '12',
+  ),
+  3 => 
+  array (
+    'amount' => '9.309922776117405',
+    'positions' => '9',
+    'year' => '2023',
+    'month' => '1',
+  ),
+  4 => 
+  array (
+    'amount' => '8.110029825408619',
+    'positions' => '8',
+    'year' => '2023',
+    'month' => '2',
+  ),
+  5 => 
+  array (
+    'amount' => '7.239879932857962',
+    'positions' => '7',
+    'year' => '2023',
+    'month' => '3',
+  ),
+  6 => 
+  array (
+    'amount' => '0.19000567859170928',
+    'positions' => '1',
+    'year' => '2023',
+    'month' => '4',
+  ),
+  7 => 
+  array (
+    'amount' => '68.00160253093607',
+    'positions' => '2',
+    'year' => '2024',
+    'month' => '8',
+  ),
+)
+DEBUG - 2024-08-30 07:17:30 --> **************************************************array (
+  0 => 
+  array (
+    'amount' => NULL,
+    'positions' => '1',
+    'year' => '2022',
+    'month' => '10',
+  ),
+  1 => 
+  array (
+    'amount' => NULL,
+    'positions' => '4',
+    'year' => '2022',
+    'month' => '11',
+  ),
+  2 => 
+  array (
+    'amount' => NULL,
+    'positions' => '1',
+    'year' => '2022',
+    'month' => '12',
+  ),
+  3 => 
+  array (
+    'amount' => '0.9800653855957936',
+    'positions' => '3',
+    'year' => '2023',
+    'month' => '1',
+  ),
+  4 => 
+  array (
+    'amount' => '1.3400859554614024',
+    'positions' => '2',
+    'year' => '2023',
+    'month' => '2',
+  ),
+  5 => 
+  array (
+    'amount' => '1.7200354195255114',
+    'positions' => '4',
+    'year' => '2023',
+    'month' => '3',
+  ),
+)
+DEBUG - 2024-08-30 07:17:30 --> ***************** Chart BY Admin *****************
+DEBUG - 2024-08-30 07:17:30 --> PLID: 53
+DEBUG - 2024-08-30 07:17:31 --> ***************** Chart BY Admin *****************
+DEBUG - 2024-08-30 07:17:31 --> ***************** Transaction Chart BY Admin *****************
+DEBUG - 2024-08-30 07:17:31 --> PLID: 53
+DEBUG - 2024-08-30 07:18:38 --> **********************Tax Form Data****************************array (
+)
+DEBUG - 2024-08-30 07:18:38 --> **************************************************array (
+  0 => 
+  array (
+    'amount' => NULL,
+    'positions' => '12',
+    'year' => '2022',
+    'month' => '10',
+  ),
+  1 => 
+  array (
+    'amount' => NULL,
+    'positions' => '13',
+    'year' => '2022',
+    'month' => '11',
+  ),
+  2 => 
+  array (
+    'amount' => NULL,
+    'positions' => '7',
+    'year' => '2022',
+    'month' => '12',
+  ),
+  3 => 
+  array (
+    'amount' => '9.309922776117405',
+    'positions' => '9',
+    'year' => '2023',
+    'month' => '1',
+  ),
+  4 => 
+  array (
+    'amount' => '8.110029825408619',
+    'positions' => '8',
+    'year' => '2023',
+    'month' => '2',
+  ),
+  5 => 
+  array (
+    'amount' => '7.239879932857962',
+    'positions' => '7',
+    'year' => '2023',
+    'month' => '3',
+  ),
+  6 => 
+  array (
+    'amount' => '0.19000567859170928',
+    'positions' => '1',
+    'year' => '2023',
+    'month' => '4',
+  ),
+  7 => 
+  array (
+    'amount' => '68.00160253093607',
+    'positions' => '2',
+    'year' => '2024',
+    'month' => '8',
+  ),
+)
+DEBUG - 2024-08-30 07:18:38 --> **************************************************array (
+  0 => 
+  array (
+    'amount' => NULL,
+    'positions' => '1',
+    'year' => '2022',
+    'month' => '10',
+  ),
+  1 => 
+  array (
+    'amount' => NULL,
+    'positions' => '4',
+    'year' => '2022',
+    'month' => '11',
+  ),
+  2 => 
+  array (
+    'amount' => NULL,
+    'positions' => '1',
+    'year' => '2022',
+    'month' => '12',
+  ),
+  3 => 
+  array (
+    'amount' => '0.9800653855957936',
+    'positions' => '3',
+    'year' => '2023',
+    'month' => '1',
+  ),
+  4 => 
+  array (
+    'amount' => '1.3400859554614024',
+    'positions' => '2',
+    'year' => '2023',
+    'month' => '2',
+  ),
+  5 => 
+  array (
+    'amount' => '1.7200354195255114',
+    'positions' => '4',
+    'year' => '2023',
+    'month' => '3',
+  ),
+)
+DEBUG - 2024-08-30 07:18:38 --> ***************** Chart BY Admin *****************
+DEBUG - 2024-08-30 07:18:38 --> PLID: 53
+DEBUG - 2024-08-30 07:18:39 --> ***************** Chart BY Admin *****************
+DEBUG - 2024-08-30 07:18:39 --> PLID: 53
+DEBUG - 2024-08-30 07:18:39 --> ***************** Transaction Chart BY Admin *****************
+DEBUG - 2024-08-30 07:19:09 --> **********************Tax Form Data****************************array (
+)
+DEBUG - 2024-08-30 07:19:09 --> **************************************************array (
+  0 => 
+  array (
+    'amount' => NULL,
+    'positions' => '12',
+    'year' => '2022',
+    'month' => '10',
+  ),
+  1 => 
+  array (
+    'amount' => NULL,
+    'positions' => '13',
+    'year' => '2022',
+    'month' => '11',
+  ),
+  2 => 
+  array (
+    'amount' => NULL,
+    'positions' => '7',
+    'year' => '2022',
+    'month' => '12',
+  ),
+  3 => 
+  array (
+    'amount' => '9.309922776117405',
+    'positions' => '9',
+    'year' => '2023',
+    'month' => '1',
+  ),
+  4 => 
+  array (
+    'amount' => '8.110029825408619',
+    'positions' => '8',
+    'year' => '2023',
+    'month' => '2',
+  ),
+  5 => 
+  array (
+    'amount' => '7.239879932857962',
+    'positions' => '7',
+    'year' => '2023',
+    'month' => '3',
+  ),
+  6 => 
+  array (
+    'amount' => '0.19000567859170928',
+    'positions' => '1',
+    'year' => '2023',
+    'month' => '4',
+  ),
+  7 => 
+  array (
+    'amount' => '68.00160253093607',
+    'positions' => '2',
+    'year' => '2024',
+    'month' => '8',
+  ),
+)
+DEBUG - 2024-08-30 07:19:09 --> **************************************************array (
+  0 => 
+  array (
+    'amount' => NULL,
+    'positions' => '1',
+    'year' => '2022',
+    'month' => '10',
+  ),
+  1 => 
+  array (
+    'amount' => NULL,
+    'positions' => '4',
+    'year' => '2022',
+    'month' => '11',
+  ),
+  2 => 
+  array (
+    'amount' => NULL,
+    'positions' => '1',
+    'year' => '2022',
+    'month' => '12',
+  ),
+  3 => 
+  array (
+    'amount' => '0.9800653855957936',
+    'positions' => '3',
+    'year' => '2023',
+    'month' => '1',
+  ),
+  4 => 
+  array (
+    'amount' => '1.3400859554614024',
+    'positions' => '2',
+    'year' => '2023',
+    'month' => '2',
+  ),
+  5 => 
+  array (
+    'amount' => '1.7200354195255114',
+    'positions' => '4',
+    'year' => '2023',
+    'month' => '3',
+  ),
+)
+DEBUG - 2024-08-30 07:19:09 --> ***************** Chart BY Admin *****************
+DEBUG - 2024-08-30 07:19:09 --> PLID: 53
+DEBUG - 2024-08-30 07:19:10 --> ***************** Chart BY Admin *****************
+DEBUG - 2024-08-30 07:19:10 --> ***************** Transaction Chart BY Admin *****************
+DEBUG - 2024-08-30 07:19:10 --> PLID: 53
+DEBUG - 2024-08-30 07:22:27 --> **********************Tax Form Data****************************array (
+)
+DEBUG - 2024-08-30 07:22:27 --> **************************************************array (
+  0 => 
+  array (
+    'amount' => NULL,
+    'positions' => '12',
+    'year' => '2022',
+    'month' => '10',
+  ),
+  1 => 
+  array (
+    'amount' => NULL,
+    'positions' => '13',
+    'year' => '2022',
+    'month' => '11',
+  ),
+  2 => 
+  array (
+    'amount' => NULL,
+    'positions' => '7',
+    'year' => '2022',
+    'month' => '12',
+  ),
+  3 => 
+  array (
+    'amount' => '9.309922776117405',
+    'positions' => '9',
+    'year' => '2023',
+    'month' => '1',
+  ),
+  4 => 
+  array (
+    'amount' => '8.110029825408619',
+    'positions' => '8',
+    'year' => '2023',
+    'month' => '2',
+  ),
+  5 => 
+  array (
+    'amount' => '7.239879932857962',
+    'positions' => '7',
+    'year' => '2023',
+    'month' => '3',
+  ),
+  6 => 
+  array (
+    'amount' => '0.19000567859170928',
+    'positions' => '1',
+    'year' => '2023',
+    'month' => '4',
+  ),
+  7 => 
+  array (
+    'amount' => '68.00160253093607',
+    'positions' => '2',
+    'year' => '2024',
+    'month' => '8',
+  ),
+)
+DEBUG - 2024-08-30 07:22:27 --> **************************************************array (
+  0 => 
+  array (
+    'amount' => NULL,
+    'positions' => '1',
+    'year' => '2022',
+    'month' => '10',
+  ),
+  1 => 
+  array (
+    'amount' => NULL,
+    'positions' => '4',
+    'year' => '2022',
+    'month' => '11',
+  ),
+  2 => 
+  array (
+    'amount' => NULL,
+    'positions' => '1',
+    'year' => '2022',
+    'month' => '12',
+  ),
+  3 => 
+  array (
+    'amount' => '0.9800653855957936',
+    'positions' => '3',
+    'year' => '2023',
+    'month' => '1',
+  ),
+  4 => 
+  array (
+    'amount' => '1.3400859554614024',
+    'positions' => '2',
+    'year' => '2023',
+    'month' => '2',
+  ),
+  5 => 
+  array (
+    'amount' => '1.7200354195255114',
+    'positions' => '4',
+    'year' => '2023',
+    'month' => '3',
+  ),
+)
+DEBUG - 2024-08-30 07:22:27 --> ***************** Chart BY Admin *****************
+DEBUG - 2024-08-30 07:22:27 --> PLID: 53
+DEBUG - 2024-08-30 07:22:28 --> ***************** Chart BY Admin *****************
+DEBUG - 2024-08-30 07:22:28 --> PLID: 53
+DEBUG - 2024-08-30 07:22:28 --> ***************** Transaction Chart BY Admin *****************
+DEBUG - 2024-08-30 07:22:55 --> **********************Tax Form Data****************************array (
+)
+DEBUG - 2024-08-30 07:22:55 --> **************************************************array (
+  0 => 
+  array (
+    'amount' => NULL,
+    'positions' => '12',
+    'year' => '2022',
+    'month' => '10',
+  ),
+  1 => 
+  array (
+    'amount' => NULL,
+    'positions' => '13',
+    'year' => '2022',
+    'month' => '11',
+  ),
+  2 => 
+  array (
+    'amount' => NULL,
+    'positions' => '7',
+    'year' => '2022',
+    'month' => '12',
+  ),
+  3 => 
+  array (
+    'amount' => '9.309922776117405',
+    'positions' => '9',
+    'year' => '2023',
+    'month' => '1',
+  ),
+  4 => 
+  array (
+    'amount' => '8.110029825408619',
+    'positions' => '8',
+    'year' => '2023',
+    'month' => '2',
+  ),
+  5 => 
+  array (
+    'amount' => '7.239879932857962',
+    'positions' => '7',
+    'year' => '2023',
+    'month' => '3',
+  ),
+  6 => 
+  array (
+    'amount' => '0.19000567859170928',
+    'positions' => '1',
+    'year' => '2023',
+    'month' => '4',
+  ),
+  7 => 
+  array (
+    'amount' => '68.00160253093607',
+    'positions' => '2',
+    'year' => '2024',
+    'month' => '8',
+  ),
+)
+DEBUG - 2024-08-30 07:22:55 --> **************************************************array (
+  0 => 
+  array (
+    'amount' => NULL,
+    'positions' => '1',
+    'year' => '2022',
+    'month' => '10',
+  ),
+  1 => 
+  array (
+    'amount' => NULL,
+    'positions' => '4',
+    'year' => '2022',
+    'month' => '11',
+  ),
+  2 => 
+  array (
+    'amount' => NULL,
+    'positions' => '1',
+    'year' => '2022',
+    'month' => '12',
+  ),
+  3 => 
+  array (
+    'amount' => '0.9800653855957936',
+    'positions' => '3',
+    'year' => '2023',
+    'month' => '1',
+  ),
+  4 => 
+  array (
+    'amount' => '1.3400859554614024',
+    'positions' => '2',
+    'year' => '2023',
+    'month' => '2',
+  ),
+  5 => 
+  array (
+    'amount' => '1.7200354195255114',
+    'positions' => '4',
+    'year' => '2023',
+    'month' => '3',
+  ),
+)
+DEBUG - 2024-08-30 07:22:55 --> ***************** Chart BY Admin *****************
+DEBUG - 2024-08-30 07:22:55 --> PLID: 53
+DEBUG - 2024-08-30 07:22:56 --> ***************** Transaction Chart BY Admin *****************
+DEBUG - 2024-08-30 07:22:56 --> ***************** Chart BY Admin *****************
+DEBUG - 2024-08-30 07:22:56 --> PLID: 53
+DEBUG - 2024-08-30 07:26:54 --> ***************** Login verification *****************
+DEBUG - 2024-08-30 07:26:54 --> ***************** Login verification *****************
+DEBUG - 2024-08-30 07:26:54 --> User IP: ::1
+DEBUG - 2024-08-30 07:26:54 --> User IP: ::1
+DEBUG - 2024-08-30 07:26:54 --> Email: 9o9ame@gmail.com Password: array (
+  'id' => '49',
+  'initialInvestment' => '200000',
+  'firstName' => 'Scott update',
+  'lastName' => 'Barrie',
+  'email' => '9o9ame@gmail.com',
+  'password' => '$2y$10$36qR74ayA3cUDtLX.RFJ6eFNiuuSLy3le/hl8LrgigWH0NqgX7myW',
+  'phone' => '4039782772',
+  'profile_img' => '/assets/images/users/user_id-49.jpg',
+  'address1' => NULL,
+  'address2' => NULL,
+  'city' => NULL,
+  'country' => NULL,
+  'zip' => NULL,
+  'userTypeId' => '2',
+  'uniqueCode' => '1bda4f3ab4c377091fbfb5dbcef40b0c',
+  'payoutDate' => '0000-00-00',
+  'payout_per' => '50',
+  'transactionType' => 'ROI',
+  'notificationStatus' => 'unread',
+  'otp' => '238289',
+  'flagfor_accountant' => 'N',
+  'returntype_id' => '2',
+  'sessionid' => '470kqo1ncthsmvhni35mqbi5pi',
+  'token' => 'a:2:{i:0;s:163:"csi3yqnoQaS7tbOHXcAEbs:APA91bElNXgY-RCOmcCX-PJfYJVNTN68xablAstaiQXDjaUwHfuTk4nZSY_x_xCy0PLpOK803PKF2BE6h_2c30uvDRILZe0QTdfeongFBI86fByaJAoyugFfl7b-moyJnKhpP32cm-eu";i:1;s:163:"fNa_IY1AELKkjGSxH9qxnY:APA91bF368VGM2gBbO3xSjNwpd5lRTgxThyh0spMKfvlJkkY_w-DN_V-ZVTEs2ic0NBZO1rI8CAA2Y21p5N7-i2M1V2kO4uEOzU52TARB1n0HY7RP-TrOF_Qdu4BUjE7plnLZWqwVQWA";}',
+  'bearer_token' => NULL,
+  'nextpayoutDate' => '0000-00-00',
+  'tax_form_flag' => 'Yes',
+  'bio' => 'about',
+  'createdAt' => '2022-08-18 19:22:55',
+  'updatedAt' => '2022-08-18 19:23:31',
+  'isDeleted' => 'N',
+)
+DEBUG - 2024-08-30 07:26:54 --> Email: 9o9ame@gmail.com Password: array (
+  'id' => '49',
+  'initialInvestment' => '200000',
+  'firstName' => 'Scott update',
+  'lastName' => 'Barrie',
+  'email' => '9o9ame@gmail.com',
+  'password' => '$2y$10$36qR74ayA3cUDtLX.RFJ6eFNiuuSLy3le/hl8LrgigWH0NqgX7myW',
+  'phone' => '4039782772',
+  'profile_img' => '/assets/images/users/user_id-49.jpg',
+  'address1' => NULL,
+  'address2' => NULL,
+  'city' => NULL,
+  'country' => NULL,
+  'zip' => NULL,
+  'userTypeId' => '2',
+  'uniqueCode' => '1bda4f3ab4c377091fbfb5dbcef40b0c',
+  'payoutDate' => '0000-00-00',
+  'payout_per' => '50',
+  'transactionType' => 'ROI',
+  'notificationStatus' => 'unread',
+  'otp' => '238289',
+  'flagfor_accountant' => 'N',
+  'returntype_id' => '2',
+  'sessionid' => '470kqo1ncthsmvhni35mqbi5pi',
+  'token' => 'a:2:{i:0;s:163:"csi3yqnoQaS7tbOHXcAEbs:APA91bElNXgY-RCOmcCX-PJfYJVNTN68xablAstaiQXDjaUwHfuTk4nZSY_x_xCy0PLpOK803PKF2BE6h_2c30uvDRILZe0QTdfeongFBI86fByaJAoyugFfl7b-moyJnKhpP32cm-eu";i:1;s:163:"fNa_IY1AELKkjGSxH9qxnY:APA91bF368VGM2gBbO3xSjNwpd5lRTgxThyh0spMKfvlJkkY_w-DN_V-ZVTEs2ic0NBZO1rI8CAA2Y21p5N7-i2M1V2kO4uEOzU52TARB1n0HY7RP-TrOF_Qdu4BUjE7plnLZWqwVQWA";}',
+  'bearer_token' => NULL,
+  'nextpayoutDate' => '0000-00-00',
+  'tax_form_flag' => 'Yes',
+  'bio' => 'about',
+  'createdAt' => '2022-08-18 19:22:55',
+  'updatedAt' => '2022-08-18 19:23:31',
+  'isDeleted' => 'N',
+)
+DEBUG - 2024-08-30 07:26:55 --> ***************** send otp *****************
+DEBUG - 2024-08-30 07:26:55 --> ***************** Login verification *****************674063 9o9ame@gmail.com
+DEBUG - 2024-08-30 07:26:55 --> ***************** Login12321321 verification *****************9o9ame@gmail.com   674063  Scott update Barrie
+CRITICAL - 2024-08-30 07:26:57 --> mail(): Failed to connect to mailserver at &quot;localhost&quot; port 25, verify your &quot;SMTP&quot; and &quot;smtp_port&quot; setting in php.ini or use ini_set()
+#0 [internal function]: CodeIgniter\Debug\Exceptions->errorHandler(2, 'mail(): Failed ...', 'C:\\xampp\\htdocs...', 173)
+#1 C:\xampp\htdocs\golong\app\Libraries\Emails.php(173): mail('9o9ame@gmail.co...', 'Go Long Clients...', 'Go Long Clients...', 'From:contact@go...')
+#2 C:\xampp\htdocs\golong\app\Controllers\Home.php(194): App\Libraries\emails->sendOtp('9o9ame@gmail.co...', '674063', 'Scott update Ba...')
+#3 C:\xampp\htdocs\golong\system\CodeIgniter.php(939): App\Controllers\Home->sendOtp()
+#4 C:\xampp\htdocs\golong\system\CodeIgniter.php(435): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Home))
+#5 C:\xampp\htdocs\golong\system\CodeIgniter.php(336): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#6 C:\xampp\htdocs\golong\index.php(44): CodeIgniter\CodeIgniter->run()
+#7 {main}
+DEBUG - 2024-08-30 07:27:09 --> Notifications CHeck array (
+  0 => 
+  array (
+    'id' => '182',
+    'title' => 'Withdrawal Request has been Accepted',
+    'description' => 'Your withdrawal request has been Accepted.',
+    'publishDate' => '2024-08-30 17:50:44',
+    'user_id' => '49',
+    'is_read' => 'N',
+  ),
+  1 => 
+  array (
+    'id' => '180',
+    'title' => 'Deposit Request has been Accepted',
+    'description' => 'Your deposit request has been Accepted.',
+    'publishDate' => '2024-08-30 16:27:11',
+    'user_id' => '49',
+    'is_read' => 'N',
+  ),
+  2 => 
+  array (
+    'id' => '179',
+    'title' => 'Withdrawal Request has been Completed',
+    'description' => 'Your Withdrawal request has been Completed.',
+    'publishDate' => '2024-08-26 18:20:34',
+    'user_id' => '49',
+    'is_read' => 'N',
+  ),
+  3 => 
+  array (
+    'id' => '178',
+    'title' => 'Withdrawal Request has been Rejected',
+    'description' => 'Your withdrawal request has been rejected.',
+    'publishDate' => '2024-08-26 18:19:54',
+    'user_id' => '49',
+    'is_read' => 'N',
+  ),
+  4 => 
+  array (
+    'id' => '177',
+    'title' => 'Withdrawal Request has been Accepted',
+    'description' => 'Your withdrawal request has been Accepted.',
+    'publishDate' => '2024-08-26 18:19:31',
+    'user_id' => '49',
+    'is_read' => 'N',
+  ),
+  5 => 
+  array (
+    'id' => '175',
+    'title' => 'Deposit Request has been Completed',
+    'description' => 'Your deposit request has been Completed.',
+    'publishDate' => '2024-08-26 18:11:42',
+    'user_id' => '49',
+    'is_read' => 'N',
+  ),
+  6 => 
+  array (
+    'id' => '174',
+    'title' => 'Deposit Request has been Accepted',
+    'description' => 'Your deposit request has been Accepted.',
+    'publishDate' => '2024-08-26 18:08:27',
+    'user_id' => '49',
+    'is_read' => 'N',
+  ),
+  7 => 
+  array (
+    'id' => '171',
+    'title' => 'Withdrawal Request has been Completed',
+    'description' => 'Your Withdrawal request has been Completed.',
+    'publishDate' => '2024-08-23 19:16:00',
+    'user_id' => '49',
+    'is_read' => 'N',
+  ),
+  8 => 
+  array (
+    'id' => '170',
+    'title' => 'Deposit Request has been Completed',
+    'description' => 'Your deposit request has been Completed.',
+    'publishDate' => '2024-08-23 18:38:49',
+    'user_id' => '49',
+    'is_read' => 'N',
+  ),
+  9 => 
+  array (
+    'id' => '167',
+    'title' => 'Deposit Request has been Rejected',
+    'description' => 'Your deposit request has been Rejected.',
+    'publishDate' => '2024-08-22 13:01:42',
+    'user_id' => '49',
+    'is_read' => 'N',
+  ),
+  10 => 
+  array (
+    'id' => '166',
+    'title' => 'Deposit Request has been Accepted',
+    'description' => 'Your deposit request has been Accepted.',
+    'publishDate' => '2024-08-22 13:01:23',
+    'user_id' => '49',
+    'is_read' => 'N',
+  ),
+  11 => 
+  array (
+    'id' => '165',
+    'title' => 'Withdrawal Request has been Accepted',
+    'description' => 'Your withdrawal request has been Accepted.',
+    'publishDate' => '2024-08-22 11:41:23',
+    'user_id' => '49',
+    'is_read' => 'N',
+  ),
+  12 => 
+  array (
+    'id' => '164',
+    'title' => 'Withdrawal Request has been Rejected',
+    'description' => 'Your withdrawal request has been rejected.',
+    'publishDate' => '2024-08-22 11:41:05',
+    'user_id' => '49',
+    'is_read' => 'N',
+  ),
+  13 => 
+  array (
+    'id' => '129',
+    'title' => 'Withdrawal Request Accepted',
+    'description' => 'Your withdrawal request has been Accepted.',
+    'publishDate' => '2024-08-21 12:52:54',
+    'user_id' => '49',
+    'is_read' => 'N',
+  ),
+  14 => 
+  array (
+    'id' => '140',
+    'title' => 'Withdrawal Request Accepted',
+    'description' => 'Your withdrawal request has been Accepted.',
+    'publishDate' => '2024-08-21 12:52:54',
+    'user_id' => '49',
+    'is_read' => 'N',
+  ),
+  15 => 
+  array (
+    'id' => '133',
+    'title' => 'Withdrawal Request has been Completed',
+    'description' => 'Your Withdrawal request has been Completed.',
+    'publishDate' => '2023-02-24 08:15:40',
+    'user_id' => '49',
+    'is_read' => 'N',
+  ),
+  16 => 
+  array (
+    'id' => '132',
+    'title' => 'Withdrawal Request has been Accepted',
+    'description' => 'Your withdrawal request has been Accepted.',
+    'publishDate' => '2023-02-24 08:15:31',
+    'user_id' => '49',
+    'is_read' => 'N',
+  ),
+  17 => 
+  array (
+    'id' => '131',
+    'title' => 'Withdrawal Request has been Completed',
+    'description' => 'Your Withdrawal request has been Completed.',
+    'publishDate' => '2023-02-24 08:14:42',
+    'user_id' => '49',
+    'is_read' => 'N',
+  ),
+  18 => 
+  array (
+    'id' => '130',
+    'title' => 'Withdrawal Request has been Accepted',
+    'description' => 'Your withdrawal request has been Accepted.',
+    'publishDate' => '2023-02-24 08:14:31',
+    'user_id' => '49',
+    'is_read' => 'N',
+  ),
+  19 => 
+  array (
+    'id' => '88',
+    'title' => 'Deposit Request has been Accepted',
+    'description' => 'Your deposit request has been Accepted.',
+    'publishDate' => '2023-01-31 07:47:51',
+    'user_id' => '49',
+    'is_read' => 'N',
+  ),
+  20 => 
+  array (
+    'id' => '87',
+    'title' => 'Deposit Request has been Completed',
+    'description' => 'Your deposit request has been Completed.',
+    'publishDate' => '2023-01-31 07:47:27',
+    'user_id' => '49',
+    'is_read' => 'N',
+  ),
+  21 => 
+  array (
+    'id' => '86',
+    'title' => 'Deposit Request has been Rejected',
+    'description' => 'Your deposit request has been Rejected.',
+    'publishDate' => '2023-01-31 07:30:54',
+    'user_id' => '49',
+    'is_read' => 'N',
+  ),
+  22 => 
+  array (
+    'id' => '85',
+    'title' => 'Deposit Request has been Completed',
+    'description' => 'Your deposit request has been Completed.',
+    'publishDate' => '2023-01-31 07:30:08',
+    'user_id' => '49',
+    'is_read' => 'N',
+  ),
+  23 => 
+  array (
+    'id' => '84',
+    'title' => 'Deposit Request has been Accepted',
+    'description' => 'Your deposit request has been Accepted.',
+    'publishDate' => '2023-01-31 07:29:28',
+    'user_id' => '49',
+    'is_read' => 'N',
+  ),
+  24 => 
+  array (
+    'id' => '82',
+    'title' => 'Withdrawal Request has been Completed',
+    'description' => 'Your Withdrawal request has been Completed.',
+    'publishDate' => '2023-01-31 07:27:58',
+    'user_id' => '49',
+    'is_read' => 'N',
+  ),
+  25 => 
+  array (
+    'id' => '81',
+    'title' => 'Withdrawal Request has been Completed',
+    'description' => 'Your Withdrawal request has been Completed.',
+    'publishDate' => '2023-01-31 07:27:48',
+    'user_id' => '49',
+    'is_read' => 'N',
+  ),
+  26 => 
+  array (
+    'id' => '80',
+    'title' => 'Withdrawal Request has been Accepted',
+    'description' => 'Your withdrawal request has been Accepted.',
+    'publishDate' => '2023-01-31 07:27:19',
+    'user_id' => '49',
+    'is_read' => 'N',
+  ),
+  27 => 
+  array (
+    'id' => '79',
+    'title' => 'Withdrawal Request has been Completed',
+    'description' => 'Your Withdrawal request has been Completed.',
+    'publishDate' => '2023-01-31 07:26:58',
+    'user_id' => '49',
+    'is_read' => 'Y',
+  ),
+  28 => 
+  array (
+    'id' => '78',
+    'title' => 'Withdrawal Request has been Accepted',
+    'description' => 'Your withdrawal request has been Accepted.',
+    'publishDate' => '2023-01-31 07:26:42',
+    'user_id' => '49',
+    'is_read' => 'N',
+  ),
+  29 => 
+  array (
+    'id' => '77',
+    'title' => 'Withdrawal Request has been Accepted',
+    'description' => 'Your withdrawal request has been Accepted.',
+    'publishDate' => '2023-01-31 07:26:19',
+    'user_id' => '49',
+    'is_read' => 'N',
+  ),
+  30 => 
+  array (
+    'id' => '76',
+    'title' => 'Withdrawal Request has been Completed',
+    'description' => 'Your Withdrawal request has been Completed.',
+    'publishDate' => '2023-01-31 07:26:01',
+    'user_id' => '49',
+    'is_read' => 'N',
+  ),
+  31 => 
+  array (
+    'id' => '75',
+    'title' => 'Withdrawal Request has been Accepted',
+    'description' => 'Your withdrawal request has been Accepted.',
+    'publishDate' => '2023-01-31 07:24:06',
+    'user_id' => '49',
+    'is_read' => 'N',
+  ),
+)
+DEBUG - 2024-08-30 07:27:09 --> PLID: 49
+DEBUG - 2024-08-30 07:27:10 --> ***************** Transaction Chart BY Admin *****************
+DEBUG - 2024-08-30 07:27:10 --> PLID: 49
+ERROR - 2024-08-30 07:27:10 --> 49
+DEBUG - 2024-08-30 07:27:41 --> Notifications CHeck array (
+  0 => 
+  array (
+    'id' => '182',
+    'title' => 'Withdrawal Request has been Accepted',
+    'description' => 'Your withdrawal request has been Accepted.',
+    'publishDate' => '2024-08-30 17:50:44',
+    'user_id' => '49',
+    'is_read' => 'N',
+  ),
+  1 => 
+  array (
+    'id' => '180',
+    'title' => 'Deposit Request has been Accepted',
+    'description' => 'Your deposit request has been Accepted.',
+    'publishDate' => '2024-08-30 16:27:11',
+    'user_id' => '49',
+    'is_read' => 'N',
+  ),
+  2 => 
+  array (
+    'id' => '179',
+    'title' => 'Withdrawal Request has been Completed',
+    'description' => 'Your Withdrawal request has been Completed.',
+    'publishDate' => '2024-08-26 18:20:34',
+    'user_id' => '49',
+    'is_read' => 'N',
+  ),
+  3 => 
+  array (
+    'id' => '178',
+    'title' => 'Withdrawal Request has been Rejected',
+    'description' => 'Your withdrawal request has been rejected.',
+    'publishDate' => '2024-08-26 18:19:54',
+    'user_id' => '49',
+    'is_read' => 'N',
+  ),
+  4 => 
+  array (
+    'id' => '177',
+    'title' => 'Withdrawal Request has been Accepted',
+    'description' => 'Your withdrawal request has been Accepted.',
+    'publishDate' => '2024-08-26 18:19:31',
+    'user_id' => '49',
+    'is_read' => 'N',
+  ),
+  5 => 
+  array (
+    'id' => '175',
+    'title' => 'Deposit Request has been Completed',
+    'description' => 'Your deposit request has been Completed.',
+    'publishDate' => '2024-08-26 18:11:42',
+    'user_id' => '49',
+    'is_read' => 'N',
+  ),
+  6 => 
+  array (
+    'id' => '174',
+    'title' => 'Deposit Request has been Accepted',
+    'description' => 'Your deposit request has been Accepted.',
+    'publishDate' => '2024-08-26 18:08:27',
+    'user_id' => '49',
+    'is_read' => 'N',
+  ),
+  7 => 
+  array (
+    'id' => '171',
+    'title' => 'Withdrawal Request has been Completed',
+    'description' => 'Your Withdrawal request has been Completed.',
+    'publishDate' => '2024-08-23 19:16:00',
+    'user_id' => '49',
+    'is_read' => 'N',
+  ),
+  8 => 
+  array (
+    'id' => '170',
+    'title' => 'Deposit Request has been Completed',
+    'description' => 'Your deposit request has been Completed.',
+    'publishDate' => '2024-08-23 18:38:49',
+    'user_id' => '49',
+    'is_read' => 'N',
+  ),
+  9 => 
+  array (
+    'id' => '167',
+    'title' => 'Deposit Request has been Rejected',
+    'description' => 'Your deposit request has been Rejected.',
+    'publishDate' => '2024-08-22 13:01:42',
+    'user_id' => '49',
+    'is_read' => 'N',
+  ),
+  10 => 
+  array (
+    'id' => '166',
+    'title' => 'Deposit Request has been Accepted',
+    'description' => 'Your deposit request has been Accepted.',
+    'publishDate' => '2024-08-22 13:01:23',
+    'user_id' => '49',
+    'is_read' => 'N',
+  ),
+  11 => 
+  array (
+    'id' => '165',
+    'title' => 'Withdrawal Request has been Accepted',
+    'description' => 'Your withdrawal request has been Accepted.',
+    'publishDate' => '2024-08-22 11:41:23',
+    'user_id' => '49',
+    'is_read' => 'N',
+  ),
+  12 => 
+  array (
+    'id' => '164',
+    'title' => 'Withdrawal Request has been Rejected',
+    'description' => 'Your withdrawal request has been rejected.',
+    'publishDate' => '2024-08-22 11:41:05',
+    'user_id' => '49',
+    'is_read' => 'N',
+  ),
+  13 => 
+  array (
+    'id' => '129',
+    'title' => 'Withdrawal Request Accepted',
+    'description' => 'Your withdrawal request has been Accepted.',
+    'publishDate' => '2024-08-21 12:52:54',
+    'user_id' => '49',
+    'is_read' => 'N',
+  ),
+  14 => 
+  array (
+    'id' => '140',
+    'title' => 'Withdrawal Request Accepted',
+    'description' => 'Your withdrawal request has been Accepted.',
+    'publishDate' => '2024-08-21 12:52:54',
+    'user_id' => '49',
+    'is_read' => 'N',
+  ),
+  15 => 
+  array (
+    'id' => '133',
+    'title' => 'Withdrawal Request has been Completed',
+    'description' => 'Your Withdrawal request has been Completed.',
+    'publishDate' => '2023-02-24 08:15:40',
+    'user_id' => '49',
+    'is_read' => 'N',
+  ),
+  16 => 
+  array (
+    'id' => '132',
+    'title' => 'Withdrawal Request has been Accepted',
+    'description' => 'Your withdrawal request has been Accepted.',
+    'publishDate' => '2023-02-24 08:15:31',
+    'user_id' => '49',
+    'is_read' => 'N',
+  ),
+  17 => 
+  array (
+    'id' => '131',
+    'title' => 'Withdrawal Request has been Completed',
+    'description' => 'Your Withdrawal request has been Completed.',
+    'publishDate' => '2023-02-24 08:14:42',
+    'user_id' => '49',
+    'is_read' => 'N',
+  ),
+  18 => 
+  array (
+    'id' => '130',
+    'title' => 'Withdrawal Request has been Accepted',
+    'description' => 'Your withdrawal request has been Accepted.',
+    'publishDate' => '2023-02-24 08:14:31',
+    'user_id' => '49',
+    'is_read' => 'N',
+  ),
+  19 => 
+  array (
+    'id' => '88',
+    'title' => 'Deposit Request has been Accepted',
+    'description' => 'Your deposit request has been Accepted.',
+    'publishDate' => '2023-01-31 07:47:51',
+    'user_id' => '49',
+    'is_read' => 'N',
+  ),
+  20 => 
+  array (
+    'id' => '87',
+    'title' => 'Deposit Request has been Completed',
+    'description' => 'Your deposit request has been Completed.',
+    'publishDate' => '2023-01-31 07:47:27',
+    'user_id' => '49',
+    'is_read' => 'N',
+  ),
+  21 => 
+  array (
+    'id' => '86',
+    'title' => 'Deposit Request has been Rejected',
+    'description' => 'Your deposit request has been Rejected.',
+    'publishDate' => '2023-01-31 07:30:54',
+    'user_id' => '49',
+    'is_read' => 'N',
+  ),
+  22 => 
+  array (
+    'id' => '85',
+    'title' => 'Deposit Request has been Completed',
+    'description' => 'Your deposit request has been Completed.',
+    'publishDate' => '2023-01-31 07:30:08',
+    'user_id' => '49',
+    'is_read' => 'N',
+  ),
+  23 => 
+  array (
+    'id' => '84',
+    'title' => 'Deposit Request has been Accepted',
+    'description' => 'Your deposit request has been Accepted.',
+    'publishDate' => '2023-01-31 07:29:28',
+    'user_id' => '49',
+    'is_read' => 'N',
+  ),
+  24 => 
+  array (
+    'id' => '82',
+    'title' => 'Withdrawal Request has been Completed',
+    'description' => 'Your Withdrawal request has been Completed.',
+    'publishDate' => '2023-01-31 07:27:58',
+    'user_id' => '49',
+    'is_read' => 'N',
+  ),
+  25 => 
+  array (
+    'id' => '81',
+    'title' => 'Withdrawal Request has been Completed',
+    'description' => 'Your Withdrawal request has been Completed.',
+    'publishDate' => '2023-01-31 07:27:48',
+    'user_id' => '49',
+    'is_read' => 'N',
+  ),
+  26 => 
+  array (
+    'id' => '80',
+    'title' => 'Withdrawal Request has been Accepted',
+    'description' => 'Your withdrawal request has been Accepted.',
+    'publishDate' => '2023-01-31 07:27:19',
+    'user_id' => '49',
+    'is_read' => 'N',
+  ),
+  27 => 
+  array (
+    'id' => '79',
+    'title' => 'Withdrawal Request has been Completed',
+    'description' => 'Your Withdrawal request has been Completed.',
+    'publishDate' => '2023-01-31 07:26:58',
+    'user_id' => '49',
+    'is_read' => 'Y',
+  ),
+  28 => 
+  array (
+    'id' => '78',
+    'title' => 'Withdrawal Request has been Accepted',
+    'description' => 'Your withdrawal request has been Accepted.',
+    'publishDate' => '2023-01-31 07:26:42',
+    'user_id' => '49',
+    'is_read' => 'N',
+  ),
+  29 => 
+  array (
+    'id' => '77',
+    'title' => 'Withdrawal Request has been Accepted',
+    'description' => 'Your withdrawal request has been Accepted.',
+    'publishDate' => '2023-01-31 07:26:19',
+    'user_id' => '49',
+    'is_read' => 'N',
+  ),
+  30 => 
+  array (
+    'id' => '76',
+    'title' => 'Withdrawal Request has been Completed',
+    'description' => 'Your Withdrawal request has been Completed.',
+    'publishDate' => '2023-01-31 07:26:01',
+    'user_id' => '49',
+    'is_read' => 'N',
+  ),
+  31 => 
+  array (
+    'id' => '75',
+    'title' => 'Withdrawal Request has been Accepted',
+    'description' => 'Your withdrawal request has been Accepted.',
+    'publishDate' => '2023-01-31 07:24:06',
+    'user_id' => '49',
+    'is_read' => 'N',
+  ),
+)
+DEBUG - 2024-08-30 07:27:41 --> PLID: 49
+ERROR - 2024-08-30 07:27:41 --> 49
+DEBUG - 2024-08-30 07:27:41 --> ***************** Transaction Chart BY Admin *****************
+DEBUG - 2024-08-30 07:27:41 --> PLID: 49
