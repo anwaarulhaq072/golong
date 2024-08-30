@@ -52,27 +52,27 @@
               <div class="card details-card">
                 <p class="details-card__sub-hdng">Total Profit</p>
                 <h2 class="details-card__hdng">$<?= $totalProfit  ?></h2>
-                <!-- <div class="details-card__desc"> <span class="text-color-topaz">0.8%</span> will be increase in this
+                <div class="details-card__desc"> <span class="text-color-topaz"><?php echo number_format($percentage_fot_profit_box, 1, '.', ''); ?>%</span> will be increase in this
                   year
-                </div> -->
+                </div>
               </div>
             </div>
             <div class="col-sm-6 col-xl-3">
               <div class="card details-card">
                 <p class="details-card__sub-hdng">Pending Payout</p>
                 <h2 class="details-card__hdng">$<?= number_format(round(((float)$pendingWithdraw), 2));  ?></h2>
-                <!-- <div class="details-card__desc"> <span class="text-color-topaz">0.8%</span> will be increase in this
+                <div class="details-card__desc"> <span class="text-color-topaz"><?php echo number_format($percentage_fot_p_payout_box, 1, '.', ''); ?>%</span> will be increase in this
                   year
-                </div> -->
+                </div>
               </div>
             </div>
             <div class="col-sm-6 col-xl-3">
               <div class="card details-card">
                 <p class="details-card__sub-hdng">Total Payout (Till Date)</p>
                 <h2 class="details-card__hdng">$<?php echo number_format((int)$payoutAll); ?></h2>
-                <!-- <div class="details-card__desc"> <span class="text-color-topaz">0.8%</span> will be increase in this
+                <div class="details-card__desc"> <span class="text-color-topaz"><?php echo number_format($percentage_fot_payout_box, 1, '.', ''); ?>%</span> will be increase in this
                   year
-                </div> -->
+                </div>
               </div>
             </div>
             <div class="col-12">
