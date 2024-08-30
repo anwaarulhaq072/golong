@@ -1,13 +1,11 @@
 <!doctype html>
 <html lang="en">
-
 <head>
   <meta charset="utf-8" data-bs-theme="dark">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>New Password</title>
-  < <?php echo view("/home/new-header-links"); ?>
+  <?php echo view("/home/new-header-links"); ?>
     </head>
-
 <body>
   <div class="app_wrapper app_wrapper-login">
     <img src="<?php echo base_url(); ?>/assets-new/images/login-bg.svg" alt="" class="logins__bg logins__bg-for-dark">
@@ -78,5 +76,4 @@
   <?php echo view("/home/header-links"); ?>
   <script src="<?php echo base_url(); ?>/assets/js/forgetPassword.js"></script>
 </body>
-
 </html>

@@ -47,7 +47,7 @@
                         </div>
                       </td>
                       <td class="all-cutomers-t__col"><?php echo $singleUser['phone']; ?></td>
-                      <td class="all-cutomers-t__col"><?php echo $singleUser['initialInvestment']; ?></td>
+                      <td class="all-cutomers-t__col">$<?php echo $singleUser['initialInvestment']; ?></td>
                       <td class="all-cutomers-t__col">
                         <div class="flex-i table-btns-wrpr">
                           <a href="<?php echo base_url() ?>/admin/customerdetails?userid=<?php echo $singleUser['id'] ?>" class="table-btn flex-a">Details</a>

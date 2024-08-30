@@ -323,11 +323,13 @@ class Admin extends BaseController
 		$amount = [];
 		$dates = [];
 		$totalProfit = $investmentAmount + ($profit - $loss);
-		log_message('debug', 'PL1: ' . ($ProfitAndLoss[0]['amount']));
 
 		// $data['maxLoss'] = round(($ProfitAndLoss[0]['amount']) * ($userInfo['payout_per'] / 100), 2);
 		// $data['maxProfit'] = round((($totalProfit) * ($userInfo['payout_per'] / 100)) + 100, 2);
-		$data['maxLoss'] = $investmentAmount + round(($ProfitAndLoss[0]['amount']), 2);
+		$data['maxLoss'] = 0;
+        if(isset($ProfitAndLoss[0]['amount'])){
+        $data['maxLoss'] = $investmentAmount + round(($ProfitAndLoss[0]['amount']), 2);
+        }
 		$data['maxProfit'] = $investmentAmount + 10;
 		$payoutindex = 0;
 		$depositIndex = 0;
@@ -1047,7 +1049,7 @@ class Admin extends BaseController
 				'publishDate' => $creationDate,
 			]);
 			if (isset($profitLoss)) {
-				$_SESSION['success'] = 'Payout updated successfully!';
+				$_SESSION['success'] = $_POST['action'].' updated successfully!';
 			} else {
 				$_SESSION['danger'] = 'Something went wrong!';
 			}

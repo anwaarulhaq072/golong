@@ -3,7 +3,7 @@ $(document).ready(function () {
     { selector: "#dashboard", content: "Dashboard" },
     { selector: "#account", content: "Account" },
     { selector: "#notification", content: "Notification" },
-    { selector: "#deposite", content: "Deposite" },
+    { selector: "#deposite", content: "Deposit" },
     { selector: "#withdrawal", content: "Withdrawal" },
     { selector: "#add-user", content: "Add User" },
     { selector: "#update-bulk-record", content: "Update Bulk Record" },
@@ -40,7 +40,7 @@ $(document).ready(function () {
   const dataTables = [
     {
       selector: "#profitLoss-table",
-      options: { searching: true, pageLength: 10 },
+      options: { searching: true, pageLength: 11 },
     },
     { selector: "#payout", options: { searching: false, pageLength: 10 } },
     {

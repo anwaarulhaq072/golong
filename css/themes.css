@@ -1,0 +1,237 @@
+@charset "UTF-8";
+
+[data-bs-theme=dark] {
+  color-scheme: dark;
+  --white: #fff;
+  --body-bg: #111214;
+  --card-bg: #1E1E20;
+  --sidebar-bg: #1E1E20;
+  --tool-tip-bg: #434343;
+  --tool-tip-active-bg: #19648f;
+  --icons-bg: #0073B6;
+  --white-for-dark: #fff;
+  --card-sub-heading-color: #595959;
+  --border-color: #595959;
+  --topaz: #1ABC9C;
+  --french-blue: #0073B6;
+  --chili-papper: #BC1D1E;
+  --tippy-bg: #19648f;
+  --profile-border: #FFFFFF1A;
+  --pagination-bg: #111214;
+  --pagination-color: #595959;
+  --tool-for-cahar-bg: #111214;
+  --input-border-color: #6B788E;
+  --input-color: #6B788E;
+  --table-head-bg: #1B1B1D;
+  --search-bg: #121214;
+  --notification-tab: #595959;
+  --admin-notification-tab: #EA9128;
+  --lava: #E31B1C;
+  --msg-input-bg: #fff;
+}
+
+[data-bs-theme=light] {
+  color-scheme: light;
+  --white: #fff;
+  --body-bg: #F5F5F5;
+  --card-bg: #fff;
+  --sidebar-bg: #fff;
+  --tool-tip-bg: #434343;
+  --tool-tip-active-bg: #19648f;
+  --icons-bg: #0073B6;
+  --white-for-dark: #000000;
+  --card-sub-heading-color: #595959;
+  --border-color: #595959;
+  --topaz: #1ABC9C;
+  --french-blue: #0073B6;
+  --chili-papper: #BC1D1E;
+  --tippy-bg: #0073B6;
+  --profile-border: #c7c7c7;
+  --pagination-bg: #111214;
+  --pagination-color: #949494;
+  --tool-for-cahar-bg: #fff;
+  --input-border-color: #6B788E;
+  --input-color: #6B788E;
+  --table-head-bg: #F5F5F5;
+  --search-bg: #F5F5F5;
+  --notification-tab: #595959;
+  --admin-notification-tab: #EA9128;
+  --lava: #E31B1C;
+  --msg-input-bg: #ebebeb;
+}
+
+ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+a {
+  text-decoration: none;
+}
+
+h1,
+h2,
+h3,
+h4,
+h6,
+form,
+p,
+label {
+  margin: 0;
+  padding: 0;
+}
+
+.card {
+  padding: 15px;
+  box-shadow: 0 0 20px 0 #0000001A;
+}
+
+.flex {
+  display: flex;
+}
+
+.flex-i {
+  display: flex;
+  align-items: center;
+}
+
+.flex-a {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.justify-between {
+  justify-content: space-between;
+}
+
+.trn-all {
+  transition: all 0.3s ease-in-out;
+}
+
+.trn-all:hover {
+  transition: all 0.3s ease-in-out;
+}
+
+.text-color-topaz {
+  color: var(--topaz);
+}
+
+.text-color-chili-papper {
+  color: var(--chili-papper);
+}
+
+.dark .hide-on-dark {
+  display: none !important;
+}
+
+.light .hide-on-dark {
+  display: block !important;
+}
+
+.light .hide-on-light {
+  display: none !important;
+}
+
+.dark .hide-on-light {
+  display: block !important;
+}
+
+.form-control:focus {
+  background-color: var(--body-bg);
+  color: var(--white-for-dark);
+}
+
+[data-bs-theme=dark] .loginbox1__logo1 {
+  display: block;
+}
+
+[data-bs-theme=dark] .loginbox1__logo2 {
+  display: none;
+}
+
+[data-bs-theme=light] .loginbox1__logo2 {
+  display: block;
+}
+
+[data-bs-theme=light] .loginbox1__logo1 {
+  display: none;
+}
+
+.r-50 {
+  border-radius: 50%;
+}
+
+.datepicker__wrapper {
+  background-color: var(--body-bg) !important;
+  background: var(--body-bg) !important;
+  color: var(--white-for-dark) !important;
+
+}
+
+.datepicker__day {
+  color: var(--white-for-dark) !important;
+
+}
+
+.datepicker__day div:hover,
+.datepicker__day.is-highlighted div {
+  background: var(--card-bg) !important;
+}
+
+.form-control:disabled {
+  background-color: var(--body-bg);
+}
+
+.chili-paper {
+  color: var(--chili-papper);
+}
+
+.topaz {
+  color: var(--topaz);
+}
+
+.yellow {
+  color: var(--admin-notification-tab);
+}
+
+
+[data-bs-theme=dark] .logins__bg-for-dark {
+  display: block;
+}
+
+[data-bs-theme=dark] .logins__bg-for-light {
+  display: none;
+}
+
+[data-bs-theme=light] .logins__bg-for-light {
+  display: block;
+}
+
+[data-bs-theme=light] .logins__bg-for-dark {
+  display: none;
+}
+
+/*  */
+[data-bs-theme=dark] .loginbox2__img-for-dark {
+  display: block;
+}
+
+[data-bs-theme=dark] .loginbox2__img-for-light {
+  display: none;
+}
+
+[data-bs-theme=light] .loginbox2__img-for-light {
+  display: block;
+}
+
+[data-bs-theme=light] .loginbox2__img-for-dark {
+  display: none;
+}
+[data-bs-theme=light] #light {
+  background-color: var(--icons-bg);
+}
+[data-bs-theme=dark] #dark {
+  background-color: var(--icons-bg);
+}
