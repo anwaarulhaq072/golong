@@ -1654,6 +1654,8 @@ input[type="date"]::-webkit-datetime-edit-year-field {
   background-color: var(--notification-tab);
   color: var(--white);
   font-size: 14px;
+  width: 100px;
+  height: 38px;
 }
 
 .withdrawalTable__tab.accepted {

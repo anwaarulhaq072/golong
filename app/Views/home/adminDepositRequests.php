@@ -76,12 +76,12 @@
                   <td class="withdrawalTable__col">
                     <?php if ($singleDeposit['status'] == 'Pending') : ?>
                       <div class="flex-i table-btns-wrpr table-btns-wrpr--justify-start">
-                        <a href="<?= base_url(); ?>/admin/accept_deposit_requests/<?= $singleDeposit['id']; ?>" class="table-btn flex-a table-btn--accept">Accept</a href="<?= base_url(); ?>/admin/accept_withdrawal_requests/<?= $singleDeposit['id']; ?>">
-                        <button class="table-btn flex-a table-btn--reject table-btn-reject" deposit_id="<?= $singleDeposit['id']; ?>">Reject</button>
+                        <a href="<?= base_url(); ?>/admin/accept_deposit_requests/<?= $singleDeposit['id']; ?>" class="table-btn flex-a table-btn--accept withdrawalTable__tab">Accept</a href="<?= base_url(); ?>/admin/accept_withdrawal_requests/<?= $singleDeposit['id']; ?>">
+                        <button class="table-btn flex-a table-btn--reject table-btn-reject withdrawalTable__tab " deposit_id="<?= $singleDeposit['id']; ?>">Reject</button>
                       </div>
                     <?php elseif ($singleDeposit['status'] == 'Accepted') : ?>
                       <div class="flex-i table-btns-wrpr table-btns-wrpr--justify-start">
-                        <a href="<?= base_url(); ?>/admin/complete_deposit_requests/<?= $singleDeposit['id']; ?>"><button class="btn btn-success"> Complete </button></a>
+                        <a href="<?= base_url(); ?>/admin/complete_deposit_requests/<?= $singleDeposit['id']; ?>"><button class="table-btn flex-a table-btn--accept withdrawalTable__tab "> Complete </button></a>
                       </div>
                     <?php elseif ($singleDeposit['status'] == 'Completed') : ?>
                       <div class="flex-i table-btns-wrpr table-btns-wrpr--justify-start">

@@ -76,12 +76,12 @@
                   <td class="withdrawalTable__col">
                     <?php if ($singleWithdrawal['status'] == 'Pending') : ?>
                       <div class="flex-i table-btns-wrpr table-btns-wrpr--justify-start">
-                        <a href="<?= base_url(); ?>/admin/accept_withdrawal_requests/<?= $singleWithdrawal['id']; ?>" class="table-btn flex-a table-btn--accept">Accept</a href="<?= base_url(); ?>/admin/accept_withdrawal_requests/<?= $singleWithdrawal['id']; ?>">
+                        <a href="<?= base_url(); ?>/admin/accept_withdrawal_requests/<?= $singleWithdrawal['id']; ?>" class="table-btn flex-a table-btn--accept">Accept </a href="<?= base_url(); ?>/admin/accept_withdrawal_requests/<?= $singleWithdrawal['id']; ?>">
                         <button class="table-btn flex-a table-btn--reject table-btn-reject" withdrawal_id="<?= $singleWithdrawal['id']; ?>">Reject</button>
                       </div>
                     <?php elseif ($singleWithdrawal['status'] == 'Accepted') : ?>
                       <div class="flex-i table-btns-wrpr table-btns-wrpr--justify-start">
-                      <a href="<?= base_url(); ?>/admin/complete_withdrawal_requests/<?= $singleWithdrawal['id']; ?>"><button class="btn btn-success"> Complete </button></a>
+                      <a href="<?= base_url(); ?>/admin/complete_withdrawal_requests/<?= $singleWithdrawal['id']; ?>"><button class=" table-btn flex-a table-btn--accept"> Complete </button></a>
                       </div>
                     <?php elseif ($singleWithdrawal['status'] == 'Completed') : ?>
                       <div class="flex-i table-btns-wrpr table-btns-wrpr--justify-start">
