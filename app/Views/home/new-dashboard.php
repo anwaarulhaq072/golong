@@ -10,6 +10,14 @@
 </head>
  
 <body>
+<svg style="width: 0; height: 0; position: absolute;">
+    <defs>
+      <linearGradient id="Gradient2" x1="0" x2="0" y1="0" y2="1">
+        <stop offset="0%" stop-color="#50E1AA" />
+        <stop offset="100%" stop-color="#50E1AA" stop-opacity="0" />
+      </linearGradient>
+    </defs>
+  </svg>
   <div class="app_wrapper">
 
     <?php echo view("/home/left-sidebar-new"); ?>
@@ -351,7 +359,7 @@
           </div>
         </div>
         <div class="col-lg-4 col-xl-3">
-          <div class="card tn-list-card" style="    height: 100%;">
+          <div class="card tn-list-card" style="height: 100%;">
             <h2 class="tn-list-card__hdng">Transaction List</h2>
             <p class="tn-list-card__desc">
               Following are the detail records of your transactions

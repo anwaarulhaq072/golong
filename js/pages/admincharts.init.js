@@ -20,102 +20,129 @@ let getcalling = $.get(
 );
 
 getcalling.done(function (result) {
-    let response = JSON.parse(result);
-    // console.log(response);
-    // console.log(response['amount'])
-
-
-    let options = {
-        chart: {
-            height: 450,
-            type: "line",
-            shadow: {
-                enabled: !1,
-                color: "#bbb",
-                top: 3,
-                left: 2,
-                blur: 3,
-                opacity: 1
-            }
+  let response = {
+    amounts: [600, 500, 400, 700, 800, 595, 500, 600, 700, 900, 600],
+    dates: [
+      "2024-01-01", "2024-02-01", "2024-03-01", "2024-04-01", "2024-05-01",
+      "2024-06-01", "2024-07-01", "2024-08-01", "2024-09-01", "2024-10-01", "2024-11-01"
+    ]
+  };
+  var options = {
+    series: [
+      {
+        name: "Profit",
+        data: response.amounts,
+      },
+    ],
+    chart: {
+      type: "area",
+      height: 350,
+      toolbar: {
+        show: false,
+      },
+    },
+    dataLabels: {
+      enabled: false,
+    },
+    stroke: {
+      curve: "smooth",
+    },
+    xaxis: {
+      type: "datetime",
+      categories: response.dates,
+      title: {
+        text: "Date",
+      },
+    },
+    yaxis: {
+      labels: {
+        formatter: function (value) {
+          return value.toFixed(1);
         },
+      },
+    },
+    tooltip: {
+      enabled: true,
+      shared: true,
+      intersect: false,
+      custom: function ({ series, seriesIndex, dataPointIndex, w }) {
+        const profit = series[0][dataPointIndex];
+        const date = w.globals.labels[dataPointIndex];
+        return `<div style="padding: 5px;" class="pr-loss-abs">
+  <div class="pr-loss-abs__header">${date}</div>
+  <div class="pr-loss-abs__body">
+    <div class="pr-loss-abs__row">
+      <div class="dot pdot"></div>
+      Profit/Loss: <span style="color: #1ABC9C">$${profit.toFixed(
+          2
+        )}</span>
+      </div>
+  </div>
+</div>`;
+      },
+    },
+    xaxis: {
+      type: "datetime",
+      categories: response.dates,
+      crosshairs: {
+        show: true,
+        floating: false,
+        width: 15,
+        fill: { color: `url(#Gradient2)`, },
         stroke: {
-            width: 4,
-            curve: "smooth"
+          color: "#1ABC9C",
+          dashArray: 0,
+          fill: "#1ABC9C",
         },
-        series: [{
-            name: "Profit/Loss",
-            data: response.amounts,
-        }],
-        xaxis: {
-            type: "datetime",
-            categories: response.dates,
-            title: {
-                text: "Date",
-                style: {
-                    fontSize: "18px"
-                }
-            }
-        },
-        title: {
-            text: "Transaction Chart",
-            align: "left",
-            style: {
-                fontSize: "14px",
-                color: "#666"
-            }
-        },
-        fill: {
-            type: "gradient",
-            gradient: {
-                shade: "dark",
-                gradientToColors: colors,
-                shadeIntensity: 1,
-                type: "horizontal",
-                opacityFrom: 1,
-                opacityTo: 1,
-                stops: [0, 100, 100, 100]
-            }
-        },
-        markers: {
-            size: 4,
-            opacity: .9,
-            colors: ["#56c2d6"],
-            strokeColor: "#fff",
-            strokeWidth: 2,
-            style: "inverted",
-            hover: {
-                size: 7
-            }
-        },
-        yaxis: {
-            min: response.maxLoss,
-            max: response.maxProfit,
-            title: {
-                text: "Amount (Profit / Loss)",
-                style: {
-                    fontSize: "16px"
-                }
-            }
-        },
-        grid: {
-            show: false, // Completely hides the grid lines
-          },
-        responsive: [{
-            breakpoint: 600,
-            options: {
-                chart: {
-                    toolbar: {
-                        show: !1
-                    }
-                },
-                legend: {
-                    show: !1
-                }
-            }
-        }]
+      },
+    },
+    colors: ["#1ABC9C"],
+    fill: {
+      type: "gradient",
+      gradient: {
+        shadeIntensity: 1,
+        opacityFrom: 1,
+        opacityTo: 0.1,
+        stops: [0, 100],
+      },
+    },
+    markers: {
+      size: 5,
+      colors: ["#1ABC9C"],
+      strokeColors: "#fff",
+      strokeWidth: 2,
+      hover: {
+        size: 7,
+      },
+    },
+    grid: {
+      show: false,
+    },
+    legend: {
+      position: "top",
+      horizontalAlign: "left",
+      labels: {
+        colors: ["#1ABC9C"],
+      },
+      markers: {
+        width: 12,
+        height: 12,
+        radius: 12,
+        offsetX: -4,
+      },
+    },
+  };
+  var chart = new ApexCharts(
+    document.querySelector("#apex-line-2"),
+    options
+  );
+  chart.render();
 
-    };
-    (chart = new ApexCharts(document.querySelector("#apex-line-2"), options)).render();
+
+
+
+
+
 
 });
 

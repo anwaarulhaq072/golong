@@ -35,9 +35,9 @@
             <?php foreach ($allNotifications as $singleNotification) :  ?>
               <?php if (strpos($singleNotification['title'], "Request") == ''): ?>
                 <tr class="withdrawalTable__row profit-row">
-                  <td class="withdrawalTable__col"><?php echo $singleNotification['title'] ?></td>
-                  <td class="withdrawalTable__col"><?php echo $singleNotification['status'] ?></td>
-                  <td class="withdrawalTable__col"><?php echo  date('M d, Y', strtotime($singleNotification['publishDate'])); ?></td>
+                  <td class="withdrawalTable__col "><?php echo $singleNotification['title'] ?></td>
+                  <td class="withdrawalTable__col withdrawalTable___col"><?php echo $singleNotification['status'] ?></td>
+                  <td class="withdrawalTable__col withdrawalTable___col"><?php echo  date('M d, Y', strtotime($singleNotification['publishDate'])); ?></td>
                   <td class="withdrawalTable__col">
                     <div class="flex-i " style="column-gap: 22px;">
                       <a href="<?php echo base_url(); ?>/admin/updatenotification?id=<?php echo $singleNotification['id']; ?>" class="table-mdl-btn flex-a r-50 edit_notification_button">

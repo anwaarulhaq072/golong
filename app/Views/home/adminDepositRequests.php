@@ -64,13 +64,13 @@
                   </td>
                   <td class="withdrawalTable__col">
                     <?php if ($singleDeposit['status'] == 'Pending') : ?>
-                      <div class="withdrawalTable__tab pending flex-a"><?= $singleDeposit['status']; ?></div>
+                      <div class="withdrawalTable__tab pending btn"><?= $singleDeposit['status']; ?></div>
                     <?php elseif ($singleDeposit['status'] == 'Accepted') : ?>
-                      <div class="withdrawalTable__tab accepted flex-a"><?= $singleDeposit['status']; ?></div>
+                      <div class="withdrawalTable__tab accepted btn"><?= $singleDeposit['status']; ?></div>
                     <?php elseif ($singleDeposit['status'] == 'Completed') : ?>
-                      <div class="withdrawalTable__tab completed flex-a"><?= $singleDeposit['status']; ?></div>
+                      <div class="withdrawalTable__tab completed btn"><?= $singleDeposit['status']; ?></div>
                     <?php elseif ($singleDeposit['status'] == 'Rejected') : ?>
-                      <div class="withdrawalTable__tab rejected flex-a"><?= $singleDeposit['status']; ?></div>
+                      <div class="withdrawalTable__tab rejected btn"><?= $singleDeposit['status']; ?></div>
                     <?php endif; ?>
                   </td>
                   <td class="withdrawalTable__col">

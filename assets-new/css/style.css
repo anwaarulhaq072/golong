@@ -1592,11 +1592,11 @@ input[type="date"]::-webkit-datetime-edit-year-field {
   background-color: var(--icons-bg);
   border: 1px solid var(--icons-bg);
   text-transform: uppercase;
-  font-size: 16px;
+  font-size: 13px;
   font-weight: 700;
   color: var(--white);
   transition: all 0.2s;
-  padding: 14px 16px;
+  padding: 12px 13px;
   border-radius: 10px;
 }
 
@@ -1644,7 +1644,9 @@ input[type="date"]::-webkit-datetime-edit-year-field {
 .withdrawalTable__col:nth-child(1) {
   color: var(--white-for-dark);
 }
-
+.withdrawalTable___col{
+  color: var(--card-sub-heading-color) !important;
+}
 .withdrawalTable__tab {
   padding: 4px 9px;
   border-radius: 5px;

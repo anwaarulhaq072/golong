@@ -20,9 +20,9 @@
           <img src="<?php echo base_url(); ?>/assets-new/images/logo-for-light.svg" alt="" class="loginbox1__logo-img loginbox1__logo2">
         </a>
         <div class="loginbox-hdng-holder">
-          <h4 class="loginbox1__hdng">Forgot your password</h4>
+          <h4 class="loginbox1__hdng">Two Factor Authentication Code</h4>
           <p class="loginbox1__para">
-            Please enter code which we send you on your email
+            Please enter code that was sent to your email
           </p>
         </div>
         <form class="from" id="otpForm">
