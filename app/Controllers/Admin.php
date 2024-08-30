@@ -196,6 +196,12 @@ class Admin extends BaseController
 			$data['payoutAll'] = $payoutAll;
 			$pendingWithdraw = $withdraw->getAllPendingByUserId($id);
 			$data['pendingWithdraw'] = $pendingWithdraw;
+			$percentage_fot_profit_box = ((float)$userInfo['initialInvestment'] + (float)$depositAcceptedAll) - (float)$pendingWithdraw - (float)$payoutAll;
+            $data['percentage_fot_profit_box'] = (float)$data['profitLoss'] / $percentage_fot_profit_box * 100;
+            $percentage_fot_p_payout_box = ((float)$userInfo['initialInvestment'] + (float)$depositAcceptedAll + (float)$data['profitLoss']) - (float)$payoutAll;
+            $data['percentage_fot_p_payout_box'] = (float)$pendingWithdraw / $percentage_fot_p_payout_box * 100;
+            $percentage_fot_payout_box = ((float)$userInfo['initialInvestment'] + (float)$depositAcceptedAll + (float)$data['profitLoss']) - (float)$pendingWithdraw;
+            $data['percentage_fot_payout_box'] = (float)$payoutAll / $percentage_fot_payout_box * 100;
 			$totalBalance = ((float)$userInfo['initialInvestment'] + (float)$depositAcceptedAll + (float)$data['profitLoss']) - (float)$pendingWithdraw - (float)$payoutAll;
 			$data['totalBalance'] = $totalBalance;
 			$data['profitLossMonthly'] = [];
