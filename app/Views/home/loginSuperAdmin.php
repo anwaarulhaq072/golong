@@ -17,7 +17,7 @@
           <div class="logIn">
         <a href="<?php echo base_url(); ?>" class="loginbox1__logo flex-i">
           <img src="<?php echo base_url(); ?>/assets-new/images/logo.svg" alt="" class="loginbox1__logo-img loginbox1__logo1">
-          <img src="<?php echo base_url(); ?>/assets-new/images/logo-for-light.svg" alt="" class="loginbox1__logo-img loginbox1__logo2">
+          <img src="<?php echo base_url(); ?>/assets-new/images/logo-for-light.png" alt="" class="loginbox1__logo-img loginbox1__logo2">
         </a>
         <h4 class="loginbox1__hdng">Log in with Super Admin Account</h4>
         <form action="#" id="loginFormSuperAdmin" class="from">

@@ -13,6 +13,7 @@ $(document).ready(function () {
     { selector: "#chat", content: "Chat" },
     { selector: "#archive-history", content: "Archive History" },
     { selector: "#statements", content: "Statements" },
+    { selector: "#wifi", content: "Network Stable" },
   ];
   tooltips.forEach(({ selector, content }) => {
     tippy(selector, {

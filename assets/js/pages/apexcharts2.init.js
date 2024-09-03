@@ -142,12 +142,6 @@ getcalling.done(function (result) {
           return value.toFixed(1);
         },
       },
-      // title: {
-      //   text: "Amount (Profit / Loss)",
-      //   style: {
-      //     fontSize: "16px",
-      //   },
-      // },
     },
     tooltip: {
       enabled: true,
@@ -156,7 +150,7 @@ getcalling.done(function (result) {
       custom: function ({ series, seriesIndex, dataPointIndex, w }) {
         const profit = series[0][dataPointIndex];
         var date = response.dates[dataPointIndex].split(' ');
-        date = date[0]+' '+date[1] + ', ' + date[2];
+        date = date[0] + ' ' + date[1] + ' ' + date[2];
         
         return `<div style="padding: 5px;" class="pr-loss-abs">
             <div class="pr-loss-abs__header">${date}</div>
@@ -173,18 +167,10 @@ getcalling.done(function (result) {
       type: "datetime",
       categories: response.dates,
       crosshairs: {
-        show: true,
-        floating: false,
-        width: 15,
-        fill: { color: `url(#Gradient2)` },
-        stroke: {
-          color: "#0073B6",
-          dashArray: 0,
-          fill: "#0073B6",
-        },
+        show: false,  // Hides the leader line
       },
     },
-    colors: ["#0073B6","#1E1E2000"],
+    colors: ["#0073B6", "#1E1E2000"],
     fill: {
       type: "gradient",
       gradient: {
@@ -216,7 +202,8 @@ getcalling.done(function (result) {
         offsetX: -4,
       },
     },
-  };
+};
+
   var chart = new ApexCharts(document.querySelector("#apex-line-2"), options);
   chart.render();
 });

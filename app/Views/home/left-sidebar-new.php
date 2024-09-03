@@ -91,6 +91,12 @@
             <?php endif; ?>
         </ul>
         <ul class="sidebar-list">
+        <li class="sidebar-list__item">
+            <div class="sidebar-list__link flex-a trn-all" id="wifi">
+              <img src="<?php echo base_url(); ?>/assets-new/images/icons/wifi.png" alt="" class="sidebar-list__icon hide-on-light">
+            <img src="<?php echo base_url(); ?>/assets-new/images/icons/wifi_brown.png" alt="" class="sidebar-list__icon hide-on-dark">
+            </div> 
+            </li>
             <li class="sidebar-list__item">
             <div class="sidebar-list__link flex-a trn-all" id="light">
               <img src="<?php echo base_url(); ?>/assets-new/images/icons/light.svg" alt="" class="sidebar-list__icon">

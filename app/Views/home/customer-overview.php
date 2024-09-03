@@ -51,8 +51,8 @@
           <div class="card transaction-card">
             <div class="flex-i justify-between transaction-card-wrapper">
               <div class="transaction-card__content">
-                <h6 class="trnHdng">Positions</h6>
-                <p class="transaction-card__desc">Total position from start to till now</p>
+                <h6 class="trnHdng">Total positions</h6>
+                <p class="transaction-card__desc">Total positions from start to till now</p>
               </div>
               <div class="transaction-card__chart-holder">
                 <canvas class="progressChart" id="progressChart1"></canvas>
@@ -71,8 +71,8 @@
           <div class="card transaction-card">
             <div class="flex-i justify-between transaction-card-wrapper">
               <div class="transaction-card__content">
-                <h6 class="trnHdng">Profit</h6>
-                <p class="transaction-card__desc">Total profit from start to till now</p>
+                <h6 class="trnHdng">Total win rate</h6>
+                <p class="transaction-card__desc">Total win rate from start to till now</p>
               </div>
               <div class="transaction-card__chart-holder">
                 <canvas class="progressChart" id="progressChart2"></canvas>
@@ -91,8 +91,8 @@
           <div class="card transaction-card">
             <div class="flex-i justify-between transaction-card-wrapper">
               <div class="transaction-card__content">
-                <h6 class="trnHdng">Losing</h6>
-                <p class="transaction-card__desc">Total loss from start to till now</p>
+                <h6 class="trnHdng">Total loss rate</h6>
+                <p class="transaction-card__desc">Total loss rate from start to till now</p>
               </div>
               <div class="transaction-card__chart-holder">
                 <canvas class="progressChart" id="progressChart3"></canvas>

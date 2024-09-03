@@ -19,6 +19,7 @@ use App\Models\Alerts;
 use App\Models\AlertStatus;
 use App\Models\Report;
 use App\Models\TaxForm;
+use App\Models\UserKyc;
 
 // use CodeIgniter\Debug\Toolbar\Collectors\Logs;
 
@@ -112,19 +113,26 @@ class User extends BaseController
         $response = $permission_library->checksessionuser();
         if ($response == true) {
 
-            if ($_SESSION['user_data']['tax_form_flag'] == "No" && $_SESSION['user_data']['createdAt'] >= "2024-05-01 10:35:26") {
-                return redirect()->to('/user/tax_form');
+            // if ($_SESSION['user_data']['tax_form_flag'] == "No" && $_SESSION['user_data']['createdAt'] >= "2024-05-01 10:35:26") {
+            //     return redirect()->to('/user/tax_form');
+            // }
+            $users = new Users();
+            $id = $_SESSION['user_data']['id'];
+            $userInfo = $users->getrow($id);
+            if ($userInfo['user_kyc_flag'] == "NA" || $userInfo['user_kyc_flag'] == "N") {
+                return view('/home/userKyc');
+            }
+            if ($userInfo['user_kyc_flag'] == "PA") {
+                return view('/home/pending_kyc');
             }
             $data = [];
             $profitLoss = new ProfitLoss();
             $chat = new ChatMessage();
-            $users = new Users();
             $payout = new Payout();
             $notifications = new Notifications();
             $singleNotification = new Singlenotification();
             $deposit = new Deposit();
             $withdraw = new Withdraw();
-            $id = $_SESSION['user_data']['id'];
             if (isset($_SESSION['superAdminTypeId'])) {
                 $superadminid = $_SESSION['superAdminTypeId'];
                 $data['superadminid'] = $superadminid;
@@ -171,13 +179,24 @@ class User extends BaseController
             $data['payoutAll'] = $payoutAll;
             $pendingWithdraw = $withdraw->getAllPendingByUserId($id);
             $data['pendingWithdraw'] = $pendingWithdraw;
-            $percentage_fot_profit_box = ((float)$userInfo['initialInvestment'] + (float)$depositAcceptedAll) - (float)$pendingWithdraw - (float)$payoutAll;
+			$percentage_fot_profit_box = ((float)$userInfo['initialInvestment'] + (float)$depositAcceptedAll) - (float)$pendingWithdraw - (float)$payoutAll;
+			if($percentage_fot_profit_box == 0){
+				$data['percentage_fot_profit_box'] = 0;
+			}else{
             $data['percentage_fot_profit_box'] = (float)$data['profitLoss'] / $percentage_fot_profit_box * 100;
+			}
             $percentage_fot_p_payout_box = ((float)$userInfo['initialInvestment'] + (float)$depositAcceptedAll + (float)$data['profitLoss']) - (float)$payoutAll;
-            $data['percentage_fot_p_payout_box'] = (float)$pendingWithdraw / $percentage_fot_p_payout_box * 100;
+			if($percentage_fot_p_payout_box == 0){
+				$data['percentage_fot_p_payout_box'] = 0;
+			}else{
+				$data['percentage_fot_p_payout_box'] = (float)$pendingWithdraw / $percentage_fot_p_payout_box * 100;
+			}
             $percentage_fot_payout_box = ((float)$userInfo['initialInvestment'] + (float)$depositAcceptedAll + (float)$data['profitLoss']) - (float)$pendingWithdraw;
-            $data['percentage_fot_payout_box'] = (float)$payoutAll / $percentage_fot_payout_box * 100;
-            $totalBalance = ((float)$userInfo['initialInvestment'] + (float)$depositAcceptedAll + (float)$data['profitLoss']) - (float)$pendingWithdraw - (float)$payoutAll;
+			if($percentage_fot_payout_box == 0){
+				$data['percentage_fot_payout_box'] = 0;
+			}else{
+				$data['percentage_fot_payout_box'] = (float)$payoutAll / $percentage_fot_payout_box * 100;
+			}
             $data['totalBalance'] = $totalBalance;
             $data['profitLossMonthly'] = [];
             $data['profitLossMonthly']['total'] = 0;
@@ -943,16 +962,22 @@ class User extends BaseController
         $data['profitLossMonthly'] = [];
         $data['profitLossMonthly']['total'] = 0;
         $j = $k = 0;
-        if (!empty($profitByMonth) && (int)$profitByMonth[$j]['year'] < (int)$_GET['year']) {
-            while ($k < sizeof($profitByMonth) && (int)$profitByMonth[$j]['year'] && (int)$profitByMonth[$j]['year'] < (int)$_GET['year']) {
+        if (sizeof($profitByMonth) > 0 && (int)$profitByMonth[$j]['year'] < (int)$_GET['year']) {
+            while ($j < sizeof($profitByMonth) && (int)$profitByMonth[$j]['year'] < (int)$_GET['year']) {
                 $j++;
             }
         }
-        if (!empty($lossByMonth) && (int)$lossByMonth[$k]['year'] < (int)$_GET['year']) {
-            while ($k < sizeof($lossByMonth) && (int)$lossByMonth[$k]['year'] && (int)$lossByMonth[$k]['year'] < (int)$_GET['year']) {
+        if (sizeof($lossByMonth) > 0 && (int)$lossByMonth[$k]['year'] < (int)$_GET['year']) {
+            while ($k < sizeof($lossByMonth) && (int)$lossByMonth[$k]['year'] < (int)$_GET['year']) {
                 $k++;
             }
         }
+
+        // $length = count($profitByMonth) > count($lossByMonth) ? count($profitByMonth) - $j : count($lossByMonth) - $k;
+        // $data['profitLossMonthly']['len'] = $length;
+        // log_message('debug','**************************************************'.var_export($profitByMonth,true));
+        // log_message('debug','**************************************************'.var_export($lossByMonth,true));
+        // log_message('debug','**************************************************'.$j.'  ***    '.$k);
         for ($i = 1; $i < 13; $i++) {
             if ((!empty($profitByMonth[$j]) && $i == (int)$profitByMonth[$j]['month']) || (!empty($lossByMonth[$k]) && $i == (int)$lossByMonth[$k]['month'])) {
                 if ((!empty($profitByMonth[$j]) && !empty($lossByMonth[$k])) && ((int)$profitByMonth[$j]['month'] === (int)$lossByMonth[$k]['month'])) {
@@ -1284,6 +1309,104 @@ class User extends BaseController
             ]);
             $_SESSION['user_data']['tax_form_flag'] = "Yes";
             return redirect()->to('/user/dashboard');
+        } else {
+            return redirect()->to('/');
+        }
+    }
+    public function submit_kyc_document()
+    {
+        // log_message('debug', '***************** Chart BY Admin *****************' . var_export($_POST, true).var_export($_FILES, true));
+        // exit();
+        $permission_library = new permissions();
+        $response = $permission_library->checksessionuser();
+        if ($response == true) {
+            
+             // Get the uploaded files
+        $idFrontSide = $this->request->getFile('idFrontSide');
+        $idBackSide = $this->request->getFile('idBackSide');
+        $proof_of_address = $this->request->getFile('proof_of_address');
+        $proof_of_address2 = $this->request->getFile('proof_of_address2');
+        $origination_docs = $this->request->getFileMultiple('origination_docs');
+        $proof_of_good_standing = $this->request->getFile('proof_of_good_standing');
+        $shareholder_agreement = $this->request->getFile('shareholder_agreement');
+
+        // Define the folder to save the files
+        $uploadPath = 'public/user_kyc_docs/'.$_SESSION['user_data']['id'].'/';
+
+
+        // Check if the directory exists, if not create it
+        if (!is_dir($uploadPath)) {
+            mkdir($uploadPath, 0777, true);
+        }
+
+        // Generate unique names for the files to avoid overwriting
+        $frontSideName = $idFrontSide->getRandomName();
+        $backSideName = $idBackSide->getRandomName();
+        $proofofaddress = $proof_of_address->getRandomName();
+        $proofofaddress2 = $proof_of_address2->getRandomName();
+        $proofofgoodstanding = $proof_of_good_standing->getRandomName();
+        $shareholderagreement = $shareholder_agreement->getRandomName();
+        $originationdocs = [];
+        for($i = 0; $i < count($origination_docs); $i++) {
+            $originationdocs[$i] = $origination_docs[$i]->getRandomName();
+            if ($origination_docs[$i]->isValid() && !$origination_docs[$i]->hasMoved()) {
+                $origination_docs[$i]->move($uploadPath, $originationdocs[$i]);
+            }
+        }
+        // Move the files to the specified directory
+        if ($idFrontSide->isValid() && !$idFrontSide->hasMoved()) {
+            $idFrontSide->move($uploadPath, $frontSideName);
+        }
+
+        if ($idBackSide->isValid() && !$idBackSide->hasMoved()) {
+            $idBackSide->move($uploadPath, $backSideName);
+        }
+
+        if ($proof_of_address->isValid() && !$proof_of_address->hasMoved()) {
+            $proof_of_address->move($uploadPath, $proofofaddress);
+        }
+        if ($proof_of_address2->isValid() && !$proof_of_address2->hasMoved()) {
+            $proof_of_address2->move($uploadPath, $proofofaddress2);
+        }
+        if ($proof_of_good_standing->isValid() && !$proof_of_good_standing->hasMoved()) {
+            $proof_of_good_standing->move($uploadPath, $proofofgoodstanding);
+        }
+        if ($shareholder_agreement->isValid() && !$shareholder_agreement->hasMoved()) {
+            $shareholder_agreement->move($uploadPath, $shareholderagreement);
+        }
+        if($_POST['approval_status'] == "KYC"){
+            $UserKyc = new UserKyc();
+            $UserKyc->save([
+                'userid' => $_SESSION['user_data']['id'],
+                'id_back_side' => $backSideName,
+                'id_front_side' =>  $frontSideName,
+                'proof_of_address' => $proofofaddress,
+                'type' => $_POST['approval_status'],
+            ]);
+        }else{
+            $UserKyc = new UserKyc();
+            $UserKyc->save([
+                'userid' => $_SESSION['user_data']['id'],
+                'proof_of_address' => $proofofaddress2,
+                'proof_of_good' => $proofofgoodstanding,
+                'shareholder_agreement' => $shareholderagreement,
+                'origination_docs' => json_encode($originationdocs),
+                'type' => $_POST['approval_status'],
+            ]);
+
+        }
+        $users = new Users();
+        $users->update($_SESSION['user_data']['id'], [
+            'user_kyc_flag' => "PA",
+        ]);
+        $adminEmails = $users->getAllAdminEmails();
+            $allAdminEmails = [];
+            foreach ($adminEmails as  $single) {
+                $allAdminEmails[] = $single['email'];
+            }
+        $emailslib = new Emails;  //Sending Email 
+        $emailslib-> submit_kyc_docs($allAdminEmails,$fullName = $_SESSION['user_data']['firstName'] . " " . $_SESSION['user_data']['lastName']);
+        return redirect()->to('/user/dashboard');
         } else {
             return redirect()->to('/');
         }

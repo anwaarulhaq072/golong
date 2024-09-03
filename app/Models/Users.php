@@ -9,7 +9,7 @@ class Users extends Model
 
     protected $table = 'users';
     protected $primaryKey = 'id';
-    protected $allowedFields = ['initialInvestment', 'flagfor_accountant', 'firstName', 'lastName', 'profile_img' , 'email', 'otp', 'nextpayoutDate', 'password', 'phone','token', 'address1', 'address2', 'city', 'country', 'returntype_id', 'zip', 'userTypeId', 'uniqueCode', 'payoutDate', 'transactionType', 'notificationStatus', 'createdAt', 'updatedAt', 'isDeleted', 'payout_per', 'sessionid','bearer_token','tax_form_flag','bio'];
+    protected $allowedFields = ['initialInvestment','user_kyc_flag', 'flagfor_accountant', 'firstName', 'lastName', 'profile_img' , 'email', 'otp', 'nextpayoutDate', 'password', 'phone','token', 'address1', 'address2', 'city', 'country', 'returntype_id', 'zip', 'userTypeId', 'uniqueCode', 'payoutDate', 'transactionType', 'notificationStatus', 'createdAt', 'updatedAt', 'isDeleted', 'payout_per', 'sessionid','bearer_token','tax_form_flag','bio'];
 
     public function getdata()
     {

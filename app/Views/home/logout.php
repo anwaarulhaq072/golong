@@ -13,8 +13,8 @@
     <div class="successPage">
       <div class="card successPageCard">
         <a href="/" class="loginbox1__logo loginbox1__logo--successPageCard flex-i">
-          <img src="assets/images/logo.svg" alt="" class="loginbox1__logo-img loginbox1__logo1">
-          <img src="assets/images/logo-for-light.svg" alt="" class="loginbox1__logo-img loginbox1__logo2">
+        <img src="<?php echo base_url(); ?>/assets-new/images/logo.svg" alt="" class="loginbox1__logo-img loginbox1__logo1">
+        <img src="<?php echo base_url(); ?>/assets-new/images/logo-for-light.png" alt="" class="loginbox1__logo-img loginbox1__logo2">
         </a>
         <div>
           <svg version="1.1" class="successPageCard__img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 130.2 130.2">
@@ -24,7 +24,7 @@
               stroke-miterlimit="10" points="100.2,40.2 51.5,88.8 29.8,67.5 " />
           </svg>
           <h2 class="successPageCard__hdng">See you again !</h2>
-          <p class="successPageCard__para">You are now successfully sign out. <a href="<?php echo base_url(); ?>">signin here</a> </p>
+          <p class="successPageCard__para">You have successfully signed out. <a href="<?php echo base_url(); ?>">Sign in here</a> </p>
         </div>
       </div>
     </div>

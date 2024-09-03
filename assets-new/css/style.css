@@ -12,6 +12,9 @@ body {
   position: relative;
   z-index: 1;
 }
+.monthly-return-year{
+  margin-top: -40px;
+}
 
 [data-bs-theme=dark] body {
   color: var(--white-for-dark);
@@ -634,7 +637,7 @@ h1 {
 }
 
 .pdot {
-  background-color: #0073B6;
+  background-color: #6B788E;
 }
 
 .ldot {
@@ -755,9 +758,9 @@ h1 {
 }
 
 .loginbox1__logo-img {
-  width: 106px;
+  width: 200px;
   height: auto;
-  margin-bottom: 35px;
+  /* margin-bottom: 35px; */
 }
 
 .loginbox1__hdng {
@@ -1889,7 +1892,7 @@ input[type="date"]::-webkit-datetime-edit-year-field {
 /* chat page end */
 
 .statement_btn {
-  background-color: var(--icons-bg);
+  background-color: transparent;
   border: 1px solid var(--icons-bg);
   font-size: 14px;
   text-transform: uppercase;
@@ -1898,13 +1901,13 @@ input[type="date"]::-webkit-datetime-edit-year-field {
   border-radius: 8px;
   margin-bottom: 20px;
   font-weight: 600;
-  color: var(--white);
+  color: var(--icons-bg);
 }
 
 .statement_btn:hover {
-  background-color: transparent;
+  background-color: var(--icons-bg);
   transition: all 0.2s;
-  color: var(--icons-bg);
+  color: var(--white);
 }
 
 .statement-card {
@@ -2730,6 +2733,16 @@ input[type="date"]::-webkit-datetime-edit-year-field {
 
   .checkboxRow {
     margin-bottom: 30px;
+  }
+  /* .loginbox1__hdng-span{
+    display: none;
+  }
+  .loginbox1__logo{
+    margin-left: 35%;
+    margin-top: 30%;
+  } */
+  .monthly-return-year{
+    margin-top: 0px;
   }
 
   

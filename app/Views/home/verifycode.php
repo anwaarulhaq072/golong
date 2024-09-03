@@ -17,10 +17,10 @@
           <div class="logIn">
         <a href="/" class="loginbox1__logo flex-i">
           <img src="<?php echo base_url(); ?>/assets-new/images/logo.svg" alt="" class="loginbox1__logo-img loginbox1__logo1">
-          <img src="<?php echo base_url(); ?>/assets-new/images/logo-for-light.svg" alt="" class="loginbox1__logo-img loginbox1__logo2">
+          <img src="<?php echo base_url(); ?>/assets-new/images/logo-for-light.png" alt="" class="loginbox1__logo-img loginbox1__logo2">
         </a>
         <div class="loginbox-hdng-holder">
-          <h4 class="loginbox1__hdng">Two Factor Authentication Code</h4>
+          <h4 class="loginbox1__hdng">2FA Code</h4>
           <p class="loginbox1__para">
             Please enter code that was sent to your email
           </p>

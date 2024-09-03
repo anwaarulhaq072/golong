@@ -24,6 +24,7 @@ use App\Models\Currency;
 use App\Models\CurrencyOption;
 use App\Models\TaxForm;
 use App\Models\Report;
+use App\Models\UserKyc;
 
 
 class Admin extends BaseController
@@ -196,12 +197,27 @@ class Admin extends BaseController
 			$data['payoutAll'] = $payoutAll;
 			$pendingWithdraw = $withdraw->getAllPendingByUserId($id);
 			$data['pendingWithdraw'] = $pendingWithdraw;
+			if($userInfo['initialInvestment'] == 0){
+				$userInfo['initialInvestment'] == 0;
+			}
 			$percentage_fot_profit_box = ((float)$userInfo['initialInvestment'] + (float)$depositAcceptedAll) - (float)$pendingWithdraw - (float)$payoutAll;
+			if($percentage_fot_profit_box == 0){
+				$data['percentage_fot_profit_box'] = 0;
+			}else{
             $data['percentage_fot_profit_box'] = (float)$data['profitLoss'] / $percentage_fot_profit_box * 100;
+			}
             $percentage_fot_p_payout_box = ((float)$userInfo['initialInvestment'] + (float)$depositAcceptedAll + (float)$data['profitLoss']) - (float)$payoutAll;
-            $data['percentage_fot_p_payout_box'] = (float)$pendingWithdraw / $percentage_fot_p_payout_box * 100;
+			if($percentage_fot_p_payout_box == 0){
+				$data['percentage_fot_p_payout_box'] = 0;
+			}else{
+				$data['percentage_fot_p_payout_box'] = (float)$pendingWithdraw / $percentage_fot_p_payout_box * 100;
+			}
             $percentage_fot_payout_box = ((float)$userInfo['initialInvestment'] + (float)$depositAcceptedAll + (float)$data['profitLoss']) - (float)$pendingWithdraw;
-            $data['percentage_fot_payout_box'] = (float)$payoutAll / $percentage_fot_payout_box * 100;
+			if($percentage_fot_payout_box == 0){
+				$data['percentage_fot_payout_box'] = 0;
+			}else{
+				$data['percentage_fot_payout_box'] = (float)$payoutAll / $percentage_fot_payout_box * 100;
+			}
 			$totalBalance = ((float)$userInfo['initialInvestment'] + (float)$depositAcceptedAll + (float)$data['profitLoss']) - (float)$pendingWithdraw - (float)$payoutAll;
 			$data['totalBalance'] = $totalBalance;
 			$data['profitLossMonthly'] = [];
@@ -679,13 +695,15 @@ class Admin extends BaseController
 			$payout = new Payout();
 			$profitLoss = new ProfitLoss();
 			$chat = new ChatMessage();
+			$UserKyc = new UserKyc();
 			$payoutInfo = $payout->getrow($_GET['userid']);
 			$data['payoutInfo'] = $payoutInfo;
 			// log_message('debug', '***************** Payout *****************' . var_export($data['payoutInfo']));
 			$data['allChat'] = $chat->getChatByUserId($_GET['userid']);
 			$data['profileData'] = $users->getrow($_GET['userid']);
 			$data['userDetails'] = $users->getrow($_GET['userid']);
-			// log_message('debug', '***************** Payout *****************' . var_export($data['userDetails'], true));
+			$data['kycDetails'] = $UserKyc->getrow($_GET['userid']);
+			log_message('debug', '***************** Payout *****************' . var_export($data['kycDetails'], true));
 			$data['profitLossDetails'] = $profitLoss->getByUserId($_GET['userid']);
 			return view('/home/new-customer-info', $data);
 		} else {
@@ -2056,6 +2074,28 @@ class Admin extends BaseController
 		for ($i = 0; $i < sizeof($allNotification); $i++) {
 			$email = $allNotification[$i]['email'];
 			$emailsss->sendNotification($email, $allNotification[$i]['description']);
+		}
+	}
+	public function change_kyc_status()
+	{
+		log_message('debug', '**************** UN Session_ID ****************' . var_export($_POST, true));
+		$permission_library = new permissions();
+		$response = $permission_library->checksessionadmin();
+		if ($response == true) {
+			$users = new Users();
+			$userInfo = $users->getrow($_POST['userid']);
+			$users->update($_POST['userid'], [
+				'user_kyc_flag' => $_POST['value'],
+			]);
+			$emailslib = new Emails;  //Sending Email
+			if($_POST['value'] == "NA"){
+				$emailslib->kyc_docs_not_approved($userInfo['email'],$fullName = $userInfo['firstName'] . " " . $userInfo['lastName']);
+			} else {
+				$emailslib->kyc_docs_approved($userInfo['email'],$fullName = $userInfo['firstName'] . " " . $userInfo['lastName']);
+			}
+			return json_encode([
+				"status" => 200,
+			]);
 		}
 	}
 }
