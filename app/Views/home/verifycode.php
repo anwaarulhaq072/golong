@@ -21,7 +21,7 @@
         </a>
         <div class="loginbox-hdng-holder">
           <h4 class="loginbox1__hdng">2FA Code</h4>
-          <p class="loginbox1__para">
+          <p class="loginbox1__para" style="margin-bottom: -30px;">
             Please enter code that was sent to your email
           </p>
         </div>

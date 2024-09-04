@@ -86,37 +86,71 @@
                 <!-- <canvas id="profitLossChart"></canvas> -->
               </div>
             </div>
-             <!-- TradingView Widget BEGIN -->
 <!-- TradingView Widget BEGIN -->
-<div class="tradingview-widget-container">
+<div class="tradingview-widget-container" id="light_widget" style="display: none">
   <div class="tradingview-widget-container__widget"></div>
   <script type="text/javascript" src="https://s3.tradingview.com/external-embedding/embed-widget-tickers.js" async>
   {
   "symbols": [
     {
-      "proName": "FOREXCOM:SPXUSD",
-      "title": "S&P 500 Index"
-    },
-    {
-      "proName": "BITSTAMP:BTCUSD",
-      "title": "Bitcoin"
-    },
-    {
-      "proName": "BITSTAMP:ETHUSD",
-      "title": "Ethereum"
-    },
-    {
-      "description": "Dow Jones",
+      "description": "",
       "proName": "BLACKBULL:US30"
     },
     {
-      "description": "GOLD",
-      "proName": "OANDA:XAUUSD"
+      "description": "",
+      "proName": "TVC:GOLD"
+    },
+    {
+      "description": "",
+      "proName": "OANDA:EURUSD"
+    },
+    {
+      "description": "",
+      "proName": "CME:BTC1!"
+    },
+    {
+      "description": "",
+      "proName": "CME:ETH1!"
     }
   ],
   "isTransparent": false,
   "showSymbolLogo": true,
   "colorTheme": "light",
+  "locale": "en"
+}
+  </script>
+</div>
+<!-- TradingView Widget END -->
+ <!-- TradingView Widget BEGIN -->
+<div class="tradingview-widget-container" id="dark_widget" style="display: none">
+  <div class="tradingview-widget-container__widget"></div>
+  <script type="text/javascript" src="https://s3.tradingview.com/external-embedding/embed-widget-tickers.js" async>
+  {
+  "symbols": [
+    {
+      "description": "",
+      "proName": "BLACKBULL:US30"
+    },
+    {
+      "description": "",
+      "proName": "TVC:GOLD"
+    },
+    {
+      "description": "",
+      "proName": "OANDA:EURUSD"
+    },
+    {
+      "description": "",
+      "proName": "CME:BTC1!"
+    },
+    {
+      "description": "",
+      "proName": "CME:ETH1!"
+    }
+  ],
+  "isTransparent": false,
+  "showSymbolLogo": true,
+  "colorTheme": "dark",
   "locale": "en"
 }
   </script>
@@ -177,11 +211,11 @@
             <div class="col-md-6 col-lg-12 col-xl-6">
               <div class="card monthly-return">
                 <div class="row">
-                <div class="col-md-6 col-lg-6 col-sm-12">
+                <div class="col-md-8 col-lg-8 col-sm-6">
                 <h2 class="monthly-return__hdng">Monthly Return</h2>
                 </div>
-                <div class="offset-md-7 col-md-2 offset-lg-7 col-lg-2 offset-sm-1 col-sm-1 monthly-return-year">
-                                  <select class="tn-list-card__select" name="year" id="monthlyReturnYear" style="text-align: center; margin-bottom: 30px; cursor:pointer;">
+                <div class="monthly-return-year col-md-4 col-lg-4 col-sm-6">
+                                  <select class="tn-list-card__select" name="year" id="monthlyReturnYear" style="width: 100%; text-align: center; margin-bottom: 30px; cursor:pointer;">
                                       <?php 
                                             $currentYear = date("Y");
                                             $minYear = 2023;
@@ -442,19 +476,19 @@
             <table class="table profitlossTable" id="profitLoss-table">
               <thead>
                 <tr class="table-head__row">
-                  <th class="table__hdng">Profit/loss</th>
+                  <th class="table__hdng">Type</th>
                   <th class="table__hdng">Date</th>
                   <th class="table__hdng">Amount</th>
                 </tr>
               </thead>
               <tbody>
-                <?php if (isset($profitLossDetails)) : ?>
-                  <?php foreach ($profitLossDetails as $singleDetail) : ?>
-                    <tr class="table__row <?php if ($singleDetail['type'] == 'Profit') :  echo "profit-row"; ?><?php else : echo "loss-row"; endif;?>">
-                      <td class="teble__col1"><?php echo $singleDetail['type']; ?></td>
+                <?php if (isset($profitLossDetails2)) : ?>
+                  <?php foreach ($profitLossDetails2 as $singleDetail) : ?>
+                    <tr class="table__row <?php if ($singleDetail['transaction_type'] == 'Profit') :  echo "profit-row"; ?><?php else : echo "loss-row"; endif;?>">
+                      <td class="teble__col1"><?php echo ucfirst($singleDetail['transaction_type']); ?></td>
                       <td class="teble__col2"><?php echo date('M d, Y', strtotime($singleDetail['publishDate'])); ?></td>
                       <td class="teble__col3">
-                        <?php if ($singleDetail['type'] == 'Profit') : ?>
+                        <?php if ($singleDetail['transaction_type'] == 'Profit' || $singleDetail['transaction_type'] == 'deposit' || $singleDetail['transaction_type'] == 'Deposit') : ?>
                           <div class="text-color-topaz flex-i">
                             <img src="<?php echo base_url(); ?>/assets-new/images/icons/up.svg" alt="">
                             &nbsp; $<?php echo $singleDetail['amount']; ?>

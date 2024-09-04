@@ -51,9 +51,9 @@ class Admin extends BaseController
 			$data['profitLossDetails'] = $profitLoss->getByUserId($id);
 			$data['tax_form_data'] = $tax_form->get_By_UserId($id);
 
-			log_message('debug', '**********************Tax Form Data****************************' . var_export($data['tax_form_data'], true));
-
 			$userInfo = $users->getrow($id);
+			
+
 			$data['userInfo'] = $userInfo;
 			$data['id'] = $id;
 			$returnType = $users->getReturnTypeId($id);
@@ -169,9 +169,11 @@ class Admin extends BaseController
 			$data['profitLossDetails'] = $profitLoss->getByUserId($id);
 			$data['tax_form_data'] = $tax_form->get_By_UserId($id);
 
-			log_message('debug', '**********************Tax Form Data****************************' . var_export($data['tax_form_data'], true));
+			// log_message('debug', '**********************Tax Form Data****************************' . var_export($data['tax_form_data'], true));
 
 			$userInfo = $users->getrow($id);
+			$data['profitLossDetails2'] = $profitLoss->runtime_calculate_balance_for_user_dashboard($id,$userInfo['initialInvestment']);
+			// log_message('debug', '**********************Tax Form Data11111****************************' . var_export($data['profitLossDetails2'], true));
 			$data['userInfo'] = $userInfo;
 			$data['id'] = $id;
 			$returnType = $users->getReturnTypeId($id);
@@ -1191,7 +1193,7 @@ class Admin extends BaseController
 				'msgTo' => $_POST['userid'],
 				'message' => $_POST['sendingMesage']
 			]);
-			return redirect()->to('/admin/customerdetails?userid=' . $_POST['userid']);
+			return redirect()->to('/admin/chat?userid=' . $_POST['userid']);
 		} else {
 			return redirect()->to('/');
 		}
@@ -1341,7 +1343,7 @@ class Admin extends BaseController
 					'user_id' => $_POST['forSingelNoti'],
 					'notification_id' => $notificationId['id'],
 				]);
-				$this->sendNotification($_POST['title'], $_POST['description'], $_POST['forSingelNoti']);
+				// $this->sendNotification($_POST['title'], $_POST['description'], $_POST['forSingelNoti']);
 			} else {
 				$userId = $users->getAllid();
 				foreach ($userId as $singleId) {
@@ -1349,7 +1351,7 @@ class Admin extends BaseController
 						'user_id' => $singleId['id'],
 						'notification_id' => $notificationId['id'],
 					]);
-					$this->sendNotification($_POST['title'], $_POST['description'], $singleId['id']);
+					// $this->sendNotification($_POST['title'], $_POST['description'], $singleId['id']);
 				}
 			}
 			$notification = $_POST['description'];
@@ -1541,7 +1543,7 @@ class Admin extends BaseController
 				'notification_id' => $notificationId['id'],
 			]);
 
-			$this->statusNotification($title, $message, $user_data['id']);
+			// $this->statusNotification($title, $message, $user_data['id']);
 			$email = $user_data['email'];
 			// 			log_message('debug', '***************** Edit Profile DATA *****************' . var_export($user_data,true)."ID".$id);
 			$emailsss = new Emails();
@@ -1588,7 +1590,7 @@ class Admin extends BaseController
 				'notification_id' => $notificationId['id'],
 			]);
 
-			$this->statusNotification($title, $message, $user_data['id']);
+			// $this->statusNotification($title, $message, $user_data['id']);
 			$email = $user_data['email'];
 			// 			log_message('debug', '***************** Edit Profile DATA *****************' . var_export($user_data,true)."ID".$id);
 			$emailsss = new Emails();
@@ -1635,7 +1637,7 @@ class Admin extends BaseController
 				'notification_id' => $notificationId['id'],
 			]);
 
-			$this->statusNotification($title, $message, $userId[0]['user_id']);
+			// $this->statusNotification($title, $message, $userId[0]['user_id']);
 			if (isset($deposit)) {
 				$_SESSION['success'] = 'Deposit request completed successfully!';
 			} else {
@@ -1695,7 +1697,7 @@ class Admin extends BaseController
 				'notification_id' => $notificationId['id'],
 			]);
 
-			$this->statusNotification($title, $message, $user_data['id']);
+			// $this->statusNotification($title, $message, $user_data['id']);
 			$email = $user_data['email'];
 			$emailsss = new Emails();
 			$emailsss->sendDepositaccept($name, $email, $message, '');
@@ -1741,7 +1743,7 @@ class Admin extends BaseController
 				'notification_id' => $notificationId['id'],
 			]);
 
-			$this->statusNotification($title, $message, $user_data['id']);
+			// $this->statusNotification($title, $message, $user_data['id']);
 			$email = $user_data['email'];
 			$emailsss = new Emails();
 			$emailsss->sendDepositaccept($name, $email, $message, $_POST['reason']);
@@ -1786,7 +1788,7 @@ class Admin extends BaseController
 				'notification_id' => $notificationId['id'],
 			]);
 
-			$this->statusNotification($title, $message, $userId[0]['user_id']);
+			// $this->statusNotification($title, $message, $userId[0]['user_id']);
 			if (isset($withdraw)) {
 				$_SESSION['success'] = 'withdrawl completed successfully!';
 			} else {
@@ -2089,13 +2091,43 @@ class Admin extends BaseController
 			]);
 			$emailslib = new Emails;  //Sending Email
 			if($_POST['value'] == "NA"){
-				$emailslib->kyc_docs_not_approved($userInfo['email'],$fullName = $userInfo['firstName'] . " " . $userInfo['lastName']);
+				$emailslib->kyc_docs_not_approved($userInfo['email'],$fullName = $userInfo['firstName']);
 			} else {
-				$emailslib->kyc_docs_approved($userInfo['email'],$fullName = $userInfo['firstName'] . " " . $userInfo['lastName']);
+				$emailslib->kyc_docs_approved($userInfo['email'],$fullName = $userInfo['firstName']);
 			}
 			return json_encode([
 				"status" => 200,
 			]);
 		}
 	}
+	public function chat(){ 
+        $permission_library = new permissions();
+        $response = $permission_library->checksessionadmin();
+        if ($response == true) {
+            $data = [];
+            $chat = new ChatMessage();
+            $users = new Users();
+		log_message('debug', '**************** UN Session_ID1122 ****************' . var_export($users->get_user_for_chat(),true));
+            $singleNotification = new Singlenotification();
+			$user_list = $users->get_user_for_chat();
+			if(isset($_GET['userid'])){
+			$id = $_GET['userid'];//$_SESSION['user_data']['id'];
+			}else{
+			$id = $user_list[0]['id'];
+			}
+			$data['chat_user_list'] = $user_list;//array_merge($user_list['msgFrom'],$user_list['msgTo']);
+            $data['allChat'] = $chat->getChatByUserId($id);
+			$data['userType'] = 'Admin';
+            $fund_id = null;
+            $userInfo = $users->getrow($id,$fund_id);
+            $data['userInfo'] = $userInfo;
+			$data['admin'] = 1;
+            $data['id'] = $id;
+            $data['notification'] = $singleNotification->getCurrentDataNotificationsByUserId($id);
+            return view('/home/customer-chat', $data);
+        } else {
+            return redirect()->to('/');
+        }
+    }
 }
+

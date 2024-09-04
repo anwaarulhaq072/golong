@@ -82,6 +82,12 @@
                         <img src="<?php echo base_url(); ?>/assets-new/images/icons/user-plus-brown.svg" alt="" class="sidebar-list__icon hide-on-dark">
                     </a>
                 </li>
+                <li class="sidebar_colour">
+                    <a href="<?= base_url(); ?>/admin/chat" class="sidebar-list__link flex-a trn-all <?php if (strpos($requestUri, 'chat') ) echo 'active';?>" id="chat">
+                        <img src="<?php echo base_url(); ?>/assets-new/images/icons/chat.svg" alt="" class="sidebar-list__icon hide-on-light">
+                        <img src="<?php echo base_url(); ?>/assets-new/images/icons/chat-brown.svg" alt="" class="sidebar-list__icon hide-on-dark">
+                    </a>
+                </li>
                 <li class="sidebar-list__item">
                     <a href="<?= base_url(); ?>/admin/bulkUpdate" class="sidebar-list__link flex-a trn-all <?php if (strpos($requestUri, 'bulkUpdate') ) echo 'active';?>" id="update-bulk-record">
                         <img src="<?php echo base_url(); ?>/assets-new/images/icons/update.svg" alt="" class="sidebar-list__icon hide-on-light">
@@ -92,9 +98,9 @@
         </ul>
         <ul class="sidebar-list">
         <li class="sidebar-list__item">
-            <div class="sidebar-list__link flex-a trn-all" id="wifi">
-              <img src="<?php echo base_url(); ?>/assets-new/images/icons/wifi.png" alt="" class="sidebar-list__icon hide-on-light">
-            <img src="<?php echo base_url(); ?>/assets-new/images/icons/wifi_brown.png" alt="" class="sidebar-list__icon hide-on-dark">
+            <div class="sidebar-list__link flex-a trn-all change_hover" id="wifi">
+              <img src="<?php echo base_url(); ?>/assets-new/images/icons/wifi.svg" alt="" class="sidebar-list__icon hide-on-light">
+            <img src="<?php echo base_url(); ?>/assets-new/images/icons/wifi.svg" alt="" class="sidebar-list__icon hide-on-dark">
             </div> 
             </li>
             <li class="sidebar-list__item">

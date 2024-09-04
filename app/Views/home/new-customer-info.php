@@ -218,7 +218,7 @@
           <div class="card cus-details-card">
              <!-- Approval Radio Button -->
              <div class="d-flex justify-content-end align-items-center">
-                  <p class="label-text" style="margin-right: 15px;">Status</p>
+                  <p class="label-text" style="margin-right: 15px;"><?php echo $kycDetails['type']; ?> Status</p>
                   <div class="form-check" style="margin-right: 15px;">
                     <input type="radio" id="approved" name="approval_status" value="A" class="form-check-input approved" <?php echo ($userDetails['user_kyc_flag'] == 'A') ? 'checked' : '' ?>>
                     <label for="approved" class="form-check-label" style="color:var(--card-sub-heading-color);">Approved</label>

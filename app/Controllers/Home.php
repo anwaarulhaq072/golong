@@ -189,7 +189,7 @@ class Home extends BaseController
 			'otp' => $code,
 		]);
 		log_message('debug', '***************** Login verification *****************' . $code . " " . $user_data['email']);
-		$fullName = $user_data['firstName'] . " " . $user_data['lastName'];
+		$fullName = $user_data['firstName'];
 
 		$emailslib->sendOtp($user_data['email'], $code, $fullName);
 	}

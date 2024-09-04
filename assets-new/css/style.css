@@ -12,8 +12,17 @@ body {
   position: relative;
   z-index: 1;
 }
+.change_hover:hover {
+  background-color: #0CB9BF !important;
+}
 .monthly-return-year{
-  margin-top: -40px;
+  margin-top: 0px;
+}
+.chat_admin_header{
+  text-align: start;
+  margin-left: 25%;
+  margin-bottom: -60px;
+
 }
 
 [data-bs-theme=dark] body {
@@ -377,7 +386,7 @@ h1 {
 }
 
 .transaction-card {
-  padding: 10px 20px 12px 20px;
+  padding: 21px 20px 12px 20px;
   margin-bottom: 13px;
 }
 
@@ -758,7 +767,7 @@ h1 {
 }
 
 .loginbox1__logo-img {
-  width: 200px;
+  width: 165px;
   height: auto;
   /* margin-bottom: 35px; */
 }

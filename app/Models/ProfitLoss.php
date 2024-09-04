@@ -173,6 +173,30 @@ class ProfitLoss extends Model
         $query = $this->findAll();
         return $query;
     }
+    public function getProfitsMonthlyById_year($id,$year){
+        $this->select('(SUM(amount/current_balance)*100) AS amount');
+        $this->select('COUNT(id) AS positions');
+        $this->select('YEAR(publishDate) AS year');
+        $this->select('MONTH(publishDate) AS month');
+        $this->where('type', "Profit");
+        $this->where('YEAR(publishDate)',$year);
+        $this->where('userid', $id);
+        $this->groupBy( 'DATE_FORMAT(publishDate, "%Y%m")');
+        $query = $this->findAll();
+        return $query;
+    }
+    public function getLossMonthlyById_year($id,$year){
+        $this->select('(SUM(amount/current_balance)*100) AS amount');
+        $this->select('COUNT(id) AS positions');
+        $this->select('YEAR(publishDate) AS year');
+        $this->select('MONTH(publishDate) AS month');
+        $this->where('type', "Loss");
+        $this->where('YEAR(publishDate)',$year);
+        $this->where('userid', $id);
+        $this->groupBy( 'DATE_FORMAT(publishDate, "%Y%m")');
+        $query = $this->findAll();
+        return $query;
+    }
     public function getTotalProfitById_by_date($id,$date)
     {
         // $start_date = date('Y-m-d H:i:s', strtotime(date('Y-m-d') . '00:00:00'));
@@ -235,4 +259,90 @@ class ProfitLoss extends Model
         $query = $this->findAll();
         return $query[0]['amount'];
     }
-}
+    public function runtime_calculate_balance_for_user_dashboard($userid,$investment){
+            $result = $this->query("WITH AllTransactions AS (
+                SELECT 
+                    p.userid,
+                    p.publishDate,
+                    p.amount,
+                    CASE 
+                        WHEN p.type = 'profit' THEN p.amount
+                        WHEN p.type = 'loss' THEN -p.amount
+                        ELSE 0
+                    END AS transaction_amount,
+                    p.type AS transaction_type,
+                    'Profit/Loss' AS transaction_category
+                FROM 
+                    profit_loss p
+                WHERE 
+                    p.userid = $userid
+
+                UNION ALL
+
+                SELECT 
+                    wd.user_id AS userid,
+                    wd.paid_date AS publishDate,
+                    wd.amount,
+                    -wd.amount AS transaction_amount,
+                    'withdrawal' AS transaction_type,
+                    'Withdrawal' AS transaction_category
+                FROM 
+                    withdraw wd
+                WHERE 
+                    wd.user_id = $userid
+                    AND wd.status IN ('pending', 'completed')
+
+                UNION ALL
+
+                SELECT 
+                    de.user_id AS userid,
+                    de.accepted_date AS publishDate,
+                    de.amount,
+                    de.amount AS transaction_amount,
+                    'deposit' AS transaction_type,
+                    'Deposit' AS transaction_category
+                FROM 
+                    deposit de
+                WHERE 
+                    de.user_id = $userid
+                    AND de.status = 'Completed'
+
+                UNION ALL
+
+                SELECT 
+                    po.user_id AS userid,
+                    po.payoutdate AS publishDate,
+                    po.amount,
+                    -po.amount AS transaction_amount,
+                    'payout' AS transaction_type,
+                    'Payout' AS transaction_category
+                FROM 
+                    payout_send po
+                WHERE 
+                    po.user_id = $userid
+            )
+
+            , RunningBalance AS (
+                SELECT 
+                    at.*,
+                    SUM(transaction_amount) OVER (ORDER BY publishDate ASC ROWS BETWEEN UNBOUNDED PRECEDING AND CURRENT ROW) 
+                    + $investment AS current_balance
+                FROM 
+                    AllTransactions at
+                ORDER BY 
+                    at.publishDate ASC
+            )
+
+            SELECT 
+                rb.publishDate,
+                rb.transaction_category,
+                rb.transaction_type,
+                rb.amount,
+                rb.current_balance
+            FROM 
+                RunningBalance rb
+            ORDER BY 
+                rb.publishDate DESC;");
+                     return $result->getResultArray();
+        }
+    }

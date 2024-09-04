@@ -13,12 +13,23 @@ $(document).ready(function () {
     { selector: "#chat", content: "Chat" },
     { selector: "#archive-history", content: "Archive History" },
     { selector: "#statements", content: "Statements" },
-    { selector: "#wifi", content: "Network Stable" },
+    { selector: "#wifi", content: "Connection Stable" },
   ];
   tooltips.forEach(({ selector, content }) => {
     tippy(selector, {
       content,
       placement: "right",
+      onCreate(instance) {
+        if (selector === "#wifi") {
+          const backgroundColor = "#0CB9BF";
+          instance.popper.querySelector(".tippy-box").style.backgroundColor =
+            backgroundColor;
+          const arrow = instance.popper.querySelector(".tippy-arrow");
+          if (arrow) {
+            arrow.style.color = backgroundColor;
+          }
+        }
+      },
     });
   });
   $(".passwordToggle").click(function () {
@@ -41,7 +52,7 @@ $(document).ready(function () {
   const dataTables = [
     {
       selector: "#profitLoss-table",
-      options: { searching: true, pageLength: 11 },
+      options: { searching: true, pageLength: 13 },
     },
     { selector: "#payout", options: { searching: false, pageLength: 10 } },
     {
@@ -102,3 +113,49 @@ document.addEventListener("DOMContentLoaded", function () {
   filterTableRows("filterselect");
   }
 });
+function hideTradingViewContainer2() {
+  const container = document.querySelector('#dark_widget');
+  if (document.documentElement.classList.contains('dark')) {
+      container.style.display = 'block';
+  }
+}
+$(document).ready(function () {
+  // Hide the widget on page load if dark class exists
+hideTradingViewContainer2();
+
+});
+
+// Add event listener to the element with id="dark"
+document.getElementById('dark').addEventListener('click', function() {
+  const container = document.querySelector('#dark_widget');
+  container.style.display = 'block';
+});
+// Add event listener to the element with id="dark"
+document.getElementById('dark').addEventListener('click', function() {
+  const container = document.querySelector('#light_widget');
+  container.style.display = 'none';
+});
+
+function hideTradingViewContainer1() {
+  const container = document.querySelector('#light_widget');
+  if (document.documentElement.classList.contains('light')) {
+      container.style.display = 'block';
+  }
+}
+$(document).ready(function () {
+  // Hide the widget on page load if dark class exists
+hideTradingViewContainer1();
+
+});
+
+// Add event listener to the element with id="dark"
+document.getElementById('light').addEventListener('click', function() {
+  const container = document.querySelector('#light_widget');
+  container.style.display = 'block';
+});
+// Add event listener to the element with id="dark"
+document.getElementById('light').addEventListener('click', function() {
+  const container = document.querySelector('#dark_widget');
+  container.style.display = 'none';
+});
+

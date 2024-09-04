@@ -92,6 +92,7 @@ class User extends BaseController
             $data['userInfo'] = $userInfo;
             $data['id'] = $id;
             $data['auth'] = $auth;
+            $data['admin'] = 0;
             $data['notification'] = $singleNotification->getCurrentDataNotificationsByUserId($id);
             $groupedChat = [];
             foreach ($data['allChat'] as $chat) {
@@ -140,6 +141,7 @@ class User extends BaseController
             $data['allChat'] = $chat->getChatByUserId($id);
             $data['profitLossDetails'] = $profitLoss->getByUserId($id);
             $userInfo = $users->getrow($id);
+			$data['profitLossDetails2'] = $profitLoss->runtime_calculate_balance_for_user_dashboard($id,$userInfo['initialInvestment']);
             $payoutSum = $payout->getsum($id);
             $data['payoutSum'] = $payoutSum;
             $data['lastpayout'] = $payout->getPayoutsdesc($id);
@@ -197,6 +199,7 @@ class User extends BaseController
 			}else{
 				$data['percentage_fot_payout_box'] = (float)$payoutAll / $percentage_fot_payout_box * 100;
 			}
+			$totalBalance = ((float)$userInfo['initialInvestment'] + (float)$depositAcceptedAll + (float)$data['profitLoss']) - (float)$pendingWithdraw - (float)$payoutAll;
             $data['totalBalance'] = $totalBalance;
             $data['profitLossMonthly'] = [];
             $data['profitLossMonthly']['total'] = 0;
@@ -699,7 +702,7 @@ class User extends BaseController
                     'alerts_id' => $alert_id['id']
                 ]);
             }
-            $this->alertnotification('Deposit Request Received from ' . ucfirst($_SESSION['user_data']['firstName']) . " " . ucfirst($_SESSION['user_data']['lastName']));
+            // $this->alertnotification('Deposit Request Received from ' . ucfirst($_SESSION['user_data']['firstName']) . " " . ucfirst($_SESSION['user_data']['lastName']));
             $adminEmails = $users->getAllAdminEmails();
             $allAdminEmails = [];
             foreach ($adminEmails as  $single) {
@@ -846,8 +849,8 @@ class User extends BaseController
                     'alerts_id' => $alert_id['id']
                 ]);
             }
-            $this->alertnotification('Withdrawal Request Received from ' . ucfirst($_SESSION['user_data']['firstName']) . " " . ucfirst($_SESSION['user_data']['lastName']));
-            // $users = new Users();
+            // $this->alertnotification('Withdrawal Request Received from ' . ucfirst($_SESSION['user_data']['firstName']) . " " . ucfirst($_SESSION['user_data']['lastName']));
+            $users = new Users();
             $adminEmails = $users->getAllAdminEmails();
             $allAdminEmails = [];
             foreach ($adminEmails as  $single) {
@@ -945,8 +948,8 @@ class User extends BaseController
         $deposit = new Deposit();
         $withdraw = new Withdraw();
         $data = [];
-        $profitByMonth = $profitLoss->getProfitsMonthlyById($id);
-        $lossByMonth = $profitLoss->getLossMonthlyById($id);
+        $profitByMonth = $profitLoss->getProfitsMonthlyById_year($id,(int)$_GET['year']);
+        $lossByMonth = $profitLoss->getLossMonthlyById_year($id,(int)$_GET['year']);
         $userInfo = $users->getrow($id);
         $profit = $profitLoss->getTotalProfitById($id);
         $loss = $profitLoss->getTotalLossById($id);
@@ -972,7 +975,7 @@ class User extends BaseController
                 $k++;
             }
         }
-
+            // log_message('debug', '***************** Chart BY Admin *****************' . var_export($data['payoutSum'], true));
         // $length = count($profitByMonth) > count($lossByMonth) ? count($profitByMonth) - $j : count($lossByMonth) - $k;
         // $data['profitLossMonthly']['len'] = $length;
         // log_message('debug','**************************************************'.var_export($profitByMonth,true));
@@ -1405,7 +1408,7 @@ class User extends BaseController
                 $allAdminEmails[] = $single['email'];
             }
         $emailslib = new Emails;  //Sending Email 
-        $emailslib-> submit_kyc_docs($allAdminEmails,$fullName = $_SESSION['user_data']['firstName'] . " " . $_SESSION['user_data']['lastName']);
+        $emailslib-> submit_kyc_docs($allAdminEmails,$fullName = $_SESSION['user_data']['firstName']);
         return redirect()->to('/user/dashboard');
         } else {
             return redirect()->to('/');

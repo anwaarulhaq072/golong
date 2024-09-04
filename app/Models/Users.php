@@ -130,4 +130,24 @@ class Users extends Model
         $query = $this->findAll();
         return $query;
     }
+    public function get_user_for_chat()
+    {
+        $this->orderby('id', 'desc');
+        $this->where('userTypeId', 2);
+        $this->where('isDeleted', 'N');
+        $this->select('users.id,users.firstName,users.lastName,users.profile_img');
+        $query = $this->findAll();
+        return $query;
+
+        // $this->select('users.id,users.firstName,users.lastName');
+        // $this->join('chat_message AS CM', 'CM.msgTo = users.id', 'LEFT');
+        // $this->where('CM.msgFrom !=' , 'Admin');
+        // $this->groupBy('CM.msgTo');
+        // $query1 = $this->findAll();
+
+        // return [
+        //     'msgFrom' => $query,
+        //     'msgTo' => $query1
+        // ];
+    }
 }
