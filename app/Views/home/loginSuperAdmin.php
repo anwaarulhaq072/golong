@@ -32,9 +32,9 @@
           </label>
           <label class="inputFile__label-holder">
             <span class="inputFile__label">Password</span>
-            <input type="password" name="password" placeholder="Enter Your Password" class="form-control inputFile inputFile--password" required>
+            <input type="password" name="password" id="password" placeholder="Enter Your Password" class="form-control inputFile inputFile--password" required>
             <div class="passwordToggle">
-              <img src="<?php echo base_url(); ?>/assets-new/images/icons/eye.svg" alt="" class="eyes-with-line">
+              <img src="<?php echo base_url(); ?>/assets-new/images/icons/eye.svg" onclick="togglePassword()" alt="" class="eyes-with-line">
             </div>
           </label>
           <button id="loginBtn" type="submit" class="formBtn flex-a">Log In</button>
@@ -72,6 +72,16 @@
   </div>
   <?php echo view("/home/new-footer-script"); ?>
   <script src="<?php echo base_url(); ?>/assets/js/superlogin2.js"></script>
+  <script>
+    function togglePassword() {
+    var inputField = document.getElementById("password");
+    if (inputField.type === "password") {
+        inputField.type = "text";
+    } else {
+        inputField.type = "password";
+    }
+}
+  </script>
 </body>
 
 </html>

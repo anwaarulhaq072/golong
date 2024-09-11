@@ -181,8 +181,8 @@
                                                     <textarea class="form-label" id="reason" name="reason" rows="6" style="min-width: 100%" required></textarea>
                                                 </div>
                                                 <div class="modal-body mt-4">
-                                                    <a href="#" class="btn btn-primary" data-bs-dismiss="modal" style="padding: 7px 60px; border: 1px solid #000000; background-color: #000000; float:right">Cancel</a>
-                                                    <button id="reject_btn" type="submit" class="btn btn-danger" style="padding: 7px 60px;">Reject</button>
+                                                    <a href="#" class="btn btn-primary" data-bs-dismiss="modal" style="padding: 7px 45px; border: 1px solid #000000; background-color: #000000; float:right">Cancel</a>
+                                                    <button id="reject_btn" type="submit" class="btn btn-danger" style="padding: 7px 45px;">Reject</button>
                                                 </div>
                                             </form>
                                         </div><!-- /.modal-content -->

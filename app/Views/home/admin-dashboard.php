@@ -39,7 +39,7 @@
                       <td>
                         <div class="row align-items-center">
                           <div class="col-auto">
-                            <img src="<?= $singleUser['profile_img'] ? base_url() . $singleUser['profile_img'] : base_url() . '/assets/images/users/user-1.jpg' ?>" alt="profile-image" class="rounded-circle" width="40" height="40">
+                            <img src="<?= $singleUser['profile_img'] ? base_url() . $singleUser['profile_img'] : base_url() . '/assets/images/users/user-1.jpg' ?>" alt="profile-image" class="rounded-circle profile-image-admin" width="40" height="40">
                           </div>
                           <div class="col">
                             <p><?= $singleUser['email']; ?></p>

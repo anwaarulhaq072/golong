@@ -189,9 +189,9 @@
                       <td class="teble__col2"><?php echo date('M d, Y', strtotime($singleDetail['publishDate'])); ?></td>
                       <td class="teble__col3">
                         <?php if ($singleDetail['type'] == 'Profit') : ?>
-                          <i class="fa fa-arrow-circle-up" aria-hidden="true" style="font-size: 23px; color: #1ABC9C;"></i> &nbsp; $<?php echo $singleDetail['amount']; ?>
+                          <i class="fa fa-arrow-circle-up" aria-hidden="true" style="font-size: 23px; color: #1ABC9C;"></i> &nbsp; $<?php echo number_format((int)$singleDetail['amount']); ?>
                         <?php else : ?>
-                          <i class="fa fa-arrow-circle-down" aria-hidden="true" style="font-size: 23px; color: #D06162;"></i> &nbsp; $<?php echo $singleDetail['amount']; ?>
+                          <i class="fa fa-arrow-circle-down" aria-hidden="true" style="font-size: 23px; color: #D06162;"></i> &nbsp; $<?php echonumber_format((int)$singleDetail['amount']); ?>
                         <?php endif; ?>
                       </td>
                       <td class="teble__col4">
@@ -214,76 +214,6 @@
               </tbody>
             </table>
           </div>
-          <?php if(isset($kycDetails)): ?>
-          <div class="card cus-details-card">
-             <!-- Approval Radio Button -->
-             <div class="d-flex justify-content-end align-items-center">
-                  <p class="label-text" style="margin-right: 15px;"><?php echo $kycDetails['type']; ?> Status</p>
-                  <div class="form-check" style="margin-right: 15px;">
-                    <input type="radio" id="approved" name="approval_status" value="A" class="form-check-input approved" <?php echo ($userDetails['user_kyc_flag'] == 'A') ? 'checked' : '' ?>>
-                    <label for="approved" class="form-check-label" style="color:var(--card-sub-heading-color);">Approved</label>
-                  </div>
-                  <div class="form-check">
-                    <input type="radio" id="not-approved" name="approval_status" value="NA" class="form-check-input approved" <?php echo ($userDetails['user_kyc_flag'] == 'NA' || $userDetails['user_kyc_flag'] == 'PA') ? 'checked' : '' ?>>
-                    <label for="not_approved" class="form-check-label" style="color:var(--card-sub-heading-color);">Not Approved</label>
-                  </div>
-                </div>
-
-            <?php if($kycDetails['type'] == "KYB"): ?>
-              <div class="row row-gap2">
-              <!-- Image Display Boxes -->
-               <?php $kycDetails2 = json_decode($kycDetails['origination_docs'], true); foreach($kycDetails2 as $key => $value): ?>
-              <div class="col-sm-6 col-lg-4">
-                <p class="label-text">Origination Docs</p>
-                <div class="img-box">
-                <a href="<?php echo base_url(); ?>/public/user_kyc_docs/<?php echo $userDetails['id']; ?>/<?php echo $value; ?>" target="_blank" class="img-box__link"><img src="<?php echo base_url(); ?>/public/user_kyc_docs/<?php echo $userDetails['id']; ?>/<?php echo $value; ?>" alt="ID Back Image" class="img-fluid" style="width: 300px;height: 180px;border-radius: 5px;object-fit: scale-down;"></a>
-                </div>
-              </div>
-              <?php endforeach; ?>
-              <div class="col-sm-6 col-lg-4">
-                <p class="label-text">Shareholder Agreement</p>
-                <div class="img-box">
-                  <a href="<?php echo base_url(); ?>/public/user_kyc_docs/<?php echo $userDetails['id']; ?>/<?php echo $kycDetails['shareholder_agreement']; ?>" target="_blank" class="img-box__link"><img src="<?php echo base_url(); ?>/public/user_kyc_docs/<?php echo $userDetails['id']; ?>/<?php echo $kycDetails['shareholder_agreement']; ?>" alt="ID Back Image" class="img-fluid" style="width: 300px;height: 180px;border-radius: 5px;object-fit: scale-down;"></a>
-                </div>
-              </div>
-              <div class="col-sm-6 col-lg-4">
-                <p class="label-text">Proof of Good standing</p>
-                <div class="img-box">
-                  <a href="<?php echo base_url(); ?>/public/user_kyc_docs/<?php echo $userDetails['id']; ?>/<?php echo $kycDetails['proof_of_good']; ?>" target="_blank" class="img-box__link"><img src="<?php echo base_url(); ?>/public/user_kyc_docs/<?php echo $userDetails['id']; ?>/<?php echo $kycDetails['proof_of_good']; ?>" alt="ID Back Image" class="img-fluid" style="width: 300px;height: 180px;border-radius: 5px;object-fit: scale-down;"></a>
-                </div>
-              </div>
-              <div class="col-sm-6 col-lg-4">
-                <p class="label-text">Proof of Address</p>
-                <div class="img-box">
-                  <a href="<?php echo base_url(); ?>/public/user_kyc_docs/<?php echo $userDetails['id']; ?>/<?php echo $kycDetails['proof_of_address']; ?>" target="_blank" class="img-box__link"><img src="<?php echo base_url(); ?>/public/user_kyc_docs/<?php echo $userDetails['id']; ?>/<?php echo $kycDetails['proof_of_address']; ?>" alt="ID Back Image" class="img-fluid" style="width: 300px;height: 180px;border-radius: 5px;object-fit: scale-down;"></a>
-                </div>
-              </div>
-            </div>
-            <?php elseif($kycDetails['type'] == "KYC"): ?>
-              <div class="row row-gap2">
-              <!-- Image Display Boxes -->
-              <div class="col-sm-6 col-lg-4">
-                <p class="label-text">ID Front</p>
-                <div class="img-box">
-                <a href="<?php echo base_url(); ?>/public/user_kyc_docs/<?php echo $userDetails['id']; ?>/<?php echo $kycDetails['id_front_side']; ?>" target="_blank" class="img-box__link"><img src="<?php echo base_url(); ?>/public/user_kyc_docs/<?php echo $userDetails['id']; ?>/<?php echo $kycDetails['id_front_side']; ?>" alt="ID Back Image" class="img-fluid" style="width: 300px;height: 180px;border-radius: 5px;object-fit: scale-down;"></a>
-                </div>
-              </div>
-              <div class="col-sm-6 col-lg-4">
-                <p class="label-text">ID Back</p>
-                <div class="img-box">
-                  <a href="<?php echo base_url(); ?>/public/user_kyc_docs/<?php echo $userDetails['id']; ?>/<?php echo $kycDetails['id_back_side']; ?>" target="_blank" class="img-box__link"><img src="<?php echo base_url(); ?>/public/user_kyc_docs/<?php echo $userDetails['id']; ?>/<?php echo $kycDetails['id_back_side']; ?>" alt="ID Back Image" class="img-fluid" style="width: 300px;height: 180px;border-radius: 5px;object-fit: scale-down;"></a>
-                </div>
-              </div>
-              <div class="col-sm-6 col-lg-4">
-                <p class="label-text">Proof of Address</p>
-                <div class="img-box">
-                  <a href="<?php echo base_url(); ?>/public/user_kyc_docs/<?php echo $userDetails['id']; ?>/<?php echo $kycDetails['proof_of_address']; ?>" target="_blank" class="img-box__link"><img src="<?php echo base_url(); ?>/public/user_kyc_docs/<?php echo $userDetails['id']; ?>/<?php echo $kycDetails['proof_of_address']; ?>" alt="ID Back Image" class="img-fluid" style="width: 300px;height: 180px;border-radius: 5px;object-fit: scale-down;"></a>
-                </div>
-              </div>
-            </div>
-            <?php endif; ?>
-          </div>
-          <?php endif; ?>
         </div>
 
 

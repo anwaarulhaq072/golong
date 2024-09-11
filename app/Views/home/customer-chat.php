@@ -14,7 +14,7 @@
     <main class="main">
     <?php if($admin == 1): ?>
     <div class="chat_admin_header">
-      <h4 class="header-title mt-4 mb-2">Chat With <?php echo ucfirst($userInfo['firstName'])." ".ucfirst($userInfo['lastName']); ?></h4>
+      <h4 class="header-title mb-2">Chat With <?php echo ucfirst($userInfo['firstName'])." ".ucfirst($userInfo['lastName']); ?></h4>
     </div>
     <?php endif; ?>
     <div class="row">
@@ -30,18 +30,18 @@
                         <div class="outer_div_user">
                             <a href="<?php echo base_url().'/admin/chat?userid='.$chat_user_list[$user_list]['id']; ?>" style="color: black;">
                                 <div class="row align-items-center">
-                                    <div class="col-md-3 col-lg-2">
+                                    <div class="col-3 col-lg-2">
                                         <?php if(isset($chat_user_list[$user_list]['profile_img']) && $chat_user_list[$user_list]['profile_img'] != ''): ?>
-                                        <img src="<?php echo ($chat_user_list[$user_list]['profile_img'] && $chat_user_list[$user_list]['profile_img'] !== '') ? base_url().$chat_user_list[$user_list]['profile_img'] : base_url().'/assets/images/users/user-1.jpg'; ?>" alt="Avatar" style="width: 50px; height: 45px; border-radius: 40px; margin-right: 17px;">
+                                        <img src="<?php echo ($chat_user_list[$user_list]['profile_img'] && $chat_user_list[$user_list]['profile_img'] !== '') ? base_url().$chat_user_list[$user_list]['profile_img'] : base_url().'/assets/images/users/user-1.jpg'; ?>" alt="Avatar" style="width: 42px; height: 45px; border-radius: 40px; margin-right: 17px;">
                                         <?php else: ?>
-                                        <div style="width: 50px; height: 45px; margin-right: 8px;">
-                                            <p style="color: white;background: #2F3F4F;text-align: center;font-size: xx-large;border: solid;border-radius: 40px;padding: 12px;">
+                                        <div style="width: 45px; height: 55px; margin-right: 8px;">
+                                            <p style="color: white;background: #2F3F4F;text-align: center;font-size: xx-large;border: solid;border-radius: 40px;padding: 12px 6px;">
                                                 <?php echo ucwords(substr($chat_user_list[$user_list]['firstName'], 0, 1)); ?>
                                             </p>
                                         </div>
                                         <?php endif; ?>
                                     </div>
-                                    <div class="col-md-9 col-lg-10">
+                                    <div class="col-9 col-lg-10">
                                         <p style="padding: 10px; padding-bottom: 20px; border-bottom: 1px solid #CBCBCB; color: var(--card-sub-heading-color);">
                                             <?php echo ucwords($chat_user_list[$user_list]['firstName'].' '.$chat_user_list[$user_list]['lastName']); ?>
                                         </p>
@@ -56,7 +56,11 @@
             </div>
         </div>
     </div>
-    
+    <?php if($admin == 1): ?>
+    <div class="chat_admin_header2">
+      <h4 class="header-title mt-4 mb-2">Chat With <?php echo ucfirst($userInfo['firstName'])." ".ucfirst($userInfo['lastName']); ?></h4>
+    </div>
+    <?php endif; ?>
     <?php endif; ?>
       <div class="card chat-card <?php if($admin == 1): ?> col-md-9 col-lg-9 <?php else: ?> col-md-12 col-lg-12 <?php endif; ?>" style="margin-top: 60px;overflow: auto;height: 807px;">
         <?php
@@ -138,6 +142,23 @@
           <?php endif; ?>
 
         <?php endforeach; ?>
+        <?php if($admin == 1 && isset($_GET['userid'])): ?>
+        <form action="<?php echo base_url(); ?>/admin/submitMessage" method="POST" class="flex-i msgform">
+          <input type="hidden" name="userid" value="<?php echo $id; ?>" />
+          <input type="text" class="mes__input" name="sendingMesage" placeholder="Message" required>
+          <button class="msg__btn flex-a">
+            <i class="fa-regular fa-paper-plane"></i>
+          </button>
+          <?php else: ?>
+        </form>
+        <form action="<?php echo base_url(); ?>/user/submitMessage" method="POST" class="flex-i msgform">
+          <input type="hidden" name="userid" value="<?php echo $id; ?>" />
+          <input type="text" class="mes__input" name="sendingMesage" placeholder="Message" required>
+          <button class="msg__btn flex-a">
+            <i class="fa-regular fa-paper-plane"></i>
+          </button>
+        </form>
+        <?php endif; ?>
             </div>
 
         <!-- <div class="chat">
@@ -237,23 +258,6 @@
             </div>
           </div>
         </div> -->
-        <?php if($admin == 1): ?>
-        <form action="<?php echo base_url(); ?>/admin/submitMessage" method="POST" class="flex-i msgform">
-          <input type="hidden" name="userid" value="<?php echo $id; ?>" />
-          <input type="text" class="mes__input" name="sendingMesage" placeholder="Message" required>
-          <button class="msg__btn flex-a">
-            <i class="fa-regular fa-paper-plane"></i>
-          </button>
-          <?php else: ?>
-        </form>
-        <form action="<?php echo base_url(); ?>/user/submitMessage" method="POST" class="flex-i msgform">
-          <input type="hidden" name="userid" value="<?php echo $id; ?>" />
-          <input type="text" class="mes__input" name="sendingMesage" placeholder="Message" required>
-          <button class="msg__btn flex-a">
-            <i class="fa-regular fa-paper-plane"></i>
-          </button>
-        </form>
-        <?php endif; ?>
       </div>
     </main>
   </div>

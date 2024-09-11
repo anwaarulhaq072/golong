@@ -20,6 +20,7 @@ use App\Models\AlertStatus;
 use App\Models\Report;
 use App\Models\TaxForm;
 use App\Models\UserKyc;
+use App\Models\Documents;
 
 // use CodeIgniter\Debug\Toolbar\Collectors\Logs;
 
@@ -719,6 +720,7 @@ class User extends BaseController
             $opcurrency = $opcur->getById($_POST['crypto_type']);
             $opcurrname = $opcurrency['name'];
             // $this->senddepositNotification();
+            $fullName = $_SESSION['user_data']['firstName'];
             $emailslib = new Emails;  //Sending Email 
             $emailslib->sendDeposit($fullName, $currname, $_POST['amount'], $opcurrname, $allAdminEmails);
 
@@ -866,9 +868,9 @@ class User extends BaseController
             $opcur = new CurrencyOption(); //Getting Currency Option
             $opcurrency = $opcur->getById($_POST['crypto_type']);
             $opcurrname = $opcurrency['name'];
-
-            // $emailslib = new Emails;  //Sending Email 
-            // $emailslib->sendWithdrawa($fullName, $currname, $_POST['amount'], $opcurrname, $allAdminEmails, $_POST['wallet_address']);
+            $fullName = $_SESSION['user_data']['firstName'];
+            $emailslib = new Emails;  //Sending Email 
+            $emailslib->sendWithdrawa($fullName, $currname, $_POST['amount'], $opcurrname, $allAdminEmails, $_POST['wallet_address']);
 
 
             $data = [];
@@ -1390,6 +1392,8 @@ class User extends BaseController
             $UserKyc = new UserKyc();
             $UserKyc->save([
                 'userid' => $_SESSION['user_data']['id'],
+                'id_back_side' => $backSideName,
+                'id_front_side' =>  $frontSideName,
                 'proof_of_address' => $proofofaddress2,
                 'proof_of_good' => $proofofgoodstanding,
                 'shareholder_agreement' => $shareholderagreement,
@@ -1408,8 +1412,68 @@ class User extends BaseController
                 $allAdminEmails[] = $single['email'];
             }
         $emailslib = new Emails;  //Sending Email 
-        $emailslib-> submit_kyc_docs($allAdminEmails,$fullName = $_SESSION['user_data']['firstName']);
+        $emailslib-> submit_kyc_docs($allAdminEmails,$fullName = $_SESSION['user_data']['firstName'],$_SESSION['user_data']['id']);
         return redirect()->to('/user/dashboard');
+        } else {
+            return redirect()->to('/');
+        }
+    }
+    public function upload_documents()
+    {
+        return redirect()->to('/');
+        $users = new Users();
+        $document = new Documents();
+        $permission_library = new permissions();
+        $response = $permission_library->checksessionuser();
+        if ($response == true) {
+            session_start();
+            $id = $_SESSION['user_data']['id'];
+            $fund_id = 0;
+            $data = []; 
+            $data['userDetails'] = $users->getrow($id,$fund_id);
+            $doc_data = $document->getdata($id);
+            $data['userDocs'] = $doc_data;
+            $data['type'] = 'user';
+
+            return view('/home/upload-documents',$data);
+        } else {
+            return redirect()->to('/');
+        }
+    }
+    public function submit_upload_documents()
+    {
+        
+        $users = new Users();
+        $permission_library = new permissions();
+        $response = $permission_library->checksessionuser();
+        if ($response == true) {
+            $ext = pathinfo($_FILES["fileInput"]["name"], PATHINFO_EXTENSION);
+			$target_dir = "assets/images/users_documents/user_".$_POST['userid']."/";
+			if (!file_exists($target_dir)) {
+				mkdir($target_dir, 0777, true);
+			}
+            $fund_id = 0;
+            $user = $users->getrow($_POST['userid'],$fund_id);
+			$current_date = date("Y_m_d_H_i_s");
+			$target_dir = $target_dir.$current_date."_".$user['firstName']."_".$user['lastName'].'.'.$ext;
+            $link = base_url().'/'.$target_dir;
+			$document = new Documents();
+			if (move_uploaded_file($_FILES["fileInput"]["tmp_name"], $target_dir)) {
+				// echo $id.' ................ '.$target_dir;
+				$document->save([
+					'user_id' => $_POST['userid'],
+                    'filename' => $ext,
+                    'link' => $link
+				]);
+            }
+            $id = $_SESSION['user_data']['id'];
+            $doc_data = $document->getdata($id);
+            $fund_id = 2;
+            $data['userDetails'] = $users->getrow($id,$fund_id);
+            $data['userDocs'] = $doc_data;
+            // log_message('debug', '***************** View Payout *****************' . var_export($doc_data, true));
+
+            return redirect()->to('/user/upload_documents');
         } else {
             return redirect()->to('/');
         }

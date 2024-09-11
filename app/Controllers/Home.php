@@ -341,7 +341,7 @@ class Home extends BaseController
 				'uniqueCode' => md5(uniqid(rand(), true))
 			];
 			if (isset($_POST)) {
-				$users->save($data);
+				$users->save($data); 
 
 				// Sending a mail to user
 				$fullname = $_POST['firstname'] . " " . $_POST['lastname'];
@@ -353,7 +353,7 @@ class Home extends BaseController
 				curl_setopt($curl, CURLOPT_POSTFIELDS, "email=$email&password=$password&name=$fullname");
 				curl_setopt($curl, CURLOPT_HEADER, 0);
 				curl_setopt($curl,  CURLOPT_RETURNTRANSFER, false);
-				curl_setopt($curl,  CURLOPT_TIMEOUT_MS, 500);
+				curl_setopt($curl,  CURLOPT_TIMEOUT_MS, 1000);
 				curl_exec($curl);
 
 				curl_close($curl);
@@ -398,7 +398,7 @@ class Home extends BaseController
 			$msg = wordwrap($msg, 70);
 			// send email
 			// mail($response_email['email'], "Update your password", $msg);
-			$userName = $response_email['firstName'] . " " . $response_email['lastName'];
+			$userName = $response_email['firstName'];
 			$emailslib->sendreset_ps($response_email['email'], $code, $userName);
 			return json_encode($userFound);
 		}

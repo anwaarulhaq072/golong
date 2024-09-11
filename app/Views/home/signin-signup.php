@@ -28,9 +28,9 @@
           </label>
           <label class="inputFile__label-holder">
             <span class="inputFile__label">Password</span>
-            <input type="password" name="password" placeholder="Enter Your Password" class="form-control inputFile inputFile--password">
+            <input type="password" name="password" id="password" placeholder="Enter Your Password" class="form-control inputFile inputFile--password">
             <div class="passwordToggle">
-              <img src="<?php echo base_url(); ?>/assets-new/images/icons/eye.svg" alt="" class="eyes-with-line">
+              <img src="<?php echo base_url(); ?>/assets-new/images/icons/eye.svg" alt="" onclick="togglePassword()" class="eyes-with-line">
             </div>
           </label>
           <div class="flex-i justify-between checkboxRow">
@@ -75,6 +75,16 @@
   </div>
   <?php echo view("/home/new-footer-script"); ?>
   <script src="<?php echo base_url(); ?>/assets-new/js/ajax_login.js"></script>
+  <script>
+    function togglePassword() {
+    var inputField = document.getElementById("password");
+    if (inputField.type === "password") {
+        inputField.type = "text";
+    } else {
+        inputField.type = "password";
+    }
+}
+  </script>
 </body>
 
 </html>

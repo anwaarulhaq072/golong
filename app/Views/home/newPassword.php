@@ -30,14 +30,14 @@
               <span class="inputFile__label">New password</span>
               <input type="password" id="password" name="password" placeholder="Enter New Password" class="form-control inputFile inputFile--password">
               <div class="passwordToggle">
-                <img src="<?php echo base_url(); ?>/assets-new/images/icons/eye.svg" alt="" class="eyes-with-line">
+                <img src="<?php echo base_url(); ?>/assets-new/images/icons/eye.svg" onclick="togglePassword()" alt="" class="eyes-with-line">
               </div>
             </label>
             <label class="inputFile__label-holder inputFile__label-holder--mb-60">
               <span class="inputFile__label">Confirm password</span>
               <input type="password" id="confirmPassword" name="confirmPassword" placeholder="Confirm password" class="form-control inputFile inputFile--password">
               <div class="passwordToggle">
-                <img src="<?php echo base_url(); ?>/assets-new/images/icons/eye.svg" alt="" class="eyes-with-line">
+                <img src="<?php echo base_url(); ?>/assets-new/images/icons/eye.svg" onclick="togglePassword2()" alt="" class="eyes-with-line">
               </div>
             </label>
             <button type="submit" class="formBtn flex-a">Log In</button>
@@ -75,5 +75,23 @@
   </div>
   <?php echo view("/home/header-links"); ?>
   <script src="<?php echo base_url(); ?>/assets/js/forgetPassword.js"></script>
+  <script>
+    function togglePassword() {
+    var inputField = document.getElementById("password");
+    if (inputField.type === "password") {
+        inputField.type = "text";
+    } else {
+        inputField.type = "password";
+    }
+}
+function togglePassword2() {
+    var inputField = document.getElementById("confirmPassword");
+    if (inputField.type === "password") {
+        inputField.type = "text";
+    } else {
+        inputField.type = "password";
+    }
+}
+  </script>
 </body>
 </html>

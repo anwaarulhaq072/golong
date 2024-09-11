@@ -32,16 +32,16 @@
                     <label for="not_approved" class="form-check-label" style="color:var(--card-sub-heading-color);">KYB</label>
                   </div>
                 </div>
-            <div id="kycForm">
             <label class="inputFile__label-holder">
               <input type="hidden" id="baseurl" value="<?php echo base_url(); ?>">
               <span class="inputFile__label">ID Front Side</span>
-              <input type="file" name="idFrontSide" class="form-control inputFile" style="padding: 13px 25px;">
+              <input type="file" name="idFrontSide" class="form-control inputFile" style="padding: 13px 25px;" required>
             </label>
             <label class="inputFile__label-holder">
               <span class="inputFile__label">ID Back Side</span>
-              <input type="file" name="idBackSide" class="form-control inputFile" style="padding: 13px 25px;">
+              <input type="file" name="idBackSide" class="form-control inputFile" style="padding: 13px 25px;" required>
             </label>
+            <div id="kycForm">
             <label class="inputFile__label-holder">
               <span class="inputFile__label">Proof Of Address</span>
               <input type="file" name="proof_of_address" class="form-control inputFile" style="padding: 13px 25px;">

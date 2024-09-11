@@ -14,6 +14,9 @@ $(document).ready(function () {
     { selector: "#archive-history", content: "Archive History" },
     { selector: "#statements", content: "Statements" },
     { selector: "#wifi", content: "Connection Stable" },
+    { selector: "#upload_documents", content: "Documents" },
+    { selector: "#uploaded_documents", content: "Upload Documents" },
+    { selector: "#kyc", content: "KYC/KYB Documents" },
   ];
   tooltips.forEach(({ selector, content }) => {
     tippy(selector, {
@@ -69,6 +72,10 @@ $(document).ready(function () {
     },
     {
       selector: "#all-cutomers",
+      options: { searching: true, pageLength: 10 },
+    },
+    {
+      selector: "#demo-foo-filtering",
       options: { searching: true, pageLength: 10 },
     },
   ];

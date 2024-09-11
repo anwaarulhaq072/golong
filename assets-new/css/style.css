@@ -24,6 +24,18 @@ body {
   margin-bottom: -60px;
 
 }
+.document_btn{
+    background-color: transparent;
+    border: 1px solid var(--icons-bg);
+    font-size: 14px;
+    text-transform: uppercase;
+    padding: 12px 20px;
+    transition: all 0.2s;
+    border-radius: 8px;
+    margin-bottom: 20px;
+    font-weight: 600;
+    color: var(--icons-bg);
+}
 
 [data-bs-theme=dark] body {
   color: var(--white-for-dark);
@@ -306,7 +318,16 @@ h1 {
   height: 24px;
   object-fit: contain;
 }
-
+.sidebar-list__icon2{
+  width: 30px;
+  height: 30px;
+}
+.sidebar-list__icon2 path{
+  fill:#0CB9BF;
+}
+.sidebar-list__link:hover .sidebar-list__icon2 path{
+  fill:#fff;
+}
 .sidebar-list__link.active,
 .sidebar-list__link:hover {
   background-color: var(--icons-bg);
@@ -964,7 +985,7 @@ h1 {
 .dt-search input {
   background-color: var(--search-bg);
   border: none;
-  width: 300px !important;
+  width: 300px;
   outline: none;
   height: 40px;
   border-radius: 5px;
@@ -1495,7 +1516,7 @@ input[type="date"]::-webkit-datetime-edit-year-field {
 #transactionTable_wrapper .dt-search {
   position: absolute;
   top: 25px;
-  left: 50%;
+  left: 55%;
   transform: translateX(-50%);
 }
 
@@ -2141,10 +2162,19 @@ input[type="date"]::-webkit-datetime-edit-year-field {
   font-size: 16px;
   color: var(--card-sub-heading-color);
 }
+.chat_admin_header{
+  display: block;
+}
+.chat_admin_header2{
+  display: none;
+}
 
 @media(max-width:1199px) {
   .updateBulkCard {
     padding: 20px;
+  }
+  .profile-image-admin{
+    display: none;
   }
 
   .bulkrow>* {
@@ -2240,6 +2270,9 @@ input[type="date"]::-webkit-datetime-edit-year-field {
   .bulkrow .profile-edit__input {
     padding: 12px 14px;
     font-size: 14px;
+  }
+  .profile-image-admin{
+    display: none;
   }
 }
 
@@ -2752,6 +2785,16 @@ input[type="date"]::-webkit-datetime-edit-year-field {
   } */
   .monthly-return-year{
     margin-top: 0px;
+  }
+  .chat_admin_header{
+    display: none;
+  }
+  .chat_admin_header2{
+    display: block;
+    margin-bottom: -40px !important;
+  }
+  .profile-image-admin{
+    display: none;
   }
 
   

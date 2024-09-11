@@ -491,12 +491,12 @@
                         <?php if ($singleDetail['transaction_type'] == 'Profit' || $singleDetail['transaction_type'] == 'deposit' || $singleDetail['transaction_type'] == 'Deposit') : ?>
                           <div class="text-color-topaz flex-i">
                             <img src="<?php echo base_url(); ?>/assets-new/images/icons/up.svg" alt="">
-                            &nbsp; $<?php echo $singleDetail['amount']; ?>
+                            &nbsp; $<?php echo number_format((int)$singleDetail['amount']); ?>
                           </div>
                         <?php else : ?>
                           <div class="text-color-chili-papper flex-i">
                             <img src="<?php echo base_url(); ?>/assets-new/images/icons/down.svg" alt="">
-                            &nbsp; $<?php echo $singleDetail['amount']; ?>
+                            &nbsp; $<?php echo number_format((int)$singleDetail['amount']); ?>
                           </div>
                         <?php endif; ?>
 
