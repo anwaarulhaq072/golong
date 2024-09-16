@@ -90,12 +90,13 @@
 
 
     <main class="main">
+    <h2 class="notification-card__hdng notification-card__hdng--adduser" style="margin-top: 20px;"><?php echo $kycDetails['type']; ?> Documents</h2>
           <?php if(isset($kycDetails)): ?>
             <input type="hidden" id="user_id" name="id" value="<?php echo $userDetails['id']; ?>">
             <input type="hidden" id="baseurl" value="<?php echo base_url(); ?>">
           <div class="card cus-details-card">
              <!-- Approval Radio Button -->
-             <div class="d-flex justify-content-end align-items-center">
+             <div class="d-flex justify-content-end align-items-center" style="margin-bottom: 15px;">
                   <p class="label-text" style="margin-right: 15px;"><?php echo $kycDetails['type']; ?> Status</p>
                   <div class="form-check" style="margin-right: 15px;">
                     <input type="radio" id="approved" name="approval_status" value="A" class="form-check-input approved" <?php echo ($userDetails['user_kyc_flag'] == 'A') ? 'checked' : '' ?>>

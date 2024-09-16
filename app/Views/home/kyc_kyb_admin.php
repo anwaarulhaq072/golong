@@ -39,12 +39,12 @@
                                     <table id="demo-foo-filtering" style="text-align: center; margin-top: 10px;" class="table toggle-circle mb-0" data-page-size="15">
                                         <thead style="background-color: #F2F2F2;">
                                         <tr>
-                                        <th>Name</th>
-                                        <th>Joining Date</th>
-                                        <th>Type</th>
-                                        <th>Documents Status</th>
-                                        <th>Action</th>
-                                        <th>View File</th>
+                                        <th class="all-cutomers-t__col--head">Name</th>
+                                        <th class="all-cutomers-t__col--head">Joining Date</th>
+                                        <th class="all-cutomers-t__col--head">Type</th>
+                                        <th class="all-cutomers-t__col--head">Documents Status</th>
+                                        <th class="all-cutomers-t__col--head">Action</th>
+                                        <th class="all-cutomers-t__col--head">View File</th>
                                         </tr>
                                         </thead>
                                         <tbody>
@@ -58,7 +58,7 @@
                                                 <td style="color: var(--card-sub-heading-color);padding: 0px;padding-top: 20px;padding-left: 6px;"><?php if($kycClients[$i]['user_kyc_flag'] == "N"){ echo "Not Submitted"; }else { echo "Submitted"; } ?></td>
                                                 <td style="color: var(--card-sub-heading-color);padding: 0px;padding-top: 20px;padding-left: 6px;"><?php if($kycClients[$i]['user_kyc_flag'] == "N"){ echo "Not Submitted"; }elseif($kycClients[$i]['user_kyc_flag'] == "PA") { echo "Pending"; }elseif($kycClients[$i]['user_kyc_flag'] == "NA"){echo "Not Approved";}elseif($kycClients[$i]['user_kyc_flag'] == "A"){echo "Approved";}  ?></td>
                                                 <td style="padding: 0px;padding-top: 10px;padding-left: 6px;">
-                                                <a <?php if($kycClients[$i]['user_kyc_flag'] != "N"): ?>target="_blank" href="<?= base_url(); ?>/admin/kyc_documents_by_user?userid=<?php echo $kycClients[$i]['id']; ?>"<?php else: ?> href="#" <?php endif; ?>><button style="margin-bottom: 10px;" class="document_btn">View</button></a>
+                                                <a <?php if($kycClients[$i]['user_kyc_flag'] != "N"): ?> href="<?= base_url(); ?>/admin/kyc_documents_by_user?userid=<?php echo $kycClients[$i]['id']; ?>"<?php else: ?> href="#" <?php endif; ?>><button style="margin-bottom: 10px;" class="document_btn">View</button></a>
                                             </td>
                                             </tr>
                                             <?php 

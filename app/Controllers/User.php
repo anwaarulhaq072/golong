@@ -1357,6 +1357,12 @@ class User extends BaseController
             if ($origination_docs[$i]->isValid() && !$origination_docs[$i]->hasMoved()) {
                 $origination_docs[$i]->move($uploadPath, $originationdocs[$i]);
             }
+            if(str_contains($originationdocs[$i], "HEIC") || str_contains($originationdocs[$i], "heic")){
+                $path = $uploadPath.$originationdocs[$i];
+                $originationdocs[$i] = explode(".",$originationdocs[$i]);
+                $originationdocs[$i] = $originationdocs[$i][0];
+                $originationdocs[$i] = $this->convert_heic_to_png($path,$originationdocs[$i],$uploadPath);
+            }
         }
         // Move the files to the specified directory
         if ($idFrontSide->isValid() && !$idFrontSide->hasMoved()) {
@@ -1379,6 +1385,43 @@ class User extends BaseController
         if ($shareholder_agreement->isValid() && !$shareholder_agreement->hasMoved()) {
             $shareholder_agreement->move($uploadPath, $shareholderagreement);
         }
+        if(str_contains($backSideName, "HEIC") || str_contains($backSideName, "heic")){
+            $path = $uploadPath.$backSideName;
+            $backSideName = explode(".",$backSideName);
+            $backSideName = $backSideName[0];
+            $backSideName = $this->convert_heic_to_png($path,$backSideName,$uploadPath);
+        }
+        if(str_contains($frontSideName, "HEIC") || str_contains($frontSideName, "heic")){
+            $path = $uploadPath.$frontSideName;
+            $frontSideName = explode(".",$frontSideName);
+            $frontSideName = $frontSideName[0];
+            $frontSideName = $this->convert_heic_to_png($path,$frontSideName,$uploadPath);
+        }
+        if(str_contains($proofofaddress, "HEIC") || str_contains($proofofaddress, "heic")){
+            $path = $uploadPath.$proofofaddress;
+            $proofofaddress = explode(".",$proofofaddress);
+            $proofofaddress = $proofofaddress[0];
+            $proofofaddress = $this->convert_heic_to_png($path,$proofofaddress,$uploadPath);
+        }
+        if(str_contains($proofofaddress2, "HEIC") || str_contains($proofofaddress2, "heic")){
+            $path = $uploadPath.$proofofaddress2;
+            $proofofaddress2 = explode(".",$proofofaddress2);
+            $proofofaddress2 = $proofofaddress2[0];
+            $proofofaddress2 = $this->convert_heic_to_png($path,$proofofaddress2,$uploadPath);
+        }
+        if(str_contains($proofofgoodstanding, "HEIC") || str_contains($proofofgoodstanding, "heic")){
+            $path = $uploadPath.$proofofgoodstanding;
+            $proofofgoodstanding = explode(".",$proofofgoodstanding);
+            $proofofgoodstanding = $proofofgoodstanding[0];
+            $proofofgoodstanding = $this->convert_heic_to_png($path,$proofofgoodstanding,$uploadPath);
+        }
+        if(str_contains($shareholderagreement, "HEIC") || str_contains($shareholderagreement, "heic")){
+            $path = $uploadPath.$shareholderagreement;
+            $shareholderagreement = explode(".",$shareholderagreement);
+            $shareholderagreement = $shareholderagreement[0];
+            $shareholderagreement = $this->convert_heic_to_png($path,$shareholderagreement,$uploadPath);
+        }
+        // log_message('debug', '***************** Chart BY Admin *****************' . var_export($originationdocs, true).var_export($backSideName, true).var_export($frontSideName, true).var_export($proofofaddress, true).var_export($proofofgoodstanding, true).var_export($shareholderagreement, true));
         if($_POST['approval_status'] == "KYC"){
             $UserKyc = new UserKyc();
             $UserKyc->save([
@@ -1476,6 +1519,39 @@ class User extends BaseController
             return redirect()->to('/user/upload_documents');
         } else {
             return redirect()->to('/');
+        }
+    }
+    public function convert_heic_to_png($heic_image_path,$backSideName,$uploadPath) {
+        // Path to the uploaded HEIC image
+        $png_image_path = $uploadPath.$backSideName.".png";   // Path where the converted PNG will be saved
+
+        // Check if Imagick extension is loaded
+        if (!extension_loaded('imagick')) {
+            echo 'Imagick extension is not enabled on the server';
+            return;
+        }
+
+        try {
+            // Create an Imagick object
+            $imagick = new \Imagick();
+            
+            // Read the HEIC file
+            $imagick->readImage($heic_image_path);
+
+            // Convert to PNG
+            $imagick->setImageFormat('png');
+
+            // Save the PNG file
+            $imagick->writeImage($png_image_path);
+
+            // Clean up
+            $imagick->clear();
+            $imagick->destroy();
+
+            return $backSideName.".png";
+
+        } catch (Exception $e) {
+            echo 'Error: ' . $e->getMessage();
         }
     }
 }

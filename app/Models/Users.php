@@ -26,10 +26,10 @@ class Users extends Model
     }
     public function getCustomers_for_kyc()
     {
-        $this->orderby('users.id', 'desc');
         $this->where('users.userTypeId', 2);
         $this->where('users.isDeleted', 'N');
         $this->join('user_kyc AS KY', 'KY.userid = users.id', 'LEFT');
+        $this->orderby('KY.id', 'desc');
         $this->select('*,users.createdAt as joiningData,users.id as id');
         $query = $this->findAll();
         return $query;

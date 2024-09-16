@@ -62,7 +62,7 @@
     </div>
     <?php endif; ?>
     <?php endif; ?>
-      <div class="card chat-card <?php if($admin == 1): ?> col-md-9 col-lg-9 <?php else: ?> col-md-12 col-lg-12 <?php endif; ?>" style="margin-top: 60px;overflow: auto;height: 807px;">
+      <div class="card chat-card <?php if($admin == 1): ?> col-md-9 col-lg-9 <?php else: ?> col-md-12 col-lg-12 <?php endif; ?>" style="margin-top: 60px;overflow: auto;height: 807px;display: flex;flex-direction: column;justify-content: flex-end;">
         <?php
         $lastDate = ''; // Variable to store the last message date
         foreach ($allChat as $singleMessage) :

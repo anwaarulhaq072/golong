@@ -191,7 +191,7 @@
                         <?php if ($singleDetail['type'] == 'Profit') : ?>
                           <i class="fa fa-arrow-circle-up" aria-hidden="true" style="font-size: 23px; color: #1ABC9C;"></i> &nbsp; $<?php echo number_format((int)$singleDetail['amount']); ?>
                         <?php else : ?>
-                          <i class="fa fa-arrow-circle-down" aria-hidden="true" style="font-size: 23px; color: #D06162;"></i> &nbsp; $<?php echonumber_format((int)$singleDetail['amount']); ?>
+                          <i class="fa fa-arrow-circle-down" aria-hidden="true" style="font-size: 23px; color: #D06162;"></i> &nbsp; $<?php echo number_format((int)$singleDetail['amount']); ?>
                         <?php endif; ?>
                       </td>
                       <td class="teble__col4">
