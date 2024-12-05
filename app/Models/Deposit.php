@@ -28,7 +28,7 @@ class Deposit extends Model
         return $query;
     }
     public function getDepositsbyid($id){
-        $this->select('user_id');
+        $this->select('*');
         $this->where('id =', $id);
         $query = $this->find();
         return $query;

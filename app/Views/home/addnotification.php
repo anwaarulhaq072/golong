@@ -4,7 +4,7 @@
 <head>
   <meta charset="utf-8" data-bs-theme="dark">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Add User</title>
+  <title>Add Notification</title>
   <?php echo view("/home/new-header-links"); ?>
 </head>
 
@@ -13,7 +13,7 @@
     <?php echo view("/home/left-sidebar-new"); ?>
     <main class="main">
       <div class="card addusercard">
-        <h2 class="notification-card__hdng notification-card__hdng--adduser">Create a new user</h2>
+        <h2 class="notification-card__hdng notification-card__hdng--adduser">Create a new notification</h2>
         <?php if (isset($userData)) : ?>
           <form action="<?php echo base_url(); ?>/admin/submitnotification" method="POST" class="row profile-edit-row align-items-end row-gap--adduser" id="signupForm">
           <?php endif; ?>
@@ -21,12 +21,12 @@
             <input type="hidden" id="base" value="<?php echo base_url(); ?>">
             <div class="col-lg-4">
               <p class="profile-edit__para">Notification Title<span>*</span></p>
-              <input type="text" class="form-control" name="title" placeholder="Title" rows="3" value="<?php echo isset($notificationInfo) ? $notificationInfo['title'] : '' ?>" required>
+              <input type="text" class="form-control profile-edit__input" name="title" placeholder="Title" rows="3" value="<?php echo isset($notificationInfo) ? $notificationInfo['title'] : '' ?>" required>
             </div>
 
             <div class="col-lg-4">
               <p class="profile-edit__para">Status <span>*</span></p>
-              <select name="status" class="form-control" required>
+              <select name="status" class="form-control profile-edit__input form-select" required>
                 <option value="">Choose</option>
                 <option value="Enable" <?php if (isset($notificationInfo) && $notificationInfo['status'] == 'Enable') : ?>selected<?php endif; ?>>
                   Enable</option>
@@ -37,7 +37,7 @@
             <div class="col-lg-4">
               <?php if (isset($userData)) : ?>
                 <label for="status" class="form-label">Select User</label>
-                <select name="forSingelNoti" class="form-control" required>
+                <select name="forSingelNoti" class="form-control profile-edit__input form-select" required>
                   <option value="alluser">All User</option>
                   <?php
 
@@ -50,7 +50,7 @@
             </div>
             <div class="col-lg-4">
               <p class="profile-edit__para">Description<span>*</span></p>
-              <textarea class="form-control" name="description" placeholder="Message" rows="2" required><?php if (isset($notificationInfo)) echo $notificationInfo['description'] ?></textarea>
+              <textarea class="form-control profile-edit__input" name="description" placeholder="Message" rows="2" required><?php if (isset($notificationInfo)) echo $notificationInfo['description'] ?></textarea>
             </div>
             <div class="col-lg-4">
               <?php if (isset($userData)) : ?>

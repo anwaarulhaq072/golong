@@ -19,6 +19,8 @@ use App\Models\Alerts;
 use App\Models\AlertStatus;
 use App\Models\Report;
 use App\Models\TaxForm;
+use App\Models\UserKyc;
+use App\Models\Documents;
 
 // use CodeIgniter\Debug\Toolbar\Collectors\Logs;
 
@@ -91,6 +93,7 @@ class User extends BaseController
             $data['userInfo'] = $userInfo;
             $data['id'] = $id;
             $data['auth'] = $auth;
+            $data['admin'] = 0;
             $data['notification'] = $singleNotification->getCurrentDataNotificationsByUserId($id);
             $groupedChat = [];
             foreach ($data['allChat'] as $chat) {
@@ -112,19 +115,26 @@ class User extends BaseController
         $response = $permission_library->checksessionuser();
         if ($response == true) {
 
-            if ($_SESSION['user_data']['tax_form_flag'] == "No" && $_SESSION['user_data']['createdAt'] >= "2024-05-01 10:35:26") {
-                return redirect()->to('/user/tax_form');
+            // if ($_SESSION['user_data']['tax_form_flag'] == "No" && $_SESSION['user_data']['createdAt'] >= "2024-05-01 10:35:26") {
+            //     return redirect()->to('/user/tax_form');
+            // }
+            $users = new Users();
+            $id = $_SESSION['user_data']['id'];
+            $userInfo = $users->getrow($id);
+            if ($userInfo['user_kyc_flag'] == "NA" || $userInfo['user_kyc_flag'] == "N") {
+                return view('/home/userKyc');
+            }
+            if ($userInfo['user_kyc_flag'] == "PA") {
+                return view('/home/pending_kyc');
             }
             $data = [];
             $profitLoss = new ProfitLoss();
             $chat = new ChatMessage();
-            $users = new Users();
             $payout = new Payout();
             $notifications = new Notifications();
             $singleNotification = new Singlenotification();
             $deposit = new Deposit();
             $withdraw = new Withdraw();
-            $id = $_SESSION['user_data']['id'];
             if (isset($_SESSION['superAdminTypeId'])) {
                 $superadminid = $_SESSION['superAdminTypeId'];
                 $data['superadminid'] = $superadminid;
@@ -132,6 +142,7 @@ class User extends BaseController
             $data['allChat'] = $chat->getChatByUserId($id);
             $data['profitLossDetails'] = $profitLoss->getByUserId($id);
             $userInfo = $users->getrow($id);
+			$data['profitLossDetails2'] = $profitLoss->runtime_calculate_balance_for_user_dashboard($id,$userInfo['initialInvestment']);
             $payoutSum = $payout->getsum($id);
             $data['payoutSum'] = $payoutSum;
             $data['lastpayout'] = $payout->getPayoutsdesc($id);
@@ -171,13 +182,25 @@ class User extends BaseController
             $data['payoutAll'] = $payoutAll;
             $pendingWithdraw = $withdraw->getAllPendingByUserId($id);
             $data['pendingWithdraw'] = $pendingWithdraw;
-            $percentage_fot_profit_box = ((float)$userInfo['initialInvestment'] + (float)$depositAcceptedAll) - (float)$pendingWithdraw - (float)$payoutAll;
+			$percentage_fot_profit_box = ((float)$userInfo['initialInvestment'] + (float)$depositAcceptedAll) - (float)$pendingWithdraw - (float)$payoutAll;
+			if($percentage_fot_profit_box == 0){
+				$data['percentage_fot_profit_box'] = 0;
+			}else{
             $data['percentage_fot_profit_box'] = (float)$data['profitLoss'] / $percentage_fot_profit_box * 100;
+			}
             $percentage_fot_p_payout_box = ((float)$userInfo['initialInvestment'] + (float)$depositAcceptedAll + (float)$data['profitLoss']) - (float)$payoutAll;
-            $data['percentage_fot_p_payout_box'] = (float)$pendingWithdraw / $percentage_fot_p_payout_box * 100;
+			if($percentage_fot_p_payout_box == 0){
+				$data['percentage_fot_p_payout_box'] = 0;
+			}else{
+				$data['percentage_fot_p_payout_box'] = (float)$pendingWithdraw / $percentage_fot_p_payout_box * 100;
+			}
             $percentage_fot_payout_box = ((float)$userInfo['initialInvestment'] + (float)$depositAcceptedAll + (float)$data['profitLoss']) - (float)$pendingWithdraw;
-            $data['percentage_fot_payout_box'] = (float)$payoutAll / $percentage_fot_payout_box * 100;
-            $totalBalance = ((float)$userInfo['initialInvestment'] + (float)$depositAcceptedAll + (float)$data['profitLoss']) - (float)$pendingWithdraw - (float)$payoutAll;
+			if($percentage_fot_payout_box == 0){
+				$data['percentage_fot_payout_box'] = 0;
+			}else{
+				$data['percentage_fot_payout_box'] = (float)$payoutAll / $percentage_fot_payout_box * 100;
+			}
+			$totalBalance = ((float)$userInfo['initialInvestment'] + (float)$depositAcceptedAll + (float)$data['profitLoss']) - (float)$pendingWithdraw - (float)$payoutAll;
             $data['totalBalance'] = $totalBalance;
             $data['profitLossMonthly'] = [];
             $data['profitLossMonthly']['total'] = 0;
@@ -680,7 +703,7 @@ class User extends BaseController
                     'alerts_id' => $alert_id['id']
                 ]);
             }
-            $this->alertnotification('Deposit Request Received from ' . ucfirst($_SESSION['user_data']['firstName']) . " " . ucfirst($_SESSION['user_data']['lastName']));
+            // $this->alertnotification('Deposit Request Received from ' . ucfirst($_SESSION['user_data']['firstName']) . " " . ucfirst($_SESSION['user_data']['lastName']));
             $adminEmails = $users->getAllAdminEmails();
             $allAdminEmails = [];
             foreach ($adminEmails as  $single) {
@@ -697,6 +720,7 @@ class User extends BaseController
             $opcurrency = $opcur->getById($_POST['crypto_type']);
             $opcurrname = $opcurrency['name'];
             // $this->senddepositNotification();
+            $fullName = $_SESSION['user_data']['firstName'];
             $emailslib = new Emails;  //Sending Email 
             $emailslib->sendDeposit($fullName, $currname, $_POST['amount'], $opcurrname, $allAdminEmails);
 
@@ -827,8 +851,8 @@ class User extends BaseController
                     'alerts_id' => $alert_id['id']
                 ]);
             }
-            $this->alertnotification('Withdrawal Request Received from ' . ucfirst($_SESSION['user_data']['firstName']) . " " . ucfirst($_SESSION['user_data']['lastName']));
-            // $users = new Users();
+            // $this->alertnotification('Withdrawal Request Received from ' . ucfirst($_SESSION['user_data']['firstName']) . " " . ucfirst($_SESSION['user_data']['lastName']));
+            $users = new Users();
             $adminEmails = $users->getAllAdminEmails();
             $allAdminEmails = [];
             foreach ($adminEmails as  $single) {
@@ -844,9 +868,9 @@ class User extends BaseController
             $opcur = new CurrencyOption(); //Getting Currency Option
             $opcurrency = $opcur->getById($_POST['crypto_type']);
             $opcurrname = $opcurrency['name'];
-
-            // $emailslib = new Emails;  //Sending Email 
-            // $emailslib->sendWithdrawa($fullName, $currname, $_POST['amount'], $opcurrname, $allAdminEmails, $_POST['wallet_address']);
+            $fullName = $_SESSION['user_data']['firstName'];
+            $emailslib = new Emails;  //Sending Email 
+            $emailslib->sendWithdrawa($fullName, $currname, $_POST['amount'], $opcurrname, $allAdminEmails, $_POST['wallet_address']);
 
 
             $data = [];
@@ -926,8 +950,8 @@ class User extends BaseController
         $deposit = new Deposit();
         $withdraw = new Withdraw();
         $data = [];
-        $profitByMonth = $profitLoss->getProfitsMonthlyById($id);
-        $lossByMonth = $profitLoss->getLossMonthlyById($id);
+        $profitByMonth = $profitLoss->getProfitsMonthlyById_year($id,(int)$_GET['year']);
+        $lossByMonth = $profitLoss->getLossMonthlyById_year($id,(int)$_GET['year']);
         $userInfo = $users->getrow($id);
         $profit = $profitLoss->getTotalProfitById($id);
         $loss = $profitLoss->getTotalLossById($id);
@@ -943,16 +967,22 @@ class User extends BaseController
         $data['profitLossMonthly'] = [];
         $data['profitLossMonthly']['total'] = 0;
         $j = $k = 0;
-        if (!empty($profitByMonth) && (int)$profitByMonth[$j]['year'] < (int)$_GET['year']) {
-            while ($k < sizeof($profitByMonth) && (int)$profitByMonth[$j]['year'] && (int)$profitByMonth[$j]['year'] < (int)$_GET['year']) {
+        if (sizeof($profitByMonth) > 0 && (int)$profitByMonth[$j]['year'] < (int)$_GET['year']) {
+            while ($j < sizeof($profitByMonth) && (int)$profitByMonth[$j]['year'] < (int)$_GET['year']) {
                 $j++;
             }
         }
-        if (!empty($lossByMonth) && (int)$lossByMonth[$k]['year'] < (int)$_GET['year']) {
-            while ($k < sizeof($lossByMonth) && (int)$lossByMonth[$k]['year'] && (int)$lossByMonth[$k]['year'] < (int)$_GET['year']) {
+        if (sizeof($lossByMonth) > 0 && (int)$lossByMonth[$k]['year'] < (int)$_GET['year']) {
+            while ($k < sizeof($lossByMonth) && (int)$lossByMonth[$k]['year'] < (int)$_GET['year']) {
                 $k++;
             }
         }
+            // log_message('debug', '***************** Chart BY Admin *****************' . var_export($data['payoutSum'], true));
+        // $length = count($profitByMonth) > count($lossByMonth) ? count($profitByMonth) - $j : count($lossByMonth) - $k;
+        // $data['profitLossMonthly']['len'] = $length;
+        // log_message('debug','**************************************************'.var_export($profitByMonth,true));
+        // log_message('debug','**************************************************'.var_export($lossByMonth,true));
+        // log_message('debug','**************************************************'.$j.'  ***    '.$k);
         for ($i = 1; $i < 13; $i++) {
             if ((!empty($profitByMonth[$j]) && $i == (int)$profitByMonth[$j]['month']) || (!empty($lossByMonth[$k]) && $i == (int)$lossByMonth[$k]['month'])) {
                 if ((!empty($profitByMonth[$j]) && !empty($lossByMonth[$k])) && ((int)$profitByMonth[$j]['month'] === (int)$lossByMonth[$k]['month'])) {
@@ -1286,6 +1316,242 @@ class User extends BaseController
             return redirect()->to('/user/dashboard');
         } else {
             return redirect()->to('/');
+        }
+    }
+    public function submit_kyc_document()
+    {
+        // log_message('debug', '***************** Chart BY Admin *****************' . var_export($_POST, true).var_export($_FILES, true));
+        // exit();
+        $permission_library = new permissions();
+        $response = $permission_library->checksessionuser();
+        if ($response == true) {
+            
+             // Get the uploaded files
+        $idFrontSide = $this->request->getFile('idFrontSide');
+        $idBackSide = $this->request->getFile('idBackSide');
+        $proof_of_address = $this->request->getFile('proof_of_address');
+        $proof_of_address2 = $this->request->getFile('proof_of_address2');
+        $origination_docs = $this->request->getFileMultiple('origination_docs');
+        $proof_of_good_standing = $this->request->getFile('proof_of_good_standing');
+        $shareholder_agreement = $this->request->getFile('shareholder_agreement');
+
+        // Define the folder to save the files
+        $uploadPath = 'public/user_kyc_docs/'.$_SESSION['user_data']['id'].'/';
+
+
+        // Check if the directory exists, if not create it
+        if (!is_dir($uploadPath)) {
+            mkdir($uploadPath, 0777, true);
+        }
+
+        // Generate unique names for the files to avoid overwriting
+        $frontSideName = $idFrontSide->getRandomName();
+        $backSideName = $idBackSide->getRandomName();
+        $proofofaddress = $proof_of_address->getRandomName();
+        $proofofaddress2 = $proof_of_address2->getRandomName();
+        $proofofgoodstanding = $proof_of_good_standing->getRandomName();
+        $shareholderagreement = $shareholder_agreement->getRandomName();
+        $originationdocs = [];
+        for($i = 0; $i < count($origination_docs); $i++) {
+            $originationdocs[$i] = $origination_docs[$i]->getRandomName();
+            if ($origination_docs[$i]->isValid() && !$origination_docs[$i]->hasMoved()) {
+                $origination_docs[$i]->move($uploadPath, $originationdocs[$i]);
+            }
+            if(str_contains($originationdocs[$i], "HEIC") || str_contains($originationdocs[$i], "heic")){
+                $path = $uploadPath.$originationdocs[$i];
+                $originationdocs[$i] = explode(".",$originationdocs[$i]);
+                $originationdocs[$i] = $originationdocs[$i][0];
+                $originationdocs[$i] = $this->convert_heic_to_png($path,$originationdocs[$i],$uploadPath);
+            }
+        }
+        // Move the files to the specified directory
+        if ($idFrontSide->isValid() && !$idFrontSide->hasMoved()) {
+            $idFrontSide->move($uploadPath, $frontSideName);
+        }
+
+        if ($idBackSide->isValid() && !$idBackSide->hasMoved()) {
+            $idBackSide->move($uploadPath, $backSideName);
+        }
+
+        if ($proof_of_address->isValid() && !$proof_of_address->hasMoved()) {
+            $proof_of_address->move($uploadPath, $proofofaddress);
+        }
+        if ($proof_of_address2->isValid() && !$proof_of_address2->hasMoved()) {
+            $proof_of_address2->move($uploadPath, $proofofaddress2);
+        }
+        if ($proof_of_good_standing->isValid() && !$proof_of_good_standing->hasMoved()) {
+            $proof_of_good_standing->move($uploadPath, $proofofgoodstanding);
+        }
+        if ($shareholder_agreement->isValid() && !$shareholder_agreement->hasMoved()) {
+            $shareholder_agreement->move($uploadPath, $shareholderagreement);
+        }
+        if(str_contains($backSideName, "HEIC") || str_contains($backSideName, "heic")){
+            $path = $uploadPath.$backSideName;
+            $backSideName = explode(".",$backSideName);
+            $backSideName = $backSideName[0];
+            $backSideName = $this->convert_heic_to_png($path,$backSideName,$uploadPath);
+        }
+        if(str_contains($frontSideName, "HEIC") || str_contains($frontSideName, "heic")){
+            $path = $uploadPath.$frontSideName;
+            $frontSideName = explode(".",$frontSideName);
+            $frontSideName = $frontSideName[0];
+            $frontSideName = $this->convert_heic_to_png($path,$frontSideName,$uploadPath);
+        }
+        if(str_contains($proofofaddress, "HEIC") || str_contains($proofofaddress, "heic")){
+            $path = $uploadPath.$proofofaddress;
+            $proofofaddress = explode(".",$proofofaddress);
+            $proofofaddress = $proofofaddress[0];
+            $proofofaddress = $this->convert_heic_to_png($path,$proofofaddress,$uploadPath);
+        }
+        if(str_contains($proofofaddress2, "HEIC") || str_contains($proofofaddress2, "heic")){
+            $path = $uploadPath.$proofofaddress2;
+            $proofofaddress2 = explode(".",$proofofaddress2);
+            $proofofaddress2 = $proofofaddress2[0];
+            $proofofaddress2 = $this->convert_heic_to_png($path,$proofofaddress2,$uploadPath);
+        }
+        if(str_contains($proofofgoodstanding, "HEIC") || str_contains($proofofgoodstanding, "heic")){
+            $path = $uploadPath.$proofofgoodstanding;
+            $proofofgoodstanding = explode(".",$proofofgoodstanding);
+            $proofofgoodstanding = $proofofgoodstanding[0];
+            $proofofgoodstanding = $this->convert_heic_to_png($path,$proofofgoodstanding,$uploadPath);
+        }
+        if(str_contains($shareholderagreement, "HEIC") || str_contains($shareholderagreement, "heic")){
+            $path = $uploadPath.$shareholderagreement;
+            $shareholderagreement = explode(".",$shareholderagreement);
+            $shareholderagreement = $shareholderagreement[0];
+            $shareholderagreement = $this->convert_heic_to_png($path,$shareholderagreement,$uploadPath);
+        }
+        // log_message('debug', '***************** Chart BY Admin *****************' . var_export($originationdocs, true).var_export($backSideName, true).var_export($frontSideName, true).var_export($proofofaddress, true).var_export($proofofgoodstanding, true).var_export($shareholderagreement, true));
+        if($_POST['approval_status'] == "KYC"){
+            $UserKyc = new UserKyc();
+            $UserKyc->save([
+                'userid' => $_SESSION['user_data']['id'],
+                'id_back_side' => $backSideName,
+                'id_front_side' =>  $frontSideName,
+                'proof_of_address' => $proofofaddress,
+                'type' => $_POST['approval_status'],
+            ]);
+        }else{
+            $UserKyc = new UserKyc();
+            $UserKyc->save([
+                'userid' => $_SESSION['user_data']['id'],
+                'id_back_side' => $backSideName,
+                'id_front_side' =>  $frontSideName,
+                'proof_of_address' => $proofofaddress2,
+                'proof_of_good' => $proofofgoodstanding,
+                'shareholder_agreement' => $shareholderagreement,
+                'origination_docs' => json_encode($originationdocs),
+                'type' => $_POST['approval_status'],
+            ]);
+
+        }
+        $users = new Users();
+        $users->update($_SESSION['user_data']['id'], [
+            'user_kyc_flag' => "PA",
+        ]);
+        $adminEmails = $users->getAllAdminEmails();
+            $allAdminEmails = [];
+            foreach ($adminEmails as  $single) {
+                $allAdminEmails[] = $single['email'];
+            }
+        $emailslib = new Emails;  //Sending Email 
+        $emailslib-> submit_kyc_docs($allAdminEmails,$fullName = $_SESSION['user_data']['firstName'],$_SESSION['user_data']['id']);
+        return redirect()->to('/user/dashboard');
+        } else {
+            return redirect()->to('/');
+        }
+    }
+    public function upload_documents()
+    {
+        return redirect()->to('/');
+        $users = new Users();
+        $document = new Documents();
+        $permission_library = new permissions();
+        $response = $permission_library->checksessionuser();
+        if ($response == true) {
+            session_start();
+            $id = $_SESSION['user_data']['id'];
+            $fund_id = 0;
+            $data = []; 
+            $data['userDetails'] = $users->getrow($id,$fund_id);
+            $doc_data = $document->getdata($id);
+            $data['userDocs'] = $doc_data;
+            $data['type'] = 'user';
+
+            return view('/home/upload-documents',$data);
+        } else {
+            return redirect()->to('/');
+        }
+    }
+    public function submit_upload_documents()
+    {
+        
+        $users = new Users();
+        $permission_library = new permissions();
+        $response = $permission_library->checksessionuser();
+        if ($response == true) {
+            $ext = pathinfo($_FILES["fileInput"]["name"], PATHINFO_EXTENSION);
+			$target_dir = "assets/images/users_documents/user_".$_POST['userid']."/";
+			if (!file_exists($target_dir)) {
+				mkdir($target_dir, 0777, true);
+			}
+            $fund_id = 0;
+            $user = $users->getrow($_POST['userid'],$fund_id);
+			$current_date = date("Y_m_d_H_i_s");
+			$target_dir = $target_dir.$current_date."_".$user['firstName']."_".$user['lastName'].'.'.$ext;
+            $link = base_url().'/'.$target_dir;
+			$document = new Documents();
+			if (move_uploaded_file($_FILES["fileInput"]["tmp_name"], $target_dir)) {
+				// echo $id.' ................ '.$target_dir;
+				$document->save([
+					'user_id' => $_POST['userid'],
+                    'filename' => $ext,
+                    'link' => $link
+				]);
+            }
+            $id = $_SESSION['user_data']['id'];
+            $doc_data = $document->getdata($id);
+            $fund_id = 2;
+            $data['userDetails'] = $users->getrow($id,$fund_id);
+            $data['userDocs'] = $doc_data;
+            // log_message('debug', '***************** View Payout *****************' . var_export($doc_data, true));
+
+            return redirect()->to('/user/upload_documents');
+        } else {
+            return redirect()->to('/');
+        }
+    }
+    public function convert_heic_to_png($heic_image_path,$backSideName,$uploadPath) {
+        // Path to the uploaded HEIC image
+        $png_image_path = $uploadPath.$backSideName.".png";   // Path where the converted PNG will be saved
+
+        // Check if Imagick extension is loaded
+        if (!extension_loaded('imagick')) {
+            echo 'Imagick extension is not enabled on the server';
+            return;
+        }
+
+        try {
+            // Create an Imagick object
+            $imagick = new \Imagick();
+            
+            // Read the HEIC file
+            $imagick->readImage($heic_image_path);
+
+            // Convert to PNG
+            $imagick->setImageFormat('png');
+
+            // Save the PNG file
+            $imagick->writeImage($png_image_path);
+
+            // Clean up
+            $imagick->clear();
+            $imagick->destroy();
+
+            return $backSideName.".png";
+
+        } catch (Exception $e) {
+            echo 'Error: ' . $e->getMessage();
         }
     }
 }

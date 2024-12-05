@@ -194,7 +194,6 @@
           <div class="col-12">
             <div class="profile-content">
               <h2 class="profile-content__hdng">Would you like to change your password</h2>
-              <p class="profile-content__para">You have received a new deposit request from Muhammad Adnan Akhtar</p>
             </div>
           </div>
           <div class="col-lg-4">

@@ -76,5 +76,32 @@ $("#editModalForm").submit(function (e) {
 
 });
 
+$(document).ready(function() {
+    let base_url = $('#baseurl').val();
+    let userid = $('#user_id').val();
+    // Handle click event for 'approved' radio button
+    $('.approved').on('click', function() {
+      // Perform some action when the 'approved' radio button is clicked
+    var selectedValue = this.value;
+        $.ajax({
+            type: "POST",
+            url: base_url + "/admin/change_kyc_status",
+            data: {
+                value: selectedValue,
+                userid: userid
+            },
+        }).done(function (url) {
+
+            let response = JSON.parse(url);
+            console.log(response);
+            if (response['status'] != false) {
+                jQuery("#Message").text("Update Successfully");
+            }
+
+
+        });
+    });
+  });
+
 
 

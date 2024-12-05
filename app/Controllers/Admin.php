@@ -24,6 +24,8 @@ use App\Models\Currency;
 use App\Models\CurrencyOption;
 use App\Models\TaxForm;
 use App\Models\Report;
+use App\Models\UserKyc;
+use App\Models\Documents;
 
 
 class Admin extends BaseController
@@ -50,9 +52,9 @@ class Admin extends BaseController
 			$data['profitLossDetails'] = $profitLoss->getByUserId($id);
 			$data['tax_form_data'] = $tax_form->get_By_UserId($id);
 
-			log_message('debug', '**********************Tax Form Data****************************' . var_export($data['tax_form_data'], true));
-
 			$userInfo = $users->getrow($id);
+			
+
 			$data['userInfo'] = $userInfo;
 			$data['id'] = $id;
 			$returnType = $users->getReturnTypeId($id);
@@ -168,9 +170,11 @@ class Admin extends BaseController
 			$data['profitLossDetails'] = $profitLoss->getByUserId($id);
 			$data['tax_form_data'] = $tax_form->get_By_UserId($id);
 
-			log_message('debug', '**********************Tax Form Data****************************' . var_export($data['tax_form_data'], true));
+			// log_message('debug', '**********************Tax Form Data****************************' . var_export($data['tax_form_data'], true));
 
 			$userInfo = $users->getrow($id);
+			$data['profitLossDetails2'] = $profitLoss->runtime_calculate_balance_for_user_dashboard($id,$userInfo['initialInvestment']);
+			// log_message('debug', '**********************Tax Form Data11111****************************' . var_export($data['profitLossDetails2'], true));
 			$data['userInfo'] = $userInfo;
 			$data['id'] = $id;
 			$returnType = $users->getReturnTypeId($id);
@@ -196,12 +200,27 @@ class Admin extends BaseController
 			$data['payoutAll'] = $payoutAll;
 			$pendingWithdraw = $withdraw->getAllPendingByUserId($id);
 			$data['pendingWithdraw'] = $pendingWithdraw;
+			if($userInfo['initialInvestment'] == 0){
+				$userInfo['initialInvestment'] == 0;
+			}
 			$percentage_fot_profit_box = ((float)$userInfo['initialInvestment'] + (float)$depositAcceptedAll) - (float)$pendingWithdraw - (float)$payoutAll;
+			if($percentage_fot_profit_box == 0){
+				$data['percentage_fot_profit_box'] = 0;
+			}else{
             $data['percentage_fot_profit_box'] = (float)$data['profitLoss'] / $percentage_fot_profit_box * 100;
+			}
             $percentage_fot_p_payout_box = ((float)$userInfo['initialInvestment'] + (float)$depositAcceptedAll + (float)$data['profitLoss']) - (float)$payoutAll;
-            $data['percentage_fot_p_payout_box'] = (float)$pendingWithdraw / $percentage_fot_p_payout_box * 100;
+			if($percentage_fot_p_payout_box == 0){
+				$data['percentage_fot_p_payout_box'] = 0;
+			}else{
+				$data['percentage_fot_p_payout_box'] = (float)$pendingWithdraw / $percentage_fot_p_payout_box * 100;
+			}
             $percentage_fot_payout_box = ((float)$userInfo['initialInvestment'] + (float)$depositAcceptedAll + (float)$data['profitLoss']) - (float)$pendingWithdraw;
-            $data['percentage_fot_payout_box'] = (float)$payoutAll / $percentage_fot_payout_box * 100;
+			if($percentage_fot_payout_box == 0){
+				$data['percentage_fot_payout_box'] = 0;
+			}else{
+				$data['percentage_fot_payout_box'] = (float)$payoutAll / $percentage_fot_payout_box * 100;
+			}
 			$totalBalance = ((float)$userInfo['initialInvestment'] + (float)$depositAcceptedAll + (float)$data['profitLoss']) - (float)$pendingWithdraw - (float)$payoutAll;
 			$data['totalBalance'] = $totalBalance;
 			$data['profitLossMonthly'] = [];
@@ -679,13 +698,15 @@ class Admin extends BaseController
 			$payout = new Payout();
 			$profitLoss = new ProfitLoss();
 			$chat = new ChatMessage();
+			$UserKyc = new UserKyc();
 			$payoutInfo = $payout->getrow($_GET['userid']);
 			$data['payoutInfo'] = $payoutInfo;
 			// log_message('debug', '***************** Payout *****************' . var_export($data['payoutInfo']));
 			$data['allChat'] = $chat->getChatByUserId($_GET['userid']);
 			$data['profileData'] = $users->getrow($_GET['userid']);
 			$data['userDetails'] = $users->getrow($_GET['userid']);
-			// log_message('debug', '***************** Payout *****************' . var_export($data['userDetails'], true));
+			$data['kycDetails'] = $UserKyc->getrow($_GET['userid']);
+			log_message('debug', '***************** Payout *****************' . var_export($data['kycDetails'], true));
 			$data['profitLossDetails'] = $profitLoss->getByUserId($_GET['userid']);
 			return view('/home/new-customer-info', $data);
 		} else {
@@ -1173,7 +1194,7 @@ class Admin extends BaseController
 				'msgTo' => $_POST['userid'],
 				'message' => $_POST['sendingMesage']
 			]);
-			return redirect()->to('/admin/customerdetails?userid=' . $_POST['userid']);
+			return redirect()->to('/admin/chat?userid=' . $_POST['userid']);
 		} else {
 			return redirect()->to('/');
 		}
@@ -1323,7 +1344,7 @@ class Admin extends BaseController
 					'user_id' => $_POST['forSingelNoti'],
 					'notification_id' => $notificationId['id'],
 				]);
-				$this->sendNotification($_POST['title'], $_POST['description'], $_POST['forSingelNoti']);
+				// $this->sendNotification($_POST['title'], $_POST['description'], $_POST['forSingelNoti']);
 			} else {
 				$userId = $users->getAllid();
 				foreach ($userId as $singleId) {
@@ -1331,7 +1352,7 @@ class Admin extends BaseController
 						'user_id' => $singleId['id'],
 						'notification_id' => $notificationId['id'],
 					]);
-					$this->sendNotification($_POST['title'], $_POST['description'], $singleId['id']);
+					// $this->sendNotification($_POST['title'], $_POST['description'], $singleId['id']);
 				}
 			}
 			$notification = $_POST['description'];
@@ -1509,7 +1530,7 @@ class Admin extends BaseController
 
 			$deposit_data = $deposit->getDepositsbyid($id);
 			$user_data = $users->getrow($deposit_data[0]['user_id']);
-			$name = $user_data['firstName'] . " " . $user_data['lastName'];
+			$name = $user_data['firstName'];
 			$message = "Your deposit request has been Accepted.";
 			$title = "Deposit Request has been Accepted";
 			$notification->save([
@@ -1523,11 +1544,11 @@ class Admin extends BaseController
 				'notification_id' => $notificationId['id'],
 			]);
 
-			$this->statusNotification($title, $message, $user_data['id']);
+			// $this->statusNotification($title, $message, $user_data['id']);
 			$email = $user_data['email'];
 			// 			log_message('debug', '***************** Edit Profile DATA *****************' . var_export($user_data,true)."ID".$id);
 			$emailsss = new Emails();
-			$emailsss->sendDepositaccept($name, $email, $message, '');
+			$emailsss->sendDepositaccept($name, $email, $message, '',$deposit_data[0]['currency_id']);
 			if (isset($deposit)) {
 				$_SESSION['success'] = 'Deposit accepted successfully!';
 			} else {
@@ -1570,11 +1591,11 @@ class Admin extends BaseController
 				'notification_id' => $notificationId['id'],
 			]);
 
-			$this->statusNotification($title, $message, $user_data['id']);
+			// $this->statusNotification($title, $message, $user_data['id']);
 			$email = $user_data['email'];
 			// 			log_message('debug', '***************** Edit Profile DATA *****************' . var_export($user_data,true)."ID".$id);
 			$emailsss = new Emails();
-			$emailsss->sendDepositaccept($name, $email, $message, $_POST['reason']);
+			$emailsss->sendDepositaccept($name, $email, $message, $_POST['reason'],$deposit_data[0]['currency_id']);
 			if (isset($deposit)) {
 				$_SESSION['success'] = 'Deposit rejected successfully!';
 			} else {
@@ -1617,7 +1638,7 @@ class Admin extends BaseController
 				'notification_id' => $notificationId['id'],
 			]);
 
-			$this->statusNotification($title, $message, $userId[0]['user_id']);
+			// $this->statusNotification($title, $message, $userId[0]['user_id']);
 			if (isset($deposit)) {
 				$_SESSION['success'] = 'Deposit request completed successfully!';
 			} else {
@@ -1677,10 +1698,10 @@ class Admin extends BaseController
 				'notification_id' => $notificationId['id'],
 			]);
 
-			$this->statusNotification($title, $message, $user_data['id']);
+			// $this->statusNotification($title, $message, $user_data['id']);
 			$email = $user_data['email'];
 			$emailsss = new Emails();
-			$emailsss->sendDepositaccept($name, $email, $message, '');
+			$emailsss->sendWithrawaccept($name, $email, $message, '');
 			if (isset($withdraw)) {
 				$_SESSION['success'] = 'withdrawl accepted successfully!';
 			} else {
@@ -1723,10 +1744,10 @@ class Admin extends BaseController
 				'notification_id' => $notificationId['id'],
 			]);
 
-			$this->statusNotification($title, $message, $user_data['id']);
+			// $this->statusNotification($title, $message, $user_data['id']);
 			$email = $user_data['email'];
 			$emailsss = new Emails();
-			$emailsss->sendDepositaccept($name, $email, $message, $_POST['reason']);
+			$emailsss->sendWithrawaccept($name, $email, $message, $_POST['reason']);
 			if (isset($withdraw)) {
 				$_SESSION['success'] = 'withdrawl rejected successfully!';
 			} else {
@@ -1768,7 +1789,7 @@ class Admin extends BaseController
 				'notification_id' => $notificationId['id'],
 			]);
 
-			$this->statusNotification($title, $message, $userId[0]['user_id']);
+			// $this->statusNotification($title, $message, $userId[0]['user_id']);
 			if (isset($withdraw)) {
 				$_SESSION['success'] = 'withdrawl completed successfully!';
 			} else {
@@ -2058,4 +2079,181 @@ class Admin extends BaseController
 			$emailsss->sendNotification($email, $allNotification[$i]['description']);
 		}
 	}
+	public function change_kyc_status()
+	{
+		log_message('debug', '**************** UN Session_ID ****************' . var_export($_POST, true));
+		$permission_library = new permissions();
+		$response = $permission_library->checksessionadmin();
+		if ($response == true) {
+			$users = new Users();
+			$userInfo = $users->getrow($_POST['userid']);
+			$users->update($_POST['userid'], [
+				'user_kyc_flag' => $_POST['value'],
+			]);
+			$emailslib = new Emails;  //Sending Email
+			if($_POST['value'] == "NA"){
+				$emailslib->kyc_docs_not_approved($userInfo['email'],$fullName = $userInfo['firstName']);
+			} else {
+				$emailslib->kyc_docs_approved($userInfo['email'],$fullName = $userInfo['firstName']);
+			}
+			return json_encode([
+				"status" => 200,
+			]);
+		}
+	}
+	public function chat(){ 
+        $permission_library = new permissions();
+        $response = $permission_library->checksessionadmin();
+        if ($response == true) {
+            $data = [];
+            $chat = new ChatMessage();
+            $users = new Users();
+		log_message('debug', '**************** UN Session_ID1122 ****************' . var_export($users->get_user_for_chat(),true));
+            $singleNotification = new Singlenotification();
+			$user_list = $users->get_user_for_chat();
+			if(isset($_GET['userid'])){
+			$id = $_GET['userid'];//$_SESSION['user_data']['id'];
+			}else{
+			$id = $user_list[0]['id'];
+			}
+			$data['chat_user_list'] = $user_list;//array_merge($user_list['msgFrom'],$user_list['msgTo']);
+            $data['allChat'] = $chat->getChatByUserId($id);
+			$data['userType'] = 'Admin';
+            $fund_id = null;
+            $userInfo = $users->getrow($id,$fund_id);
+            $data['userInfo'] = $userInfo;
+			$data['admin'] = 1;
+            $data['id'] = $id;
+            $data['notification'] = $singleNotification->getCurrentDataNotificationsByUserId($id);
+            return view('/home/customer-chat', $data);
+        } else {
+            return redirect()->to('/');
+        }
+    }
+	public function uploaded_documents()
+    {
+		return redirect()->to('/');
+        $users = new Users();
+        $document = new Documents();
+        $permission_library = new permissions();
+        $response = $permission_library->checksessionadmin();
+        if ($response == true) {
+            $id = $_SESSION['user_data']['id'];
+			$fund_id = 0;
+            $data['userDetails'] = $users->getrow($id,$fund_id);
+            $doc_data = $document->getdata_all();
+			$usersList = $users->getCustomers();
+            $data['userDocs'] = $doc_data;
+			$data['usersList'] = $usersList;
+            $data['type'] = 'admin';
+		log_message('debug', '**************** UN Session_ID ****************' . var_export($doc_data, true));
+
+            return view('/home/upload-documents',$data);
+        } else {
+            return redirect()->to('/');
+        }
+    }
+	public function submit_upload_documents()
+    {
+		log_message('debug', '**************** UN Session_ID ****************' . var_export($_POST, true));
+        $users = new Users();
+        $permission_library = new permissions();
+        $response = $permission_library->checksessionadmin();
+        if ($response == true) {
+            $ext = pathinfo($_FILES["fileInput"]["name"], PATHINFO_EXTENSION);
+			$target_dir = "assets/images/users_documents/user_".$_POST['user_id']."/";
+			if (!file_exists($target_dir)) {
+				mkdir($target_dir, 0777, true);
+			}
+			$fund_id = null;
+            $user = $users->getrow($_POST['user_id'],$fund_id);
+			$current_date = date("Y_m_d_H_i_s");
+			$target_dir = $target_dir.$current_date."_".$user['firstName']."_".$user['lastName'].'.'.$ext;
+            $link = base_url().'/'.$target_dir;
+			$document = new Documents();
+			if (move_uploaded_file($_FILES["fileInput"]["tmp_name"], $target_dir)) {
+				// echo $id.' ................ '.$target_dir;
+				$document->save([
+					'user_id' => $_POST['user_id'],
+                    'filename' => $ext,
+                    'link' => $link
+				]);
+            }
+            $id = $_SESSION['user_data']['id'];
+            $doc_data = $document->getdata($id);
+			$fund_id = 0;
+            $data['userDetails'] = $users->getrow($id,$fund_id);
+            $data['userDocs'] = $doc_data;
+            // log_message('debug', '***************** View Payout *****************' . var_export($doc_data, true));
+
+            return redirect()->to('/admin/uploaded_documents');
+        } else {
+            return redirect()->to('/');
+        }
+    }
+	public function kyc_documents()
+    {
+		$UserKyc = new UserKyc();
+        $users = new Users();
+        $document = new Documents();
+        $permission_library = new permissions();
+        $response = $permission_library->checksessionadmin();
+        if ($response == true) {
+            $id = $_SESSION['user_data']['id'];
+            $data['userDetails'] = $users->getrow($id);
+			$data['kycClients'] = $users->getCustomers_for_kyc();
+			Log_message('debug', '**************** UN Session_ID1122dddff ****************' . var_export($data['kycClients'], true));
+            $data['type'] = 'admin';
+
+            return view('/home/kyc_kyb_admin',$data);
+        } else {
+            return redirect()->to('/');
+        }
+    }
+	public function kyc_documents_by_user()
+    {
+		$UserKyc = new UserKyc();
+        $users = new Users();
+        $document = new Documents();
+        $permission_library = new permissions();
+        $response = $permission_library->checksessionadmin();
+        if ($response == true) {
+            $data['userDetails'] = $users->getrow($_GET['userid']);
+			$data['kycDetails'] = $UserKyc->getrow($_GET['userid']);
+            $data['type'] = 'admin';
+            return view('/home/kyb_kyb_file_view',$data);
+        } else {
+            return redirect()->to('/');
+        }
+    }
+	public function testemails()
+    {
+		$emailsss = new Emails();
+		$email = 'irfan1481999@gmail.com';
+		$code = "112233";
+		$userName = "Irfan";
+		$name = "Irfan";
+		$fullname = "Irfan";
+		$type = 1;
+		$subtype = "Deposit";
+		$amount = "1000";
+		$notification = "Test Notification";
+		$message = "Test Message";
+		$reason = "Test Reason";
+		$wallet_address = "Test Wallet Address";
+		$user_id = 52;
+		$password = "Asd2#$@3d";
+		$emailsss->sendOtp($email, $code, $userName);
+		$emailsss->sendNotification($email, $notification);
+		$emailsss->sendreset_ps($email, $code, $userName);
+		$emailsss->accountCreationEmail($email, $password,$fullname);
+		$emailsss->sendDeposit($name ,$type = "Bank Wire" , $amount , $subtype, $email);
+		$emailsss->sendWithdrawa($name ,$type = "Crypto" , $amount , $subtype, $email,$wallet_address);
+		$emailsss->sendDepositaccept($name, $email,$message, $reason,$type);
+		$emailsss->sendWithrawaccept($name, $email,$message, $reason);
+		$emailsss->submit_kyc_docs($email,$userName,$user_id);
+		$emailsss->kyc_docs_approved($email,$userName);
+		$emailsss->kyc_docs_not_approved($email,$userName);
+    }
 }
+

@@ -17,26 +17,26 @@
          <div class="logIn">
         <a href="<?php echo base_url(); ?>" class="loginbox1__logo flex-i">
           <img src="<?php echo base_url(); ?>/assets-new/images/logo.svg" alt="" class="loginbox1__logo-img loginbox1__logo1">
-          <img src="<?php echo base_url(); ?>/assets-new/images/logo-for-light.svg" alt="" class="loginbox1__logo-img loginbox1__logo2">
+          <img src="<?php echo base_url(); ?>/assets-new/images/logo-for-light.png" alt="" class="loginbox1__logo-img loginbox1__logo2">
         </a>
-        <h4 class="loginbox1__hdng">Log in to Your Account</h4>
+        <h4 class="loginbox1__hdng">Log in <span class="loginbox1__hdng-span">to Your Account</span></h4>
         <form action="#" class="from" id="loginForm1">
         <input type="hidden" id="base" value="<?php echo base_url(); ?>">
           <label class="inputFile__label-holder">
-            <span class="inputFile__label">Enter Email</span>
-            <input type="email" name="emailAddress" placeholder="Enter Email" class="form-control inputFile">
+            <span class="inputFile__label"><span class="loginbox1__hdng-span"></span>Email</span>
+            <input type="email" name="emailAddress" placeholder="Enter Your Email" class="form-control inputFile">
           </label>
           <label class="inputFile__label-holder">
             <span class="inputFile__label">Password</span>
-            <input type="password" name="password" placeholder="Enter Your Password" class="form-control inputFile inputFile--password">
+            <input type="password" name="password" id="password" placeholder="Enter Your Password" class="form-control inputFile inputFile--password">
             <div class="passwordToggle">
-              <img src="<?php echo base_url(); ?>/assets-new/images/icons/eye.svg" alt="" class="eyes-with-line">
+              <img src="<?php echo base_url(); ?>/assets-new/images/icons/eye.svg" alt="" onclick="togglePassword()" class="eyes-with-line">
             </div>
           </label>
           <div class="flex-i justify-between checkboxRow">
             <label class="flex-i checkbox-label">
               <input type="checkbox" name="" id="" class="checkbox">
-              <span class="checkbox-label__span">Keep me Login</span>
+              <span class="checkbox-label__span">Keep me logged in</span>
             </label>
             <a href="<?php echo base_url(); ?>/home/forgetPassword" class="forgotpass__link">Forgot Password?</a>
           </div>
@@ -75,6 +75,16 @@
   </div>
   <?php echo view("/home/new-footer-script"); ?>
   <script src="<?php echo base_url(); ?>/assets-new/js/ajax_login.js"></script>
+  <script>
+    function togglePassword() {
+    var inputField = document.getElementById("password");
+    if (inputField.type === "password") {
+        inputField.type = "text";
+    } else {
+        inputField.type = "password";
+    }
+}
+  </script>
 </body>
 
 </html>

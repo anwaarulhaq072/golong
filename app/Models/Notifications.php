@@ -13,7 +13,7 @@ class Notifications extends Model
 
     public function getdata()
     {
-        return $this->orderby('id')->findAll();
+        return $this->orderby('id', "desc")->findAll();
     }
     public function getrow($id)
     {

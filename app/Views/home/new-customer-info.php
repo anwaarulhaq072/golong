@@ -189,9 +189,9 @@
                       <td class="teble__col2"><?php echo date('M d, Y', strtotime($singleDetail['publishDate'])); ?></td>
                       <td class="teble__col3">
                         <?php if ($singleDetail['type'] == 'Profit') : ?>
-                          <i class="fa fa-arrow-circle-up" aria-hidden="true" style="font-size: 23px; color: #1ABC9C;"></i> &nbsp; $<?php echo $singleDetail['amount']; ?>
+                          <i class="fa fa-arrow-circle-up" aria-hidden="true" style="font-size: 23px; color: #1ABC9C;"></i> &nbsp; $<?php echo number_format((int)$singleDetail['amount']); ?>
                         <?php else : ?>
-                          <i class="fa fa-arrow-circle-down" aria-hidden="true" style="font-size: 23px; color: #D06162;"></i> &nbsp; $<?php echo $singleDetail['amount']; ?>
+                          <i class="fa fa-arrow-circle-down" aria-hidden="true" style="font-size: 23px; color: #D06162;"></i> &nbsp; $<?php echo number_format((int)$singleDetail['amount']); ?>
                         <?php endif; ?>
                       </td>
                       <td class="teble__col4">
@@ -215,6 +215,8 @@
             </table>
           </div>
         </div>
+
+
         <div class="col-xl-3">
           <div class="card customerDetailsCard">
             <button class="table-mdl-btn table-mdl-btn--2 flex-a r-50" type="button" data-bs-toggle="modal"

@@ -62,9 +62,9 @@
                       <div class="withdrawalTable__tab rejected flex-a"><?= $singleDeposit['status']; ?></div>
                     <?php endif; ?>
                   </td>
-                  <td class="withdrawalTable__col"><?= $singleDeposit['currency'] ?></td>
-                  <td class="withdrawalTable__col"><?= $singleDeposit['currency_option'] ?></td>
-                  <td class="withdrawalTable__col">$<?= $singleDeposit['amount'] ?></td>
+                  <td class="withdrawalTable__col" style="color: var(--card-sub-heading-color);"><?= $singleDeposit['currency'] ?></td>
+                  <td class="withdrawalTable__col" style="color: var(--card-sub-heading-color);"><?= $singleDeposit['currency_option'] ?></td>
+                  <td class="withdrawalTable__col" style="color: var(--card-sub-heading-color);">$<?= $singleDeposit['amount'] ?></td>
                 </tr>
               <?php endforeach; ?>
             <?php else : ?>

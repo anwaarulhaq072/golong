@@ -145,7 +145,7 @@
           <span class="details__row-sp1">Message:</span>
           <span class="details__row-sp2" id="message"></span>
         </div>
-        <div class="details__row">
+        <div class="details__row rejectReason" style="display: none">
           <span class="details__row-sp1">Reject Reason (if rejected):</span>
           <span class="details__row-sp2" id="rejectReason"></span>
         </div>
@@ -179,6 +179,9 @@
     $(document).ready(function() {
       $(document).on("click", ".detail-modal", function() {
         let single_withdrawal = JSON.parse($(this).attr("single_withdrawal"));
+        if(single_withdrawal['reject_reason'] != null && single_withdrawal['reject_reason'] != ""){
+          document.querySelector(".rejectReason").style.display = "block";
+        }
         $("#method").text(single_withdrawal['currency']);
         $("#methodDatils").text(single_withdrawal['currency_option']);
         $("#amount").text(single_withdrawal['amount']);

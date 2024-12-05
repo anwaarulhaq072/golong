@@ -20,4 +20,35 @@
       el: ".loginboxSlider-pagination",
     },
   });
+  const showToast2 = (
+  message = "Sample Message",
+  toastType = "info",
+  duration = 5000) => {
+
+  if (
+    !Object.keys(icon).includes(toastType))
+    toastType = "info";
+
+  let box = document.createElement("div");
+  box.classList.add(
+    "toast", `toast-${toastType}`);
+  box.innerHTML = ` <div class="toast-content-wrapper">
+                <div class="toast-message">${message}</div>
+                <div class="toast-progress"></div>
+                </div>`;
+  duration = duration || 5000;
+
+  box.querySelector(".toast-progress").style.animationDuration =
+    `${duration / 5000}s`;
+
+  let toastAlready =
+    document.body.querySelector(".toast");
+
+  if (toastAlready) {
+    toastAlready.style.display = "none";;
+  }
+  console.log(toastAlready);
+  document.body.appendChild(box)
+  // $('toast').addClass('d-block');
+};
 </script>

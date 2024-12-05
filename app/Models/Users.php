@@ -9,7 +9,7 @@ class Users extends Model
 
     protected $table = 'users';
     protected $primaryKey = 'id';
-    protected $allowedFields = ['initialInvestment', 'flagfor_accountant', 'firstName', 'lastName', 'profile_img' , 'email', 'otp', 'nextpayoutDate', 'password', 'phone','token', 'address1', 'address2', 'city', 'country', 'returntype_id', 'zip', 'userTypeId', 'uniqueCode', 'payoutDate', 'transactionType', 'notificationStatus', 'createdAt', 'updatedAt', 'isDeleted', 'payout_per', 'sessionid','bearer_token','tax_form_flag','bio'];
+    protected $allowedFields = ['initialInvestment','user_kyc_flag', 'flagfor_accountant', 'firstName', 'lastName', 'profile_img' , 'email', 'otp', 'nextpayoutDate', 'password', 'phone','token', 'address1', 'address2', 'city', 'country', 'returntype_id', 'zip', 'userTypeId', 'uniqueCode', 'payoutDate', 'transactionType', 'notificationStatus', 'createdAt', 'updatedAt', 'isDeleted', 'payout_per', 'sessionid','bearer_token','tax_form_flag','bio'];
 
     public function getdata()
     {
@@ -21,6 +21,16 @@ class Users extends Model
         $this->where('userTypeId', 2);
         $this->where('isDeleted', 'N');
         $this->select('*');
+        $query = $this->findAll();
+        return $query;
+    }
+    public function getCustomers_for_kyc()
+    {
+        $this->where('users.userTypeId', 2);
+        $this->where('users.isDeleted', 'N');
+        $this->join('user_kyc AS KY', 'KY.userid = users.id', 'LEFT');
+        $this->orderby('KY.id', 'desc');
+        $this->select('*,users.createdAt as joiningData,users.id as id');
         $query = $this->findAll();
         return $query;
     }
@@ -129,5 +139,25 @@ class Users extends Model
         $this->where('users.id =', $id);
         $query = $this->findAll();
         return $query;
+    }
+    public function get_user_for_chat()
+    {
+        $this->orderby('id', 'desc');
+        $this->where('userTypeId', 2);
+        $this->where('isDeleted', 'N');
+        $this->select('users.id,users.firstName,users.lastName,users.profile_img');
+        $query = $this->findAll();
+        return $query;
+
+        // $this->select('users.id,users.firstName,users.lastName');
+        // $this->join('chat_message AS CM', 'CM.msgTo = users.id', 'LEFT');
+        // $this->where('CM.msgFrom !=' , 'Admin');
+        // $this->groupBy('CM.msgTo');
+        // $query1 = $this->findAll();
+
+        // return [
+        //     'msgFrom' => $query,
+        //     'msgTo' => $query1
+        // ];
     }
 }

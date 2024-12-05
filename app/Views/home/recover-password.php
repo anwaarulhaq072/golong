@@ -17,12 +17,12 @@
          <div class="logIn">
         <a href="<?php echo base_url(); ?>" class="loginbox1__logo flex-i">
           <img src="<?php echo base_url(); ?>/assets-new/images/logo.svg" alt="" class="loginbox1__logo-img loginbox1__logo1">
-          <img src="<?php echo base_url(); ?>/assets-new/images/logo-for-light.svg" alt="" class="loginbox1__logo-img loginbox1__logo2">
+          <img src="<?php echo base_url(); ?>/assets-new/images/logo-for-light.png" alt="" class="loginbox1__logo-img loginbox1__logo2">
         </a>
         <div class="loginbox-hdng-holder">
           <h4 class="loginbox1__hdng">Forgot your password</h4>
           <p class="loginbox1__para">
-            If you want to forgot your password you need to enter your email and we will send you a code on you email.
+            Please enter your email address below, and we'll send you a link to reset your password.
           </p>
         </div>
         <form class="from" id="forgetForm">

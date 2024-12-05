@@ -196,7 +196,7 @@
                                         <option value="<?php echo $currentYear - $i; ?> "><?php echo $currentYear - $i; ?></option>
                                       <?php endfor; ?>
                                   </select>
-                                </div>
+                                </div> 
                                 <table class="tablesaw table mb-0" data-tablesaw-mode="stack">
                                     <thead>
                                         <tr>
